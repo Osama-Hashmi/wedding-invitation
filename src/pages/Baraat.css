@@ -1,0 +1,729 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Parisienne&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.baraat-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #f7eee2;
+  color: #351c1b;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ================= HERO ================= */
+
+.baraat-hero {
+  position: relative;
+  min-height: 100svh;
+  padding: 70px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #fffaf3 0%,
+      #f8eee2 65%,
+      #ead7c4 100%
+    );
+
+  border-bottom: 1px solid #c9a15c;
+}
+
+.corner-flower {
+  position: absolute;
+  font-size: 130px;
+  color: #8f2529;
+  opacity: .18;
+  line-height: 1;
+}
+
+.top-left {
+  top: 15px;
+  left: -35px;
+  transform: rotate(25deg);
+}
+
+.top-right {
+  top: 15px;
+  right: -35px;
+  transform: scaleX(-1) rotate(25deg);
+}
+
+.bismillah {
+  font-size: 42px;
+  color: #a27632;
+  margin-bottom: 25px;
+}
+
+.parents {
+  margin: 0 0 15px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #8c682e;
+}
+
+.invite-line {
+  margin: 4px 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+}
+
+.ceremony-name {
+  margin: 4px 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #9c2e31;
+  letter-spacing: 1px;
+}
+
+.bride-name {
+  margin: 28px 0 5px;
+  font-family: "Parisienne", cursive;
+  font-size: clamp(65px, 10vw, 115px);
+  font-weight: 400;
+  line-height: 1;
+  color: #9c2e31;
+}
+
+.ornament-line {
+  width: min(420px, 85vw);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 8px auto;
+}
+
+.ornament-line span {
+  flex: 1;
+  height: 1px;
+  background: #b38a46;
+}
+
+.ornament-line b {
+  color: #b38a46;
+  font-size: 25px;
+}
+
+.with-word {
+  margin: 4px 0;
+  font-family: "Parisienne", cursive;
+  font-size: 30px;
+  color: #72532a;
+}
+
+.groom-name {
+  max-width: 850px;
+  margin: 5px 0;
+  font-family: "Parisienne", cursive;
+  font-size: clamp(48px, 7vw, 82px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #9c2e31;
+}
+
+.son-of {
+  margin-top: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+/* ================= COMMON ================= */
+
+.section-label {
+  margin: 0 0 10px;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #9a702f;
+  font-weight: 600;
+}
+
+.section-heading {
+  margin: 0 0 35px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 46px;
+  font-weight: 500;
+  color: #4b2524;
+}
+
+.gold-emblem {
+  margin-bottom: 20px;
+  color: #b2873e;
+  font-size: 30px;
+}
+
+/* ================= DATE ================= */
+
+.date-section {
+  padding: 90px 20px;
+  text-align: center;
+  background: #fffaf3;
+}
+
+.scratch-wrapper {
+  position: relative;
+  width: min(390px, 88vw);
+  height: 245px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #b9914b;
+  box-shadow: 0 20px 50px rgba(76, 38, 29, .12);
+  background: #f9f0e3;
+}
+
+.date-underneath {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background:
+    radial-gradient(circle, #fffaf4, #f1dfca);
+
+  color: #8e272b;
+}
+
+.date-day {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 95px;
+  line-height: .75;
+  font-weight: 600;
+}
+
+.date-month {
+  margin-top: 18px;
+  font-size: 19px;
+  letter-spacing: 7px;
+  font-weight: 600;
+}
+
+.date-year {
+  margin-top: 5px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+}
+
+.date-underneath small {
+  margin-top: 8px;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #806033;
+}
+
+.scratch-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: none;
+  transition: opacity .6s ease;
+}
+
+.scratch-wrapper.revealed .scratch-canvas {
+  opacity: 0;
+}
+
+.scratch-note {
+  margin: 20px auto 0;
+  max-width: 350px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  color: #816d58;
+}
+
+/* ================= DETAILS ================= */
+
+.details-section {
+  padding: 90px 20px;
+  text-align: center;
+  background: #8f292d;
+  color: #fff6eb;
+}
+
+.details-section .section-label {
+  color: #e3c37d;
+}
+
+.details-section .section-heading {
+  color: #fff5e9;
+}
+
+.event-date {
+  width: min(650px, 100%);
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-side {
+  flex: 1;
+  padding: 18px 10px;
+  border-top: 1px solid #d6b36d;
+  border-bottom: 1px solid #d6b36d;
+}
+
+.date-side span {
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.big-date {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #f4d58e;
+}
+
+.big-date strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 75px;
+  line-height: .8;
+  font-weight: 500;
+}
+
+.big-date span {
+  margin-top: 15px;
+  font-size: 17px;
+  letter-spacing: 5px;
+}
+
+.big-date small {
+  margin-top: 5px;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+/* ================= VENUE ================= */
+
+.venue-section {
+  position: relative;
+  padding: 100px 20px;
+  text-align: center;
+  background: #f3e4d3;
+  overflow: hidden;
+}
+
+.venue-flower {
+  position: absolute;
+  right: -30px;
+  bottom: -35px;
+  font-size: 180px;
+  color: #9c2e31;
+  opacity: .12;
+  transform: rotate(-25deg);
+}
+
+.venue-name {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(42px, 6vw, 65px);
+  font-weight: 500;
+  color: #8f292d;
+}
+
+.venue-line {
+  width: 100px;
+  height: 1px;
+  margin: 18px auto;
+  background: #b48a45;
+}
+
+.venue-address {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #604a3a;
+}
+
+.map-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 25px;
+  padding: 15px 27px;
+  text-decoration: none;
+  color: #fff7ec;
+  background: #8f292d;
+  border: 1px solid #8f292d;
+  font-size: 9px;
+  letter-spacing: 2px;
+  transition: .3s ease;
+}
+
+.map-button:hover {
+  background: #6f2023;
+}
+
+.map-button span {
+  font-size: 18px;
+}
+
+.map-button b {
+  font-size: 15px;
+}
+
+/* ================= PROGRAM ================= */
+
+.program-section {
+  padding: 90px 20px;
+  text-align: center;
+  background: #fffaf4;
+}
+
+.program-list {
+  width: min(600px, 100%);
+  margin: auto;
+}
+
+.program-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 5px;
+  border-bottom: 1px dotted #b18b4d;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+}
+
+.program-row:first-child {
+  border-top: 1px dotted #b18b4d;
+}
+
+.program-row span {
+  letter-spacing: 1px;
+}
+
+.program-row b {
+  color: #972c30;
+  font-weight: 600;
+}
+
+/* ================= WELCOME ================= */
+
+.welcome-section {
+  padding: 90px 20px;
+  text-align: center;
+  background: #ead5c2;
+}
+
+.welcome-title {
+  margin: 0 0 10px;
+  color: #8e292c;
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+.welcome-section h2 {
+  margin: 0;
+  font-family: "Parisienne", cursive;
+  font-size: 55px;
+  font-weight: 400;
+  color: #8e292c;
+}
+
+.welcome-message {
+  margin-top: 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #614c3d;
+}
+
+/* ================= FOOTER ================= */
+
+.baraat-footer {
+  padding: 75px 20px;
+  text-align: center;
+  background: #681f22;
+  color: #ead9c4;
+}
+
+.footer-ornament {
+  color: #d8b66d;
+  font-size: 30px;
+}
+
+.baraat-footer p {
+  margin: 15px 0 5px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+}
+
+.baraat-footer strong {
+  font-family: "Parisienne", cursive;
+  font-size: 52px;
+  font-weight: 400;
+  color: #e4c47d;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+  .baraat-hero {
+    min-height: 100svh;
+    height: 100svh;
+    padding: 25px 15px 20px;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .corner-flower {
+    font-size: 75px;
+  }
+
+  .top-left {
+    top: 5px;
+    left: -30px;
+  }
+
+  .top-right {
+    top: 5px;
+    right: -30px;
+  }
+
+  .bismillah {
+    font-size: 27px;
+    margin-bottom: 12px;
+  }
+
+  .parents {
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+
+  .invite-line {
+    font-size: 9px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+
+  .ceremony-name {
+    font-size: 18px;
+    margin: 3px 0;
+  }
+
+  .bride-name {
+    font-size: 52px;
+    margin: 15px 0 2px;
+    line-height: .95;
+  }
+
+  .ornament-line {
+    width: 210px;
+    margin: 5px auto;
+  }
+
+  .ornament-line b {
+    font-size: 18px;
+  }
+
+  .with-word {
+    font-size: 22px;
+    margin: 2px 0;
+  }
+
+  .groom-name {
+    font-size: 37px;
+    line-height: 1;
+    max-width: 95%;
+    margin: 3px 0;
+  }
+
+  .son-of {
+    font-size: 9px;
+    letter-spacing: .5px;
+    margin-top: 7px;
+  }
+
+  /* DATE */
+
+  .date-section {
+    padding: 70px 15px;
+  }
+
+  .section-label {
+    font-size: 8px;
+    letter-spacing: 3px;
+  }
+
+  .section-heading {
+    font-size: 34px;
+    margin-bottom: 25px;
+  }
+
+  .scratch-wrapper {
+    width: 88vw;
+    max-width: 350px;
+    height: 210px;
+  }
+
+  .date-day {
+    font-size: 75px;
+  }
+
+  .date-month {
+    font-size: 15px;
+    letter-spacing: 4px;
+  }
+
+  /* EVENT */
+
+  .details-section {
+    padding: 70px 15px;
+  }
+
+  .event-date {
+    width: 100%;
+  }
+
+  .date-side {
+    padding: 14px 5px;
+  }
+
+  .date-side span {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .big-date {
+    width: 100px;
+  }
+
+  .big-date strong {
+    font-size: 58px;
+  }
+
+  .big-date span {
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
+
+  /* VENUE */
+
+  .venue-section {
+    padding: 70px 15px;
+  }
+
+  .venue-name {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+
+  .venue-address {
+    font-size: 17px;
+  }
+
+  .map-button {
+    padding: 13px 20px;
+  }
+
+  /* PROGRAM */
+
+  .program-section {
+    padding: 70px 15px;
+  }
+
+  .program-row {
+    font-size: 14px;
+    padding: 16px 3px;
+  }
+
+  /* WELCOME */
+
+  .welcome-section {
+    padding: 70px 15px;
+  }
+
+  .welcome-section h2 {
+    font-size: 42px;
+  }
+
+  .welcome-message {
+    font-size: 17px;
+  }
+
+  /* FOOTER */
+
+  .baraat-footer {
+    padding: 60px 15px;
+  }
+
+  .baraat-footer strong {
+    font-size: 45px;
+  }
+}
+
+/* RSVP */
+
+.rsvp-section {
+  padding: 90px 20px;
+  text-align: center;
+  background: #fffdf8;
+}
+
+.rsvp-card {
+  width: min(600px, 100%);
+  margin: 30px auto 0;
+}
+
+.rsvp-person {
+  padding: 20px 10px;
+  border-bottom: 1px solid #dfd2ba;
+}
+
+.rsvp-person h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0 0 7px;
+  color: #806638;
+}
+
+.rsvp-person a {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #9b7435;
+}
+
+.rsvp-person a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+
+  .rsvp-section {
+    padding: 70px 15px;
+  }
+
+  .rsvp-person {
+    padding: 17px 5px;
+  }
+
+  .rsvp-person h3 {
+    font-size: 22px;
+  }
+
+  .rsvp-person a {
+    font-size: 12px;
+  }
+
+}

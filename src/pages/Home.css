@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.home-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #f8f3e9;
+  color: #403328;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ================= CURTAIN ================= */
+
+.curtain-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #241914 0px,
+      #3b2921 25px,
+      #241914 50px
+    );
+  box-shadow: inset 0 0 80px rgba(0,0,0,.45);
+  transition: transform 1.8s cubic-bezier(.77,0,.18,1);
+}
+
+.curtain-left {
+  left: 0;
+}
+
+.curtain-right {
+  right: 0;
+}
+
+.hide-curtain .curtain-left {
+  transform: translateX(-100%);
+}
+
+.hide-curtain .curtain-right {
+  transform: translateX(100%);
+}
+
+.curtain-content {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #f5dfb0;
+  text-align: center;
+  transition: opacity .5s ease;
+}
+
+.hide-curtain .curtain-content {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.top-ornament {
+  font-size: 28px;
+  color: #d7b66e;
+  margin-bottom: 20px;
+}
+
+.curtain-content p {
+  margin: 0 0 18px;
+  font-size: 9px;
+  letter-spacing: 4px;
+}
+
+.curtain-content h1 {
+  margin: 0;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(75px, 10vw, 125px);
+  font-weight: 400;
+  line-height: .8;
+}
+
+.curtain-content h2 {
+  margin: 18px 0 28px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 38px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+
+.gold-line {
+  width: 90px;
+  height: 1px;
+  background: #d7b66e;
+  margin-bottom: 35px;
+}
+
+.open-button {
+  border: 1px solid #d7b66e;
+  background: transparent;
+  color: #f5dfb0;
+  padding: 15px 28px;
+  cursor: pointer;
+  font-size: 9px;
+  letter-spacing: 3px;
+  transition: .35s ease;
+}
+
+.open-button span {
+  margin-left: 15px;
+}
+
+.open-button:hover {
+  background: #d7b66e;
+  color: #261a15;
+}
+
+/* ================= INVITATION ================= */
+
+.invitation-content {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(215,182,110,.2),
+      transparent 35%
+    ),
+    #f8f3e9;
+}
+
+.invitation-inner {
+  max-width: 1050px;
+  margin: auto;
+  text-align: center;
+}
+
+.ornament {
+  color: #b58b48;
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+.invited-small {
+  margin: 0;
+  color: #a27a3d;
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 500;
+}
+
+.invited-text {
+  margin: 20px 0 0;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #837568;
+}
+
+.reception-title {
+  margin: 15px 0 0;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(75px, 9vw, 115px);
+  font-weight: 400;
+  color: #a77d3d;
+  line-height: 1;
+}
+
+.celebration-title {
+  margin: 8px 0 25px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+  letter-spacing: 9px;
+  font-weight: 400;
+  color: #534235;
+}
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  max-width: 280px;
+  margin: 25px auto;
+}
+
+.gold-divider span {
+  flex: 1;
+  height: 1px;
+  background: #d5bb88;
+}
+
+.gold-divider b {
+  color: #b58b48;
+  font-weight: 400;
+}
+
+.invitation-message {
+  margin: 30px auto 15px;
+  color: #66594d;
+  line-height: 2;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+}
+
+.blessing-text {
+  color: #88796a;
+  line-height: 1.8;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.floral-divider {
+  margin: 35px 0 55px;
+  color: #b58b48;
+  font-size: 30px;
+}
+
+/* ================= CEREMONY BOXES ================= */
+
+.ceremonies {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.ceremony-box {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform .45s ease;
+}
+
+.ceremony-box:hover {
+  transform: translateY(-8px);
+}
+
+.baraat-box {
+  background:
+    linear-gradient(
+      135deg,
+      #382a21,
+      #6b5339
+    );
+}
+
+.valima-box {
+  background:
+    linear-gradient(
+      135deg,
+      #d8c49d,
+      #927546
+    );
+}
+
+.box-shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(20,14,10,.2);
+}
+
+.ceremony-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.ceremony-label {
+  font-size: 8px;
+  letter-spacing: 4px;
+}
+
+.ceremony-content h2 {
+  margin: 15px 0;
+  font-family: "Great Vibes", cursive;
+  font-size: 75px;
+  font-weight: 400;
+}
+
+.box-line {
+  width: 60px;
+  height: 1px;
+  background: #e5c984;
+  margin: 0 auto 25px;
+}
+
+.view-invitation {
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.view-invitation b {
+  margin-left: 8px;
+}
+
+/* ================= FAMILY ================= */
+
+.family-section {
+  margin: 80px auto 0;
+  max-width: 700px;
+}
+
+.gold-divider.small {
+  max-width: 180px;
+}
+
+.family-heading {
+  color: #a27a3d;
+  font-size: 9px;
+  letter-spacing: 4px;
+}
+
+.family-message {
+  color: #75685b;
+  line-height: 1.8;
+  font-size: 13px;
+  max-width: 500px;
+  margin: 15px auto 35px;
+}
+
+.contact-area {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.contact-card span {
+  color: #a27a3d;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.contact-card strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.contact-card a {
+  color: #66594d;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+footer {
+  margin-top: 80px;
+  color: #9c8565;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+}
+
+footer b {
+  color: #b58b48;
+  margin-left: 10px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+  .curtain-content h1 {
+    font-size: 75px;
+  }
+
+  .curtain-content h2 {
+    font-size: 25px;
+    letter-spacing: 6px;
+  }
+
+  .invitation-content {
+    padding: 70px 18px 40px;
+  }
+
+  .invited-small {
+    font-size: 8px;
+    letter-spacing: 2.5px;
+  }
+
+  .invited-text {
+    font-size: 8px;
+  }
+
+  .reception-title {
+    font-size: 70px;
+  }
+
+  .celebration-title {
+    font-size: 22px;
+    letter-spacing: 6px;
+  }
+
+  .invitation-message {
+    font-size: 18px;
+  }
+
+  .ceremonies {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .ceremony-box {
+    height: 330px;
+  }
+
+  .ceremony-content h2 {
+    font-size: 65px;
+  }
+
+  .contact-area {
+    gap: 35px;
+  }
+}

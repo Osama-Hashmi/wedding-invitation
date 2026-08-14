@@ -1,0 +1,590 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+.valima-page {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #fffdf8;
+  color: #40382e;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* HERO */
+
+.valima-hero {
+  min-height: 100svh;
+  padding: 70px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background:
+    radial-gradient(circle at center, #ffffff 0%, #fffaf0 55%, #f4ead5 100%);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-ornament {
+  position: absolute;
+  color: #b08b45;
+  font-size: 90px;
+  opacity: 0.25;
+}
+
+.hero-ornament.top {
+  top: 15px;
+}
+
+.bismillah {
+  font-size: 34px;
+  color: #a47c38;
+  margin-bottom: 25px;
+}
+
+.parents {
+  font-size: 17px;
+  letter-spacing: 3px;
+  color: #806638;
+  margin: 0 0 14px;
+}
+
+.invite-line {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #81766a;
+  margin: 6px 0;
+}
+
+.ceremony-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: #9b7435;
+  margin: 8px 0;
+}
+
+.groom-name {
+  font-family: "Parisienne", cursive;
+  font-size: clamp(55px, 7vw, 92px);
+  font-weight: 400;
+  line-height: 1;
+  color: #b08b45;
+  margin: 22px 0 10px;
+  max-width: 1000px;
+}
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: min(420px, 75%);
+  margin: 15px auto;
+}
+
+.gold-divider span {
+  height: 1px;
+  flex: 1;
+  background: #c9aa6a;
+}
+
+.gold-divider b {
+  color: #a47c38;
+  font-size: 24px;
+}
+
+.daughter-title {
+  font-family: "Parisienne", cursive;
+  font-size: clamp(38px, 5vw, 65px);
+  color: #b08b45;
+  margin: 5px 0;
+}
+
+.hero-bottom-ornament {
+  margin-top: 20px;
+  color: #b08b45;
+  font-size: 22px;
+}
+
+/* COMMON */
+
+.section-label {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #9b7a45;
+  margin: 0 0 12px;
+}
+
+.section-heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 52px;
+  font-weight: 500;
+  color: #54493d;
+  margin: 0 0 30px;
+}
+
+/* DATE */
+
+.valima-date-section {
+  padding: 100px 25px;
+  text-align: center;
+  background: #f8f0df;
+}
+
+.scratch-wrapper {
+  position: relative;
+  width: min(390px, 90vw);
+  height: 220px;
+  margin: 0 auto;
+  border: 1px solid #c6a76a;
+  overflow: hidden;
+  background: #fffdf8;
+}
+
+.date-underneath {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #9c783c;
+}
+
+.date-day {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 90px;
+  line-height: 0.8;
+}
+
+.date-month {
+  font-size: 16px;
+  letter-spacing: 6px;
+  margin-top: 10px;
+}
+
+.date-year {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  margin-top: 4px;
+}
+
+.date-underneath small {
+  font-size: 8px;
+  letter-spacing: 3px;
+  margin-top: 8px;
+}
+
+.scratch-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+  transition: opacity 0.5s ease;
+}
+
+.scratch-note {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #8a8074;
+  margin-top: 20px;
+}
+
+/* EVENT */
+
+.valima-event-section {
+  padding: 100px 25px;
+  text-align: center;
+  background: #fffdf8;
+}
+
+.event-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+}
+
+.event-side {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #8d7650;
+}
+
+.big-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #a17b3d;
+}
+
+.big-date strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 90px;
+  line-height: 0.8;
+  font-weight: 500;
+}
+
+.big-date span {
+  font-size: 16px;
+  letter-spacing: 5px;
+  margin-top: 10px;
+}
+
+.big-date small {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  margin-top: 3px;
+}
+
+/* VENUE */
+
+.valima-venue-section {
+  padding: 100px 25px;
+  text-align: center;
+  background: #f4ead5;
+}
+
+.venue-symbol {
+  color: #b08b45;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.venue-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 58px;
+  font-weight: 500;
+  color: #564b3e;
+  margin: 10px 0;
+}
+
+.venue-divider {
+  width: 100px;
+  height: 1px;
+  background: #b08b45;
+  margin: 20px auto;
+}
+
+.venue-address {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+  line-height: 1.5;
+  color: #655a4e;
+}
+
+.map-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 25px;
+  padding: 15px 25px;
+
+  text-decoration: none;
+  color: #fffdf8;
+  background: #9b7435;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  transition: all 0.3s ease;
+}
+
+.map-button:hover {
+  transform: translateY(-3px);
+  background: #7f5e2b;
+}
+
+.map-button span {
+  font-size: 17px;
+}
+
+.map-button b {
+  font-size: 17px;
+}
+
+/* PROGRAM */
+
+.valima-program-section {
+  padding: 100px 25px;
+  text-align: center;
+  background: #fffdf8;
+}
+
+.program-list {
+  width: min(650px, 100%);
+  margin: auto;
+}
+
+.program-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 5px;
+  border-bottom: 1px solid #dfd2ba;
+
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #766b5f;
+}
+
+.program-row b {
+  color: #9c783c;
+}
+
+/* WELCOME */
+
+.valima-welcome-section {
+  padding: 120px 25px;
+  text-align: center;
+  background: #f8f0df;
+}
+
+.gold-emblem {
+  color: #b08b45;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.welcome-title {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #9b7a45;
+}
+
+.valima-welcome-section h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 62px;
+  font-weight: 500;
+  color: #54493d;
+  margin: 10px 0 20px;
+}
+
+.welcome-message {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+  line-height: 1.5;
+  color: #74695c;
+}
+
+/* FOOTER */
+
+.valima-footer {
+  padding: 70px 25px;
+  text-align: center;
+  background: #40382e;
+  color: #f8f0df;
+}
+
+.footer-ornament {
+  color: #d0b477;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.valima-footer p {
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin: 0 0 12px;
+}
+
+.valima-footer strong {
+  font-family: "Parisienne", cursive;
+  font-size: 55px;
+  font-weight: 400;
+  color: #d0b477;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .valima-hero {
+    min-height: 100svh;
+    padding: 30px 15px 25px;
+  }
+
+  .hero-ornament {
+    font-size: 65px;
+  }
+
+  .bismillah {
+    font-size: 27px;
+    margin-bottom: 14px;
+  }
+
+  .parents {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .invite-line {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .ceremony-title {
+    font-size: 25px;
+    letter-spacing: 3px;
+  }
+
+  .groom-name {
+    font-size: 52px;
+    line-height: 0.95;
+    max-width: 95%;
+    margin: 16px 0 8px;
+  }
+
+  .daughter-title {
+    font-size: 40px;
+  }
+
+  .gold-divider {
+    width: 75%;
+    margin: 8px auto;
+  }
+
+  .hero-bottom-ornament {
+    margin-top: 10px;
+  }
+
+  .section-heading {
+    font-size: 40px;
+  }
+
+  .valima-date-section,
+  .valima-event-section,
+  .valima-venue-section,
+  .valima-program-section {
+    padding: 75px 15px;
+  }
+
+  .scratch-wrapper {
+    width: 90vw;
+    max-width: 350px;
+    height: 205px;
+  }
+
+  .date-day {
+    font-size: 75px;
+  }
+
+  .date-month {
+    font-size: 14px;
+    letter-spacing: 4px;
+  }
+
+  .event-date {
+    gap: 20px;
+  }
+
+  .big-date strong {
+    font-size: 68px;
+  }
+
+  .event-side {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .venue-name {
+    font-size: 42px;
+  }
+
+  .venue-address {
+    font-size: 18px;
+  }
+
+  .program-row {
+    font-size: 9px;
+    padding: 16px 0;
+  }
+
+  .valima-welcome-section {
+    padding: 85px 15px;
+  }
+
+  .valima-welcome-section h2 {
+    font-size: 45px;
+  }
+
+  .welcome-message {
+    font-size: 18px;
+  }
+
+  .valima-footer {
+    padding: 60px 15px;
+  }
+
+  .valima-footer strong {
+    font-size: 45px;
+  }
+}
+
+/* RSVP */
+
+.rsvp-section {
+  padding: 90px 20px;
+  text-align: center;
+  background: #fffdf8;
+}
+
+.rsvp-card {
+  width: min(600px, 100%);
+  margin: 30px auto 0;
+}
+
+.rsvp-person {
+  padding: 20px 10px;
+  border-bottom: 1px solid #dfd2ba;
+}
+
+.rsvp-person h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0 0 7px;
+  color: #806638;
+}
+
+.rsvp-person a {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #9b7435;
+}
+
+.rsvp-person a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+
+  .rsvp-section {
+    padding: 70px 15px;
+  }
+
+  .rsvp-person {
+    padding: 17px 5px;
+  }
+
+  .rsvp-person h3 {
+    font-size: 22px;
+  }
+
+  .rsvp-person a {
+    font-size: 12px;
+  }
+
+}
