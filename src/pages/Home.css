@@ -437,3 +437,33 @@ footer b {
     gap: 35px;
   }
 }
+
+/* ================= CEREMONY CARD CLICK FIX ================= */
+
+.ceremony-box {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.ceremony-box .box-shade {
+  pointer-events: none;
+}
+
+.ceremony-box .ceremony-content {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ceremony-box .view-invitation {
+  pointer-events: none;
+}
+
+
+/* ================= FIX INVISIBLE CURTAIN CLICK BLOCK ================= */
+
+.home-page.opened .curtain-screen {
+  pointer-events: none;
+}
