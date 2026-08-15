@@ -8,6 +8,8 @@ function ScratchDate() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
+
     const ctx = canvas.getContext("2d");
 
     const setupCanvas = () => {
@@ -17,7 +19,9 @@ function ScratchDate() {
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
 
-      ctx.scale(dpr, dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      ctx.globalCompositeOperation = "source-over";
 
       // Scratch surface
       ctx.fillStyle = "#b33a3a";
@@ -46,13 +50,22 @@ function ScratchDate() {
       ctx.textBaseline = "middle";
 
       ctx.font = "600 12px Montserrat, sans-serif";
-      ctx.fillText("SCRATCH TO REVEAL", rect.width / 2, rect.height / 2 - 10);
+      ctx.fillText(
+        "SCRATCH TO REVEAL",
+        rect.width / 2,
+        rect.height / 2 - 10
+      );
 
       ctx.font = "11px Montserrat, sans-serif";
-      ctx.fillText("your special date", rect.width / 2, rect.height / 2 + 15);
+      ctx.fillText(
+        "your special date",
+        rect.width / 2,
+        rect.height / 2 + 15
+      );
     };
 
     setupCanvas();
+
     window.addEventListener("resize", setupCanvas);
 
     return () => {
@@ -71,6 +84,7 @@ function ScratchDate() {
     const y = e.clientY - rect.top;
 
     ctx.globalCompositeOperation = "destination-out";
+
     ctx.beginPath();
     ctx.arc(x, y, 25, 0, Math.PI * 2);
     ctx.fill();
@@ -142,69 +156,158 @@ function ScratchDate() {
 function Baraat() {
   const audioRef = useRef(null);
 
-useEffect(() => {
-  document.title = "Baraat Invitation";
-
-  const audio = audioRef.current;
-  if (!audio) return;
-
-  audio.currentTime = 30;
-
-  const playSong = () => {
-    audio.currentTime = 30;
-
-    audio.play().catch(() => {
-      // Browser still blocked autoplay
+  useEffect(() => {
+    // Always open Baraat page from TOP
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
     });
-  };
 
-  const handleFirstInteraction = () => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    document.title = "Baraat Invitation";
+
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.currentTime = 31;
+
+    const playSong = () => {
+      audio.currentTime = 31;
+
+      audio.play().catch(() => {
+        // Browser autoplay may be blocked
+      });
+    };
+
+    // Try automatically
     playSong();
 
-    document.removeEventListener("pointerdown", handleFirstInteraction);
-    document.removeEventListener("touchstart", handleFirstInteraction);
-    document.removeEventListener("click", handleFirstInteraction);
-  };
+    // If browser blocks autoplay, start on first interaction
+    const handleFirstInteraction = () => {
+      playSong();
 
-  document.addEventListener("pointerdown", handleFirstInteraction);
-  document.addEventListener("touchstart", handleFirstInteraction);
-  document.addEventListener("click", handleFirstInteraction);
+      document.removeEventListener(
+        "pointerdown",
+        handleFirstInteraction
+      );
 
-  return () => {
-    document.removeEventListener("pointerdown", handleFirstInteraction);
-    document.removeEventListener("touchstart", handleFirstInteraction);
-    document.removeEventListener("click", handleFirstInteraction);
+      document.removeEventListener(
+        "touchstart",
+        handleFirstInteraction
+      );
 
-    audio.pause();
-    audio.currentTime = 0;
-  };
-}, []);
+      document.removeEventListener(
+        "click",
+        handleFirstInteraction
+      );
+    };
 
+    document.addEventListener(
+      "pointerdown",
+      handleFirstInteraction
+    );
+
+    document.addEventListener(
+      "touchstart",
+      handleFirstInteraction
+    );
+
+    document.addEventListener(
+      "click",
+      handleFirstInteraction
+    );
+
+    return () => {
+      document.removeEventListener(
+        "pointerdown",
+        handleFirstInteraction
+      );
+
+      document.removeEventListener(
+        "touchstart",
+        handleFirstInteraction
+      );
+
+      document.removeEventListener(
+        "click",
+        handleFirstInteraction
+      );
+
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
 
   return (
     <main className="baraat-page">
 
-      {/* BARAAT SONG */}
+      {/* ================= BARAAT SONG ================= */}
+
       <audio ref={audioRef} loop preload="auto">
         <source
-            src="/music/Mere%20Haath%20Mein.mp3"
-            type="audio/mpeg"
+          src="/music/Mere%20Haath%20Mein.mp3"
+          type="audio/mpeg"
         />
       </audio>
+
+
+      {/* ================= INTRO ANIMATION ================= */}
+
+      <div className="baraat-intro">
+
+        <div className="intro-glow"></div>
+
+        <div className="intro-pattern"></div>
+
+        <div className="intro-content">
+
+          <div className="intro-small">
+            THE WEDDING CELEBRATION
+          </div>
+
+          <div className="intro-ornament">
+            ❦
+          </div>
+
+          <h1>
+            Baraat
+          </h1>
+
+          <p>
+            A Celebration of Love
+          </p>
+
+          <div className="intro-line"></div>
+
+        </div>
+
+      </div>
+
 
       {/* ================= HERO ================= */}
 
       <section className="baraat-hero">
 
-        <div className="corner-flower top-left">❧</div>
-        <div className="corner-flower top-right">❧</div>
+        <div className="hero-pattern"></div>
+
+        <div className="corner-flower top-left">
+          ❧
+        </div>
+
+        <div className="corner-flower top-right">
+          ❧
+        </div>
 
         <div className="bismillah">
           ﷽
         </div>
 
         <p className="parents">
-          MR. & MRS. ASHRAF ALI
+          MR. & MRS. Advocate ASHRAF ALI
         </p>
 
         <p className="invite-line">
@@ -223,15 +326,57 @@ useEffect(() => {
           Areeba Ashraf
         </h1>
 
-        <div className="ornament-line">
-          <span></span>
-          <b>❦</b>
-          <span></span>
+
+        {/* ================= COUPLE IMAGE AREA ================= */}
+
+        <div className="couple-visuals">
+
+          {/* GIRL */}
+
+          <div className="person-visual bride-visual">
+
+            <div className="person-glow"></div>
+
+            <img
+              src="/images/baraat-bride.png"
+              alt="Bride"
+            />
+
+          </div>
+
+
+          {/* CENTER ORNAMENT */}
+
+          <div className="couple-center">
+
+            <div className="ornament-line">
+              <span></span>
+              <b>❦</b>
+              <span></span>
+            </div>
+
+            <p className="with-word">
+              with
+            </p>
+
+          </div>
+
+
+          {/* BOY */}
+
+          <div className="person-visual groom-visual">
+
+            <div className="person-glow"></div>
+
+            <img
+              src="/images/baraat-groom.png"
+              alt="Groom"
+            />
+
+          </div>
+
         </div>
 
-        <p className="with-word">
-          with
-        </p>
 
         <h2 className="groom-name">
           Syed Muhammad Osama Ali Hashmi
@@ -241,13 +386,20 @@ useEffect(() => {
           S/O. MR. & MRS. SYED ASIM ALI HASHMI
         </p>
 
+        <div className="hero-bottom-ornament">
+          ✦
+        </div>
+
       </section>
+
 
       {/* ================= DATE ================= */}
 
       <section className="date-section">
 
-        <div className="gold-emblem">✦</div>
+        <div className="gold-emblem">
+          ✦
+        </div>
 
         <p className="section-label">
           A DATE TO REMEMBER
@@ -264,6 +416,7 @@ useEffect(() => {
         </p>
 
       </section>
+
 
       {/* ================= EVENT DETAILS ================= */}
 
@@ -297,11 +450,14 @@ useEffect(() => {
 
       </section>
 
+
       {/* ================= VENUE ================= */}
 
       <section className="venue-section">
 
-        <div className="venue-flower">❧</div>
+        <div className="venue-flower">
+          ❧
+        </div>
 
         <p className="section-label">
           THE VENUE
@@ -334,6 +490,7 @@ useEffect(() => {
 
       </section>
 
+
       {/* ================= PROGRAM ================= */}
 
       <section className="program-section">
@@ -350,28 +507,31 @@ useEffect(() => {
 
           <div className="program-row">
             <span>ARRIVAL OF BARAAT</span>
-            <b>09:00 PM</b>
-          </div>
-
-          <div className="program-row">
-            <span>DINNER</span>
             <b>10:00 PM</b>
           </div>
 
           <div className="program-row">
-            <span>RUKHSATI</span>
+            <span>DINNER</span>
             <b>11:00 PM</b>
+          </div>
+
+          <div className="program-row">
+            <span>RUKHSATI</span>
+            <b>11:50 PM</b>
           </div>
 
         </div>
 
       </section>
 
+
       {/* ================= WELCOME ================= */}
 
       <section className="welcome-section">
 
-        <div className="gold-emblem">✦</div>
+        <div className="gold-emblem">
+          ✦
+        </div>
 
         <p className="welcome-title">
           AWAITING TO WELCOME
@@ -389,30 +549,45 @@ useEffect(() => {
 
       </section>
 
-      {/* RSVP / CONTACT */}
 
-<section className="rsvp-section">
+      {/* ================= RSVP ================= */}
 
-  <p className="section-label">
-    RSVP
-  </p>
+      <section className="rsvp-section">
 
-  <h2 className="section-heading">
-    For Any Assistance
-  </h2>
+        <p className="section-label">
+          RSVP
+        </p>
 
-  <div className="rsvp-card">
+        <h2 className="section-heading">
+          For Any Assistance
+        </h2>
 
-    <div className="rsvp-person">
-      <h3>Ashraf Ali</h3>
-      <a href="tel:XXXXXXXXXXX">
-        XXXXXXXX
-      </a>
-    </div>
+        <div className="rsvp-card">
 
-  </div>
+          <div className="rsvp-person">
+            <h3>
+              Advocate Ashraf Ali
+            </h3>
 
-</section>
+            <a href="tel:03342595325">
+              03342595325
+            </a>
+          </div>
+
+          <div className="rsvp-person">
+            <h3>
+              Syed Salman Ali Hashmi
+            </h3>
+
+            <a href="tel:03219242503">
+              03219242503
+            </a>
+          </div>
+
+        </div>
+
+      </section>
+
 
       {/* ================= FOOTER ================= */}
 

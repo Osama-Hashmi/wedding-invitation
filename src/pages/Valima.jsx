@@ -146,99 +146,202 @@ function ScratchDate() {
 function Valima() {
   const audioRef = useRef(null);
 
-useEffect(() => {
-  document.title = "Baraat Invitation";
+  const [introFinished, setIntroFinished] = useState(false);
 
-  const audio = audioRef.current;
-  if (!audio) return;
+  useEffect(() => {
+    document.title = "Valima Invitation";
 
-  audio.currentTime = 0;
+    // Always start from the very top
+    window.scrollTo(0, 0);
 
-  const playSong = () => {
-    audio.currentTime = 0;
+    const audio = audioRef.current;
+    if (!audio) return;
 
-    audio.play().catch(() => {
-      // Browser still blocked autoplay
-    });
-  };
+    audio.currentTime = 60;
 
-  const handleFirstInteraction = () => {
-    playSong();
+    const playSong = () => {
+      audio.currentTime = 60;
 
-    document.removeEventListener("pointerdown", handleFirstInteraction);
-    document.removeEventListener("touchstart", handleFirstInteraction);
-    document.removeEventListener("click", handleFirstInteraction);
-  };
+      audio.play().catch(() => {
+        // Browser may block autoplay
+      });
+    };
 
-  document.addEventListener("pointerdown", handleFirstInteraction);
-  document.addEventListener("touchstart", handleFirstInteraction);
-  document.addEventListener("click", handleFirstInteraction);
+    const handleFirstInteraction = () => {
+      playSong();
 
-  return () => {
-    document.removeEventListener("pointerdown", handleFirstInteraction);
-    document.removeEventListener("touchstart", handleFirstInteraction);
-    document.removeEventListener("click", handleFirstInteraction);
+      document.removeEventListener("pointerdown", handleFirstInteraction);
+      document.removeEventListener("touchstart", handleFirstInteraction);
+      document.removeEventListener("click", handleFirstInteraction);
+    };
 
-    audio.pause();
-    audio.currentTime = 0;
-  };
-}, []);
+    document.addEventListener("pointerdown", handleFirstInteraction);
+    document.addEventListener("touchstart", handleFirstInteraction);
+    document.addEventListener("click", handleFirstInteraction);
+
+    // Intro animation duration
+    const introTimer = setTimeout(() => {
+      setIntroFinished(true);
+
+      // Make absolutely sure page starts from top
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant",
+      });
+    }, 2800);
+
+    return () => {
+      clearTimeout(introTimer);
+
+      document.removeEventListener(
+        "pointerdown",
+        handleFirstInteraction
+      );
+      document.removeEventListener(
+        "touchstart",
+        handleFirstInteraction
+      );
+      document.removeEventListener(
+        "click",
+        handleFirstInteraction
+      );
+
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
 
   return (
     <main className="valima-page">
 
+      {/* ================= INTRO REVEAL ================= */}
+
+      {!introFinished && (
+        <div className="valima-intro">
+
+          <div className="intro-glow"></div>
+
+          <div className="intro-ring ring-one"></div>
+          <div className="intro-ring ring-two"></div>
+          <div className="intro-ring ring-three"></div>
+
+          <div className="intro-center">
+            <div className="intro-symbol">✦</div>
+
+            <p>WITH LOVE & BLESSINGS</p>
+
+            <h1>Valima</h1>
+
+            <span>02 • NOVEMBER • 2026</span>
+          </div>
+
+          <div className="intro-left"></div>
+          <div className="intro-right"></div>
+
+        </div>
+      )}
+
       {/* MUSIC */}
       <audio ref={audioRef} loop preload="auto">
         <source
-          src="/music/Mile%20Ho%20Tum%20Humko.mp3"
+          src="/music/Mere%20Bina.mp3"
           type="audio/mpeg"
         />
       </audio>
 
-      {/* HERO */}
+      {/* ================= HERO ================= */}
+
       <section className="valima-hero">
 
         <div className="hero-ornament top">❦</div>
 
-        <p className="bismillah">﷽</p>
+        <div className="hero-content">
 
-        <p className="parents">
-          MR. & MRS. SYED ASIM ALI HASHMI
-        </p>
+          <p className="bismillah">﷽</p>
 
-        <p className="invite-line">
-          INVITE YOU TO THE
-        </p>
+          <p className="parents">
+            MR. & MRS. SYED ASIM ALI HASHMI
+          </p>
 
-        <h2 className="ceremony-title">
-          RECEPTION CEREMONY
-        </h2>
+          <p className="invite-line">
+            INVITE YOU TO THE
+          </p>
 
-        <p className="invite-line">
-          OF THEIR BELOVED SON
-        </p>
+          <h2 className="ceremony-title">
+            RECEPTION CEREMONY
+          </h2>
 
-        <h1 className="groom-name">
-          Syed Muhammad Osama Ali Hashmi
-        </h1>
+          <p className="invite-line">
+            OF THEIR BELOVED SON
+          </p>
 
-        <div className="gold-divider">
-          <span></span>
-          <b>❦</b>
-          <span></span>
-        </div>
+          {/* ================= COUPLE AREA ================= */}
 
-        <p className="daughter-title">
-          Daughter of Ashraf Ali
-        </p>
+          <div className="couple-area">
 
-        <div className="hero-bottom-ornament">
-          ✦
+            {/* BOY IMAGE */}
+
+            <div className="couple-image couple-left">
+              <div className="image-frame">
+                <img
+                  src="/images/boy.png"
+                  alt="Groom"
+                />
+              </div>
+            </div>
+
+            {/* CENTER NAMES */}
+
+            <div className="couple-names">
+
+              <h1 className="groom-name">
+                Syed Muhammad Osama Ali Hashmi
+              </h1>
+
+              <div className="gold-divider">
+                <span></span>
+                <b>❦</b>
+                <span></span>
+              </div>
+
+              <p className="with-word">
+                with
+              </p>
+
+              <h1 className="bride-name">
+                Areeba Ashraf
+              </h1>
+
+              <p className="daughter-title">
+                Daughter of Advocate Ashraf Ali
+              </p>
+
+            </div>
+
+            {/* GIRL IMAGE */}
+
+            <div className="couple-image couple-right">
+              <div className="image-frame">
+                <img
+                  src="/images/girl.png"
+                  alt="Bride"
+                />
+              </div>
+            </div>
+
+          </div>
+
+          <div className="hero-bottom-ornament">
+            ✦
+          </div>
+
         </div>
 
       </section>
 
-      {/* DATE */}
+      {/* ================= DATE ================= */}
+
       <section className="valima-date-section">
 
         <p className="section-label">
@@ -257,7 +360,8 @@ useEffect(() => {
 
       </section>
 
-      {/* EVENT */}
+      {/* ================= EVENT ================= */}
+
       <section className="valima-event-section">
 
         <p className="section-label">
@@ -268,30 +372,15 @@ useEffect(() => {
           The Celebration
         </h2>
 
-        {/* <div className="event-date">
-
-          <div className="event-side">
-            <span>MONDAY</span>
-          </div>
-
-          <div className="big-date">
-            <strong>02</strong>
-            <span>NOV</span>
-            <small>2026</small>
-          </div>
-
-          <div className="event-side">
-            <span>9:00 PM</span>
-          </div>
-
-        </div> */}
-
       </section>
 
-      {/* VENUE */}
+      {/* ================= VENUE ================= */}
+
       <section className="valima-venue-section">
 
-        <div className="venue-symbol">✦</div>
+        <div className="venue-symbol">
+          ✦
+        </div>
 
         <p className="section-label">
           THE VENUE
@@ -326,7 +415,8 @@ useEffect(() => {
 
       </section>
 
-      {/* PROGRAM */}
+      {/* ================= PROGRAM ================= */}
+
       <section className="valima-program-section">
 
         <p className="section-label">
@@ -341,24 +431,25 @@ useEffect(() => {
 
           <div className="program-row">
             <span>GUEST ARRIVAL</span>
-            <b>08:30 PM</b>
+            <b>10:00 PM</b>
           </div>
 
           <div className="program-row">
             <span>RECEPTION</span>
-            <b>09:00 PM</b>
+            <b>10:30 PM</b>
           </div>
 
           <div className="program-row">
             <span>DINNER</span>
-            <b>10:00 PM</b>
+            <b>11:00 PM</b>
           </div>
 
         </div>
 
       </section>
 
-      {/* WELCOME */}
+      {/* ================= WELCOME ================= */}
+
       <section className="valima-welcome-section">
 
         <div className="gold-emblem">
@@ -381,53 +472,54 @@ useEffect(() => {
 
       </section>
 
-      {/* RSVP / CONTACT */}
+      {/* ================= RSVP ================= */}
 
-<section className="rsvp-section">
+      <section className="rsvp-section">
 
-  <p className="section-label">
-    RSVP
-  </p>
+        <p className="section-label">
+          RSVP
+        </p>
 
-  <h2 className="section-heading">
-    For Any Assistance
-  </h2>
+        <h2 className="section-heading">
+          For Any Assistance
+        </h2>
 
-  <div className="rsvp-card">
+        <div className="rsvp-card">
 
-    <div className="rsvp-person">
-      <h3>Syed Asim Ali Hashmi</h3>
-      <a href="tel:XXXXXXXXXXX">
-        XXXXXXXX
-      </a>
-    </div>
+          <div className="rsvp-person">
+            <h3>Syed Asim Ali Hashmi</h3>
+            <a href="tel:03213539769">
+              03213539769
+            </a>
+          </div>
 
-    <div className="rsvp-person">
-      <h3>Syed Salman Ali Hashmi</h3>
-      <a href="tel:XXXXXXXXXXX">
-        XXXXXXXX
-      </a>
-    </div>
+          <div className="rsvp-person">
+            <h3>Syed Salman Ali Hashmi</h3>
+            <a href="tel:03219242503">
+              03219242503
+            </a>
+          </div>
 
-    <div className="rsvp-person">
-      <h3>Abdul Aziz</h3>
-      <a href="tel:XXXXXXXXXXX">
-        XXXXXXXX
-      </a>
-    </div>
+          <div className="rsvp-person">
+            <h3>Abdul Aziz</h3>
+            <a href="tel:03362002829">
+              03362002829
+            </a>
+          </div>
 
-    <div className="rsvp-person">
-      <h3>Ghazanfar Ali</h3>
-      <a href="tel:XXXXXXXXXXX">
-        XXXXXXXXXXX
-      </a>
-    </div>
+          <div className="rsvp-person">
+            <h3>Ghazanfar Ali</h3>
+            <a href="tel:03453954353">
+              03453954353
+            </a>
+          </div>
 
-  </div>
+        </div>
 
-</section>
+      </section>
 
-      {/* FOOTER */}
+      {/* ================= FOOTER ================= */}
+
       <footer className="valima-footer">
 
         <div className="footer-ornament">

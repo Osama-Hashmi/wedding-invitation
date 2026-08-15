@@ -1,14 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap');
 
+/* ================= GLOBAL ================= */
+
 * {
   box-sizing: border-box;
 }
 
-body {
+html {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ================= HOME ================= */
+
 .home-page {
+  width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
   background: #f8f3e9;
@@ -30,6 +53,7 @@ body {
   top: 0;
   width: 50%;
   height: 100%;
+
   background:
     repeating-linear-gradient(
       90deg,
@@ -37,8 +61,12 @@ body {
       #3b2921 25px,
       #241914 50px
     );
-  box-shadow: inset 0 0 80px rgba(0,0,0,.45);
-  transition: transform 1.8s cubic-bezier(.77,0,.18,1);
+
+  box-shadow:
+    inset 0 0 80px rgba(0, 0, 0, .45);
+
+  transition:
+    transform 1.8s cubic-bezier(.77, 0, .18, 1);
 }
 
 .curtain-left {
@@ -61,12 +89,15 @@ body {
   position: absolute;
   inset: 0;
   z-index: 10;
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
   color: #f5dfb0;
   text-align: center;
+
   transition: opacity .5s ease;
 }
 
@@ -89,17 +120,23 @@ body {
 
 .curtain-content h1 {
   margin: 0;
+
   font-family: "Great Vibes", cursive;
+
   font-size: clamp(75px, 10vw, 125px);
   font-weight: 400;
+
   line-height: .8;
 }
 
 .curtain-content h2 {
   margin: 18px 0 28px;
+
   font-family: "Cormorant Garamond", serif;
+
   font-size: 38px;
   font-weight: 400;
+
   text-transform: uppercase;
   letter-spacing: 10px;
 }
@@ -107,18 +144,28 @@ body {
 .gold-line {
   width: 90px;
   height: 1px;
+
   background: #d7b66e;
+
   margin-bottom: 35px;
 }
 
+/* ================= OPEN BUTTON ================= */
+
 .open-button {
   border: 1px solid #d7b66e;
+
   background: transparent;
+
   color: #f5dfb0;
+
   padding: 15px 28px;
+
   cursor: pointer;
+
   font-size: 9px;
   letter-spacing: 3px;
+
   transition: .35s ease;
 }
 
@@ -134,135 +181,213 @@ body {
 /* ================= INVITATION ================= */
 
 .invitation-content {
+  width: 100%;
   min-height: 100vh;
+
   padding: 80px 20px;
+
   background:
     radial-gradient(
       circle at 50% 0%,
-      rgba(215,182,110,.2),
+      rgba(215, 182, 110, .2),
       transparent 35%
     ),
     #f8f3e9;
 }
 
 .invitation-inner {
+  width: 100%;
   max-width: 1050px;
+
   margin: auto;
+
   text-align: center;
 }
 
 .ornament {
   color: #b58b48;
+
   font-size: 26px;
+
   margin-bottom: 25px;
 }
 
 .invited-small {
   margin: 0;
+
   color: #a27a3d;
+
   font-size: 11px;
   letter-spacing: 4px;
+
   font-weight: 500;
 }
 
 .invited-text {
   margin: 20px 0 0;
+
   font-size: 9px;
   letter-spacing: 3px;
+
   color: #837568;
 }
 
 .reception-title {
   margin: 15px 0 0;
+
   font-family: "Great Vibes", cursive;
+
   font-size: clamp(75px, 9vw, 115px);
+
   font-weight: 400;
+
   color: #a77d3d;
+
   line-height: 1;
 }
 
 .celebration-title {
   margin: 8px 0 25px;
+
   font-family: "Cormorant Garamond", serif;
+
   font-size: 27px;
+
   letter-spacing: 9px;
+
   font-weight: 400;
+
   color: #534235;
 }
 
+/* ================= DIVIDERS ================= */
+
 .gold-divider {
   display: flex;
+
   align-items: center;
+
   gap: 15px;
+
   max-width: 280px;
+
   margin: 25px auto;
 }
 
 .gold-divider span {
   flex: 1;
+
   height: 1px;
+
   background: #d5bb88;
 }
 
 .gold-divider b {
   color: #b58b48;
+
   font-weight: 400;
 }
 
 .invitation-message {
   margin: 30px auto 15px;
+
   color: #66594d;
+
   line-height: 2;
+
   font-family: "Cormorant Garamond", serif;
+
   font-size: 20px;
 }
 
 .blessing-text {
   color: #88796a;
+
   line-height: 1.8;
+
   font-size: 12px;
+
   font-weight: 300;
 }
 
 .floral-divider {
   margin: 35px 0 55px;
+
   color: #b58b48;
+
   font-size: 30px;
 }
 
-/* ================= CEREMONY BOXES ================= */
+/* ================= CEREMONY CARDS ================= */
 
 .ceremonies {
+  width: 100%;
+
   display: grid;
+
   grid-template-columns: repeat(2, 1fr);
+
   gap: 25px;
+
   max-width: 900px;
+
   margin: auto;
 }
 
 .ceremony-box {
   position: relative;
+
+  width: 100%;
   height: 400px;
+
   overflow: hidden;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
+
   text-decoration: none;
-  transition: transform .45s ease;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  pointer-events: auto;
+
+  border: 1px solid rgba(255, 255, 255, .25);
+
+  box-shadow:
+    0 18px 45px rgba(60, 40, 20, .15);
+
+  transition:
+    transform .45s ease,
+    box-shadow .45s ease;
 }
 
 .ceremony-box:hover {
   transform: translateY(-8px);
+
+  box-shadow:
+    0 25px 55px rgba(60, 40, 20, .25);
 }
+
+.ceremony-box:active {
+  transform: scale(.98);
+}
+
+/* ================= BARAAT CARD ================= */
 
 .baraat-box {
   background:
     linear-gradient(
       135deg,
-      #382a21,
-      #6b5339
+      #3a2921,
+      #73533c
     );
 }
+
+/* ================= VALIMA CARD ================= */
 
 .valima-box {
   background:
@@ -275,37 +400,55 @@ body {
 
 .box-shade {
   position: absolute;
+
   inset: 0;
-  background: rgba(20,14,10,.2);
+
+  background: rgba(20, 14, 10, .2);
+
+  pointer-events: none;
 }
 
 .ceremony-content {
   position: relative;
+
   z-index: 2;
+
   color: white;
+
+  text-align: center;
+
+  pointer-events: none;
 }
 
 .ceremony-label {
   font-size: 8px;
+
   letter-spacing: 4px;
 }
 
 .ceremony-content h2 {
   margin: 15px 0;
+
   font-family: "Great Vibes", cursive;
+
   font-size: 75px;
+
   font-weight: 400;
 }
 
 .box-line {
   width: 60px;
+
   height: 1px;
+
   background: #e5c984;
+
   margin: 0 auto 25px;
 }
 
 .view-invitation {
   font-size: 9px;
+
   letter-spacing: 2px;
 }
 
@@ -317,6 +460,7 @@ body {
 
 .family-section {
   margin: 80px auto 0;
+
   max-width: 700px;
 }
 
@@ -326,64 +470,105 @@ body {
 
 .family-heading {
   color: #a27a3d;
+
   font-size: 9px;
+
   letter-spacing: 4px;
 }
 
 .family-message {
   color: #75685b;
+
   line-height: 1.8;
+
   font-size: 13px;
+
   max-width: 500px;
+
   margin: 15px auto 35px;
 }
 
 .contact-area {
   display: flex;
+
   justify-content: center;
+
   gap: 80px;
+
   flex-wrap: wrap;
 }
 
 .contact-card {
   display: flex;
+
   flex-direction: column;
+
   gap: 7px;
 }
 
 .contact-card span {
   color: #a27a3d;
+
   font-size: 8px;
+
   letter-spacing: 2px;
 }
 
 .contact-card strong {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 22px;
+
   font-weight: 500;
 }
 
 .contact-card a {
   color: #66594d;
+
   text-decoration: none;
+
   font-size: 11px;
 }
 
+/* ================= FOOTER ================= */
+
 footer {
   margin-top: 80px;
+
   color: #9c8565;
+
   font-family: "Cormorant Garamond", serif;
+
   font-size: 18px;
 }
 
 footer b {
   color: #b58b48;
+
   margin-left: 10px;
+}
+
+/* ================= CURTAIN AFTER OPEN ================= */
+
+.home-page.opened .curtain-screen {
+  pointer-events: none;
 }
 
 /* ================= MOBILE ================= */
 
 @media (max-width: 700px) {
+
+  .curtain-content {
+    padding: 20px;
+  }
+
+  .curtain-content p {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+  }
 
   .curtain-content h1 {
     font-size: 75px;
@@ -391,20 +576,46 @@ footer b {
 
   .curtain-content h2 {
     font-size: 25px;
+
     letter-spacing: 6px;
+
+    margin: 15px 0 25px;
+  }
+
+  .gold-line {
+    margin-bottom: 28px;
+  }
+
+  .open-button {
+    padding: 13px 22px;
+
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
   }
 
   .invitation-content {
+    width: 100%;
+
     padding: 70px 18px 40px;
+  }
+
+  .invitation-inner {
+    width: 100%;
   }
 
   .invited-small {
     font-size: 8px;
+
     letter-spacing: 2.5px;
+
+    white-space: nowrap;
   }
 
   .invited-text {
     font-size: 8px;
+
+    letter-spacing: 2px;
   }
 
   .reception-title {
@@ -413,19 +624,31 @@ footer b {
 
   .celebration-title {
     font-size: 22px;
+
     letter-spacing: 6px;
   }
 
   .invitation-message {
     font-size: 18px;
+
+    line-height: 1.8;
+  }
+
+  .blessing-text {
+    font-size: 11px;
   }
 
   .ceremonies {
     grid-template-columns: 1fr;
+
     gap: 18px;
+
+    width: 100%;
   }
 
   .ceremony-box {
+    width: 100%;
+
     height: 330px;
   }
 
@@ -433,37 +656,70 @@ footer b {
     font-size: 65px;
   }
 
+  .ceremony-label {
+    font-size: 7px;
+
+    letter-spacing: 3px;
+  }
+
   .contact-area {
     gap: 35px;
   }
+
+  .contact-card strong {
+    font-size: 20px;
+  }
+
+  footer {
+    margin-top: 60px;
+  }
 }
 
-/* ================= CEREMONY CARD CLICK FIX ================= */
+/* ================= SMALL MOBILE ================= */
 
-.ceremony-box {
-  position: relative;
-  z-index: 10;
-  cursor: pointer;
-  pointer-events: auto;
+@media (max-width: 380px) {
+
+  .invitation-content {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .invited-small {
+    font-size: 7px;
+    letter-spacing: 2px;
+  }
+
+  .reception-title {
+    font-size: 62px;
+  }
+
+  .celebration-title {
+    font-size: 19px;
+    letter-spacing: 5px;
+  }
+
+  .invitation-message {
+    font-size: 16px;
+  }
+
+  .ceremony-box {
+    height: 300px;
+  }
+
+  .ceremony-content h2 {
+    font-size: 58px;
+  }
 }
 
-.ceremony-box .box-shade {
-  pointer-events: none;
+html {
+  scroll-behavior: auto;
 }
 
-.ceremony-box .ceremony-content {
-  position: relative;
-  z-index: 2;
-  pointer-events: none;
+body {
+  margin: 0;
+  scroll-behavior: auto;
 }
 
-.ceremony-box .view-invitation {
-  pointer-events: none;
-}
-
-
-/* ================= FIX INVISIBLE CURTAIN CLICK BLOCK ================= */
-
-.home-page.opened .curtain-screen {
-  pointer-events: none;
+.home-page {
+  scroll-margin-top: 0;
 }

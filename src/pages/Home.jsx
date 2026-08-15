@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 
@@ -6,19 +6,39 @@ function Home() {
   const [opened, setOpened] = useState(false);
   const audioRef = useRef(null);
 
-  const openInvitation = () => {
-    setOpened(true);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Invitation";
+  }, []);
 
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(() => {});
-    }
-  };
-  
+ const openInvitation = () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "instant",
+  });
+
+  setOpened(true);
+
+  if (audioRef.current) {
+    audioRef.current.currentTime = 0;
+    audioRef.current.play().catch(() => {});
+  }
+
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, 50);
+};
+
   return (
     <main className={`home-page ${opened ? "opened" : ""}`}>
 
-      {/* HOME SONG */}
+      {/* ================= HOME SONG ================= */}
+
       <audio ref={audioRef} loop preload="auto">
         <source
           src="/music/Mile%20Ho%20Tum%20Humko.mp3"
@@ -39,13 +59,22 @@ function Home() {
         </div>
 
         <div className="curtain-content">
-          <div className="top-ornament">✦</div>
 
-          <p>YOU ARE CORDIALLY INVITED</p>
+          <div className="top-ornament">
+            ✦
+          </div>
 
-          <h1>Wedding</h1>
+          <p>
+            YOU ARE CORDIALLY INVITED
+          </p>
 
-          <h2>Invitation</h2>
+          <h1>
+            Wedding
+          </h1>
+
+          <h2>
+            Invitation
+          </h2>
 
           <div className="gold-line"></div>
 
@@ -56,6 +85,7 @@ function Home() {
             OPEN INVITATION
             <span>→</span>
           </button>
+
         </div>
       </div>
 
@@ -65,7 +95,9 @@ function Home() {
 
         <div className="invitation-inner">
 
-          <div className="ornament">✦</div>
+          <div className="ornament">
+            ✦
+          </div>
 
           <p className="invited-small">
             MR & MRS SYED ASIM ALI HASHMI
@@ -111,7 +143,10 @@ function Home() {
 
           <section className="ceremonies">
 
-            <Link to="/baraat" className="ceremony-box baraat-box">
+            <Link
+              to="/baraat"
+              className="ceremony-box baraat-box"
+            >
 
               <div className="box-shade"></div>
 
@@ -121,7 +156,9 @@ function Home() {
                   THE CELEBRATION
                 </span>
 
-                <h2>Baraat</h2>
+                <h2>
+                  Baraat
+                </h2>
 
                 <div className="box-line"></div>
 
@@ -134,7 +171,10 @@ function Home() {
 
             </Link>
 
-            <Link to="/valima" className="ceremony-box valima-box">
+            <Link
+              to="/valima"
+              className="ceremony-box valima-box"
+            >
 
               <div className="box-shade"></div>
 
@@ -144,7 +184,9 @@ function Home() {
                   THE RECEPTION
                 </span>
 
-                <h2>Valima</h2>
+                <h2>
+                  Valima
+                </h2>
 
                 <div className="box-line"></div>
 
@@ -182,28 +224,51 @@ function Home() {
             <div className="contact-area">
 
               <div className="contact-card">
-                <span>FOR ANY QUERIES</span>
-                <strong>Contact Name</strong>
-                <a href="tel:+923000000000">
-                  +92 300 0000000
+
+                <span>
+                  FOR ANY QUERIES
+                </span>
+
+                <strong>
+                  Syed Asim Ali Hashmi
+                </strong>
+
+                <a href="tel:+9233213539769">
+                  03213539769
                 </a>
+
               </div>
 
               <div className="contact-card">
-                <span>FOR ANY QUERIES</span>
-                <strong>Contact Name</strong>
-                <a href="tel:+923000000000">
-                  +92 300 0000000
+
+                <span>
+                  FOR ANY QUERIES
+                </span>
+
+                <strong>
+                  Advocate Ashraf Ali
+                </strong>
+
+                <a href="tel:03342595325">
+                  03342595325
                 </a>
+
               </div>
 
             </div>
 
           </section>
 
+          {/* ================= FOOTER ================= */}
+
           <footer>
-            <span>With Love</span>
-            <b>♥</b>
+            <span>
+              With Love
+            </span>
+
+            <b>
+              ♥
+            </b>
           </footer>
 
         </div>
