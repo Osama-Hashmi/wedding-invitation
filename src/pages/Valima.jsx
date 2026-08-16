@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import "./Valima.css";
 
+/* =========================================================
+   SCRATCH DATE
+   ========================================================= */
+
 function ScratchDate() {
   const canvasRef = useRef(null);
   const [revealed, setRevealed] = useState(false);
@@ -8,6 +12,9 @@ function ScratchDate() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+
+    if (!canvas) return;
+
     const ctx = canvas.getContext("2d");
 
     const setupCanvas = () => {
@@ -18,6 +25,7 @@ function ScratchDate() {
       canvas.height = rect.height * dpr;
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.globalCompositeOperation = "source-over";
 
       ctx.fillStyle = "#d8c7a0";
       ctx.fillRect(0, 0, rect.width, rect.height);
@@ -26,6 +34,7 @@ function ScratchDate() {
 
       for (let x = -rect.height; x < rect.width; x += 28) {
         ctx.save();
+
         ctx.translate(x, 0);
         ctx.rotate(Math.PI / 4);
 
@@ -43,6 +52,7 @@ function ScratchDate() {
       ctx.textBaseline = "middle";
 
       ctx.font = "600 12px Montserrat, sans-serif";
+
       ctx.fillText(
         "SCRATCH TO REVEAL",
         rect.width / 2,
@@ -50,6 +60,7 @@ function ScratchDate() {
       );
 
       ctx.font = "11px Montserrat, sans-serif";
+
       ctx.fillText(
         "your special date",
         rect.width / 2,
@@ -58,6 +69,7 @@ function ScratchDate() {
     };
 
     setupCanvas();
+
     window.addEventListener("resize", setupCanvas);
 
     return () => {
@@ -65,27 +77,11 @@ function ScratchDate() {
     };
   }, []);
 
-  const scratch = (e) => {
-    if (!scratching.current || revealed) return;
-
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const rect = canvas.getBoundingClientRect();
-
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    ctx.globalCompositeOperation = "destination-out";
-
-    ctx.beginPath();
-    ctx.arc(x, y, 25, 0, Math.PI * 2);
-    ctx.fill();
-
-    checkReveal();
-  };
-
   const checkReveal = () => {
     const canvas = canvasRef.current;
+
+    if (!canvas) return;
+
     const ctx = canvas.getContext("2d");
 
     const pixels = ctx.getImageData(
@@ -108,33 +104,80 @@ function ScratchDate() {
 
     if (percentage > 42) {
       setRevealed(true);
+
       canvas.style.opacity = "0";
       canvas.style.pointerEvents = "none";
     }
   };
 
+  const scratch = (e) => {
+    if (!scratching.current || revealed) return;
+
+    const canvas = canvasRef.current;
+
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    const rect = canvas.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    ctx.globalCompositeOperation = "destination-out";
+
+    ctx.beginPath();
+    ctx.arc(x, y, 25, 0, Math.PI * 2);
+    ctx.fill();
+
+    checkReveal();
+  };
+
   return (
-    <div className={`scratch-wrapper ${revealed ? "revealed" : ""}`}>
+    <div
+      className={
+        revealed
+          ? "scratch-wrapper revealed"
+          : "scratch-wrapper"
+      }
+    >
       <div className="date-underneath">
-        <span className="date-day">02</span>
-        <span className="date-month">NOVEMBER</span>
-        <span className="date-year">2026</span>
-        <small>MONDAY</small>
+
+        <span className="date-day">
+          02
+        </span>
+
+        <span className="date-month">
+          NOVEMBER
+        </span>
+
+        <span className="date-year">
+          2026
+        </span>
+
+        <small>
+          MONDAY
+        </small>
+
       </div>
 
       <canvas
         ref={canvasRef}
         className="scratch-canvas"
+
         onPointerDown={() => {
           scratching.current = true;
         }}
+
         onPointerUp={() => {
           scratching.current = false;
         }}
+
         onPointerLeave={() => {
           scratching.current = false;
         }}
+
         onPointerMove={scratch}
+
         onPointerCancel={() => {
           scratching.current = false;
         }}
@@ -143,82 +186,192 @@ function ScratchDate() {
   );
 }
 
+
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
+
+function Countdown() {
+  const targetDate = new Date(
+    "2026-11-02T21:00:00+05:00"
+  ).getTime();
+
+  const calculateTime = () => {
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+      return {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      };
+    }
+
+    return {
+      days: Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+      ),
+
+      hours: Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+      ),
+
+      minutes: Math.floor(
+        (difference / (1000 * 60)) % 60
+      ),
+
+      seconds: Math.floor(
+        (difference / 1000) % 60
+      ),
+    };
+  };
+
+  const [time, setTime] = useState(
+    calculateTime()
+  );
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(calculateTime());
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  const format = (number) => {
+    return String(number).padStart(2, "0");
+  };
+
+  return (
+    <div className="countdown">
+
+      <div className="countdown-box">
+        <strong>{time.days}</strong>
+        <span>DAYS</span>
+      </div>
+
+      <div className="countdown-box">
+        <strong>{format(time.hours)}</strong>
+        <span>HOURS</span>
+      </div>
+
+      <div className="countdown-box">
+        <strong>{format(time.minutes)}</strong>
+        <span>MINUTES</span>
+      </div>
+
+      <div className="countdown-box">
+        <strong>{format(time.seconds)}</strong>
+        <span>SECONDS</span>
+      </div>
+
+    </div>
+  );
+}
+
+
+/* =========================================================
+   VALIMA
+   ========================================================= */
+
 function Valima() {
   const audioRef = useRef(null);
 
+  const [introStarted, setIntroStarted] = useState(false);
   const [introFinished, setIntroFinished] = useState(false);
+
+  /* =======================================================
+     PAGE SETUP
+     ======================================================= */
 
   useEffect(() => {
     document.title = "Valima Invitation";
 
-    // Always start from the very top
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    return () => {
+      const audio = audioRef.current;
+
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    };
+  }, []);
+
+
+  /* =======================================================
+     OPEN INTRO
+     
+     IMPORTANT:
+     Audio play happens directly inside the user's click.
+     This is required for mobile browsers.
+     ======================================================= */
+
+  const handleOpen = async () => {
+    if (introStarted) return;
+
+    setIntroStarted(true);
 
     const audio = audioRef.current;
-    if (!audio) return;
 
-    audio.currentTime = 60;
+    if (audio) {
+      try {
+        audio.currentTime = 60;
 
-    const playSong = () => {
-      audio.currentTime = 60;
+        await audio.play();
 
-      audio.play().catch(() => {
-        // Browser may block autoplay
-      });
-    };
+        console.log("Valima music started at 60 seconds");
+      } catch (error) {
+        console.log("Music could not start:", error);
+      }
+    }
 
-    const handleFirstInteraction = () => {
-      playSong();
+    /*
+     * Intro animation duration.
+     * After animation finishes,
+     * show the actual invitation.
+     */
 
-      document.removeEventListener("pointerdown", handleFirstInteraction);
-      document.removeEventListener("touchstart", handleFirstInteraction);
-      document.removeEventListener("click", handleFirstInteraction);
-    };
-
-    document.addEventListener("pointerdown", handleFirstInteraction);
-    document.addEventListener("touchstart", handleFirstInteraction);
-    document.addEventListener("click", handleFirstInteraction);
-
-    // Intro animation duration
-    const introTimer = setTimeout(() => {
+    setTimeout(() => {
       setIntroFinished(true);
 
-      // Make absolutely sure page starts from top
       window.scrollTo({
         top: 0,
         left: 0,
         behavior: "instant",
       });
-    }, 2800);
+    }, 2600);
+  };
 
-    return () => {
-      clearTimeout(introTimer);
-
-      document.removeEventListener(
-        "pointerdown",
-        handleFirstInteraction
-      );
-      document.removeEventListener(
-        "touchstart",
-        handleFirstInteraction
-      );
-      document.removeEventListener(
-        "click",
-        handleFirstInteraction
-      );
-
-      audio.pause();
-      audio.currentTime = 0;
-    };
-  }, []);
 
   return (
     <main className="valima-page">
 
-      {/* ================= INTRO REVEAL ================= */}
+      {/* ===================================================
+          INTRO
+          =================================================== */}
 
       {!introFinished && (
-        <div className="valima-intro">
+        <div
+          className={
+            introStarted
+              ? "valima-intro intro-started"
+              : "valima-intro"
+          }
+        >
 
           <div className="intro-glow"></div>
 
@@ -226,15 +379,43 @@ function Valima() {
           <div className="intro-ring ring-two"></div>
           <div className="intro-ring ring-three"></div>
 
+
           <div className="intro-center">
-            <div className="intro-symbol">✦</div>
 
-            <p>WITH LOVE & BLESSINGS</p>
+            <div className="intro-symbol">
+              ✦
+            </div>
 
-            <h1>Valima</h1>
+            <p>
+              WITH LOVE & BLESSINGS
+            </p>
 
-            <span>02 • NOVEMBER • 2026</span>
+            <h1>
+              Valima
+            </h1>
+
+            <span>
+              02 • NOVEMBER • 2026
+            </span>
+
+
+            <button
+              type="button"
+              className="valima-open-button"
+              onClick={handleOpen}
+              disabled={introStarted}
+            >
+              <span>
+                ✦
+              </span>
+
+              {introStarted
+                ? "OPENING..."
+                : "TAP TO OPEN"}
+            </button>
+
           </div>
+
 
           <div className="intro-left"></div>
           <div className="intro-right"></div>
@@ -242,23 +423,39 @@ function Valima() {
         </div>
       )}
 
-      {/* MUSIC */}
-      <audio ref={audioRef} loop preload="auto">
+
+      {/* ===================================================
+          MUSIC
+          =================================================== */}
+
+      <audio
+        ref={audioRef}
+        loop
+        preload="auto"
+        playsInline
+      >
         <source
           src="/music/Mere%20Bina.mp3"
           type="audio/mpeg"
         />
       </audio>
 
-      {/* ================= HERO ================= */}
+
+      {/* ===================================================
+          HERO
+          =================================================== */}
 
       <section className="valima-hero">
 
-        <div className="hero-ornament top">❦</div>
+        <div className="hero-ornament top">
+          ❦
+        </div>
 
         <div className="hero-content">
 
-          <p className="bismillah">﷽</p>
+          <p className="bismillah">
+            ﷽
+          </p>
 
           <p className="parents">
             MR. & MRS. SYED ASIM ALI HASHMI
@@ -269,29 +466,31 @@ function Valima() {
           </p>
 
           <h2 className="ceremony-title">
-            RECEPTION CEREMONY
+            VALIMA RECEPTION
           </h2>
 
           <p className="invite-line">
             OF THEIR BELOVED SON
           </p>
 
-          {/* ================= COUPLE AREA ================= */}
+
+          {/* ================= COUPLE ================= */}
 
           <div className="couple-area">
 
-            {/* BOY IMAGE */}
-
             <div className="couple-image couple-left">
+
               <div className="image-frame">
+
                 <img
                   src="/images/boy.png"
                   alt="Groom"
                 />
+
               </div>
+
             </div>
 
-            {/* CENTER NAMES */}
 
             <div className="couple-names">
 
@@ -299,38 +498,60 @@ function Valima() {
                 Syed Muhammad Osama Ali Hashmi
               </h1>
 
+              <p className="person-title">
+                The Groom
+              </p>
+
+
               <div className="gold-divider">
+
                 <span></span>
-                <b>❦</b>
+
+                <b>
+                  ❦
+                </b>
+
                 <span></span>
+
               </div>
 
+
               <p className="with-word">
-                with
+                WITH
               </p>
+
 
               <h1 className="bride-name">
                 Areeba Ashraf
               </h1>
 
+
               <p className="daughter-title">
                 Daughter of Advocate Ashraf Ali
               </p>
 
+              <p className="person-title">
+                The Bride
+              </p>
+
             </div>
 
-            {/* GIRL IMAGE */}
 
             <div className="couple-image couple-right">
+
               <div className="image-frame">
+
                 <img
                   src="/images/girl.png"
                   alt="Bride"
                 />
+
               </div>
+
             </div>
 
           </div>
+
 
           <div className="hero-bottom-ornament">
             ✦
@@ -340,7 +561,10 @@ function Valima() {
 
       </section>
 
-      {/* ================= DATE ================= */}
+
+      {/* ===================================================
+          DATE
+          =================================================== */}
 
       <section className="valima-date-section">
 
@@ -360,7 +584,10 @@ function Valima() {
 
       </section>
 
-      {/* ================= EVENT ================= */}
+
+      {/* ===================================================
+          COUNTDOWN
+          =================================================== */}
 
       <section className="valima-event-section">
 
@@ -369,12 +596,17 @@ function Valima() {
         </p>
 
         <h2 className="section-heading">
-          The Celebration
+          The Valima
         </h2>
+
+        <Countdown />
 
       </section>
 
-      {/* ================= VENUE ================= */}
+
+      {/* ===================================================
+          VENUE
+          =================================================== */}
 
       <section className="valima-venue-section">
 
@@ -397,7 +629,7 @@ function Valima() {
           <br />
           Near Continental Bakery
           <br />
-          Block 15 Gulistan-e-Johar
+          Block 15, Gulistan-e-Johar
           <br />
           Karachi
         </p>
@@ -408,14 +640,23 @@ function Valima() {
           rel="noreferrer"
           className="map-button"
         >
-          <span>⌖</span>
+          <span>
+            ⌖
+          </span>
+
           GET DIRECTIONS
-          <b>→</b>
+
+          <b>
+            →
+          </b>
         </a>
 
       </section>
 
-      {/* ================= PROGRAM ================= */}
+
+      {/* ===================================================
+          PROGRAM
+          =================================================== */}
 
       <section className="valima-program-section">
 
@@ -430,25 +671,43 @@ function Valima() {
         <div className="program-list">
 
           <div className="program-row">
-            <span>GUEST ARRIVAL</span>
-            <b>10:00 PM</b>
+            <span>
+              GUEST ARRIVAL
+            </span>
+
+            <b>
+              10:00 PM
+            </b>
           </div>
 
           <div className="program-row">
-            <span>RECEPTION</span>
-            <b>10:30 PM</b>
+            <span>
+              RECEPTION
+            </span>
+
+            <b>
+              10:30 PM
+            </b>
           </div>
 
           <div className="program-row">
-            <span>DINNER</span>
-            <b>11:00 PM</b>
+            <span>
+              DINNER
+            </span>
+
+            <b>
+              11:00 PM
+            </b>
           </div>
 
         </div>
 
       </section>
 
-      {/* ================= WELCOME ================= */}
+
+      {/* ===================================================
+          WELCOME
+          =================================================== */}
 
       <section className="valima-welcome-section">
 
@@ -461,7 +720,7 @@ function Valima() {
         </p>
 
         <h2>
-          Means The World
+          MEANS THE WORLD
         </h2>
 
         <p className="welcome-message">
@@ -472,7 +731,10 @@ function Valima() {
 
       </section>
 
-      {/* ================= RSVP ================= */}
+
+      {/* ===================================================
+          RSVP
+          =================================================== */}
 
       <section className="rsvp-section">
 
@@ -487,38 +749,64 @@ function Valima() {
         <div className="rsvp-card">
 
           <div className="rsvp-person">
-            <h3>Syed Asim Ali Hashmi</h3>
+
+            <h3>
+              Syed Asim Ali Hashmi
+            </h3>
+
             <a href="tel:03213539769">
               03213539769
             </a>
+
           </div>
 
+
           <div className="rsvp-person">
-            <h3>Syed Salman Ali Hashmi</h3>
+
+            <h3>
+              Syed Salman Ali Hashmi
+            </h3>
+
             <a href="tel:03219242503">
               03219242503
             </a>
+
           </div>
 
+
           <div className="rsvp-person">
-            <h3>Abdul Aziz</h3>
+
+            <h3>
+              Abdul Aziz
+            </h3>
+
             <a href="tel:03362002829">
               03362002829
             </a>
+
           </div>
 
+
           <div className="rsvp-person">
-            <h3>Ghazanfar Ali</h3>
+
+            <h3>
+              Ghazanfar Ali
+            </h3>
+
             <a href="tel:03453954353">
               03453954353
             </a>
+
           </div>
 
         </div>
 
       </section>
 
-      {/* ================= FOOTER ================= */}
+
+      {/* ===================================================
+          FOOTER
+          =================================================== */}
 
       <footer className="valima-footer">
 
@@ -527,7 +815,7 @@ function Valima() {
         </div>
 
         <p>
-          With Love & Blessings
+          WITH LOVE & BLESSINGS
         </p>
 
         <strong>

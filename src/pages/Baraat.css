@@ -1,115 +1,291 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Parisienne&family=Montserrat:wght@300;400;500;600&display=swap');
 
+
+/* ================================================= */
+/* ================= GLOBAL ======================== */
+/* ================================================= */
+
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body.baraat-curtain-locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .baraat-page {
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+
   background: #f7eee2;
   color: #351c1b;
+
   font-family: "Montserrat", sans-serif;
 }
 
 
 /* ================================================= */
-/* ================= INTRO ANIMATION =============== */
+/* ============== CLOTH CURTAIN ==================== */
 /* ================================================= */
 
-.baraat-intro {
+.baraat-curtain {
   position: fixed;
   inset: 0;
-  z-index: 9999;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 100dvh;
+
+  z-index: 99999;
+
+  overflow: hidden;
+
+  background: #5d171b;
+
+  isolation: isolate;
+
+  transition:
+    visibility 0s linear 1.5s;
+}
+
+
+/* ================================================= */
+/* ============== CURTAIN PANELS =================== */
+/* ================================================= */
+
+.curtain-panel {
+  position: absolute;
+
+  top: -3%;
+  bottom: -3%;
+
+  width: 52%;
+
+  z-index: 2;
+
+  overflow: hidden;
 
   background:
-    radial-gradient(
-      circle at center,
-      #9f3034 0%,
-      #781f24 45%,
-      #4b1519 100%
+    linear-gradient(
+      90deg,
+      #4a1015 0%,
+      #7d1d25 8%,
+      #a52d35 18%,
+      #711820 31%,
+      #ad3038 44%,
+      #67151b 57%,
+      #a62d35 70%,
+      #721820 82%,
+      #4b1015 100%
     );
 
-  animation: baraatIntroExit 1.5s ease 2.4s forwards;
+  box-shadow:
+    inset 0 0 45px rgba(0, 0, 0, .35),
+    inset 0 0 100px rgba(0, 0, 0, .18);
+
+  transition:
+    transform 1.55s cubic-bezier(.77, 0, .18, 1),
+    box-shadow 1.2s ease;
+}
+
+
+/* LEFT */
+
+.curtain-left {
+  left: -2%;
+
+  transform-origin: left center;
+
+  border-right:
+    1px solid rgba(226, 184, 96, .25);
+
+  border-radius:
+    0 50% 50% 0;
+}
+
+
+/* RIGHT */
+
+.curtain-right {
+  right: -2%;
+
+  transform-origin: right center;
+
+  border-left:
+    1px solid rgba(226, 184, 96, .25);
+
+  border-radius:
+    50% 0 0 50%;
+}
+
+
+/* ================================================= */
+/* ============== REALISTIC CLOTH FOLDS ============ */
+/* ================================================= */
+
+.curtain-folds {
+  position: absolute;
+  inset: 0;
+
+  opacity: .72;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20, 0, 0, .48) 0%,
+      rgba(255, 120, 120, .12) 5%,
+      rgba(40, 0, 0, .48) 11%,
+      rgba(255, 150, 150, .12) 17%,
+      rgba(40, 0, 0, .5) 24%,
+      rgba(255, 150, 150, .10) 31%,
+      rgba(40, 0, 0, .48) 38%,
+      rgba(255, 150, 150, .12) 45%,
+      rgba(35, 0, 0, .52) 53%,
+      rgba(255, 150, 150, .10) 61%,
+      rgba(35, 0, 0, .48) 69%,
+      rgba(255, 150, 150, .12) 77%,
+      rgba(35, 0, 0, .5) 85%,
+      rgba(255, 150, 150, .10) 92%,
+      rgba(25, 0, 0, .45) 100%
+    );
+
+  filter: blur(.3px);
+
+  transform: scaleX(1.05);
+}
+
+
+/* Extra soft fabric highlight */
+
+.curtain-panel::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 216, 177, .12) 18%,
+      transparent 30%,
+      rgba(255, 220, 180, .08) 50%,
+      transparent 67%,
+      rgba(255, 220, 180, .1) 82%,
+      transparent 100%
+    );
 
   pointer-events: none;
 }
 
-.intro-pattern {
+
+/* ================================================= */
+/* ============== CURTAIN OPEN ===================== */
+/* ================================================= */
+
+.curtain-open .curtain-left {
+  transform:
+    translateX(-108%)
+    rotateY(8deg)
+    scaleX(.94);
+
+  box-shadow:
+    inset 0 0 25px rgba(0, 0, 0, .18);
+}
+
+.curtain-open .curtain-right {
+  transform:
+    translateX(108%)
+    rotateY(-8deg)
+    scaleX(.94);
+
+  box-shadow:
+    inset 0 0 25px rgba(0, 0, 0, .18);
+}
+
+
+/* ================================================= */
+/* ============== CURTAIN CENTER =================== */
+/* ================================================= */
+
+.curtain-center-content {
   position: absolute;
+
   inset: 0;
 
-  opacity: .13;
+  z-index: 10;
 
-  background-image:
-    radial-gradient(
-      circle at center,
-      transparent 0,
-      transparent 35%,
-      rgba(232, 193, 112, .35) 36%,
-      transparent 37%
-    );
+  display: flex;
 
-  background-size: 80px 80px;
+  flex-direction: column;
 
-  animation: patternMove 12s linear infinite;
-}
-
-.intro-glow {
-  position: absolute;
-
-  width: 500px;
-  height: 500px;
-
-  border-radius: 50%;
-
-  background: rgba(232, 193, 112, .12);
-
-  filter: blur(20px);
-
-  animation: introGlow 2.2s ease-in-out infinite alternate;
-}
-
-.intro-content {
-  position: relative;
-  z-index: 2;
+  align-items: center;
+  justify-content: center;
 
   text-align: center;
 
-  color: #f6dfaa;
+  padding: 20px;
 
-  animation: introContent 1.5s ease forwards;
+  color: #f5dfaa;
+
+  pointer-events: auto;
+
+  transition:
+    opacity .45s ease,
+    transform .8s ease;
 }
 
-.intro-small {
-  font-size: 9px;
+
+/* Text remains visible BEFORE opening */
+
+.curtain-small-text {
+  font-size: 10px;
+
   letter-spacing: 5px;
-  opacity: .85;
+
+  font-weight: 500;
+
+  color: #f2dfb4;
+
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, .45);
 }
 
-.intro-ornament {
+.curtain-ornament {
   margin: 20px 0 8px;
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 32px;
+  font-size: 34px;
 
-  color: #e6c77f;
+  color: #e5c579;
+
+  text-shadow:
+    0 0 20px rgba(226, 190, 101, .25);
 }
 
-.intro-content h1 {
+.curtain-center-content h1 {
   margin: 0;
 
   font-family: "Parisienne", cursive;
@@ -118,83 +294,179 @@ body {
 
   font-weight: 400;
 
-  line-height: .9;
+  line-height: .85;
 
-  color: #f1d28b;
+  color: #f0d18b;
 
   text-shadow:
-    0 0 30px rgba(230, 199, 127, .2);
+    0 5px 30px rgba(0, 0, 0, .28),
+    0 0 25px rgba(240, 209, 139, .15);
 }
 
-.intro-content p {
-  margin: 15px 0;
+.curtain-center-content p {
+  margin: 17px 0 28px;
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 20px;
+  font-size: 21px;
 
   letter-spacing: 3px;
 
-  color: #f7e8cb;
+  color: #f7ead2;
+
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, .4);
 }
 
-.intro-line {
-  width: 90px;
-  height: 1px;
 
-  margin: 25px auto 0;
+/* ================================================= */
+/* ============== GOLDEN BUTTON =================== */
+/* ================================================= */
 
-  background: #d7b66e;
+.curtain-open-button {
+  position: relative;
+
+  width: 82px;
+  height: 82px;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  border:
+    2px solid #f0d28b;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #fff2bd 0%,
+      #e9c46f 30%,
+      #b98225 68%,
+      #805414 100%
+    );
+
+  box-shadow:
+    0 0 0 6px rgba(222, 184, 100, .13),
+    0 0 0 12px rgba(222, 184, 100, .06),
+    0 12px 35px rgba(0, 0, 0, .35),
+    inset 0 2px 5px rgba(255, 255, 255, .6),
+    inset 0 -5px 8px rgba(80, 35, 0, .28);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation:
+    buttonPulse 2s ease-in-out infinite;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
-@keyframes introContent {
-  0% {
-    opacity: 0;
-    transform: translateY(25px) scale(.95);
-  }
+.curtain-open-button:hover {
+  transform: scale(1.08);
 
+  box-shadow:
+    0 0 0 7px rgba(222, 184, 100, .15),
+    0 0 0 14px rgba(222, 184, 100, .07),
+    0 15px 40px rgba(0, 0, 0, .4),
+    inset 0 2px 5px rgba(255, 255, 255, .6),
+    inset 0 -5px 8px rgba(80, 35, 0, .28);
+}
+
+.curtain-open-button:active {
+  transform: scale(.94);
+}
+
+.button-inner {
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(255, 239, 184, .75);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    inset 0 0 12px rgba(255, 247, 207, .3);
+}
+
+.button-symbol {
+  color: #fff4c7;
+
+  font-size: 21px;
+
+  text-shadow:
+    0 1px 5px rgba(105, 63, 8, .5);
+}
+
+.curtain-button-text {
+  margin-top: 22px;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  color: #f3dfae;
+
+  opacity: .9;
+}
+
+@keyframes buttonPulse {
+
+  0%,
   100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+    box-shadow:
+      0 0 0 6px rgba(222, 184, 100, .13),
+      0 0 0 12px rgba(222, 184, 100, .06),
+      0 12px 35px rgba(0, 0, 0, .35),
+      inset 0 2px 5px rgba(255, 255, 255, .6),
+      inset 0 -5px 8px rgba(80, 35, 0, .28);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 9px rgba(222, 184, 100, .16),
+      0 0 0 18px rgba(222, 184, 100, .07),
+      0 15px 42px rgba(0, 0, 0, .38),
+      inset 0 2px 5px rgba(255, 255, 255, .6),
+      inset 0 -5px 8px rgba(80, 35, 0, .28);
   }
 }
 
-@keyframes introGlow {
-  from {
-    transform: scale(.8);
-    opacity: .5;
-  }
 
-  to {
-    transform: scale(1.15);
-    opacity: 1;
-  }
+/* ================================================= */
+/* ============== HIDE CONTENT AFTER OPEN ========== */
+/* ================================================= */
+
+.curtain-open .curtain-center-content {
+  opacity: 0;
+
+  transform:
+    scale(.94)
+    translateY(-8px);
+
+  pointer-events: none;
 }
 
-@keyframes patternMove {
-  from {
-    transform: rotate(0deg) scale(1.1);
-  }
 
-  to {
-    transform: rotate(360deg) scale(1.1);
-  }
-}
+/*
+  IMPORTANT:
+  This removes the ENTIRE red curtain layer after
+  the curtain animation has completed.
+*/
 
-@keyframes baraatIntroExit {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
+.curtain-open {
+  visibility: hidden;
 
-  70% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
+  pointer-events: none;
 }
 
 
@@ -207,11 +479,16 @@ body {
 
   min-height: 100svh;
 
+  width: 100%;
+
   padding: 65px 20px 45px;
 
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
+
   align-items: center;
 
   text-align: center;
@@ -228,10 +505,12 @@ body {
 
   border-bottom: 1px solid #c9a15c;
 
-  animation: heroAppear 1.3s ease both;
+  animation:
+    heroAppear 1.3s ease both;
 }
 
 @keyframes heroAppear {
+
   from {
     opacity: 0;
     transform: scale(1.02);
@@ -245,6 +524,7 @@ body {
 
 .hero-pattern {
   position: absolute;
+
   inset: 0;
 
   pointer-events: none;
@@ -286,11 +566,14 @@ body {
   top: 15px;
   right: -35px;
 
-  transform: scaleX(-1) rotate(25deg);
+  transform:
+    scaleX(-1)
+    rotate(25deg);
 }
 
 .bismillah {
   position: relative;
+
   z-index: 2;
 
   font-size: 42px;
@@ -302,6 +585,7 @@ body {
 
 .parents {
   position: relative;
+
   z-index: 2;
 
   margin: 0 0 15px;
@@ -317,6 +601,7 @@ body {
 
 .invite-line {
   position: relative;
+
   z-index: 2;
 
   margin: 4px 0;
@@ -330,6 +615,7 @@ body {
 
 .ceremony-name {
   position: relative;
+
   z-index: 2;
 
   margin: 4px 0;
@@ -347,6 +633,7 @@ body {
 
 .bride-name {
   position: relative;
+
   z-index: 2;
 
   margin: 25px 0 0;
@@ -367,11 +654,12 @@ body {
 
 
 /* ================================================= */
-/* ================= COUPLE VISUALS ================= */
+/* ================= COUPLE VISUALS ================ */
 /* ================================================= */
 
 .couple-visuals {
   position: relative;
+
   z-index: 3;
 
   width: min(900px, 100%);
@@ -439,7 +727,10 @@ body {
   display: block;
 
   filter:
-    drop-shadow(0 18px 15px rgba(67, 26, 24, .18));
+    drop-shadow(
+      0 18px 15px
+      rgba(67, 26, 24, .18)
+    );
 
   transition:
     transform .5s ease,
@@ -447,10 +738,15 @@ body {
 }
 
 .person-visual:hover img {
-  transform: translateY(-7px) scale(1.03);
+  transform:
+    translateY(-7px)
+    scale(1.03);
 
   filter:
-    drop-shadow(0 25px 20px rgba(67, 26, 24, .22));
+    drop-shadow(
+      0 25px 20px
+      rgba(67, 26, 24, .22)
+    );
 }
 
 .bride-visual img {
@@ -471,7 +767,8 @@ body {
 
   border-radius: 50%;
 
-  background: rgba(156, 46, 49, .12);
+  background:
+    rgba(156, 46, 49, .12);
 
   filter: blur(12px);
 }
@@ -523,15 +820,18 @@ body {
 }
 
 
-/* IMPORTANT: GROOM NAME RED */
+/* ================================================= */
+/* ================= GROOM NAME ==================== */
+/* ================================================= */
 
 .groom-name {
   position: relative;
+
   z-index: 4;
 
   max-width: 850px;
 
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
 
   font-family: "Parisienne", cursive;
 
@@ -541,15 +841,39 @@ body {
 
   line-height: 1.15;
 
-  /* RED — same family as Areeba */
   color: #9c2e31;
 
   text-shadow:
-    0 5px 20px rgba(156, 46, 49, .08);
+    0 5px 20px
+    rgba(156, 46, 49, .08);
+}
+
+.baraat-page .bride-name,
+.baraat-page .groom-name {
+  color: #9c2e31 !important;
+}
+
+.person-title {
+  position: relative;
+
+  z-index: 4;
+
+  margin: 3px 0 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 14px;
+
+  letter-spacing: 2px;
+
+  color: #806033;
+
+  text-transform: uppercase;
 }
 
 .son-of {
   position: relative;
+
   z-index: 2;
 
   margin-top: 10px;
@@ -565,6 +889,7 @@ body {
 
 .hero-bottom-ornament {
   position: relative;
+
   z-index: 2;
 
   margin-top: 15px;
@@ -638,7 +963,8 @@ body {
   border: 1px solid #b9914b;
 
   box-shadow:
-    0 20px 50px rgba(76, 38, 29, .12);
+    0 20px 50px
+    rgba(76, 38, 29, .12);
 
   background: #f9f0e3;
 }
@@ -716,7 +1042,8 @@ body {
 
   touch-action: none;
 
-  transition: opacity .6s ease;
+  transition:
+    opacity .6s ease;
 }
 
 .scratch-wrapper.revealed .scratch-canvas {
@@ -758,70 +1085,56 @@ body {
   color: #fff5e9;
 }
 
-.event-date {
-  width: min(650px, 100%);
+.countdown {
+  width: min(720px, 100%);
 
-  margin: auto;
+  margin: 15px auto 0;
 
-  display: flex;
+  display: grid;
 
-  justify-content: center;
+  grid-template-columns:
+    repeat(4, 1fr);
 
-  align-items: center;
+  gap: 15px;
 }
 
-.date-side {
-  flex: 1;
-
-  padding: 18px 10px;
+.countdown-box {
+  padding: 22px 10px;
 
   border-top: 1px solid #d6b36d;
 
   border-bottom: 1px solid #d6b36d;
+
+  background:
+    rgba(255, 255, 255, .04);
+
+  text-align: center;
 }
 
-.date-side span {
-  font-size: 11px;
+.countdown-box strong {
+  display: block;
 
-  letter-spacing: 3px;
-}
+  font-family: "Cormorant Garamond", serif;
 
-.big-date {
-  width: 150px;
+  font-size: 52px;
 
-  display: flex;
+  line-height: 1;
 
-  flex-direction: column;
-
-  align-items: center;
+  font-weight: 500;
 
   color: #f4d58e;
 }
 
-.big-date strong {
-  font-family: "Cormorant Garamond", serif;
+.countdown-box span {
+  display: block;
 
-  font-size: 75px;
+  margin-top: 10px;
 
-  line-height: .8;
+  font-size: 9px;
 
-  font-weight: 500;
-}
+  letter-spacing: 2px;
 
-.big-date span {
-  margin-top: 15px;
-
-  font-size: 17px;
-
-  letter-spacing: 5px;
-}
-
-.big-date small {
-  margin-top: 5px;
-
-  font-size: 11px;
-
-  letter-spacing: 3px;
+  color: #fff6eb;
 }
 
 
@@ -952,6 +1265,8 @@ body {
   justify-content: space-between;
 
   align-items: center;
+
+  gap: 15px;
 
   padding: 19px 5px;
 
@@ -1122,17 +1437,70 @@ body {
 
 @media (max-width: 700px) {
 
-  .intro-small {
+  /* CURTAIN */
+
+  .curtain-panel {
+    width: 53%;
+
+    top: -2%;
+    bottom: -2%;
+  }
+
+  .curtain-left {
+    left: -3%;
+  }
+
+  .curtain-right {
+    right: -3%;
+  }
+
+  .curtain-small-text {
     font-size: 7px;
+
     letter-spacing: 3px;
   }
 
-  .intro-content h1 {
-    font-size: 90px;
+  .curtain-ornament {
+    margin: 16px 0 5px;
+
+    font-size: 28px;
   }
 
-  .intro-content p {
+  .curtain-center-content h1 {
+    font-size: 90px;
+
+    line-height: .85;
+  }
+
+  .curtain-center-content p {
+    margin:
+      14px 0 25px;
+
     font-size: 16px;
+
+    letter-spacing: 2px;
+  }
+
+  .curtain-open-button {
+    width: 74px;
+    height: 74px;
+  }
+
+  .button-inner {
+    width: 52px;
+    height: 52px;
+  }
+
+  .button-symbol {
+    font-size: 18px;
+  }
+
+  .curtain-button-text {
+    margin-top: 18px;
+
+    font-size: 7px;
+
+    letter-spacing: 2.5px;
   }
 
 
@@ -1141,7 +1509,8 @@ body {
   .baraat-hero {
     min-height: 100svh;
 
-    padding: 35px 15px 25px;
+    padding:
+      35px 15px 25px;
 
     justify-content: center;
 
@@ -1265,7 +1634,15 @@ body {
 
     max-width: 95%;
 
-    margin: 20px 0 0 0;
+    margin: 20px 0 0;
+  }
+
+  .person-title {
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    margin-top: 2px;
   }
 
   .son-of {
@@ -1288,7 +1665,7 @@ body {
   }
 
   .section-label {
-    font-size: 16px;
+    font-size: 10px;
 
     letter-spacing: 3px;
   }
@@ -1318,38 +1695,35 @@ body {
   }
 
 
-  /* EVENT */
+  /* COUNTDOWN */
 
   .details-section {
     padding: 70px 15px;
   }
 
-  .event-date {
+  .countdown {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 10px;
+
     width: 100%;
+
+    margin-top: 10px;
   }
 
-  .date-side {
-    padding: 14px 5px;
+  .countdown-box {
+    padding: 18px 8px;
   }
 
-  .date-side span {
-    font-size: 7px;
-
-    letter-spacing: 1px;
+  .countdown-box strong {
+    font-size: 42px;
   }
 
-  .big-date {
-    width: 100px;
-  }
+  .countdown-box span {
+    font-size: 8px;
 
-  .big-date strong {
-    font-size: 58px;
-  }
-
-  .big-date span {
-    font-size: 13px;
-
-    letter-spacing: 3px;
+    letter-spacing: 1.5px;
   }
 
 
@@ -1439,6 +1813,28 @@ body {
 
 @media (max-width: 380px) {
 
+  .curtain-center-content {
+    padding: 15px;
+  }
+
+  .curtain-center-content h1 {
+    font-size: 78px;
+  }
+
+  .curtain-center-content p {
+    font-size: 14px;
+  }
+
+  .curtain-open-button {
+    width: 68px;
+    height: 68px;
+  }
+
+  .button-inner {
+    width: 48px;
+    height: 48px;
+  }
+
   .bride-name {
     font-size: 46px;
   }
@@ -1472,8 +1868,37 @@ body {
   }
 }
 
-/* BARAAT - BOTH NAMES SAME COLOR */
-.baraat-page .bride-name,
-.baraat-page .groom-name {
-  color: #9c2e31 !important;
+
+/* ================================================= */
+/* ============== VERY SMALL SCREENS =============== */
+/* ================================================= */
+
+@media (max-width: 320px) {
+
+  .curtain-center-content h1 {
+    font-size: 70px;
+  }
+
+  .curtain-center-content p {
+    font-size: 13px;
+  }
+
+  .curtain-small-text {
+    font-size: 6px;
+    letter-spacing: 2px;
+  }
+
+  .curtain-open-button {
+    width: 64px;
+    height: 64px;
+  }
+
+  .button-inner {
+    width: 45px;
+    height: 45px;
+  }
+
+  .curtain-button-text {
+    font-size: 6px;
+  }
 }

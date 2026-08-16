@@ -1,184 +1,756 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap');
 
-/* ================= GLOBAL ================= */
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
   box-sizing: border-box;
 }
 
-html {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
+  min-height: 100%;
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-width: 100%;
-  overflow-x: hidden;
+  background: #f8f3e9;
 }
 
-#root {
-  width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* ================= HOME ================= */
+
+/* =========================================================
+   HOME
+========================================================= */
 
 .home-page {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+
   background: #f8f3e9;
   color: #403328;
+
   font-family: "Montserrat", sans-serif;
 }
 
-/* ================= CURTAIN ================= */
 
-.curtain-screen {
+/* =========================================================
+   ENVELOPE SCREEN
+========================================================= */
+
+.envelope-screen {
   position: fixed;
+
   inset: 0;
-  z-index: 9999;
-  overflow: hidden;
-}
 
-.curtain {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #241914 0px,
-      #3b2921 25px,
-      #241914 50px
-    );
-
-  box-shadow:
-    inset 0 0 80px rgba(0, 0, 0, .45);
-
-  transition:
-    transform 1.8s cubic-bezier(.77, 0, .18, 1);
-}
-
-.curtain-left {
-  left: 0;
-}
-
-.curtain-right {
-  right: 0;
-}
-
-.hide-curtain .curtain-left {
-  transform: translateX(-100%);
-}
-
-.hide-curtain .curtain-right {
-  transform: translateX(100%);
-}
-
-.curtain-content {
-  position: absolute;
-  inset: 0;
-  z-index: 10;
+  z-index: 99999;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 
-  color: #f5dfb0;
-  text-align: center;
+  background:
+    radial-gradient(
+      circle at center,
+      #fffdf8 0%,
+      #faf1df 52%,
+      #e4cda4 100%
+    );
 
-  transition: opacity .5s ease;
+  overflow: hidden;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 1.3s ease,
+    visibility 1.3s ease;
 }
 
-.hide-curtain .curtain-content {
+
+/* after opening */
+
+.envelope-screen.is-opened {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
+
+  transition-delay: 2.2s;
 }
 
-.top-ornament {
-  font-size: 28px;
-  color: #d7b66e;
-  margin-bottom: 20px;
-}
 
-.curtain-content p {
-  margin: 0 0 18px;
-  font-size: 9px;
-  letter-spacing: 4px;
-}
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
 
-.curtain-content h1 {
-  margin: 0;
+.envelope-screen::before {
+  content: "❦";
 
-  font-family: "Great Vibes", cursive;
+  position: absolute;
 
-  font-size: clamp(75px, 10vw, 125px);
-  font-weight: 400;
-
-  line-height: .8;
-}
-
-.curtain-content h2 {
-  margin: 18px 0 28px;
+  top: 3%;
+  left: 3%;
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 38px;
+  font-size: 130px;
+
+  color: rgba(181, 139, 72, .12);
+
+  transform: rotate(-30deg);
+}
+
+.envelope-screen::after {
+  content: "❦";
+
+  position: absolute;
+
+  right: 3%;
+  bottom: 2%;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 130px;
+
+  color: rgba(181, 139, 72, .12);
+
+  transform: rotate(145deg);
+}
+
+
+/* =========================================================
+   ENVELOPE STAGE
+========================================================= */
+
+.envelope-stage {
+  position: relative;
+
+  width: min(470px, 92vw);
+  height: min(650px, 88vh);
+
+  perspective: 1800px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   OPENING CARD
+========================================================= */
+
+.opening-card {
+  position: absolute;
+
+  width: min(360px, 78vw);
+  height: min(505px, 72vh);
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -43%)
+    translateY(95px)
+    scale(.78);
+
+  opacity: 0;
+
+  z-index: 2;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(181, 139, 72, .65);
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffefb,
+      #f8efd9
+    );
+
+  box-shadow:
+    0 25px 70px rgba(68, 45, 20, .25);
+
+  transition:
+    transform 1.65s cubic-bezier(.16, 1, .3, 1),
+    opacity .8s ease;
+
+  transform-origin: center bottom;
+}
+
+
+/* card inner border */
+
+.opening-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 13px;
+
+  border: 1px solid rgba(181, 139, 72, .32);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CARD FLORALS
+========================================================= */
+
+.opening-flower {
+  position: absolute;
+
+  z-index: 1;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 100px;
+
+  line-height: 1;
+
+  color: rgba(181, 139, 72, .25);
+
+  pointer-events: none;
+}
+
+.flower-tl {
+  top: -5px;
+  left: -10px;
+
+  transform: rotate(-38deg);
+}
+
+.flower-tr {
+  top: -5px;
+  right: -10px;
+
+  transform:
+    rotate(38deg)
+    scaleX(-1);
+}
+
+.flower-bl {
+  bottom: -8px;
+  left: -8px;
+
+  transform:
+    rotate(145deg)
+    scaleX(-1);
+}
+
+.flower-br {
+  bottom: -8px;
+  right: -8px;
+
+  transform: rotate(145deg);
+}
+
+
+/* =========================================================
+   OPENING CARD CONTENT
+========================================================= */
+
+.opening-card-inner {
+  position: relative;
+
+  z-index: 5;
+
+  height: 100%;
+
+  padding: 45px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  text-align: center;
+}
+
+.opening-kicker {
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  color: #94723d;
+}
+
+.opening-card h1 {
+  margin: 22px 0 5px;
+
+  font-family: "Parisienne", cursive;
+
+  font-size: clamp(65px, 10vw, 82px);
+
+  line-height: 1;
+
   font-weight: 400;
 
-  text-transform: uppercase;
-  letter-spacing: 10px;
+  color: #9b743b;
 }
 
-.gold-line {
-  width: 90px;
+.opening-line {
+  width: 75px;
+
   height: 1px;
 
-  background: #d7b66e;
+  margin: 12px 0 18px;
 
-  margin-bottom: 35px;
+  background: #c8a661;
 }
 
-/* ================= OPEN BUTTON ================= */
+.opening-of {
+  font-size: 8px;
 
-.open-button {
-  border: 1px solid #d7b66e;
+  letter-spacing: 3px;
 
-  background: transparent;
+  color: #817264;
+}
 
-  color: #f5dfb0;
+.opening-card h2 {
+  margin: 10px 0 25px;
 
-  padding: 15px 28px;
+  font-family: "Parisienne", cursive;
+
+  font-size: clamp(38px, 7vw, 52px);
+
+  line-height: 1;
+
+  font-weight: 400;
+
+  color: #8f6b35;
+}
+
+.opening-card h2 span {
+  font-family: "Cormorant Garamond", serif;
+
+  color: #b58b48;
+
+  font-size: .65em;
+
+  margin: 0 6px;
+}
+
+.opening-card p {
+  margin: 0 0 7px;
+
+  font-size: 7px;
+
+  letter-spacing: 2.5px;
+
+  color: #94723d;
+}
+
+.opening-card small {
+  font-size: 7px;
+
+  letter-spacing: 2px;
+
+  color: #817264;
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope {
+  position: absolute;
+
+  width: min(400px, 84vw);
+  height: 270px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -25%)
+    rotateX(0deg);
+
+  z-index: 10;
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform 1.45s cubic-bezier(.77, 0, .18, 1);
+}
+
+
+/* =========================================================
+   ENVELOPE BACK
+========================================================= */
+
+.envelope-back {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  border-radius: 4px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e0c18a 0%,
+      #c39a5a 50%,
+      #a97b3e 100%
+    );
+
+  box-shadow:
+    0 28px 65px rgba(74, 48, 18, .32);
+}
+
+
+/* =========================================================
+   ENVELOPE BORDER
+========================================================= */
+
+.envelope-border {
+  position: absolute;
+
+  inset: 9px;
+
+  z-index: 3;
+
+  border: 1px solid rgba(255, 244, 210, .55);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ENVELOPE POCKET
+========================================================= */
+
+.envelope-pocket {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 82%;
+
+  z-index: 6;
+
+  background:
+    linear-gradient(
+      145deg,
+      #cba365,
+      #a9783d
+    );
+
+  clip-path: polygon(
+    0 0,
+    50% 58%,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+
+  box-shadow:
+    0 -8px 25px rgba(70, 40, 10, .15);
+}
+
+
+/* =========================================================
+   ENVELOPE FLAP
+========================================================= */
+
+.envelope-flap {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 12;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ebcf97,
+      #c0914d
+    );
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 66%
+  );
+
+  transform-origin: top center;
+
+  transform: rotateX(0deg);
+
+  backface-visibility: hidden;
+
+  transition:
+    transform 1.25s cubic-bezier(.77, 0, .18, 1);
+}
+
+
+/* =========================================================
+   FLAP FLORAL
+========================================================= */
+
+.flap-floral {
+  position: absolute;
+
+  left: 50%;
+  top: 27%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(180deg);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 48px;
+
+  color: rgba(255, 247, 220, .7);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ENVELOPE FLORALS
+========================================================= */
+
+.envelope-flower {
+  position: absolute;
+
+  z-index: 14;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 65px;
+
+  line-height: 1;
+
+  color: rgba(255, 245, 213, .55);
+
+  pointer-events: none;
+
+  transition:
+    opacity .5s ease,
+    transform .6s ease;
+}
+
+.envelope-flower-tl {
+  top: 3px;
+  left: 4px;
+
+  transform: rotate(-30deg);
+}
+
+.envelope-flower-tr {
+  top: 3px;
+  right: 4px;
+
+  transform:
+    rotate(30deg)
+    scaleX(-1);
+}
+
+.envelope-flower-bl {
+  bottom: -5px;
+  left: 4px;
+
+  transform:
+    rotate(150deg)
+    scaleX(-1);
+}
+
+.envelope-flower-br {
+  bottom: -5px;
+  right: 4px;
+
+  transform: rotate(150deg);
+}
+
+
+/* =========================================================
+   GOLDEN SEAL
+========================================================= */
+
+.envelope-seal {
+  position: absolute;
+
+  left: 50%;
+  top: 59%;
+
+  transform:
+    translate(-50%, -50%);
+
+  z-index: 30;
+
+  width: 70px;
+  height: 70px;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  border: 2px solid #f8e7b9;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #f0d18d,
+      #c0964e 48%,
+      #9a6c30 100%
+    );
+
+  color: #fff9e9;
 
   cursor: pointer;
 
-  font-size: 9px;
-  letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  transition: .35s ease;
+  box-shadow:
+    0 9px 25px rgba(70, 42, 12, .32),
+    inset 0 0 0 5px rgba(255,255,255,.12);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
 }
 
-.open-button span {
-  margin-left: 15px;
+.envelope-seal::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 5px;
+
+  border: 1px solid rgba(255,255,255,.4);
+
+  border-radius: 50%;
 }
 
-.open-button:hover {
-  background: #d7b66e;
-  color: #261a15;
+.envelope-seal span {
+  position: relative;
+
+  z-index: 2;
+
+  font-size: 25px;
+
+  animation:
+    sealPulse 1.8s ease-in-out infinite;
 }
 
-/* ================= INVITATION ================= */
+.envelope-seal:hover {
+  transform:
+    translate(-50%, -50%)
+    scale(1.1);
+
+  box-shadow:
+    0 14px 35px rgba(70, 42, 12, .42),
+    inset 0 0 0 5px rgba(255,255,255,.2);
+}
+
+.envelope-seal:active {
+  transform:
+    translate(-50%, -50%)
+    scale(.94);
+}
+
+@keyframes sealPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+
+/* =========================================================
+   OPEN ANIMATION
+========================================================= */
+
+/* flap opens */
+
+.envelope-screen.is-opened .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+
+/* envelope moves downward */
+
+.envelope-screen.is-opened .envelope {
+  transform:
+    translate(-50%, 12%)
+    scale(.96);
+}
+
+
+/* card rises from inside */
+
+.envelope-screen.is-opened .opening-card {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -53%)
+    translateY(-105px)
+    scale(1);
+
+  transition-delay: .45s;
+}
+
+
+/* seal disappears */
+
+.envelope-screen.is-opened .envelope-seal {
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.3);
+
+  transition:
+    opacity .35s ease,
+    transform .4s ease;
+}
+
+
+/* flowers fade slightly */
+
+.envelope-screen.is-opened .envelope-flower {
+  opacity: .15;
+}
+
+
+/* =========================================================
+   MAIN INVITATION
+========================================================= */
 
 .invitation-content {
   width: 100%;
@@ -195,6 +767,7 @@ body {
     #f8f3e9;
 }
 
+
 .invitation-inner {
   width: 100%;
   max-width: 1050px;
@@ -204,40 +777,116 @@ body {
   text-align: center;
 }
 
+
+/* =========================================================
+   BISMILLAH + VERSE
+========================================================= */
+
+.bismillah {
+  margin-bottom: 15px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 32px;
+
+  color: #9c753d;
+}
+
+.quran-verse {
+  direction: rtl;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 31px;
+
+  color: #5d4937;
+
+  margin-bottom: 8px;
+}
+
+.verse-translation {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 19px;
+
+  color: #75685b;
+}
+
+.verse-reference {
+  margin: 6px 0 25px;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: #9c8565;
+}
+
+
+/* =========================================================
+   ORNAMENT
+========================================================= */
+
 .ornament {
   color: #b58b48;
 
-  font-size: 26px;
+  font-size: 29px;
 
   margin-bottom: 25px;
 }
 
+
+/* =========================================================
+   INVITATION TEXT
+========================================================= */
+
 .invited-small {
   margin: 0;
 
-  color: #a27a3d;
+  color: #8f6c37;
 
   font-size: 11px;
+
   letter-spacing: 4px;
+
+  font-weight: 600;
+}
+
+.invited-ampersand {
+  margin: 8px 0;
+
+  color: #a27a3d;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 20px;
+}
+
+.invited-text {
+  margin: 22px 0 0;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  color: #716254;
 
   font-weight: 500;
 }
 
-.invited-text {
-  margin: 20px 0 0;
 
-  font-size: 9px;
-  letter-spacing: 3px;
-
-  color: #837568;
-}
+/* =========================================================
+   WEDDING
+========================================================= */
 
 .reception-title {
   margin: 15px 0 0;
 
-  font-family: "Great Vibes", cursive;
+  font-family: "Parisienne", cursive;
 
-  font-size: clamp(75px, 9vw, 115px);
+  font-size: clamp(80px, 9vw, 120px);
 
   font-weight: 400;
 
@@ -247,20 +896,37 @@ body {
 }
 
 .celebration-title {
-  margin: 8px 0 25px;
+  margin: 10px 0 10px;
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 27px;
+  font-size: 26px;
 
-  letter-spacing: 9px;
+  letter-spacing: 5px;
 
-  font-weight: 400;
+  font-weight: 600;
 
   color: #534235;
 }
 
-/* ================= DIVIDERS ================= */
+.couple-names {
+  font-family: "Parisienne", cursive !important;
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 72px);
+  color: #a77d3d;
+  margin: 10px 0 15px;
+}
+
+.couple-names span {
+  font-family: "Parisienne", cursive !important;
+  font-size: .65em;
+  margin: 0 8px;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
 
 .gold-divider {
   display: flex;
@@ -288,8 +954,29 @@ body {
   font-weight: 400;
 }
 
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.main-highlight {
+  margin: 28px auto 18px;
+
+  max-width: 700px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 17px;
+
+  letter-spacing: 1.5px;
+
+  color: #806334;
+
+  font-weight: 600;
+}
+
 .invitation-message {
-  margin: 30px auto 15px;
+  margin: 20px auto 15px;
 
   color: #66594d;
 
@@ -307,18 +994,33 @@ body {
 
   font-size: 12px;
 
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .floral-divider {
-  margin: 35px 0 55px;
+  margin: 35px 0 30px;
 
   color: #b58b48;
 
   font-size: 30px;
 }
 
-/* ================= CEREMONY CARDS ================= */
+.celebration-label {
+  color: #9d753b;
+
+  font-size: 9px;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 25px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   CELEBRATION CARDS
+========================================================= */
 
 .ceremonies {
   width: 100%;
@@ -338,7 +1040,7 @@ body {
   position: relative;
 
   width: 100%;
-  height: 400px;
+  height: 380px;
 
   overflow: hidden;
 
@@ -351,14 +1053,10 @@ body {
 
   cursor: pointer;
 
-  z-index: 10;
-
-  pointer-events: auto;
-
-  border: 1px solid rgba(255, 255, 255, .25);
+  border: 1px solid rgba(255,255,255,.35);
 
   box-shadow:
-    0 18px 45px rgba(60, 40, 20, .15);
+    0 18px 45px rgba(60,40,20,.15);
 
   transition:
     transform .45s ease,
@@ -369,14 +1067,31 @@ body {
   transform: translateY(-8px);
 
   box-shadow:
-    0 25px 55px rgba(60, 40, 20, .25);
+    0 25px 55px rgba(60,40,20,.25);
 }
 
-.ceremony-box:active {
-  transform: scale(.98);
+
+/* =========================================================
+   CARD COLORS
+========================================================= */
+
+.mehndi-box {
+  background:
+    linear-gradient(
+      135deg,
+      #d7a91e,
+      #9b7010
+    );
 }
 
-/* ================= BARAAT CARD ================= */
+.mehndi-two-box {
+  background:
+    linear-gradient(
+      135deg,
+      #47733d,
+      #203f2c
+    );
+}
 
 .baraat-box {
   background:
@@ -386,8 +1101,6 @@ body {
       #73533c
     );
 }
-
-/* ================= VALIMA CARD ================= */
 
 .valima-box {
   background:
@@ -403,37 +1116,121 @@ body {
 
   inset: 0;
 
-  background: rgba(20, 14, 10, .2);
+  background:
+    linear-gradient(
+      rgba(15,10,5,.15),
+      rgba(15,10,5,.3)
+    );
 
   pointer-events: none;
 }
 
+
+/* =========================================================
+   CARD FLORALS
+========================================================= */
+
+.card-floral {
+  position: absolute;
+
+  z-index: 3;
+
+  color: rgba(255, 242, 201, .8);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 70px;
+
+  line-height: 1;
+
+  pointer-events: none;
+
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.15);
+
+  transition:
+    transform .5s ease;
+}
+
+.card-floral.top-left {
+  top: -5px;
+  left: 0;
+
+  transform: rotate(-25deg);
+}
+
+.card-floral.top-right {
+  top: -8px;
+  right: 2px;
+
+  transform:
+    rotate(25deg)
+    scaleX(-1);
+}
+
+.card-floral.bottom-left {
+  bottom: -8px;
+  left: 2px;
+
+  transform:
+    rotate(155deg)
+    scaleX(-1);
+}
+
+.card-floral.bottom-right {
+  bottom: -8px;
+  right: 0;
+
+  transform: rotate(155deg);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
 .ceremony-content {
   position: relative;
 
-  z-index: 2;
+  z-index: 5;
 
   color: white;
 
   text-align: center;
 
   pointer-events: none;
+
+  padding: 20px;
 }
 
-.ceremony-label {
+.ceremony-content .ceremony-label {
+  color: white;
+
   font-size: 8px;
 
   letter-spacing: 4px;
 }
 
 .ceremony-content h2 {
-  margin: 15px 0;
+  margin: 15px 0 8px;
 
-  font-family: "Great Vibes", cursive;
+  font-family: "Parisienne", cursive;
 
-  font-size: 75px;
+  font-size: 72px;
 
   font-weight: 400;
+}
+
+.ceremony-content p {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 20px;
+
+  letter-spacing: 1px;
+
+  color: rgba(255,255,255,.92);
 }
 
 .box-line {
@@ -443,7 +1240,7 @@ body {
 
   background: #e5c984;
 
-  margin: 0 auto 25px;
+  margin: 25px auto;
 }
 
 .view-invitation {
@@ -456,7 +1253,10 @@ body {
   margin-left: 8px;
 }
 
-/* ================= FAMILY ================= */
+
+/* =========================================================
+   FAMILY
+========================================================= */
 
 .family-section {
   margin: 80px auto 0;
@@ -474,6 +1274,8 @@ body {
   font-size: 9px;
 
   letter-spacing: 4px;
+
+  font-weight: 600;
 }
 
 .family-message {
@@ -519,7 +1321,7 @@ body {
 
   font-size: 22px;
 
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .contact-card a {
@@ -530,7 +1332,10 @@ body {
   font-size: 11px;
 }
 
-/* ================= FOOTER ================= */
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer {
   margin-top: 80px;
@@ -548,69 +1353,146 @@ footer b {
   margin-left: 10px;
 }
 
-/* ================= CURTAIN AFTER OPEN ================= */
 
-.home-page.opened .curtain-screen {
-  pointer-events: none;
-}
-
-/* ================= MOBILE ================= */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 700px) {
 
-  .curtain-content {
-    padding: 20px;
+  .envelope-stage {
+    width: 100vw;
+    height: 78vh;
   }
 
-  .curtain-content p {
-    font-size: 8px;
 
-    letter-spacing: 3px;
+  /* envelope */
 
-    margin-bottom: 15px;
+  .envelope {
+    width: 88vw;
+    max-width: 370px;
+
+    height: 235px;
+
+    transform:
+      translate(-50%, -25%);
   }
 
-  .curtain-content h1 {
-    font-size: 75px;
+
+  /* opening card */
+
+  .opening-card {
+    width: 78vw;
+    max-width: 320px;
+
+    height: 445px;
+
+    transform:
+      translate(-50%, -42%)
+      translateY(75px)
+      scale(.78);
   }
 
-  .curtain-content h2 {
-    font-size: 25px;
 
-    letter-spacing: 6px;
-
-    margin: 15px 0 25px;
+  .opening-card-inner {
+    padding: 35px 18px;
   }
 
-  .gold-line {
-    margin-bottom: 28px;
+
+  .opening-card h1 {
+    font-size: 65px;
   }
 
-  .open-button {
-    padding: 13px 22px;
 
-    font-size: 8px;
+  .opening-card h2 {
+    font-size: 42px;
+  }
+
+
+  .opening-kicker {
+    font-size: 7px;
 
     letter-spacing: 2.5px;
   }
 
+
+  .opening-card p {
+    font-size: 6.5px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .opening-card small {
+    font-size: 6.5px;
+  }
+
+
+  .opening-flower {
+    font-size: 80px;
+  }
+
+
+  /* seal */
+
+  .envelope-seal {
+    width: 62px;
+    height: 62px;
+
+    top: 59%;
+  }
+
+
+  .envelope-seal span {
+    font-size: 21px;
+  }
+
+
+  /* open animation */
+
+  .envelope-screen.is-opened .envelope {
+    transform:
+      translate(-50%, 12%)
+      scale(.94);
+  }
+
+
+  .envelope-screen.is-opened .opening-card {
+    transform:
+      translate(-50%, -52%)
+      translateY(-80px)
+      scale(.94);
+  }
+
+
+  /* main */
+
   .invitation-content {
-    width: 100%;
-
-    padding: 70px 18px 40px;
+    padding: 65px 18px 40px;
   }
 
-  .invitation-inner {
-    width: 100%;
+
+  .bismillah {
+    font-size: 29px;
   }
+
+
+  .quran-verse {
+    font-size: 25px;
+  }
+
+
+  .verse-translation {
+    font-size: 17px;
+  }
+
 
   .invited-small {
     font-size: 8px;
 
     letter-spacing: 2.5px;
-
-    white-space: nowrap;
   }
+
 
   .invited-text {
     font-size: 8px;
@@ -618,15 +1500,30 @@ footer b {
     letter-spacing: 2px;
   }
 
+
   .reception-title {
-    font-size: 70px;
+    font-size: 75px;
   }
+
 
   .celebration-title {
-    font-size: 22px;
+    font-size: 20px;
 
-    letter-spacing: 6px;
+    letter-spacing: 3px;
   }
+
+
+  .couple-names {
+    font-size: 49px;
+  }
+
+
+  .main-highlight {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
 
   .invitation-message {
     font-size: 18px;
@@ -634,9 +1531,13 @@ footer b {
     line-height: 1.8;
   }
 
+
   .blessing-text {
     font-size: 11px;
   }
+
+
+  /* cards */
 
   .ceremonies {
     grid-template-columns: 1fr;
@@ -646,80 +1547,105 @@ footer b {
     width: 100%;
   }
 
-  .ceremony-box {
-    width: 100%;
 
+  .ceremony-box {
     height: 330px;
   }
 
+
   .ceremony-content h2 {
-    font-size: 65px;
+    font-size: 64px;
   }
 
-  .ceremony-label {
-    font-size: 7px;
 
-    letter-spacing: 3px;
+  .ceremony-content p {
+    font-size: 18px;
   }
+
+
+  .card-floral {
+    font-size: 58px;
+  }
+
+
+  /* family */
 
   .contact-area {
     gap: 35px;
   }
 
+
   .contact-card strong {
     font-size: 20px;
   }
+
 
   footer {
     margin-top: 60px;
   }
 }
 
-/* ================= SMALL MOBILE ================= */
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media (max-width: 380px) {
 
-  .invitation-content {
-    padding-left: 14px;
-    padding-right: 14px;
+  .envelope {
+    width: 91vw;
+    height: 215px;
   }
 
-  .invited-small {
-    font-size: 7px;
-    letter-spacing: 2px;
+
+  .opening-card {
+    width: 80vw;
+    height: 415px;
   }
+
+
+  .opening-card h1 {
+    font-size: 58px;
+  }
+
+
+  .opening-card h2 {
+    font-size: 37px;
+  }
+
+
+  .envelope-seal {
+    width: 57px;
+    height: 57px;
+  }
+
 
   .reception-title {
-    font-size: 62px;
+    font-size: 65px;
   }
 
-  .celebration-title {
-    font-size: 19px;
-    letter-spacing: 5px;
+
+  .couple-names {
+    font-size: 43px;
   }
 
-  .invitation-message {
-    font-size: 16px;
-  }
 
   .ceremony-box {
     height: 300px;
   }
 
+
   .ceremony-content h2 {
     font-size: 58px;
   }
-}
 
-html {
-  scroll-behavior: auto;
-}
 
-body {
-  margin: 0;
-  scroll-behavior: auto;
-}
+  .ceremony-content p {
+    font-size: 16px;
+  }
 
-.home-page {
-  scroll-margin-top: 0;
+
+  .card-floral {
+    font-size: 52px;
+  }
 }

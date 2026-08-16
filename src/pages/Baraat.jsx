@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import "./Baraat.css";
 
+/* ================================================= */
+/* ================= SCRATCH DATE ================== */
+/* ================================================= */
+
 function ScratchDate() {
   const canvasRef = useRef(null);
   const [revealed, setRevealed] = useState(false);
@@ -20,18 +24,16 @@ function ScratchDate() {
       canvas.height = rect.height * dpr;
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
       ctx.globalCompositeOperation = "source-over";
 
-      // Scratch surface
       ctx.fillStyle = "#b33a3a";
       ctx.fillRect(0, 0, rect.width, rect.height);
 
-      // Gold pattern
       ctx.fillStyle = "rgba(235, 204, 139, 0.18)";
 
       for (let x = -rect.height; x < rect.width; x += 25) {
         ctx.save();
+
         ctx.translate(x, 0);
         ctx.rotate(Math.PI / 4);
 
@@ -44,12 +46,12 @@ function ScratchDate() {
         ctx.restore();
       }
 
-      // Center text
       ctx.fillStyle = "#f8ead5";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
 
       ctx.font = "600 12px Montserrat, sans-serif";
+
       ctx.fillText(
         "SCRATCH TO REVEAL",
         rect.width / 2,
@@ -57,6 +59,7 @@ function ScratchDate() {
       );
 
       ctx.font = "11px Montserrat, sans-serif";
+
       ctx.fillText(
         "your special date",
         rect.width / 2,
@@ -73,27 +76,10 @@ function ScratchDate() {
     };
   }, []);
 
-  const scratch = (e) => {
-    if (!scratching.current || revealed) return;
-
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const rect = canvas.getBoundingClientRect();
-
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    ctx.globalCompositeOperation = "destination-out";
-
-    ctx.beginPath();
-    ctx.arc(x, y, 25, 0, Math.PI * 2);
-    ctx.fill();
-
-    checkReveal();
-  };
-
   const checkReveal = () => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
+
     const ctx = canvas.getContext("2d");
 
     const pixels = ctx.getImageData(
@@ -121,6 +107,35 @@ function ScratchDate() {
     }
   };
 
+  const scratch = (e) => {
+    if (!scratching.current || revealed) return;
+
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    const rect = canvas.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    ctx.globalCompositeOperation = "destination-out";
+
+    ctx.beginPath();
+
+    ctx.arc(
+      x,
+      y,
+      25,
+      0,
+      Math.PI * 2
+    );
+
+    ctx.fill();
+
+    checkReveal();
+  };
+
   const startScratch = () => {
     scratching.current = true;
   };
@@ -130,13 +145,27 @@ function ScratchDate() {
   };
 
   return (
-    <div className={`scratch-wrapper ${revealed ? "revealed" : ""}`}>
-
+    <div
+      className={`scratch-wrapper ${
+        revealed ? "revealed" : ""
+      }`}
+    >
       <div className="date-underneath">
-        <span className="date-day">31</span>
-        <span className="date-month">OCTOBER</span>
-        <span className="date-year">2026</span>
-        <small>SATURDAY</small>
+        <span className="date-day">
+          31
+        </span>
+
+        <span className="date-month">
+          OCTOBER
+        </span>
+
+        <span className="date-year">
+          2026
+        </span>
+
+        <small>
+          SATURDAY
+        </small>
       </div>
 
       <canvas
@@ -148,16 +177,133 @@ function ScratchDate() {
         onPointerMove={scratch}
         onPointerCancel={stopScratch}
       />
+    </div>
+  );
+}
+
+
+/* ================================================= */
+/* ================= COUNTDOWN ===================== */
+/* ================================================= */
+
+function Countdown() {
+  const targetDate = new Date(
+    "2026-10-31T22:00:00+05:00"
+  ).getTime();
+
+  const calculateTime = () => {
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+      return {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      };
+    }
+
+    return {
+      days: Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+      ),
+
+      hours: Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+      ),
+
+      minutes: Math.floor(
+        (difference / (1000 * 60)) % 60
+      ),
+
+      seconds: Math.floor(
+        (difference / 1000) % 60
+      ),
+    };
+  };
+
+  const [time, setTime] = useState(calculateTime());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(calculateTime());
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  const format = (number) => {
+    return String(number).padStart(2, "0");
+  };
+
+  return (
+    <div className="countdown">
+
+      <div className="countdown-box">
+        <strong>
+          {time.days}
+        </strong>
+
+        <span>
+          DAYS
+        </span>
+      </div>
+
+      <div className="countdown-box">
+        <strong>
+          {format(time.hours)}
+        </strong>
+
+        <span>
+          HOURS
+        </span>
+      </div>
+
+      <div className="countdown-box">
+        <strong>
+          {format(time.minutes)}
+        </strong>
+
+        <span>
+          MINUTES
+        </span>
+      </div>
+
+      <div className="countdown-box">
+        <strong>
+          {format(time.seconds)}
+        </strong>
+
+        <span>
+          SECONDS
+        </span>
+      </div>
 
     </div>
   );
 }
 
+
+/* ================================================= */
+/* ================= BARAAT ======================== */
+/* ================================================= */
+
 function Baraat() {
+
   const audioRef = useRef(null);
 
+  const [curtainOpen, setCurtainOpen] = useState(false);
+
+
+  /* ================================================= */
+  /* ================= PAGE SETUP ==================== */
+  /* ================================================= */
+
   useEffect(() => {
-    // Always open Baraat page from TOP
+
     window.scrollTo({
       top: 0,
       left: 0,
@@ -170,106 +316,126 @@ function Baraat() {
 
     document.title = "Baraat Invitation";
 
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    audio.currentTime = 31;
-
-    const playSong = () => {
-      audio.currentTime = 31;
-
-      audio.play().catch(() => {
-        // Browser autoplay may be blocked
-      });
-    };
-
-    // Try automatically
-    playSong();
-
-    // If browser blocks autoplay, start on first interaction
-    const handleFirstInteraction = () => {
-      playSong();
-
-      document.removeEventListener(
-        "pointerdown",
-        handleFirstInteraction
-      );
-
-      document.removeEventListener(
-        "touchstart",
-        handleFirstInteraction
-      );
-
-      document.removeEventListener(
-        "click",
-        handleFirstInteraction
-      );
-    };
-
-    document.addEventListener(
-      "pointerdown",
-      handleFirstInteraction
-    );
-
-    document.addEventListener(
-      "touchstart",
-      handleFirstInteraction
-    );
-
-    document.addEventListener(
-      "click",
-      handleFirstInteraction
-    );
+    document.body.classList.add("baraat-curtain-locked");
 
     return () => {
-      document.removeEventListener(
-        "pointerdown",
-        handleFirstInteraction
+      document.body.classList.remove(
+        "baraat-curtain-locked"
       );
+    };
 
-      document.removeEventListener(
-        "touchstart",
-        handleFirstInteraction
-      );
+  }, []);
 
-      document.removeEventListener(
-        "click",
-        handleFirstInteraction
-      );
 
+  /* ================================================= */
+  /* ================= OPEN CURTAIN ================== */
+  /* ================================================= */
+
+  const openCurtain = async () => {
+
+    if (curtainOpen) return;
+
+    const audio = audioRef.current;
+
+    if (audio) {
+      try {
+        audio.currentTime = 15;
+        await audio.play();
+      } catch (error) {
+        console.log(
+          "Song could not start:",
+          error
+        );
+      }
+    }
+
+    setCurtainOpen(true);
+
+    document.body.classList.remove(
+      "baraat-curtain-locked"
+    );
+  };
+
+
+  /* ================================================= */
+  /* ================= SONG ========================== */
+  /* ================================================= */
+
+  useEffect(() => {
+
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    audio.load();
+
+    return () => {
       audio.pause();
       audio.currentTime = 0;
     };
+
   }, []);
+
 
   return (
     <main className="baraat-page">
 
-      {/* ================= BARAAT SONG ================= */}
+      {/* ================================================= */}
+      {/* ================= BARAAT SONG =================== */}
+      {/* ================================================= */}
 
-      <audio ref={audioRef} loop preload="auto">
+      <audio
+        ref={audioRef}
+        loop
+        preload="auto"
+        playsInline
+      >
         <source
-          src="/music/Mere%20Haath%20Mein.mp3"
+          src="/music/Pal.mp3"
           type="audio/mpeg"
         />
       </audio>
 
 
-      {/* ================= INTRO ANIMATION ================= */}
+      {/* ================================================= */}
+      {/* ================= CLOTH CURTAIN ================= */}
+      {/* ================================================= */}
 
-      <div className="baraat-intro">
+      <div
+        className={`baraat-curtain ${
+          curtainOpen ? "curtain-open" : ""
+        }`}
+      >
 
-        <div className="intro-glow"></div>
+        {/* LEFT CURTAIN */}
 
-        <div className="intro-pattern"></div>
+        <div className="curtain-panel curtain-left">
 
-        <div className="intro-content">
+          <div className="curtain-folds"></div>
 
-          <div className="intro-small">
+        </div>
+
+
+        {/* RIGHT CURTAIN */}
+
+        <div className="curtain-panel curtain-right">
+
+          <div className="curtain-folds"></div>
+
+        </div>
+
+
+        {/* ================================================= */}
+        {/* ================= CENTER CONTENT ================ */}
+        {/* ================================================= */}
+
+        <div className="curtain-center-content">
+
+          <div className="curtain-small-text">
             THE WEDDING CELEBRATION
           </div>
 
-          <div className="intro-ornament">
+          <div className="curtain-ornament">
             ❦
           </div>
 
@@ -281,14 +447,35 @@ function Baraat() {
             A Celebration of Love
           </p>
 
-          <div className="intro-line"></div>
+
+          {/* GOLDEN BUTTON */}
+
+          <button
+            type="button"
+            className="curtain-open-button"
+            onClick={openCurtain}
+            aria-label="Open Baraat Invitation"
+          >
+            <span className="button-inner">
+              <span className="button-symbol">
+                ✦
+              </span>
+            </span>
+          </button>
+
+
+          <div className="curtain-button-text">
+            TAP TO OPEN
+          </div>
 
         </div>
 
       </div>
 
 
-      {/* ================= HERO ================= */}
+      {/* ================================================= */}
+      {/* ================= HERO ========================== */}
+      {/* ================================================= */}
 
       <section className="baraat-hero">
 
@@ -307,11 +494,11 @@ function Baraat() {
         </div>
 
         <p className="parents">
-          MR. & MRS. Advocate ASHRAF ALI
+          MR. & MRS. ADVOCATE ASHRAF ALI
         </p>
 
         <p className="invite-line">
-          CORDIALLY INVITE YOU AT THE
+          CORDIALLY INVITE YOU TO THE
         </p>
 
         <h2 className="ceremony-name">
@@ -326,12 +513,14 @@ function Baraat() {
           Areeba Ashraf
         </h1>
 
+        <p className="person-title">
+          The Bride
+        </p>
 
-        {/* ================= COUPLE IMAGE AREA ================= */}
+
+        {/* ================= COUPLE VISUALS ================= */}
 
         <div className="couple-visuals">
-
-          {/* GIRL */}
 
           <div className="person-visual bride-visual">
 
@@ -345,24 +534,26 @@ function Baraat() {
           </div>
 
 
-          {/* CENTER ORNAMENT */}
-
           <div className="couple-center">
 
             <div className="ornament-line">
+
               <span></span>
-              <b>❦</b>
+
+              <b>
+                ❦
+              </b>
+
               <span></span>
+
             </div>
 
             <p className="with-word">
-              with
+              WITH
             </p>
 
           </div>
 
-
-          {/* BOY */}
 
           <div className="person-visual groom-visual">
 
@@ -382,8 +573,12 @@ function Baraat() {
           Syed Muhammad Osama Ali Hashmi
         </h2>
 
+        <p className="person-title">
+          The Groom
+        </p>
+
         <p className="son-of">
-          S/O. MR. & MRS. SYED ASIM ALI HASHMI
+          S/O MR. & MRS. SYED ASIM ALI HASHMI
         </p>
 
         <div className="hero-bottom-ornament">
@@ -393,7 +588,9 @@ function Baraat() {
       </section>
 
 
-      {/* ================= DATE ================= */}
+      {/* ================================================= */}
+      {/* ================= DATE ========================== */}
+      {/* ================================================= */}
 
       <section className="date-section">
 
@@ -418,7 +615,9 @@ function Baraat() {
       </section>
 
 
-      {/* ================= EVENT DETAILS ================= */}
+      {/* ================================================= */}
+      {/* ================= COUNTDOWN ===================== */}
+      {/* ================================================= */}
 
       <section className="details-section">
 
@@ -427,31 +626,17 @@ function Baraat() {
         </p>
 
         <h2 className="section-heading">
-          The Celebration
+          The Baraat
         </h2>
 
-        {/* <div className="event-date">
-
-          <div className="date-side">
-            <span>SATURDAY</span>
-          </div>
-
-          <div className="big-date">
-            <strong>31</strong>
-            <span>OCT</span>
-            <small>2026</small>
-          </div>
-
-          <div className="date-side">
-            <span>9:00 PM</span>
-          </div>
-
-        </div> */}
+        <Countdown />
 
       </section>
 
 
-      {/* ================= VENUE ================= */}
+      {/* ================================================= */}
+      {/* ================= VENUE ========================= */}
+      {/* ================================================= */}
 
       <section className="venue-section">
 
@@ -483,15 +668,23 @@ function Baraat() {
           rel="noreferrer"
           className="map-button"
         >
-          <span>⌖</span>
+          <span>
+            ⌖
+          </span>
+
           GET DIRECTIONS
-          <b>→</b>
+
+          <b>
+            →
+          </b>
         </a>
 
       </section>
 
 
-      {/* ================= PROGRAM ================= */}
+      {/* ================================================= */}
+      {/* ================= PROGRAM ======================= */}
+      {/* ================================================= */}
 
       <section className="program-section">
 
@@ -506,18 +699,33 @@ function Baraat() {
         <div className="program-list">
 
           <div className="program-row">
-            <span>ARRIVAL OF BARAAT</span>
-            <b>10:00 PM</b>
+            <span>
+              ARRIVAL OF BARAAT
+            </span>
+
+            <b>
+              10:00 PM
+            </b>
           </div>
 
           <div className="program-row">
-            <span>DINNER</span>
-            <b>11:00 PM</b>
+            <span>
+              DINNER
+            </span>
+
+            <b>
+              11:00 PM
+            </b>
           </div>
 
           <div className="program-row">
-            <span>RUKHSATI</span>
-            <b>11:50 PM</b>
+            <span>
+              RUKHSATI
+            </span>
+
+            <b>
+              11:50 PM
+            </b>
           </div>
 
         </div>
@@ -525,7 +733,9 @@ function Baraat() {
       </section>
 
 
-      {/* ================= WELCOME ================= */}
+      {/* ================================================= */}
+      {/* ================= WELCOME ======================= */}
+      {/* ================================================= */}
 
       <section className="welcome-section">
 
@@ -538,7 +748,7 @@ function Baraat() {
         </p>
 
         <h2>
-          All Family Members
+          OUR BELOVED FAMILY & FRIENDS
         </h2>
 
         <p className="welcome-message">
@@ -550,7 +760,9 @@ function Baraat() {
       </section>
 
 
-      {/* ================= RSVP ================= */}
+      {/* ================================================= */}
+      {/* ================= RSVP ========================== */}
+      {/* ================================================= */}
 
       <section className="rsvp-section">
 
@@ -565,6 +777,7 @@ function Baraat() {
         <div className="rsvp-card">
 
           <div className="rsvp-person">
+
             <h3>
               Advocate Ashraf Ali
             </h3>
@@ -572,9 +785,11 @@ function Baraat() {
             <a href="tel:03342595325">
               03342595325
             </a>
+
           </div>
 
           <div className="rsvp-person">
+
             <h3>
               Syed Salman Ali Hashmi
             </h3>
@@ -582,6 +797,7 @@ function Baraat() {
             <a href="tel:03219242503">
               03219242503
             </a>
+
           </div>
 
         </div>
@@ -589,7 +805,9 @@ function Baraat() {
       </section>
 
 
-      {/* ================= FOOTER ================= */}
+      {/* ================================================= */}
+      {/* ================= FOOTER ======================== */}
+      {/* ================================================= */}
 
       <footer className="baraat-footer">
 
@@ -598,7 +816,7 @@ function Baraat() {
         </div>
 
         <p>
-          With Love & Blessings
+          WITH LOVE & BLESSINGS
         </p>
 
         <strong>

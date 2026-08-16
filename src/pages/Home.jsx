@@ -8,36 +8,24 @@ function Home() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Invitation";
+    document.title = "Wedding Invitation";
   }, []);
 
- const openInvitation = () => {
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "instant",
-  });
+  const openInvitation = () => {
+    if (opened) return;
 
-  setOpened(true);
+    setOpened(true);
 
-  if (audioRef.current) {
-    audioRef.current.currentTime = 0;
-    audioRef.current.play().catch(() => {});
-  }
-
-  setTimeout(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant",
-    });
-  }, 50);
-};
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play().catch(() => {});
+    }
+  };
 
   return (
     <main className={`home-page ${opened ? "opened" : ""}`}>
 
-      {/* ================= HOME SONG ================= */}
+      {/* ================= MUSIC ================= */}
 
       <audio ref={audioRef} loop preload="auto">
         <source
@@ -46,80 +34,196 @@ function Home() {
         />
       </audio>
 
-      {/* ================= CURTAIN ================= */}
 
-      <div className={`curtain-screen ${opened ? "hide-curtain" : ""}`}>
+      {/* =====================================================
+          ENVELOPE OPENING
+      ====================================================== */}
 
-        <div className="curtain curtain-left">
-          <div className="curtain-folds"></div>
-        </div>
+      <div className={`envelope-screen ${opened ? "is-opened" : ""}`}>
 
-        <div className="curtain curtain-right">
-          <div className="curtain-folds"></div>
-        </div>
+        <div className="envelope-stage">
 
-        <div className="curtain-content">
+          {/* ================= INVITATION CARD ================= */}
 
-          <div className="top-ornament">
-            ✦
+          <div className="opening-card">
+
+            <div className="opening-flower flower-tl">❦</div>
+            <div className="opening-flower flower-tr">❦</div>
+            <div className="opening-flower flower-bl">❦</div>
+            <div className="opening-flower flower-br">❦</div>
+
+            <div className="opening-card-inner">
+
+              <span className="opening-kicker">
+                YOU ARE CORDIALLY INVITED
+              </span>
+
+              <h1>
+                Wedding
+              </h1>
+
+              <div className="opening-line"></div>
+
+              <span className="opening-of">
+                OF
+              </span>
+
+              <h2>
+                Areeba <span>♡</span> Osama
+              </h2>
+
+              <p>
+                TWO HEARTS · TWO FAMILIES
+              </p>
+
+              <small>
+                ONE BEAUTIFUL BEGINNING
+              </small>
+
+            </div>
           </div>
 
-          <p>
-            YOU ARE CORDIALLY INVITED
-          </p>
 
-          <h1>
-            Wedding
-          </h1>
+          {/* ================= ENVELOPE ================= */}
 
-          <h2>
-            Invitation
-          </h2>
+          <div className="envelope">
 
-          <div className="gold-line"></div>
+            {/* Back body */}
+            <div className="envelope-back"></div>
 
-          <button
-            className="open-button"
-            onClick={openInvitation}
-          >
-            OPEN INVITATION
-            <span>→</span>
-          </button>
+            {/* Letter pocket */}
+            <div className="envelope-pocket"></div>
+
+            {/* Decorative front border */}
+            <div className="envelope-border"></div>
+
+            {/* Floral decorations */}
+            <div className="envelope-flower envelope-flower-tl">
+              ❦
+            </div>
+
+            <div className="envelope-flower envelope-flower-tr">
+              ❦
+            </div>
+
+            <div className="envelope-flower envelope-flower-bl">
+              ❦
+            </div>
+
+            <div className="envelope-flower envelope-flower-br">
+              ❦
+            </div>
+
+
+            {/* ================= FLAP ================= */}
+
+            <div className="envelope-flap">
+
+              <div className="flap-floral">
+                ❦
+              </div>
+
+            </div>
+
+
+            {/* ================= GOLDEN SEAL ================= */}
+
+            {!opened && (
+              <button
+                className="envelope-seal"
+                onClick={openInvitation}
+                aria-label="Open wedding invitation"
+              >
+                <span>✦</span>
+              </button>
+            )}
+
+          </div>
 
         </div>
       </div>
 
-      {/* ================= MAIN INVITATION ================= */}
+
+      {/* =====================================================
+          MAIN INVITATION
+      ====================================================== */}
 
       <section className="invitation-content">
 
         <div className="invitation-inner">
 
-          <div className="ornament">
-            ✦
+          {/* ================= BISMILLAH ================= */}
+
+          <div className="bismillah">
+            ﷽
           </div>
+
+          <div className="quran-verse">
+            وَخَلَقْنَاكُمْ أَزْوَاجًا
+          </div>
+
+          <p className="verse-translation">
+            “And We created you in pairs.”
+          </p>
+
+          <p className="verse-reference">
+            An-Naba | Verse 8
+          </p>
+
+
+          <div className="ornament">
+            ❦
+          </div>
+
+
+          {/* ================= FAMILY NAMES ================= */}
 
           <p className="invited-small">
             MR & MRS SYED ASIM ALI HASHMI
           </p>
 
-          <p className="invited-text">
-            INVITE YOU TO CELEBRATE THE
+          <p className="invited-ampersand">
+            &
           </p>
+
+          <p className="invited-small">
+            MR & MRS ADVOCATE ASHRAF ALI
+          </p>
+
+
+          <p className="invited-text">
+            JOYFULLY INVITE YOU TO CELEBRATE THE
+          </p>
+
+
+          {/* ================= WEDDING ================= */}
 
           <h1 className="reception-title">
             Wedding
           </h1>
 
           <h2 className="celebration-title">
-            CELEBRATION
+            OF THEIR BELOVED CHILDREN
           </h2>
+
+
+          <div className="couple-names">
+            AREEBA <span>♡</span> OSAMA
+          </div>
+
 
           <div className="gold-divider">
             <span></span>
             <b>✦</b>
             <span></span>
           </div>
+
+
+          {/* ================= MESSAGE ================= */}
+
+          <p className="main-highlight">
+            TWO HEARTS, TWO FAMILIES, ONE BEAUTIFUL BEGINNING.
+          </p>
 
           <p className="invitation-message">
             With immense joy and happiness,
@@ -130,23 +234,153 @@ function Home() {
           </p>
 
           <p className="blessing-text">
-            Your presence and blessings will make
+            Your presence, prayers and blessings
             <br />
-            these precious moments even more special.
+            will make these precious moments
+            <br />
+            even more meaningful and special to us.
           </p>
+
 
           <div className="floral-divider">
             ❦
           </div>
 
-          {/* ================= CEREMONIES ================= */}
+
+          {/* ================= CELEBRATIONS ================= */}
+
+          <p className="celebration-label">
+            OUR CELEBRATIONS
+          </p>
+
 
           <section className="ceremonies">
 
+
+            {/* ================= MEHNDI 1 ================= */}
+
             <Link
-              to="/baraat"
+                 to="/mehndi-invite-2741"
+                className="ceremony-box mehndi-box"
+             >
+
+              <div className="card-floral top-left">
+                ❀
+              </div>
+
+              <div className="card-floral top-right">
+                ❦
+              </div>
+
+              <div className="card-floral bottom-left">
+                ❦
+              </div>
+
+              <div className="card-floral bottom-right">
+                ❀
+              </div>
+
+              <div className="box-shade"></div>
+
+              <div className="ceremony-content">
+
+                <span className="ceremony-label">
+                  THE CELEBRATION
+                </span>
+
+                <h2>
+                  Mehndi 1
+                </h2>
+
+                <p>
+                  An Evening of Joy & Colors
+                </p>
+
+                <div className="box-line"></div>
+
+                <span className="view-invitation">
+                  VIEW INVITATION
+                  <b>→</b>
+                </span>
+
+              </div>
+
+            </Link>
+
+
+            {/* ================= MEHNDI 2 ================= */}
+
+            <Link
+               to="/mehndi-2-invitation-5836"
+              className="ceremony-box mehndi-two-box"
+            >
+
+              <div className="card-floral top-left">
+                ❀
+              </div>
+
+              <div className="card-floral top-right">
+                ❦
+              </div>
+
+              <div className="card-floral bottom-left">
+                ❦
+              </div>
+
+              <div className="card-floral bottom-right">
+                ❀
+              </div>
+
+              <div className="box-shade"></div>
+
+              <div className="ceremony-content">
+
+                <span className="ceremony-label">
+                  THE CELEBRATION
+                </span>
+
+                <h2>
+                  Mehndi 2
+                </h2>
+
+                <p>
+                  An Evening of Music & Happiness
+                </p>
+
+                <div className="box-line"></div>
+
+                <span className="view-invitation">
+                  VIEW INVITATION
+                  <b>→</b>
+                </span>
+
+              </div>
+
+            </Link>
+
+
+            {/* ================= BARAAT ================= */}
+
+            <Link
+              to="/baraat-invitation-9142"
               className="ceremony-box baraat-box"
             >
+
+              <div className="card-floral top-left">
+                ❀
+              </div>
+
+              <div className="card-floral top-right">
+                ❦
+              </div>
+
+              <div className="card-floral bottom-left">
+                ❦
+              </div>
+
+              <div className="card-floral bottom-right">
+                ❀
+              </div>
 
               <div className="box-shade"></div>
 
@@ -160,6 +394,10 @@ function Home() {
                   Baraat
                 </h2>
 
+                <p>
+                  An Evening of Love & Tradition
+                </p>
+
                 <div className="box-line"></div>
 
                 <span className="view-invitation">
@@ -171,10 +409,29 @@ function Home() {
 
             </Link>
 
+
+            {/* ================= VALIMA ================= */}
+
             <Link
-              to="/valima"
+               to="/valima-invite-7365"
               className="ceremony-box valima-box"
             >
+
+              <div className="card-floral top-left">
+                ❀
+              </div>
+
+              <div className="card-floral top-right">
+                ❦
+              </div>
+
+              <div className="card-floral bottom-left">
+                ❦
+              </div>
+
+              <div className="card-floral bottom-right">
+                ❀
+              </div>
 
               <div className="box-shade"></div>
 
@@ -188,6 +445,10 @@ function Home() {
                   Valima
                 </h2>
 
+                <p>
+                  An Evening of Love & Celebration
+                </p>
+
                 <div className="box-line"></div>
 
                 <span className="view-invitation">
@@ -200,6 +461,7 @@ function Home() {
             </Link>
 
           </section>
+
 
           {/* ================= FAMILY ================= */}
 
@@ -216,10 +478,13 @@ function Home() {
             </p>
 
             <p className="family-message">
-              We look forward to celebrating these
-              beautiful moments with our beloved
+              We look forward to celebrating
+              <br />
+              these beautiful moments with our beloved
+              <br />
               family and friends.
             </p>
+
 
             <div className="contact-area">
 
@@ -238,6 +503,7 @@ function Home() {
                 </a>
 
               </div>
+
 
               <div className="contact-card">
 
@@ -259,11 +525,12 @@ function Home() {
 
           </section>
 
+
           {/* ================= FOOTER ================= */}
 
           <footer>
             <span>
-              With Love
+              Areeba & Osama
             </span>
 
             <b>

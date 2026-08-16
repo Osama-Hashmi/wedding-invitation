@@ -24,8 +24,9 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+
 /* =========================================================
-   FULL SCREEN INTRO ANIMATION
+   INTRO
    ========================================================= */
 
 .valima-intro {
@@ -33,6 +34,7 @@ body {
   inset: 0;
   z-index: 99999;
   overflow: hidden;
+
   background:
     radial-gradient(
       circle at center,
@@ -45,18 +47,24 @@ body {
   align-items: center;
   justify-content: center;
 
-  animation: introDisappear 1s ease 2s forwards;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
-/* Large decorative panels */
+
+/* =========================================================
+   INTRO PANELS
+   IMPORTANT:
+   They DO NOT animate until intro-started is added.
+   ========================================================= */
 
 .intro-left,
 .intro-right {
   position: absolute;
   top: 0;
+
   width: 50%;
   height: 100%;
+
   background:
     linear-gradient(
       135deg,
@@ -64,11 +72,13 @@ body {
       #d2b46d 45%,
       #f8efd9 100%
     );
+
   z-index: 2;
 }
 
 .intro-left {
   left: 0;
+
   clip-path: polygon(
     0 0,
     100% 0,
@@ -76,12 +86,11 @@ body {
     100% 100%,
     0 100%
   );
-
-  animation: introLeftOpen 1.5s cubic-bezier(.77,0,.18,1) 1s forwards;
 }
 
 .intro-right {
   right: 0;
+
   clip-path: polygon(
     0 0,
     100% 0,
@@ -89,96 +98,247 @@ body {
     0 100%,
     18% 50%
   );
-
-  animation: introRightOpen 1.5s cubic-bezier(.77,0,.18,1) 1s forwards;
 }
 
-/* Glow */
+
+/* =========================================================
+   AFTER USER TAP
+   ========================================================= */
+
+.valima-intro.intro-started {
+  pointer-events: none;
+}
+
+.valima-intro.intro-started .intro-left {
+  animation:
+    introLeftOpen 1.6s cubic-bezier(.77, 0, .18, 1)
+    forwards;
+}
+
+.valima-intro.intro-started .intro-right {
+  animation:
+    introRightOpen 1.6s cubic-bezier(.77, 0, .18, 1)
+    forwards;
+}
+
+.valima-intro.intro-started .intro-center {
+  animation:
+    introTextOut .8s ease forwards;
+}
+
+.valima-intro.intro-started .intro-glow {
+  animation:
+    introGlow 1.8s ease forwards;
+}
+
+.valima-intro.intro-started .ring-one {
+  animation:
+    ringSpin 8s linear infinite;
+}
+
+.valima-intro.intro-started .ring-two {
+  animation:
+    ringSpinReverse 6s linear infinite;
+}
+
+.valima-intro.intro-started .ring-three {
+  animation:
+    ringPulse 2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   INTRO GLOW
+   ========================================================= */
 
 .intro-glow {
   position: absolute;
+
   width: 400px;
   height: 400px;
+
   border-radius: 50%;
+
   background: rgba(255, 255, 255, .55);
+
   filter: blur(45px);
 
-  animation:
-    introGlow 2s ease forwards;
+  transform: scale(.8);
 }
 
-/* Rings */
+
+/* =========================================================
+   RINGS
+   ========================================================= */
 
 .intro-ring {
   position: absolute;
+
   border: 1px solid rgba(167, 126, 56, .45);
+
   border-radius: 50%;
+
   z-index: 3;
 }
 
 .ring-one {
   width: 330px;
   height: 330px;
-  animation: ringSpin 8s linear infinite;
 }
 
 .ring-two {
   width: 250px;
   height: 250px;
+
   border-style: dashed;
-  animation: ringSpinReverse 6s linear infinite;
 }
 
 .ring-three {
   width: 180px;
   height: 180px;
+
   border-color: rgba(167, 126, 56, .7);
-  animation: ringPulse 2s ease-in-out infinite;
 }
 
-/* Intro text */
+
+/* =========================================================
+   INTRO CENTER
+   ========================================================= */
 
 .intro-center {
   position: relative;
+
   z-index: 5;
+
   text-align: center;
 
   animation:
-    introTextIn 1s ease .25s both,
-    introTextOut .7s ease 1.7s forwards;
+    introTextIn 1s ease forwards;
 }
 
 .intro-symbol {
   color: #ad843c;
+
   font-size: 30px;
+
   margin-bottom: 15px;
 }
 
 .intro-center p {
   margin: 0 0 8px;
+
   font-size: 9px;
+
   letter-spacing: 5px;
+
   color: #78633f;
+
   font-weight: 600;
 }
 
 .intro-center h1 {
   margin: 0;
+
   font-family: "Parisienne", cursive;
+
   font-size: 85px;
+
   font-weight: 400;
+
   color: #a47a35;
 }
 
 .intro-center span {
   display: block;
+
   margin-top: 12px;
+
   font-size: 9px;
+
   letter-spacing: 4px;
+
   color: #75664d;
 }
 
-/* Intro animations */
+
+/* =========================================================
+   OPEN BUTTON
+   ========================================================= */
+
+.valima-open-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 30px;
+
+  min-width: 165px;
+
+  padding: 13px 25px;
+
+  border: 1px solid #ad843c;
+
+  border-radius: 2px;
+
+  background:
+    rgba(255, 255, 255, .35);
+
+  color: #80602b;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(6px);
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
+}
+
+.valima-open-button:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(255, 255, 255, .7);
+
+  box-shadow:
+    0 8px 25px rgba(128, 96, 43, .15);
+}
+
+.valima-open-button:active {
+  transform: scale(.96);
+}
+
+.valima-open-button:disabled {
+  cursor: default;
+  opacity: .75;
+}
+
+.valima-open-button span {
+  display: inline-block;
+
+  margin: 0;
+
+  color: #ad843c;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   INTRO ANIMATIONS
+   ========================================================= */
 
 @keyframes introLeftOpen {
   0% {
@@ -200,34 +360,28 @@ body {
   }
 }
 
-@keyframes introDisappear {
-  0% {
-    opacity: 1;
-  }
-
-  75% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
 @keyframes introTextIn {
   from {
     opacity: 0;
-    transform: scale(.8) translateY(20px);
+    transform:
+      scale(.8)
+      translateY(20px);
   }
 
   to {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform:
+      scale(1)
+      translateY(0);
   }
 }
 
 @keyframes introTextOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   to {
     opacity: 0;
     transform: scale(1.15);
@@ -236,12 +390,12 @@ body {
 
 @keyframes introGlow {
   0% {
-    transform: scale(.4);
-    opacity: .2;
+    transform: scale(.8);
+    opacity: .5;
   }
 
   100% {
-    transform: scale(1.4);
+    transform: scale(1.5);
     opacity: .8;
   }
 }
@@ -271,16 +425,21 @@ body {
   }
 }
 
+
 /* =========================================================
    HERO
    ========================================================= */
 
 .valima-hero {
   min-height: 100svh;
+
   padding: 65px 25px;
+
   display: flex;
+
   justify-content: center;
   align-items: center;
+
   text-align: center;
 
   background:
@@ -292,15 +451,19 @@ body {
     );
 
   position: relative;
+
   overflow: hidden;
 }
 
 .hero-content {
   width: 100%;
+
   position: relative;
+
   z-index: 2;
 
-  animation: heroContentIn 1.2s ease 2.4s both;
+  animation:
+    heroContentIn 1.2s ease both;
 }
 
 @keyframes heroContentIn {
@@ -317,9 +480,12 @@ body {
 
 .hero-ornament {
   position: absolute;
+
   color: #b08b45;
+
   font-size: 90px;
-  opacity: 0.25;
+
+  opacity: .25;
 }
 
 .hero-ornament.top {
@@ -328,61 +494,86 @@ body {
 
 .bismillah {
   font-size: 34px;
+
   color: #a47c38;
+
   margin-bottom: 20px;
 }
 
 .parents {
   font-size: 17px;
+
   letter-spacing: 3px;
+
   color: #806638;
+
   margin: 0 0 14px;
+
   font-weight: 500;
 }
 
 .invite-line {
   font-size: 10px;
+
   letter-spacing: 3px;
+
   color: #81766a;
+
   margin: 6px 0;
 }
 
 .ceremony-title {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 38px;
+
   font-weight: 600;
+
   letter-spacing: 5px;
+
   color: #9b7435;
+
   margin: 8px 0;
 }
 
+
 /* =========================================================
-   COUPLE SECTION
+   COUPLE
    ========================================================= */
 
 .couple-area {
   width: min(1250px, 100%);
+
   margin: 20px auto 0;
 
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) minmax(380px, 1.5fr) minmax(180px, 1fr);
+
+  grid-template-columns:
+    minmax(180px, 1fr)
+    minmax(380px, 1.5fr)
+    minmax(180px, 1fr);
+
   align-items: center;
+
   gap: 25px;
 }
 
 .couple-image {
   display: flex;
+
   justify-content: center;
   align-items: center;
 }
 
 .image-frame {
   width: min(260px, 100%);
+
   height: 390px;
 
   overflow: hidden;
 
-  border-radius: 130px 130px 15px 15px;
+  border-radius:
+    130px 130px 15px 15px;
 
   border: 2px solid #c5a76a;
 
@@ -396,102 +587,169 @@ body {
     );
 
   box-shadow:
-    0 18px 45px rgba(111, 83, 39, .18);
+    0 18px 45px
+    rgba(111, 83, 39, .18);
 
   position: relative;
 }
 
 .image-frame::before {
   content: "";
+
   position: absolute;
+
   inset: 5px;
-  border: 1px solid rgba(176, 139, 69, .6);
-  border-radius: 125px 125px 10px 10px;
+
+  border:
+    1px solid
+    rgba(176, 139, 69, .6);
+
+  border-radius:
+    125px 125px 10px 10px;
+
   pointer-events: none;
+
   z-index: 2;
 }
 
 .image-frame img {
   width: 100%;
+
   height: 100%;
+
   display: block;
+
   object-fit: cover;
 
-  border-radius: 122px 122px 8px 8px;
+  border-radius:
+    122px 122px 8px 8px;
 
-  transition: transform .5s ease;
+  transition:
+    transform .5s ease;
 }
 
 .image-frame:hover img {
   transform: scale(1.04);
 }
 
-/* Center names */
+
+/* =========================================================
+   NAMES
+   ========================================================= */
 
 .couple-names {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   justify-content: center;
 }
 
 .groom-name {
   font-family: "Parisienne", cursive;
-  font-size: clamp(55px, 6vw, 88px);
+
+  font-size:
+    clamp(55px, 6vw, 88px);
+
   font-weight: 400;
+
   line-height: 1;
+
   color: #a47a35;
+
   margin: 0;
+
   max-width: 700px;
+}
+
+.person-title {
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: #806638;
+
+  margin: 8px 0;
+
+  font-weight: 600;
 }
 
 .gold-divider {
   display: flex;
+
   align-items: center;
+
   gap: 15px;
+
   width: min(420px, 90%);
-  margin: 14px auto 5px;
+
+  margin: 10px auto 5px;
 }
 
 .gold-divider span {
   height: 1px;
+
   flex: 1;
+
   background: #c9aa6a;
 }
 
 .gold-divider b {
   color: #a47c38;
+
   font-size: 24px;
 }
 
 .with-word {
   font-family: "Parisienne", cursive;
+
   color: #806638;
+
   font-size: 35px;
+
   margin: 0;
 }
 
 .bride-name {
   font-family: "Parisienne", cursive;
-  font-size: clamp(55px, 6vw, 88px);
+
+  font-size:
+    clamp(55px, 6vw, 88px);
+
   font-weight: 400;
+
   line-height: 1;
+
   color: #a47a35;
+
   margin: 0;
 }
 
 .daughter-title {
   font-family: "Parisienne", cursive;
-  font-size: clamp(30px, 4vw, 50px);
+
+  font-size:
+    clamp(30px, 4vw, 50px);
+
   color: #a47a35;
+
   margin: 8px 0 0;
 }
 
 .hero-bottom-ornament {
   margin-top: 20px;
+
   color: #b08b45;
+
   font-size: 22px;
 }
+
 
 /* =========================================================
    COMMON
@@ -499,19 +757,28 @@ body {
 
 .section-label {
   font-size: 16px;
+
   letter-spacing: 4px;
+
   color: #87652e;
+
   margin: 0 0 12px;
+
   font-weight: 700;
 }
 
 .section-heading {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 52px;
+
   font-weight: 600;
+
   color: #40382e;
+
   margin: 0 0 30px;
 }
+
 
 /* =========================================================
    DATE
@@ -519,27 +786,39 @@ body {
 
 .valima-date-section {
   padding: 100px 25px;
+
   text-align: center;
+
   background: #f8f0df;
 }
 
 .scratch-wrapper {
   position: relative;
+
   width: min(390px, 90vw);
+
   height: 220px;
+
   margin: 0 auto;
+
   border: 1px solid #c6a76a;
+
   overflow: hidden;
+
   background: #fffdf8;
 }
 
 .date-underneath {
   position: absolute;
+
   inset: 0;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   justify-content: center;
 
   color: #8b692f;
@@ -547,58 +826,145 @@ body {
 
 .date-day {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 90px;
-  line-height: 0.8;
+
+  line-height: .8;
+
   font-weight: 600;
 }
 
 .date-month {
   font-size: 16px;
+
   letter-spacing: 6px;
+
   margin-top: 10px;
+
   font-weight: 600;
 }
 
 .date-year {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 25px;
+
   margin-top: 4px;
+
   font-weight: 600;
 }
 
 .date-underneath small {
   font-size: 8px;
+
   letter-spacing: 3px;
+
   margin-top: 8px;
+
   font-weight: 600;
 }
 
 .scratch-canvas {
   position: absolute;
+
   inset: 0;
+
   width: 100%;
+
   height: 100%;
+
   touch-action: none;
+
   cursor: crosshair;
-  transition: opacity 0.5s ease;
+
+  transition:
+    opacity .5s ease;
 }
 
 .scratch-note {
   font-size: 11px;
+
   letter-spacing: 1px;
+
   color: #766b5d;
+
   margin-top: 20px;
 }
 
+
 /* =========================================================
-   EVENT
+   EVENT / COUNTDOWN
    ========================================================= */
 
 .valima-event-section {
   padding: 100px 25px;
+
   text-align: center;
+
   background: #fffdf8;
 }
+
+.countdown {
+  width: min(850px, 100%);
+
+  margin: 20px auto 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+.countdown-box {
+  padding: 25px 10px;
+
+  border:
+    1px solid #d7c59d;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf8,
+      #f8f0df
+    );
+
+  box-shadow:
+    0 10px 30px
+    rgba(111, 83, 39, .08);
+}
+
+.countdown-box strong {
+  display: block;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 48px;
+
+  line-height: 1;
+
+  color: #9b7435;
+
+  font-weight: 600;
+}
+
+.countdown-box span {
+  display: block;
+
+  margin-top: 8px;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: #806638;
+
+  font-weight: 600;
+}
+
 
 /* =========================================================
    VENUE
@@ -606,59 +972,84 @@ body {
 
 .valima-venue-section {
   padding: 100px 25px;
+
   text-align: center;
+
   background: #f4ead5;
 }
 
 .venue-symbol {
   color: #b08b45;
+
   font-size: 24px;
+
   margin-bottom: 20px;
 }
 
 .venue-name {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 58px;
+
   font-weight: 600;
+
   color: #4d4439;
+
   margin: 10px 0;
 }
 
 .venue-divider {
   width: 100px;
+
   height: 1px;
+
   background: #b08b45;
+
   margin: 20px auto;
 }
 
 .venue-address {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 21px;
+
   line-height: 1.5;
+
   color: #5d5348;
+
   font-weight: 500;
 }
 
 .map-button {
   display: inline-flex;
+
   align-items: center;
+
   gap: 14px;
+
   margin-top: 25px;
+
   padding: 15px 25px;
 
   text-decoration: none;
+
   color: #fffdf8;
+
   background: #8f6a30;
 
   font-size: 10px;
+
   letter-spacing: 2px;
+
   font-weight: 600;
 
-  transition: all 0.3s ease;
+  transition:
+    all .3s ease;
 }
 
 .map-button:hover {
   transform: translateY(-3px);
+
   background: #705021;
 }
 
@@ -670,31 +1061,39 @@ body {
   font-size: 17px;
 }
 
+
 /* =========================================================
    PROGRAM
    ========================================================= */
 
 .valima-program-section {
   padding: 100px 25px;
+
   text-align: center;
+
   background: #fffdf8;
 }
 
 .program-list {
   width: min(700px, 100%);
+
   margin: auto;
 }
 
 .program-row {
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
 
   padding: 22px 8px;
 
-  border-bottom: 1px solid #cdbd9d;
+  border-bottom:
+    1px solid #cdbd9d;
 
   font-size: 20px;
+
   letter-spacing: 1.5px;
 
   color: #4d4439;
@@ -703,7 +1102,8 @@ body {
 }
 
 .program-row:first-child {
-  border-top: 1px solid #cdbd9d;
+  border-top:
+    1px solid #cdbd9d;
 }
 
 .program-row span {
@@ -712,9 +1112,12 @@ body {
 
 .program-row b {
   color: #73551f;
+
   font-size: 20px;
+
   font-weight: 800;
 }
+
 
 /* =========================================================
    WELCOME
@@ -722,38 +1125,54 @@ body {
 
 .valima-welcome-section {
   padding: 120px 25px;
+
   text-align: center;
+
   background: #f8f0df;
 }
 
 .gold-emblem {
   color: #b08b45;
+
   font-size: 26px;
+
   margin-bottom: 20px;
 }
 
 .welcome-title {
   font-size: 9px;
+
   letter-spacing: 4px;
+
   color: #80602b;
+
   font-weight: 700;
 }
 
 .valima-welcome-section h2 {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 62px;
+
   font-weight: 600;
+
   color: #4a4238;
+
   margin: 10px 0 20px;
 }
 
 .welcome-message {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 21px;
+
   line-height: 1.5;
+
   color: #655b4f;
+
   font-weight: 500;
 }
+
 
 /* =========================================================
    RSVP
@@ -761,34 +1180,48 @@ body {
 
 .rsvp-section {
   padding: 90px 20px;
+
   text-align: center;
+
   background: #fffdf8;
 }
 
 .rsvp-card {
   width: min(600px, 100%);
+
   margin: 30px auto 0;
 }
 
 .rsvp-person {
   padding: 20px 10px;
-  border-bottom: 1px solid #dfd2ba;
+
+  border-bottom:
+    1px solid #dfd2ba;
 }
 
 .rsvp-person h3 {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 25px;
+
   font-weight: 700;
+
   margin: 0 0 7px;
+
   color: #665126;
 }
 
 .rsvp-person a {
   text-decoration: none;
+
   font-family: "Montserrat", sans-serif;
+
   font-size: 13px;
+
   letter-spacing: 1px;
+
   color: #85632b;
+
   font-weight: 600;
 }
 
@@ -796,35 +1229,47 @@ body {
   text-decoration: underline;
 }
 
+
 /* =========================================================
    FOOTER
    ========================================================= */
 
 .valima-footer {
   padding: 70px 25px;
+
   text-align: center;
+
   background: #40382e;
+
   color: #f8f0df;
 }
 
 .footer-ornament {
   color: #d0b477;
+
   font-size: 28px;
+
   margin-bottom: 15px;
 }
 
 .valima-footer p {
   font-size: 10px;
+
   letter-spacing: 3px;
+
   margin: 0 0 12px;
 }
 
 .valima-footer strong {
   font-family: "Parisienne", cursive;
+
   font-size: 55px;
+
   font-weight: 400;
+
   color: #d0b477;
 }
+
 
 /* =========================================================
    MOBILE
@@ -834,7 +1279,9 @@ body {
 
   .valima-hero {
     min-height: 100svh;
-    padding: 30px 12px 25px;
+
+    padding:
+      30px 12px 25px;
   }
 
   .hero-ornament {
@@ -843,59 +1290,90 @@ body {
 
   .bismillah {
     font-size: 27px;
+
     margin-bottom: 12px;
   }
 
   .parents {
     font-size: 11px;
+
     letter-spacing: 1.3px;
+
     margin-bottom: 9px;
   }
 
   .invite-line {
     font-size: 8px;
+
     letter-spacing: 1.5px;
   }
 
   .ceremony-title {
     font-size: 24px;
+
     letter-spacing: 3px;
   }
 
-  /* Mobile couple */
+
+  /* =======================================================
+     MOBILE COUPLE
+     ======================================================= */
 
   .couple-area {
-    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-columns:
+      1fr 1.5fr 1fr;
+
     gap: 7px;
+
     margin-top: 12px;
+
     align-items: center;
   }
 
   .image-frame {
     width: 100%;
+
     height: 235px;
-    border-radius: 80px 80px 8px 8px;
+
+    border-radius:
+      80px 80px 8px 8px;
+
     padding: 4px;
   }
 
   .image-frame::before {
     inset: 4px;
-    border-radius: 76px 76px 5px 5px;
+
+    border-radius:
+      76px 76px 5px 5px;
   }
 
   .image-frame img {
-    border-radius: 74px 74px 4px 4px;
+    border-radius:
+      74px 74px 4px 4px;
   }
 
   .groom-name {
     font-size: 34px;
+
     line-height: .95;
+
     max-width: 100%;
+  }
+
+  .person-title {
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+    margin: 5px 0;
   }
 
   .gold-divider {
     width: 95%;
+
     gap: 7px;
+
     margin: 8px auto 3px;
   }
 
@@ -913,7 +1391,9 @@ body {
 
   .daughter-title {
     font-size: 22px;
+
     line-height: 1;
+
     margin-top: 5px;
   }
 
@@ -921,7 +1401,10 @@ body {
     margin-top: 10px;
   }
 
-  /* Intro */
+
+  /* =======================================================
+     MOBILE INTRO
+     ======================================================= */
 
   .intro-center h1 {
     font-size: 65px;
@@ -929,11 +1412,13 @@ body {
 
   .intro-center p {
     font-size: 7px;
+
     letter-spacing: 3px;
   }
 
   .intro-center span {
     font-size: 7px;
+
     letter-spacing: 2px;
   }
 
@@ -952,7 +1437,22 @@ body {
     height: 140px;
   }
 
-  /* Common */
+  .valima-open-button {
+    min-width: 150px;
+
+    padding: 12px 20px;
+
+    margin-top: 25px;
+
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+  }
+
+
+  /* =======================================================
+     COMMON
+     ======================================================= */
 
   .section-heading {
     font-size: 40px;
@@ -965,11 +1465,44 @@ body {
     padding: 75px 15px;
   }
 
-  /* Scratch */
+
+  /* =======================================================
+     COUNTDOWN MOBILE
+     ======================================================= */
+
+  .countdown {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 10px;
+
+    width: min(360px, 100%);
+  }
+
+  .countdown-box {
+    padding: 20px 8px;
+  }
+
+  .countdown-box strong {
+    font-size: 42px;
+  }
+
+  .countdown-box span {
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  /* =======================================================
+     SCRATCH
+     ======================================================= */
 
   .scratch-wrapper {
     width: 90vw;
+
     max-width: 350px;
+
     height: 205px;
   }
 
@@ -979,10 +1512,14 @@ body {
 
   .date-month {
     font-size: 14px;
+
     letter-spacing: 4px;
   }
 
-  /* Venue */
+
+  /* =======================================================
+     VENUE
+     ======================================================= */
 
   .venue-name {
     font-size: 42px;
@@ -992,11 +1529,16 @@ body {
     font-size: 18px;
   }
 
-  /* Program */
+
+  /* =======================================================
+     PROGRAM
+     ======================================================= */
 
   .program-row {
     font-size: 20px;
+
     padding: 18px 2px;
+
     letter-spacing: .8px;
   }
 
@@ -1004,7 +1546,10 @@ body {
     font-size: 20px;
   }
 
-  /* Welcome */
+
+  /* =======================================================
+     WELCOME
+     ======================================================= */
 
   .valima-welcome-section {
     padding: 85px 15px;
@@ -1018,7 +1563,10 @@ body {
     font-size: 18px;
   }
 
-  /* RSVP */
+
+  /* =======================================================
+     RSVP
+     ======================================================= */
 
   .rsvp-section {
     padding: 70px 15px;
@@ -1036,7 +1584,10 @@ body {
     font-size: 12px;
   }
 
-  /* Footer */
+
+  /* =======================================================
+     FOOTER
+     ======================================================= */
 
   .valima-footer {
     padding: 60px 15px;
@@ -1044,5 +1595,33 @@ body {
 
   .valima-footer strong {
     font-size: 45px;
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .groom-name {
+    font-size: 30px;
+  }
+
+  .bride-name {
+    font-size: 34px;
+  }
+
+  .daughter-title {
+    font-size: 19px;
+  }
+
+  .image-frame {
+    height: 215px;
+  }
+
+  .countdown-box strong {
+    font-size: 36px;
   }
 }
