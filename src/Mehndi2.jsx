@@ -522,7 +522,7 @@ function Mehndi2() {
                 <div className="portrait-frame">
 
                   <img
-                    src="/images/mehndi2-osama.jpg"
+                    src="/images/mehndi2-osama-png"
                     alt="Osama"
                   />
 
@@ -573,7 +573,7 @@ function Mehndi2() {
                 <div className="portrait-frame">
 
                   <img
-                    src="/images/mehndi2-areeba.jpg"
+                    src="/images/mehndi2-areeba.png"
                     alt="Areeba"
                   />
 
