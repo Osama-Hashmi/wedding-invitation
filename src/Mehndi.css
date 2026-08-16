@@ -1,0 +1,2017 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Parisienne&display=swap");
+
+/* =========================================================
+   RESET — MEHNDI ONLY
+   SAFE / SCOPED
+========================================================= */
+
+.mehndi-page,
+.mehndi-page *,
+.mehndi-page *::before,
+.mehndi-page *::after {
+  box-sizing: border-box;
+}
+
+.mehndi-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+
+  background: #f5e8c9;
+  color: #4e3821;
+
+  font-family: "Montserrat", sans-serif;
+}
+
+.mehndi-page button,
+.mehndi-page a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   OPENING COVER
+========================================================= */
+
+.mehndi-page .mehndi-cover {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+
+  padding: 25px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #fffdf3 0%,
+      #f9edce 40%,
+      #e4c26d 100%
+    );
+
+  transition:
+    transform 1.25s cubic-bezier(0.77, 0, 0.18, 1),
+    opacity 0.9s ease,
+    visibility 1.25s ease;
+}
+
+.mehndi-page.opened .mehndi-cover {
+  transform: translate3d(0, -100%, 0);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* =========================================================
+   COVER DECORATION
+========================================================= */
+
+.mehndi-page .cover-glow {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.65),
+      transparent 45%
+    );
+
+  pointer-events: none;
+}
+
+.mehndi-page .cover-flower {
+  position: absolute;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 220px;
+  line-height: 1;
+
+  color: rgba(116, 83, 26, 0.12);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.mehndi-page .flower-one {
+  top: -70px;
+  left: -80px;
+  transform: rotate(-25deg);
+}
+
+.mehndi-page .flower-two {
+  top: -70px;
+  right: -80px;
+  transform: rotate(25deg);
+}
+
+.mehndi-page .flower-three {
+  bottom: -90px;
+  left: -70px;
+  transform: rotate(25deg);
+}
+
+.mehndi-page .flower-four {
+  right: -70px;
+  bottom: -90px;
+  transform: rotate(-25deg);
+}
+
+/* =========================================================
+   COVER FRAME
+========================================================= */
+
+.mehndi-page .cover-frame {
+  position: relative;
+
+  width: min(700px, 100%);
+  height: min(700px, 88vh);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(127, 91, 24, 0.5);
+
+  animation: mehndiCoverAppear 1s ease both;
+}
+
+.mehndi-page .cover-frame::before {
+  content: "";
+
+  position: absolute;
+  inset: 12px;
+
+  border: 1px solid rgba(127, 91, 24, 0.25);
+
+  pointer-events: none;
+}
+
+.mehndi-page .frame-inner {
+  position: relative;
+  z-index: 2;
+
+  width: min(520px, 82%);
+  max-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+@keyframes mehndiCoverAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* =========================================================
+   COVER TYPOGRAPHY
+========================================================= */
+
+.mehndi-page .cover-top {
+  margin: 0;
+
+  font-size: 10px;
+  letter-spacing: 6px;
+  font-weight: 600;
+
+  color: #73552c;
+}
+
+.mehndi-page .frame-inner h1 {
+  margin: 15px 0 5px;
+
+  font-family: "Parisienne", cursive;
+  font-size: clamp(95px, 14vw, 160px);
+  line-height: 0.9;
+  font-weight: 400;
+
+  color: #a47518;
+
+  text-shadow:
+    0 8px 25px rgba(92, 60, 8, 0.12);
+
+  white-space: nowrap;
+}
+
+.mehndi-page .cover-divider {
+  width: min(330px, 80%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin: 20px 0;
+}
+
+.mehndi-page .cover-divider span {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 1px;
+
+  background: rgba(157, 113, 29, 0.45);
+}
+
+.mehndi-page .cover-divider b {
+  flex-shrink: 0;
+
+  color: #a47518;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.mehndi-page .cover-subtitle {
+  max-width: 100%;
+
+  margin: 0;
+
+  font-size: 8px;
+  letter-spacing: 3px;
+  line-height: 1.8;
+
+  color: #80643e;
+}
+
+.mehndi-page .cover-couple {
+  max-width: 100%;
+
+  margin-top: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  font-family: "Parisienne", cursive;
+  font-size: clamp(38px, 6vw, 58px);
+
+  color: #8f6717;
+
+  white-space: nowrap;
+}
+
+.mehndi-page .cover-couple b {
+  flex-shrink: 0;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.mehndi-page .cover-date {
+  margin: 18px 0 30px;
+
+  font-size: 9px;
+  letter-spacing: 4px;
+
+  color: #75582f;
+
+  text-align: center;
+}
+
+/* =========================================================
+   OPEN BUTTON
+========================================================= */
+
+.mehndi-page .enter-button {
+  position: relative;
+
+  width: 250px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  padding: 0;
+
+  border: 1px solid #9c7118;
+  border-radius: 0;
+
+  outline: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      #c79b35,
+      #9e7318
+    );
+
+  color: #fffdf2;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 15px 35px rgba(87, 57, 8, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.mehndi-page .enter-button::before {
+  content: "";
+
+  position: absolute;
+  inset: 5px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  pointer-events: none;
+}
+
+.mehndi-page .enter-button::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 70px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.45),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  animation: mehndiShine 3s infinite;
+
+  pointer-events: none;
+}
+
+@keyframes mehndiShine {
+  0% {
+    left: -100%;
+  }
+
+  45%,
+  100% {
+    left: 140%;
+  }
+}
+
+.mehndi-page .enter-button:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 20px 45px rgba(87, 57, 8, 0.32);
+}
+
+.mehndi-page .enter-button:active {
+  transform: scale(0.96);
+}
+
+.mehndi-page .enter-button:focus-visible {
+  box-shadow:
+    0 0 0 3px rgba(167, 119, 27, 0.25),
+    0 15px 35px rgba(87, 57, 8, 0.25);
+}
+
+.mehndi-page .enter-icon,
+.mehndi-page .enter-button strong,
+.mehndi-page .enter-button span {
+  position: relative;
+  z-index: 2;
+}
+
+.mehndi-page .enter-icon {
+  font-size: 12px;
+}
+
+.mehndi-page .enter-button strong {
+  font-size: 18px;
+  font-weight: 400;
+
+  transition: transform 0.3s ease;
+}
+
+.mehndi-page .enter-button:hover strong {
+  transform: translateX(5px);
+}
+
+.mehndi-page .cover-tap {
+  margin: 17px 0 0;
+
+  font-size: 7px;
+  letter-spacing: 3px;
+
+  color: #8a704d;
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.mehndi-page .mehndi-content {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding:
+    100px 25px
+    70px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(198, 155, 54, 0.2),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #fffaf0 0%,
+      #f7ecd5 45%,
+      #edd9ac 100%
+    );
+}
+
+/* =========================================================
+   BACKGROUND ORNAMENTS
+========================================================= */
+
+.mehndi-page .pattern {
+  position: absolute;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 280px;
+
+  line-height: 1;
+
+  color: rgba(146, 104, 21, 0.06);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.mehndi-page .pattern-left {
+  top: 250px;
+  left: -120px;
+
+  transform: rotate(-30deg);
+}
+
+.mehndi-page .pattern-right {
+  top: 1150px;
+  right: -120px;
+
+  transform: rotate(30deg);
+}
+
+.mehndi-page .page-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1050px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.mehndi-page .gold-line {
+  width: min(280px, 80%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 22px auto;
+}
+
+.mehndi-page .gold-line span {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 1px;
+
+  background: #c9a45a;
+}
+
+.mehndi-page .gold-line b {
+  flex-shrink: 0;
+
+  color: #a7771b;
+  font-weight: 400;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.mehndi-page .intro-section {
+  padding: 0 0 90px;
+}
+
+.mehndi-page .arabic {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 45px;
+
+  color: #a7771b;
+}
+
+.mehndi-page .tiny-heading {
+  margin: 0;
+
+  font-size: 10px;
+  letter-spacing: 4px;
+
+  color: #80613a;
+}
+
+.mehndi-page .parent-heading{
+
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #80613a;
+}
+
+
+.mehndi-page .intro-section h2 {
+  margin: 15px 0 0;
+
+  font-family: "Parisienne", cursive;
+
+  font-size: clamp(65px, 9vw, 105px);
+  font-weight: 400;
+
+  color: #a7771b;
+
+  overflow-wrap: break-word;
+}
+
+.mehndi-page .intro-text {
+  max-width: 850px;
+
+  margin: 20px auto 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 20px;
+  line-height: 1.7;
+
+  color: #78644b;
+}
+
+/* =========================================================
+   NAMES
+========================================================= */
+
+.mehndi-page .names-section {
+  padding:
+    80px 0
+    95px;
+
+  border-top: 1px solid rgba(157, 116, 32, 0.2);
+  border-bottom: 1px solid rgba(157, 116, 32, 0.2);
+}
+
+.mehndi-page .eyebrow,
+.mehndi-page .section-label {
+  margin: 0 0 30px;
+
+  font-size: 15px;
+  letter-spacing: 5px;
+  font-weight: 600;
+
+  color: #94713d;
+}
+
+.mehndi-page .name-card {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    100px
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+}
+
+.mehndi-page .name-person {
+  min-width: 0;
+  padding: 10px;
+}
+
+.mehndi-page .image-circle {
+  position: relative;
+
+  width: 220px;
+  height: 220px;
+
+  max-width: 100%;
+
+  margin: 0 auto 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #c39a42;
+
+  box-shadow:
+    0 20px 50px rgba(82, 55, 12, 0.13);
+
+  overflow: hidden;
+}
+
+.mehndi-page .image-circle::after {
+  content: "";
+
+  position: absolute;
+  inset: 9px;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.mehndi-page .image-circle img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.mehndi-page .bride-placeholder {
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #fff5c9,
+      #d3a638 60%,
+      #9c6e13
+    );
+}
+
+.mehndi-page .groom-placeholder {
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #f4e4b0,
+      #b08327 60%,
+      #77500e
+    );
+}
+
+.mehndi-page .image-circle span {
+  position: relative;
+  z-index: 2;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 9px;
+  letter-spacing: 4px;
+}
+
+.mehndi-page .person-role {
+  margin: 0;
+
+  font-size: 8px;
+  letter-spacing: 4px;
+
+  color: #97723b;
+}
+
+.mehndi-page .name-person h3 {
+  margin: 8px 0 0;
+
+  font-family: "Parisienne", cursive;
+
+  font-size: clamp(60px, 7vw, 85px);
+  line-height: 0.95;
+  font-weight: 400;
+
+  color: #a7771b;
+
+  overflow-wrap: break-word;
+}
+
+.mehndi-page .family-name {
+  max-width: 280px;
+
+  margin: 14px auto 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 17px;
+  line-height: 1.4;
+
+  color: #77634b;
+}
+
+.mehndi-page .heart-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.mehndi-page .heart-divider span {
+  width: 1px;
+  height: 70px;
+
+  background: #c9a45a;
+}
+
+.mehndi-page .heart-divider b {
+  color: #a7771b;
+  font-size: 20px;
+}
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.mehndi-page .quote-section {
+  padding:
+    110px 20px
+    100px;
+}
+
+.mehndi-page .quote-symbol {
+  margin-bottom: 22px;
+
+  color: #ad7c1c;
+  font-size: 20px;
+}
+
+.mehndi-page .quote-section h2 {
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.2;
+
+  letter-spacing: 3px;
+  font-weight: 500;
+
+  color: #5d452c;
+}
+
+.mehndi-page .quote-section p {
+  max-width: 800px;
+
+  margin: 25px auto 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 20px;
+  line-height: 1.7;
+
+  color: #806c53;
+}
+
+.mehndi-page .quote-flower {
+  margin-top: 35px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 40px;
+
+  color: #ad7c1c;
+}
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.mehndi-page .event-section {
+  padding:
+    85px 0
+    100px;
+}
+
+.mehndi-page .event-date-card {
+  width: min(560px, 100%);
+
+  margin: 0 auto;
+
+  padding: 45px 25px;
+
+  background:
+    rgba(255, 250, 233, 0.75);
+
+  border:
+    1px solid
+    rgba(167, 121, 25, 0.4);
+
+  box-shadow:
+    0 25px 70px
+    rgba(84, 56, 11, 0.1);
+}
+
+.mehndi-page .date-top {
+  font-size: 9px;
+  letter-spacing: 5px;
+
+  color: #8d6b3a;
+}
+
+.mehndi-page .date-main {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 25px;
+
+  margin-top: 20px;
+}
+
+.mehndi-page .date-main strong {
+  flex-shrink: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 125px;
+  line-height: 0.8;
+
+  font-weight: 500;
+
+  color: #a7771b;
+}
+
+.mehndi-page .date-main div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: left;
+}
+
+.mehndi-page .date-main span {
+  font-size: 15px;
+  letter-spacing: 6px;
+  font-weight: 600;
+
+  color: #654a2d;
+}
+
+.mehndi-page .date-main small {
+  margin-top: 8px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 26px;
+  letter-spacing: 4px;
+
+  color: #8e6d3d;
+}
+
+.mehndi-page .date-bottom {
+  margin-top: 25px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(167, 121, 25, 0.2);
+
+  font-size: 8px;
+  letter-spacing: 4px;
+
+  color: #92703d;
+}
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.mehndi-page .countdown-section {
+  width: 100%;
+
+  margin-top: 70px;
+}
+
+.mehndi-page .countdown-section > p {
+  margin: 0 0 25px;
+
+  font-size: 8px;
+  letter-spacing: 4px;
+
+  color: #80613a;
+}
+
+.mehndi-page .countdown {
+  width: min(700px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.mehndi-page .time-box {
+  min-width: 0;
+
+  padding: 25px 10px;
+
+  border: 1px solid rgba(167, 121, 25, 0.35);
+
+  background: rgba(255, 252, 240, 0.55);
+}
+
+.mehndi-page .time-box strong {
+  display: block;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 43px;
+  line-height: 1;
+
+  font-weight: 500;
+
+  color: #a7771b;
+}
+
+.mehndi-page .time-box span {
+  display: block;
+
+  margin-top: 9px;
+
+  font-size: 7px;
+  letter-spacing: 2px;
+
+  color: #81613a;
+}
+
+/* =========================================================
+   VENUE
+========================================================= */
+
+.mehndi-page .venue-section {
+  padding:
+    85px 0
+    90px;
+}
+
+.mehndi-page .venue-card {
+  width: min(760px, 100%);
+
+  margin: 0 auto;
+
+  padding:
+    65px 30px;
+
+  border: 1px solid rgba(167, 121, 25, 0.35);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 251, 238, 0.95),
+      rgba(242, 220, 171, 0.65)
+    );
+
+  box-shadow:
+    0 30px 70px
+    rgba(84, 56, 11, 0.11);
+}
+
+.mehndi-page .venue-icon {
+  font-size: 38px;
+
+  color: #a7771b;
+
+  margin-bottom: 15px;
+}
+
+.mehndi-page .venue-small {
+  margin: 0;
+
+  font-size: 7px;
+  letter-spacing: 3px;
+
+  color: #8e6c3b;
+}
+
+.mehndi-page .venue-card h2 {
+  margin: 15px 0 0;
+
+  font-family: "Parisienne", cursive;
+
+  font-size: clamp(60px, 8vw, 90px);
+  line-height: 1;
+
+  font-weight: 400;
+
+  color: #a7771b;
+
+  overflow-wrap: break-word;
+}
+
+.mehndi-page .venue-line {
+  width: 150px;
+  height: 1px;
+
+  margin: 25px auto;
+
+  background: #c6a04e;
+}
+
+.mehndi-page .venue-description {
+  max-width: 650px;
+
+  margin: 0 auto;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 20px;
+  line-height: 1.7;
+
+  color: #79654d;
+
+  overflow-wrap: break-word;
+}
+
+.mehndi-page .map-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+
+  max-width: 100%;
+
+  margin-top: 30px;
+
+  padding:
+    15px 25px;
+
+  text-decoration: none;
+
+  background: #a7771b;
+  border: 1px solid #946b16;
+
+  color: #fffbed;
+
+  font-size: 8px;
+  letter-spacing: 2px;
+  font-weight: 600;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  cursor: pointer;
+}
+
+.mehndi-page .map-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 30px rgba(83, 54, 7, 0.22);
+}
+
+.mehndi-page .map-button:active {
+  transform: scale(0.97);
+}
+
+.mehndi-page .map-button strong {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.mehndi-page .details-section {
+  padding:
+    70px 0
+    100px;
+}
+
+.mehndi-page .details-grid {
+  width: min(900px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.mehndi-page .detail-box {
+  min-width: 0;
+
+  padding: 35px 15px;
+
+  border: 1px solid rgba(167, 121, 25, 0.3);
+
+  background: rgba(255, 250, 235, 0.55);
+}
+
+.mehndi-page .detail-icon {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 18px;
+
+  border: 1px solid #c29b49;
+  border-radius: 50%;
+
+  color: #a7771b;
+}
+
+.mehndi-page .detail-box span {
+  display: block;
+
+  font-size: 7px;
+  letter-spacing: 3px;
+
+  color: #96713c;
+}
+
+.mehndi-page .detail-box strong {
+  display: block;
+
+  margin-top: 8px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 22px;
+  letter-spacing: 1px;
+
+  color: #5e462d;
+
+  overflow-wrap: break-word;
+}
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.mehndi-page .final-section {
+  padding:
+    105px 20px;
+
+  border-top: 1px solid rgba(167, 121, 25, 0.18);
+  border-bottom: 1px solid rgba(167, 121, 25, 0.18);
+}
+
+.mehndi-page .final-decoration {
+  color: #aa781c;
+  font-size: 20px;
+
+  margin-bottom: 20px;
+}
+
+.mehndi-page .final-section > p:first-of-type {
+  margin: 0;
+
+  font-size: 8px;
+  letter-spacing: 5px;
+
+  color: #8b693b;
+}
+
+.mehndi-page .final-section h2 {
+  max-width: 850px;
+
+  margin: 13px auto 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.2;
+
+  letter-spacing: 3px;
+  font-weight: 500;
+
+  color: #60482e;
+}
+
+.mehndi-page .final-section h2 span {
+  color: #a7771b;
+}
+
+.mehndi-page .final-section .gold-line {
+  margin-top: 28px;
+}
+
+.mehndi-page .final-text {
+  max-width: 800px;
+
+  margin: 25px auto 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 20px;
+  line-height: 1.7;
+
+  color: #7e6a51;
+}
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.mehndi-page .rsvp-section {
+  padding:
+    95px 0
+    75px;
+}
+
+.mehndi-page .rsvp-intro {
+  margin:
+    -12px 0
+    35px;
+
+  font-size: 7px;
+  letter-spacing: 3px;
+
+  color: #927044;
+}
+
+.mehndi-page .rsvp-grid {
+  width: min(900px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.mehndi-page .rsvp-card {
+  min-width: 0;
+
+  padding: 38px 25px;
+
+  border: 1px solid rgba(167, 121, 25, 0.28);
+
+  background: rgba(255, 250, 235, 0.55);
+}
+
+.mehndi-page .rsvp-card span {
+  display: block;
+
+  font-size: 7px;
+  letter-spacing: 3px;
+
+  color: #9a763f;
+}
+
+.mehndi-page .rsvp-card h3 {
+  margin: 10px 0 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 25px;
+  font-weight: 600;
+
+  color: #5d452c;
+
+  overflow-wrap: break-word;
+}
+
+.mehndi-page .rsvp-card a {
+  display: inline-block;
+
+  max-width: 100%;
+
+  margin-top: 10px;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  letter-spacing: 1px;
+
+  color: #987033;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.mehndi-page .mehndi-footer {
+  padding:
+    70px 0
+    15px;
+
+  text-align: center;
+}
+
+.mehndi-page .footer-flower {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 42px;
+
+  color: #aa781c;
+}
+
+.mehndi-page .mehndi-footer p {
+  margin: 15px 0;
+
+  font-size: 8px;
+  letter-spacing: 5px;
+
+  color: #927044;
+}
+
+.mehndi-page .mehndi-footer h2 {
+  margin: 0;
+
+  font-family: "Parisienne", cursive;
+
+  font-size: clamp(55px, 8vw, 85px);
+
+  font-weight: 400;
+
+  color: #a7771b;
+
+  overflow-wrap: break-word;
+}
+
+.mehndi-page .mehndi-footer h2 span {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 0.5em;
+
+  margin: 0 8px;
+}
+
+.mehndi-page .mehndi-footer small {
+  display: block;
+
+  margin-top: 15px;
+
+  font-size: 8px;
+  letter-spacing: 4px;
+
+  color: #8e6c3b;
+}
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.mehndi-page .music-button {
+  position: fixed;
+
+  right: 22px;
+  bottom: 22px;
+
+  z-index: 500;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #a7771b;
+  border-radius: 50%;
+
+  background: rgba(255, 250, 235, 0.92);
+
+  color: #a7771b;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(82, 55, 10, 0.16);
+
+  font-size: 21px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mehndi-page .music-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 30px rgba(82, 55, 10, 0.22);
+}
+
+.mehndi-page .music-button:active {
+  transform: scale(0.94);
+}
+
+.mehndi-page .music-button.playing {
+  animation: mehndiMusicPulse 1.5s infinite;
+}
+
+@keyframes mehndiMusicPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 10px 25px rgba(82, 55, 10, 0.16);
+  }
+
+  50% {
+    box-shadow:
+      0 10px 30px rgba(167, 119, 27, 0.38);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+  .mehndi-page .name-card {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .mehndi-page .heart-divider {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .mehndi-page .heart-divider span {
+    width: 70px;
+    height: 1px;
+  }
+
+  .mehndi-page .details-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 500px;
+  }
+
+  .mehndi-page .rsvp-grid {
+    max-width: 600px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .mehndi-page .mehndi-cover {
+    padding: 15px;
+  }
+
+  .mehndi-page .cover-frame {
+    width: 100%;
+    height: calc(100dvh - 30px);
+
+    max-height: none;
+  }
+
+  .mehndi-page .cover-frame::before {
+    inset: 8px;
+  }
+
+  .mehndi-page .frame-inner {
+    width: 82%;
+  }
+
+  .mehndi-page .cover-top {
+    font-size: 8px;
+    letter-spacing: 4px;
+  }
+
+  .mehndi-page .frame-inner h1 {
+    font-size: 82px;
+  }
+
+  .mehndi-page .cover-divider {
+    width: 200px;
+
+    margin: 15px 0;
+  }
+
+  .mehndi-page .cover-subtitle {
+    font-size: 6px;
+    letter-spacing: 2px;
+
+    max-width: 250px;
+  }
+
+  .mehndi-page .cover-couple {
+    font-size: 38px;
+
+    gap: 10px;
+  }
+
+  .mehndi-page .cover-couple b {
+    font-size: 21px;
+  }
+
+  .mehndi-page .cover-date {
+    font-size: 7px;
+    letter-spacing: 2.5px;
+
+    margin-bottom: 25px;
+  }
+
+  .mehndi-page .enter-button {
+    width: 215px;
+    height: 54px;
+
+    gap: 10px;
+
+    font-size: 7px;
+    letter-spacing: 2px;
+  }
+
+  .mehndi-page .cover-flower {
+    font-size: 130px;
+  }
+
+  .mehndi-page .flower-one,
+  .mehndi-page .flower-two {
+    top: -35px;
+  }
+
+  .mehndi-page .flower-three,
+  .mehndi-page .flower-four {
+    bottom: -45px;
+  }
+
+  /* =======================================================
+     MAIN
+  ======================================================= */
+
+  .mehndi-page .mehndi-content {
+    padding:
+      70px 18px
+      45px;
+  }
+
+  .mehndi-page .pattern {
+    font-size: 150px;
+  }
+
+  .mehndi-page .pattern-left {
+    left: -70px;
+  }
+
+  .mehndi-page .pattern-right {
+    right: -70px;
+  }
+
+  /* =======================================================
+     INTRO
+  ======================================================= */
+
+  .mehndi-page .intro-section {
+    padding-bottom: 65px;
+  }
+
+  .mehndi-page .arabic {
+    font-size: 35px;
+  }
+
+  .mehndi-page .intro-section h2 {
+    font-size: 70px;
+  }
+
+  .mehndi-page .intro-text {
+    font-size: 17px;
+  }
+
+  /* =======================================================
+     NAMES
+  ======================================================= */
+
+  .mehndi-page .names-section {
+    padding:
+      60px 0
+      70px;
+  }
+
+  .mehndi-page .eyebrow,
+  .mehndi-page .section-label {
+    font-size: 15px;
+    letter-spacing: 3px;
+  }
+
+  .mehndi-page .image-circle {
+    width: 165px;
+    height: 165px;
+  }
+
+  .mehndi-page .name-person h3 {
+    font-size: 60px;
+  }
+
+  .mehndi-page .family-name {
+    font-size: 16px;
+  }
+
+  /* =======================================================
+     QUOTE
+  ======================================================= */
+
+  .mehndi-page .quote-section {
+    padding:
+      75px 5px
+      70px;
+  }
+
+  .mehndi-page .quote-section h2 {
+    font-size: 27px;
+    letter-spacing: 2px;
+  }
+
+  .mehndi-page .quote-section p {
+    font-size: 17px;
+  }
+
+  /* =======================================================
+     DATE
+  ======================================================= */
+
+  .mehndi-page .event-section {
+    padding:
+      65px 0
+      75px;
+  }
+
+  .mehndi-page .event-date-card {
+    padding:
+      35px 15px;
+  }
+
+  .mehndi-page .date-main {
+    gap: 15px;
+  }
+
+  .mehndi-page .date-main strong {
+    font-size: 90px;
+  }
+
+  .mehndi-page .date-main span {
+    font-size: 11px;
+    letter-spacing: 4px;
+  }
+
+  .mehndi-page .date-main small {
+    font-size: 21px;
+    letter-spacing: 3px;
+  }
+
+  .mehndi-page .date-bottom {
+    font-size: 6px;
+    letter-spacing: 2px;
+  }
+
+  /* =======================================================
+     COUNTDOWN
+  ======================================================= */
+
+  .mehndi-page .countdown {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+  .mehndi-page .time-box {
+    padding:
+      20px 8px;
+  }
+
+  .mehndi-page .time-box strong {
+    font-size: 34px;
+  }
+
+  /* =======================================================
+     VENUE
+  ======================================================= */
+
+  .mehndi-page .venue-section {
+    padding:
+      65px 0
+      70px;
+  }
+
+  .mehndi-page .venue-card {
+    padding:
+      45px 18px;
+  }
+
+  .mehndi-page .venue-card h2 {
+    font-size: 55px;
+  }
+
+  .mehndi-page .venue-description {
+    font-size: 17px;
+  }
+
+  .mehndi-page .map-button {
+    width: auto;
+    max-width: 100%;
+
+    padding:
+      14px 17px;
+
+    font-size: 7px;
+  }
+
+  /* =======================================================
+     DETAILS
+  ======================================================= */
+
+  .mehndi-page .details-section {
+    padding:
+      55px 0
+      70px;
+  }
+
+  .mehndi-page .detail-box {
+    padding: 30px 15px;
+  }
+
+  /* =======================================================
+     FINAL
+  ======================================================= */
+
+  .mehndi-page .final-section {
+    padding:
+      75px 8px;
+  }
+
+  .mehndi-page .final-section h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+
+  .mehndi-page .final-text {
+    font-size: 17px;
+  }
+
+  /* =======================================================
+     RSVP
+  ======================================================= */
+
+  .mehndi-page .rsvp-section {
+    padding:
+      70px 0
+      55px;
+  }
+
+  .mehndi-page .rsvp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* =======================================================
+     FOOTER
+  ======================================================= */
+
+  .mehndi-page .mehndi-footer {
+    padding-top: 55px;
+  }
+
+  .mehndi-page .mehndi-footer h2 {
+    font-size: 55px;
+  }
+
+  .mehndi-page .desktop-break {
+    display: none;
+  }
+
+  /* =======================================================
+     MUSIC
+  ======================================================= */
+
+  .mehndi-page .music-button {
+    right: 15px;
+    bottom: 15px;
+
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+  .mehndi-page .mehndi-cover {
+    padding: 10px;
+  }
+
+  .mehndi-page .cover-frame {
+    height: calc(100dvh - 20px);
+  }
+
+  .mehndi-page .frame-inner {
+    width: 84%;
+  }
+
+  .mehndi-page .frame-inner h1 {
+    font-size: 70px;
+  }
+
+  .mehndi-page .cover-top {
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+
+  .mehndi-page .cover-couple {
+    font-size: 33px;
+    gap: 8px;
+  }
+
+  .mehndi-page .cover-couple b {
+    font-size: 18px;
+  }
+
+  .mehndi-page .enter-button {
+    width: 195px;
+  }
+
+  .mehndi-page .intro-section h2 {
+    font-size: 62px;
+  }
+
+  .mehndi-page .name-person h3 {
+    font-size: 53px;
+  }
+
+  .mehndi-page .date-main {
+    gap: 10px;
+  }
+
+  .mehndi-page .date-main strong {
+    font-size: 78px;
+  }
+
+  .mehndi-page .date-main span {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .mehndi-page .date-main small {
+    font-size: 18px;
+  }
+
+  .mehndi-page .venue-card h2 {
+    font-size: 48px;
+  }
+
+  .mehndi-page .mehndi-footer h2 {
+    font-size: 48px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 330px) {
+  .mehndi-page .frame-inner {
+    width: 88%;
+  }
+
+  .mehndi-page .frame-inner h1 {
+    font-size: 62px;
+  }
+
+  .mehndi-page .cover-couple {
+    font-size: 29px;
+  }
+
+  .mehndi-page .cover-date {
+    font-size: 6px;
+  }
+
+  .mehndi-page .enter-button {
+    width: 180px;
+  }
+
+  .mehndi-page .intro-section h2 {
+    font-size: 55px;
+  }
+
+  .mehndi-page .name-person h3 {
+    font-size: 48px;
+  }
+
+  .mehndi-page .date-main strong {
+    font-size: 68px;
+  }
+
+  .mehndi-page .venue-card h2 {
+    font-size: 43px;
+  }
+
+  .mehndi-page .mehndi-footer h2 {
+    font-size: 43px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .mehndi-page,
+  .mehndi-page * {
+    scroll-behavior: auto !important;
+  }
+
+  .mehndi-page .mehndi-cover,
+  .mehndi-page .enter-button,
+  .mehndi-page .enter-button strong,
+  .mehndi-page .map-button,
+  .mehndi-page .music-button {
+    transition: none !important;
+  }
+
+  .mehndi-page .cover-frame,
+  .mehndi-page .enter-button::after,
+  .mehndi-page .music-button.playing {
+    animation: none !important;
+  }
+}

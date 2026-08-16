@@ -1625,3 +1625,647 @@ body {
     font-size: 36px;
   }
 }
+
+
+/* =========================================================
+   VALIMA HEADINGS — FORCE CENTER
+   Keeps all section headings centered like Baraat
+   ========================================================= */
+
+.valima-date-section .section-label,
+.valima-date-section .section-heading,
+
+.valima-event-section .section-label,
+.valima-event-section .section-heading,
+
+.valima-program-section .section-label,
+.valima-program-section .section-heading,
+
+.rsvp-section .section-label,
+.rsvp-section .section-heading {
+  width: 100%;
+  display: block;
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Extra protection for the main heading */
+.valima-date-section h2.section-heading,
+.valima-event-section h2.section-heading,
+.valima-program-section h2.section-heading,
+.rsvp-section h2.section-heading {
+  text-align: center !important;
+}
+
+
+/* =========================================================
+   FINAL MOBILE FIX
+   DO NOT CHANGE DESKTOP DESIGN
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .valima-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+
+  /* =========================
+     HERO MOBILE
+     ========================= */
+
+  .valima-hero {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100svh;
+
+    padding: 30px 10px 25px;
+
+    overflow: hidden;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+  }
+
+  .bismillah {
+    font-size: 27px;
+    margin-bottom: 12px;
+  }
+
+  .parents {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 11px;
+    letter-spacing: 1.3px;
+
+    margin-bottom: 9px;
+
+    white-space: normal;
+  }
+
+  .invite-line {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .ceremony-title {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 24px;
+    letter-spacing: 3px;
+
+    line-height: 1.1;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+
+  /* =========================
+     COUPLE MOBILE
+     ========================= */
+
+  .couple-area {
+    width: 100%;
+    max-width: 100%;
+
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 0.85fr)
+      minmax(0, 1.5fr)
+      minmax(0, 0.85fr);
+
+    gap: 6px;
+
+    margin-top: 12px;
+
+    align-items: center;
+
+    overflow: hidden;
+  }
+
+  .couple-image,
+  .couple-names {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  /* =========================
+     MOBILE IMAGES
+     ========================= */
+
+  .image-frame {
+    width: 100%;
+    max-width: 100%;
+
+    height: 235px;
+
+    padding: 4px;
+
+    border-radius:
+      80px 80px 8px 8px;
+
+    overflow: hidden;
+  }
+
+  .image-frame::before {
+    inset: 4px;
+
+    border-radius:
+      76px 76px 5px 5px;
+  }
+
+  .image-frame img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius:
+      74px 74px 4px 4px;
+  }
+
+
+  /* =========================
+     MOBILE NAMES
+     ========================= */
+
+  .couple-names {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+  }
+
+  .groom-name,
+  .bride-name,
+  .daughter-title {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    text-align: center;
+
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .groom-name {
+    font-size: 34px;
+
+    line-height: .95;
+
+    margin: 0;
+  }
+
+  .bride-name {
+    font-size: 38px;
+
+    line-height: .95;
+
+    margin: 0;
+  }
+
+  .daughter-title {
+    font-size: 22px;
+
+    line-height: 1;
+
+    margin-top: 5px;
+  }
+
+  .person-title {
+    width: 100%;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+    margin: 5px 0;
+  }
+
+  .gold-divider {
+    width: 95%;
+    max-width: 100%;
+
+    gap: 7px;
+
+    margin: 8px auto 3px;
+  }
+
+  .gold-divider b {
+    font-size: 17px;
+
+    flex-shrink: 0;
+  }
+
+  .with-word {
+    font-size: 22px;
+
+    line-height: 1;
+  }
+
+  .hero-bottom-ornament {
+    margin-top: 10px;
+  }
+
+
+  /* =========================
+     SECTION HEADINGS
+     ========================= */
+
+  .section-label,
+  .section-heading {
+    width: 100%;
+    max-width: 100%;
+
+    text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  .section-heading {
+    font-size: 40px;
+
+    line-height: 1.1;
+
+    white-space: normal;
+  }
+
+
+  /* =========================
+     DATE
+     ========================= */
+
+  .valima-date-section {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 75px 15px;
+
+    text-align: center;
+
+    overflow: hidden;
+  }
+
+  .scratch-wrapper {
+    width: 90vw;
+    max-width: 350px;
+
+    height: 205px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* =========================
+     EVENT
+     ========================= */
+
+  .valima-event-section {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 75px 15px;
+
+    text-align: center;
+
+    overflow: hidden;
+  }
+
+  .countdown {
+    width: min(360px, 100%);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+  .countdown-box {
+    min-width: 0;
+    padding: 20px 8px;
+  }
+
+
+  /* =========================
+     VENUE
+     ========================= */
+
+  .valima-venue-section {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 75px 15px;
+
+    text-align: center;
+
+    overflow: hidden;
+  }
+
+  .venue-name {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 42px;
+
+    line-height: 1.1;
+
+    white-space: normal;
+  }
+
+  .venue-address {
+    font-size: 18px;
+
+    line-height: 1.5;
+  }
+
+
+  /* =========================
+     PROGRAM
+     ========================= */
+
+  .valima-program-section {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 75px 15px;
+
+    text-align: center;
+
+    overflow: hidden;
+  }
+
+  .program-list {
+    width: 100%;
+    max-width: 700px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .program-row {
+    width: 100%;
+
+    font-size: 20px;
+
+    padding: 18px 2px;
+
+    letter-spacing: .8px;
+  }
+
+
+  /* =========================
+     WELCOME
+     ========================= */
+
+  .valima-welcome-section {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 85px 15px;
+
+    text-align: center;
+
+    overflow: hidden;
+  }
+
+  .valima-welcome-section h2 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 45px;
+
+    line-height: 1.1;
+  }
+
+  .welcome-message {
+    font-size: 18px;
+  }
+
+
+  /* =========================
+     RSVP
+     ========================= */
+
+  .rsvp-section {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 70px 15px;
+
+    text-align: center;
+
+    overflow: hidden;
+  }
+
+  .rsvp-card {
+    width: 100%;
+    max-width: 600px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rsvp-person {
+    width: 100%;
+
+    padding: 17px 5px;
+  }
+
+
+  /* =========================
+     FOOTER
+     ========================= */
+
+  .valima-footer {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 60px 15px;
+
+    text-align: center;
+
+    overflow: hidden;
+  }
+
+  .valima-footer strong {
+    font-size: 45px;
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .couple-area {
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(0, 1.5fr)
+      minmax(0, 0.8fr);
+
+    gap: 4px;
+  }
+
+  .groom-name {
+    font-size: 30px;
+  }
+
+  .bride-name {
+    font-size: 34px;
+  }
+
+  .daughter-title {
+    font-size: 19px;
+  }
+
+  .image-frame {
+    height: 215px;
+  }
+
+  .ceremony-title {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 800px) {
+
+  /* ================================
+     VALIMA MOBILE FONT FIX
+     ================================ */
+
+  .parents {
+    font-size: 9px;
+    letter-spacing: 1.2px;
+  }
+
+  .invite-line {
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
+
+  .ceremony-title {
+    font-size: 20px;
+    letter-spacing: 2.5px;
+    margin: 6px 0;
+  }
+
+  .groom-name {
+    font-size: 28px;
+    line-height: 0.95;
+    max-width: 100%;
+  }
+
+  .person-title {
+    font-size: 6px;
+    letter-spacing: 1px;
+    margin: 4px 0;
+  }
+
+  .with-word {
+    font-size: 19px;
+  }
+
+  .bride-name {
+    font-size: 30px;
+    line-height: 0.95;
+  }
+
+  .daughter-title {
+    font-size: 17px;
+    line-height: 1;
+    margin-top: 4px;
+  }
+
+  .bismillah {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .hero-bottom-ornament {
+    font-size: 18px;
+    margin-top: 8px;
+  }
+
+  /* Keep the whole hero inside mobile screen */
+  .valima-hero {
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .couple-area {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 0.85fr 1.5fr 0.85fr;
+    gap: 5px;
+  }
+
+  .couple-names {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .couple-image {
+    min-width: 0;
+  }
+
+  .image-frame {
+    width: 100%;
+    max-width: 105px;
+    height: 220px;
+  }
+}

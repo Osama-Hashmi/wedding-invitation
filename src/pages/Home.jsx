@@ -11,8 +11,37 @@ function Home() {
     document.title = "Wedding Invitation";
   }, []);
 
+  useEffect(() => {
+    if (opened) {
+      // Keep the invitation page at the very top
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant"
+      });
+
+      // Ensure it stays at the top when the envelope screen disappears
+      const timer = setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "instant"
+        });
+      }, 2200);
+
+      return () => clearTimeout(timer);
+    }
+  }, [opened]);
+
   const openInvitation = () => {
     if (opened) return;
+
+    // Move page to top immediately when envelope is opened
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant"
+    });
 
     setOpened(true);
 
@@ -42,6 +71,13 @@ function Home() {
       <div className={`envelope-screen ${opened ? "is-opened" : ""}`}>
 
         <div className="envelope-stage">
+
+          {/* ================= INVITATION TITLE ================= */}
+
+          <div className="envelope-invitation-title">
+            Invitation
+          </div>
+
 
           {/* ================= INVITATION CARD ================= */}
 
@@ -98,6 +134,7 @@ function Home() {
             <div className="envelope-border"></div>
 
             {/* Floral decorations */}
+
             <div className="envelope-flower envelope-flower-tl">
               ❦
             </div>
@@ -260,9 +297,9 @@ function Home() {
             {/* ================= MEHNDI 1 ================= */}
 
             <Link
-                 to="/mehndi-invite-2741"
-                className="ceremony-box mehndi-box"
-             >
+              to="/mehndi-invite-2741"
+              className="ceremony-box mehndi-box"
+            >
 
               <div className="card-floral top-left">
                 ❀
@@ -311,7 +348,7 @@ function Home() {
             {/* ================= MEHNDI 2 ================= */}
 
             <Link
-               to="/mehndi-2-invitation-5836"
+              to="/mehndi-2-invitation-5836"
               className="ceremony-box mehndi-two-box"
             >
 
@@ -413,7 +450,7 @@ function Home() {
             {/* ================= VALIMA ================= */}
 
             <Link
-               to="/valima-invite-7365"
+              to="/valima-invite-7365"
               className="ceremony-box valima-box"
             >
 

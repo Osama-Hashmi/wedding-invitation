@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Parisienne&family=Montserrat:wght@300;400;500;600&display=swap');
 
-
 /* ================================================= */
 /* ================= GLOBAL ======================== */
 /* ================================================= */
@@ -24,8 +23,9 @@ body {
 }
 
 body.baraat-curtain-locked {
-  overflow: hidden;
+  overflow: hidden !important;
   height: 100vh;
+  touch-action: none;
 }
 
 button,
@@ -55,6 +55,7 @@ a {
   inset: 0;
 
   width: 100%;
+  height: 100vh;
   height: 100dvh;
 
   z-index: 99999;
@@ -65,8 +66,13 @@ a {
 
   isolation: isolate;
 
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+
   transition:
-    visibility 0s linear 1.5s;
+    visibility 0s linear 1.7s,
+    opacity 0.2s ease;
 }
 
 
@@ -110,7 +116,9 @@ a {
 }
 
 
-/* LEFT */
+/* ================================================= */
+/* ================= LEFT CURTAIN ================== */
+/* ================================================= */
 
 .curtain-left {
   left: -2%;
@@ -125,7 +133,9 @@ a {
 }
 
 
-/* RIGHT */
+/* ================================================= */
+/* ================= RIGHT CURTAIN ================= */
+/* ================================================= */
 
 .curtain-right {
   right: -2%;
@@ -173,10 +183,14 @@ a {
   filter: blur(.3px);
 
   transform: scaleX(1.05);
+
+  pointer-events: none;
 }
 
 
-/* Extra soft fabric highlight */
+/* ================================================= */
+/* ============== SOFT FABRIC HIGHLIGHT ============ */
+/* ================================================= */
 
 .curtain-panel::before {
   content: "";
@@ -251,13 +265,17 @@ a {
 
   pointer-events: auto;
 
+  opacity: 1;
+
   transition:
     opacity .45s ease,
     transform .8s ease;
 }
 
 
-/* Text remains visible BEFORE opening */
+/* ================================================= */
+/* ============== CURTAIN TEXT ===================== */
+/* ================================================= */
 
 .curtain-small-text {
   font-size: 10px;
@@ -320,7 +338,7 @@ a {
 
 
 /* ================================================= */
-/* ============== GOLDEN BUTTON =================== */
+/* ============== GOLDEN BUTTON ==================== */
 /* ================================================= */
 
 .curtain-open-button {
@@ -329,7 +347,11 @@ a {
   width: 82px;
   height: 82px;
 
+  min-width: 82px;
+  min-height: 82px;
+
   padding: 0;
+  margin: 0;
 
   border-radius: 50%;
 
@@ -354,9 +376,17 @@ a {
 
   cursor: pointer;
 
+  appearance: none;
+  -webkit-appearance: none;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  touch-action: manipulation;
 
   animation:
     buttonPulse 2s ease-in-out infinite;
@@ -381,6 +411,17 @@ a {
   transform: scale(.94);
 }
 
+.curtain-open-button:focus {
+  outline: none;
+}
+
+.curtain-open-button:focus-visible {
+  outline:
+    2px solid #f6dfa5;
+
+  outline-offset: 5px;
+}
+
 .button-inner {
   width: 58px;
   height: 58px;
@@ -396,6 +437,8 @@ a {
 
   box-shadow:
     inset 0 0 12px rgba(255, 247, 207, .3);
+
+  pointer-events: none;
 }
 
 .button-symbol {
@@ -405,6 +448,8 @@ a {
 
   text-shadow:
     0 1px 5px rgba(105, 63, 8, .5);
+
+  pointer-events: none;
 }
 
 .curtain-button-text {
@@ -417,7 +462,14 @@ a {
   color: #f3dfae;
 
   opacity: .9;
+
+  pointer-events: none;
 }
+
+
+/* ================================================= */
+/* ================= BUTTON ANIMATION ============== */
+/* ================================================= */
 
 @keyframes buttonPulse {
 
@@ -457,16 +509,17 @@ a {
 }
 
 
-/*
-  IMPORTANT:
-  This removes the ENTIRE red curtain layer after
-  the curtain animation has completed.
-*/
+/* ================================================= */
+/* ============== REMOVE CURTAIN AFTER OPEN ======== */
+/* ================================================= */
 
 .curtain-open {
   visibility: hidden;
 
   pointer-events: none;
+
+  transition:
+    visibility 0s linear 1.7s;
 }
 
 
@@ -553,6 +606,8 @@ a {
   line-height: 1;
 
   z-index: 1;
+
+  pointer-events: none;
 }
 
 .top-left {
@@ -654,7 +709,7 @@ a {
 
 
 /* ================================================= */
-/* ================= COUPLE VISUALS ================ */
+/* ================= COUPLE VISUALS =============== */
 /* ================================================= */
 
 .couple-visuals {
@@ -689,6 +744,8 @@ a {
   justify-content: center;
 
   align-items: flex-end;
+
+  flex-shrink: 0;
 }
 
 .person-visual::before {
@@ -711,6 +768,8 @@ a {
     );
 
   z-index: -1;
+
+  pointer-events: none;
 }
 
 .person-visual img {
@@ -771,6 +830,8 @@ a {
     rgba(156, 46, 49, .12);
 
   filter: blur(12px);
+
+  pointer-events: none;
 }
 
 .couple-center {
@@ -1042,12 +1103,16 @@ a {
 
   touch-action: none;
 
+  display: block;
+
   transition:
     opacity .6s ease;
 }
 
 .scratch-wrapper.revealed .scratch-canvas {
   opacity: 0;
+
+  pointer-events: none;
 }
 
 .scratch-note {
@@ -1168,6 +1233,8 @@ a {
   opacity: .12;
 
   transform: rotate(-25deg);
+
+  pointer-events: none;
 }
 
 .venue-name {
@@ -1225,11 +1292,23 @@ a {
 
   letter-spacing: 2px;
 
-  transition: .3s ease;
+  transition:
+    background .3s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
 .map-button:hover {
   background: #6f2023;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(91, 25, 28, .18);
+}
+
+.map-button:active {
+  transform: translateY(0) scale(.98);
 }
 
 .map-button span {
@@ -1484,6 +1563,9 @@ a {
   .curtain-open-button {
     width: 74px;
     height: 74px;
+
+    min-width: 74px;
+    min-height: 74px;
   }
 
   .button-inner {
@@ -1828,6 +1910,9 @@ a {
   .curtain-open-button {
     width: 68px;
     height: 68px;
+
+    min-width: 68px;
+    min-height: 68px;
   }
 
   .button-inner {
@@ -1891,6 +1976,9 @@ a {
   .curtain-open-button {
     width: 64px;
     height: 64px;
+
+    min-width: 64px;
+    min-height: 64px;
   }
 
   .button-inner {
@@ -1900,5 +1988,84 @@ a {
 
   .curtain-button-text {
     font-size: 6px;
+  }
+}
+
+
+/* ================================================= */
+/* ============== ACCESSIBILITY ==================== */
+/* ================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .curtain-panel,
+  .curtain-center-content,
+  .curtain-open-button,
+  .baraat-hero,
+  .person-visual img,
+  .map-button {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* ================================================= */
+/* ============ FINAL HEADING CENTER FIX =========== */
+/* ================================================= */
+
+.date-section,
+.details-section,
+.rsvp-section,
+.program-section,
+.welcome-section,
+.venue-section {
+  text-align: center !important;
+}
+
+.date-section .section-label,
+.date-section .section-heading,
+.details-section .section-label,
+.details-section .section-heading,
+.rsvp-section .section-label,
+.rsvp-section .section-heading,
+.program-section .section-label,
+.program-section .section-heading,
+.welcome-section .welcome-title,
+.welcome-section h2,
+.venue-section .section-label,
+.venue-section .venue-name {
+  width: 100%;
+  display: block;
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Specifically keep all common headings centered */
+.section-label,
+.section-heading {
+  text-align: center !important;
+}
+
+/* Mobile safety */
+@media (max-width: 700px) {
+  .date-section,
+  .details-section,
+  .rsvp-section,
+  .program-section,
+  .welcome-section,
+  .venue-section {
+    text-align: center !important;
+  }
+
+  .section-label,
+  .section-heading {
+    width: 100%;
+    text-align: center !important;
   }
 }

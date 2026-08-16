@@ -148,6 +148,59 @@ a {
 
 
 /* =========================================================
+   INVITATION TITLE ABOVE ENVELOPE
+========================================================= */
+
+.envelope-invitation-title {
+  position: absolute;
+
+  left: 50%;
+  top: 12%;
+
+  transform: translateX(-50%);
+
+  z-index: 20;
+
+  font-family: "Parisienne", cursive;
+
+  font-size: clamp(55px, 9vw, 78px);
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  color: #9b743b;
+
+  white-space: nowrap;
+
+  text-align: center;
+
+  text-shadow:
+    0 2px 6px rgba(95, 62, 22, .15);
+
+  pointer-events: none;
+
+  opacity: 1;
+
+  transition:
+    opacity .6s ease,
+    transform .7s ease;
+}
+
+
+/* title disappears with envelope opening */
+
+.envelope-screen.is-opened .envelope-invitation-title {
+  opacity: 0;
+
+  transform:
+    translateX(-50%)
+    translateY(-20px)
+    scale(.85);
+}
+
+
+/* =========================================================
    OPENING CARD
 ========================================================= */
 
@@ -1366,6 +1419,15 @@ footer b {
   }
 
 
+  /* invitation title */
+
+  .envelope-invitation-title {
+    top: 13%;
+
+    font-size: 55px;
+  }
+
+
   /* envelope */
 
   .envelope {
@@ -1591,6 +1653,13 @@ footer b {
 ========================================================= */
 
 @media (max-width: 380px) {
+
+  .envelope-invitation-title {
+    top: 14%;
+
+    font-size: 48px;
+  }
+
 
   .envelope {
     width: 91vw;
