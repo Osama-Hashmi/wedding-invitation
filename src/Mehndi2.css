@@ -1287,6 +1287,10 @@
 
   cursor: crosshair;
 
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+
   touch-action: none;
 }
 
@@ -2336,6 +2340,13 @@
     flex-basis: 165px;
   }
 
+  .mehndi2-page .portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
   .mehndi2-page .couple-center h2 {
     width: 100%;
 
@@ -2621,61 +2632,48 @@
   }
 
   /* =====================================================
-     RSVP
-     STILL ONE ROW ON MOBILE
+     RSVP — MOBILE LIST
   ===================================================== */
 
   .mehndi2-page .rsvp-section {
-    padding:
-      65px 0
-      55px;
+    width: 100%;
+    padding: 65px 18px 55px;
   }
 
   .mehndi2-page .rsvp-grid {
     width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-      repeat(4, minmax(0, 1fr));
-
-    gap: 6px;
-
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     align-items: stretch;
   }
 
   .mehndi2-page .rsvp-card {
+    width: 100%;
     min-width: 0;
-    min-height: 125px;
-
-    padding:
-      18px 4px;
+    min-height: 0;
+    padding: 20px 18px;
+    border-radius: 14px;
   }
 
   .mehndi2-page .rsvp-card span {
     margin-bottom: 7px;
-
-    font-size: 5px;
-
-    letter-spacing: .8px;
+    font-size: 7px;
+    letter-spacing: 2px;
   }
 
   .mehndi2-page .rsvp-card h3 {
-    font-size: 14px;
-
-    line-height: 1.15;
-
-    word-break: break-word;
+    font-size: 21px;
+    line-height: 1.2;
+    word-break: normal;
+    overflow-wrap: anywhere;
   }
 
   .mehndi2-page .rsvp-card a {
-    margin-top: 8px;
-
-    font-size: 7px;
-
-    letter-spacing: .3px;
-
-    word-break: break-word;
+    margin-top: 9px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    word-break: normal;
   }
 
   /* FOOTER */
@@ -2751,22 +2749,20 @@
   }
 
   .mehndi2-page .rsvp-grid {
-    gap: 4px;
+    gap: 10px;
   }
 
   .mehndi2-page .rsvp-card {
-    min-height: 115px;
-
-    padding-left: 3px;
-    padding-right: 3px;
+    min-height: 0;
+    padding: 17px 15px;
   }
 
   .mehndi2-page .rsvp-card h3 {
-    font-size: 13px;
+    font-size: 19px;
   }
 
   .mehndi2-page .rsvp-card a {
-    font-size: 6px;
+    font-size: 10px;
   }
 
   .mehndi2-page .mehndi-footer h2 {
@@ -2816,26 +2812,24 @@
   }
 
   .mehndi2-page .rsvp-grid {
-    gap: 3px;
+    gap: 9px;
   }
 
   .mehndi2-page .rsvp-card {
-    min-height: 105px;
-
-    padding-left: 2px;
-    padding-right: 2px;
+    min-height: 0;
+    padding: 15px 13px;
   }
 
   .mehndi2-page .rsvp-card span {
-    font-size: 4px;
+    font-size: 6px;
   }
 
   .mehndi2-page .rsvp-card h3 {
-    font-size: 11px;
+    font-size: 18px;
   }
 
   .mehndi2-page .rsvp-card a {
-    font-size: 5.5px;
+    font-size: 9px;
   }
 
   .mehndi2-page .mehndi-footer h2 {

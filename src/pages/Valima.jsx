@@ -676,7 +676,7 @@ function Valima() {
             </span>
 
             <b>
-              10:00 PM
+              09:00 PM
             </b>
           </div>
 
@@ -686,7 +686,7 @@ function Valima() {
             </span>
 
             <b>
-              10:30 PM
+              10:00 PM
             </b>
           </div>
 

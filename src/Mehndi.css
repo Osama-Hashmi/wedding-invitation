@@ -2,7 +2,6 @@
 
 /* =========================================================
    RESET — MEHNDI ONLY
-   SAFE / SCOPED
 ========================================================= */
 
 .mehndi-page,
@@ -575,13 +574,11 @@
   color: #80613a;
 }
 
-.mehndi-page .parent-heading{
-
-    font-size: 14px;
-    letter-spacing: 4px;
-    color: #80613a;
+.mehndi-page .parent-heading {
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #80613a;
 }
-
 
 .mehndi-page .intro-section h2 {
   margin: 15px 0 0;
@@ -672,6 +669,8 @@
 
   border: 1px solid #c39a42;
 
+  background: #e2c477;
+
   box-shadow:
     0 20px 50px rgba(82, 55, 12, 0.13);
 
@@ -684,7 +683,7 @@
   position: absolute;
   inset: 9px;
 
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.65);
 
   border-radius: 50%;
 
@@ -692,42 +691,12 @@
 }
 
 .mehndi-page .image-circle img {
-  width: 100%;
-  height: 100%;
+  width: 40%;
+  height: auto;
 
   object-fit: cover;
 
   display: block;
-}
-
-.mehndi-page .bride-placeholder {
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #fff5c9,
-      #d3a638 60%,
-      #9c6e13
-    );
-}
-
-.mehndi-page .groom-placeholder {
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #f4e4b0,
-      #b08327 60%,
-      #77500e
-    );
-}
-
-.mehndi-page .image-circle span {
-  position: relative;
-  z-index: 2;
-
-  color: rgba(255, 255, 255, 0.9);
-
-  font-size: 9px;
-  letter-spacing: 4px;
 }
 
 .mehndi-page .person-role {
@@ -942,6 +911,180 @@
   letter-spacing: 4px;
 
   color: #92703d;
+}
+
+/* =========================================================
+   SCRATCH TO REVEAL
+========================================================= */
+
+.mehndi-page .scratch-section {
+  width: min(560px, 100%);
+
+  margin: 70px auto 0;
+
+  text-align: center;
+}
+
+.mehndi-page .scratch-heading {
+  margin: 0;
+
+  font-family: "Parisienne", cursive;
+
+  font-size: 42px;
+
+  color: #a7771b;
+}
+
+.mehndi-page .scratch-subheading {
+  margin: 8px 0 25px;
+
+  font-size: 8px;
+  letter-spacing: 3px;
+
+  color: #80613a;
+}
+
+.mehndi-page .scratch-card {
+  position: relative;
+
+  width: 100%;
+  height: 240px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(167, 121, 25, 0.5);
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffaf0,
+      #f1dfb4
+    );
+
+  box-shadow:
+    0 25px 65px
+    rgba(84, 56, 11, 0.14);
+
+  user-select: none;
+}
+
+.mehndi-page .scratch-revealed {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #fffdf4 0%,
+      #f7e8c7 65%,
+      #e5c77e 100%
+    );
+
+  color: #a7771b;
+}
+
+.mehndi-page .revealed-label {
+  font-size: 8px;
+  letter-spacing: 4px;
+
+  color: #80613a;
+}
+
+.mehndi-page .scratch-revealed strong {
+  margin: 8px 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 100px;
+  line-height: 0.8;
+
+  font-weight: 500;
+
+  color: #a7771b;
+}
+
+.mehndi-page .revealed-month {
+  font-size: 13px;
+  letter-spacing: 5px;
+  font-weight: 600;
+
+  color: #654a2d;
+}
+
+.mehndi-page .scratch-revealed small {
+  margin-top: 12px;
+
+  font-size: 8px;
+  letter-spacing: 3px;
+
+  color: #92703d;
+}
+
+.mehndi-page .scratch-canvas {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  cursor: crosshair;
+
+  touch-action: none;
+}
+
+.mehndi-page .scratch-progress {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 600;
+
+  text-shadow:
+    0 2px 8px rgba(70, 45, 8, 0.3);
+}
+
+.mehndi-page .scratch-complete {
+  margin: 18px 0 0;
+
+  font-size: 8px;
+  letter-spacing: 4px;
+
+  color: #a7771b;
+
+  animation: scratchComplete 0.7s ease both;
+}
+
+@keyframes scratchComplete {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================================================
@@ -1481,7 +1624,8 @@
 }
 
 .mehndi-page .music-button.playing {
-  animation: mehndiMusicPulse 1.5s infinite;
+  animation:
+    mehndiMusicPulse 1.5s infinite;
 }
 
 @keyframes mehndiMusicPulse {
@@ -1616,9 +1760,7 @@
     bottom: -45px;
   }
 
-  /* =======================================================
-     MAIN
-  ======================================================= */
+  /* MAIN */
 
   .mehndi-page .mehndi-content {
     padding:
@@ -1638,9 +1780,7 @@
     right: -70px;
   }
 
-  /* =======================================================
-     INTRO
-  ======================================================= */
+  /* INTRO */
 
   .mehndi-page .intro-section {
     padding-bottom: 65px;
@@ -1658,9 +1798,7 @@
     font-size: 17px;
   }
 
-  /* =======================================================
-     NAMES
-  ======================================================= */
+  /* NAMES */
 
   .mehndi-page .names-section {
     padding:
@@ -1687,9 +1825,7 @@
     font-size: 16px;
   }
 
-  /* =======================================================
-     QUOTE
-  ======================================================= */
+  /* QUOTE */
 
   .mehndi-page .quote-section {
     padding:
@@ -1706,9 +1842,7 @@
     font-size: 17px;
   }
 
-  /* =======================================================
-     DATE
-  ======================================================= */
+  /* DATE */
 
   .mehndi-page .event-section {
     padding:
@@ -1744,9 +1878,40 @@
     letter-spacing: 2px;
   }
 
-  /* =======================================================
-     COUNTDOWN
-  ======================================================= */
+  /* SCRATCH */
+
+  .mehndi-page .scratch-section {
+    margin-top: 55px;
+  }
+
+  .mehndi-page .scratch-heading {
+    font-size: 36px;
+  }
+
+  .mehndi-page .scratch-subheading {
+    font-size: 7px;
+    letter-spacing: 2px;
+    line-height: 1.6;
+  }
+
+  .mehndi-page .scratch-card {
+    height: 215px;
+  }
+
+  .mehndi-page .scratch-revealed strong {
+    font-size: 85px;
+  }
+
+  .mehndi-page .revealed-month {
+    font-size: 11px;
+    letter-spacing: 4px;
+  }
+
+  .mehndi-page .scratch-revealed small {
+    font-size: 7px;
+  }
+
+  /* COUNTDOWN */
 
   .mehndi-page .countdown {
     grid-template-columns:
@@ -1764,9 +1929,7 @@
     font-size: 34px;
   }
 
-  /* =======================================================
-     VENUE
-  ======================================================= */
+  /* VENUE */
 
   .mehndi-page .venue-section {
     padding:
@@ -1797,9 +1960,7 @@
     font-size: 7px;
   }
 
-  /* =======================================================
-     DETAILS
-  ======================================================= */
+  /* DETAILS */
 
   .mehndi-page .details-section {
     padding:
@@ -1811,9 +1972,7 @@
     padding: 30px 15px;
   }
 
-  /* =======================================================
-     FINAL
-  ======================================================= */
+  /* FINAL */
 
   .mehndi-page .final-section {
     padding:
@@ -1829,9 +1988,7 @@
     font-size: 17px;
   }
 
-  /* =======================================================
-     RSVP
-  ======================================================= */
+  /* RSVP */
 
   .mehndi-page .rsvp-section {
     padding:
@@ -1843,9 +2000,7 @@
     grid-template-columns: 1fr;
   }
 
-  /* =======================================================
-     FOOTER
-  ======================================================= */
+  /* FOOTER */
 
   .mehndi-page .mehndi-footer {
     padding-top: 55px;
@@ -1859,9 +2014,7 @@
     display: none;
   }
 
-  /* =======================================================
-     MUSIC
-  ======================================================= */
+  /* MUSIC */
 
   .mehndi-page .music-button {
     right: 15px;
@@ -1936,6 +2089,14 @@
     font-size: 18px;
   }
 
+  .mehndi-page .scratch-card {
+    height: 200px;
+  }
+
+  .mehndi-page .scratch-revealed strong {
+    font-size: 75px;
+  }
+
   .mehndi-page .venue-card h2 {
     font-size: 48px;
   }
@@ -1982,6 +2143,10 @@
     font-size: 68px;
   }
 
+  .mehndi-page .scratch-card {
+    height: 190px;
+  }
+
   .mehndi-page .venue-card h2 {
     font-size: 43px;
   }
@@ -2011,7 +2176,8 @@
 
   .mehndi-page .cover-frame,
   .mehndi-page .enter-button::after,
-  .mehndi-page .music-button.playing {
+  .mehndi-page .music-button.playing,
+  .mehndi-page .scratch-complete {
     animation: none !important;
   }
 }

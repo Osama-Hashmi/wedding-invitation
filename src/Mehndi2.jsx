@@ -4,6 +4,7 @@ import "./Mehndi2.css";
 function Mehndi2() {
   const [opened, setOpened] = useState(false);
   const [scratched, setScratched] = useState(false);
+  const [musicOn, setMusicOn] = useState(false);
 
   const audioRef = useRef(null);
   const canvasRef = useRef(null);
@@ -18,7 +19,7 @@ function Mehndi2() {
   });
 
   /* =========================================================
-     OPEN INVITATION
+     OPEN INVITATION + MUSIC
   ========================================================= */
 
   const openInvitation = async () => {
@@ -26,16 +27,48 @@ function Mehndi2() {
 
     window.scrollTo({
       top: 0,
+      left: 0,
       behavior: "instant",
     });
 
-    if (audioRef.current) {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    try {
+      // SONG WILL START FROM 34 SECONDS
+      audio.currentTime = 34;
+      await audio.play();
+      setMusicOn(true);
+    } catch (error) {
+      setMusicOn(false);
+      console.log("Audio could not autoplay:", error);
+    }
+  };
+
+  /* =========================================================
+     MUSIC TOGGLE
+  ========================================================= */
+
+  const toggleMusic = async () => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    if (audio.paused) {
       try {
-        audioRef.current.currentTime = 0;
-        await audioRef.current.play();
+        if (audio.currentTime < 34) {
+          audio.currentTime = 34;
+        }
+
+        await audio.play();
+        setMusicOn(true);
       } catch (error) {
-        console.log("Audio could not autoplay:", error);
+        console.log("Music could not start:", error);
       }
+    } else {
+      audio.pause();
+      setMusicOn(false);
     }
   };
 
@@ -113,114 +146,86 @@ function Mehndi2() {
     const canvas = canvasRef.current;
     const card = scratchCardRef.current;
 
-    if (!canvas || !card) return;
+    if (!canvas || !card || scratched) return;
 
     const ctx = canvas.getContext("2d", {
       willReadFrequently: true,
     });
 
+    let resizeObserver;
+
     const setupCanvas = () => {
       const rect = card.getBoundingClientRect();
+      const width = Math.max(1, Math.round(rect.width));
+      const height = Math.max(1, Math.round(rect.height));
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-      const width = Math.max(1, Math.floor(rect.width));
-      const height = Math.max(1, Math.floor(rect.height));
-
-      const ratio = Math.min(window.devicePixelRatio || 1, 2);
-
-      canvas.width = width * ratio;
-      canvas.height = height * ratio;
-
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
 
-      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.globalCompositeOperation = "source-over";
+      ctx.clearRect(0, 0, width, height);
 
-      /* LIGHT SCRATCH LAYER */
-
-      const gradient = ctx.createLinearGradient(
-        0,
-        0,
-        width,
-        height
-      );
-
-      gradient.addColorStop(0, "#f5efdc");
-      gradient.addColorStop(0.45, "#ebe3c8");
-      gradient.addColorStop(1, "#d9ceb0");
+      const gradient = ctx.createLinearGradient(0, 0, width, height);
+      gradient.addColorStop(0, "#f6f0df");
+      gradient.addColorStop(0.45, "#e9dfc2");
+      gradient.addColorStop(1, "#d5c8a8");
 
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
 
-      /* INNER BORDER */
-
       ctx.strokeStyle = "rgba(91, 106, 73, 0.42)";
       ctx.lineWidth = 1;
       ctx.setLineDash([5, 5]);
-
-      ctx.strokeRect(
-        16,
-        16,
-        width - 32,
-        height - 32
-      );
-
+      ctx.strokeRect(16, 16, Math.max(0, width - 32), Math.max(0, height - 32));
       ctx.setLineDash([]);
-
-      /* SCRATCH CONTENT */
 
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
 
       ctx.fillStyle = "#9b7831";
-      ctx.font = "26px Cormorant Garamond";
+      ctx.font = "26px 'Cormorant Garamond', serif";
       ctx.fillText("✦", width / 2, height / 2 - 65);
 
       ctx.fillStyle = "#284c38";
-      ctx.font = "600 12px Montserrat";
-      ctx.fillText(
-        "SCRATCH TO REVEAL",
-        width / 2,
-        height / 2 - 22
-      );
+      ctx.font = "600 12px Montserrat, sans-serif";
+      ctx.fillText("SCRATCH TO REVEAL", width / 2, height / 2 - 22);
 
       ctx.fillStyle = "#68735e";
-      ctx.font = "400 9px Montserrat";
-      ctx.fillText(
-        "OUR SPECIAL DATE",
-        width / 2,
-        height / 2 + 8
-      );
+      ctx.font = "400 9px Montserrat, sans-serif";
+      ctx.fillText("OUR SPECIAL DATE", width / 2, height / 2 + 8);
 
       ctx.fillStyle = "#a68438";
-      ctx.font = "28px Cormorant Garamond";
-      ctx.fillText(
-        "❦",
-        width / 2,
-        height / 2 + 55
-      );
+      ctx.font = "28px 'Cormorant Garamond', serif";
+      ctx.fillText("❦", width / 2, height / 2 + 55);
     };
 
     setupCanvas();
 
-    const resizeObserver = new ResizeObserver(() => {
-      if (!scratched) {
-        setupCanvas();
-      }
-    });
+    if ("ResizeObserver" in window) {
+      resizeObserver = new ResizeObserver(() => {
+        if (!scratched) setupCanvas();
+      });
+      resizeObserver.observe(card);
+    }
 
-    resizeObserver.observe(card);
+    window.addEventListener("resize", setupCanvas);
 
     return () => {
-      resizeObserver.disconnect();
+      resizeObserver?.disconnect();
+      window.removeEventListener("resize", setupCanvas);
     };
   }, [scratched]);
 
   const scratchAtPoint = (clientX, clientY) => {
     const canvas = canvasRef.current;
-
     if (!canvas || scratched) return;
 
     const rect = canvas.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
 
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
@@ -231,26 +236,17 @@ function Mehndi2() {
     const ctx = canvas.getContext("2d");
 
     ctx.save();
-
     ctx.globalCompositeOperation = "destination-out";
-
     ctx.beginPath();
-    ctx.arc(
-      x,
-      y,
-      24 * Math.min(scaleX, scaleY),
-      0,
-      Math.PI * 2
-    );
 
+    const radius = Math.max(22, 30 * Math.min(scaleX, scaleY));
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
     ctx.fill();
-
     ctx.restore();
   };
 
   const checkScratchProgress = () => {
     const canvas = canvasRef.current;
-
     if (!canvas || scratched) return;
 
     const ctx = canvas.getContext("2d", {
@@ -259,36 +255,29 @@ function Mehndi2() {
 
     const width = canvas.width;
     const height = canvas.height;
+    if (!width || !height) return;
 
-    const imageData = ctx.getImageData(
-      0,
-      0,
-      width,
-      height
-    );
-
+    const imageData = ctx.getImageData(0, 0, width, height);
+    const step = 12;
     let transparentPixels = 0;
-
-    const step = 8;
+    let totalPixels = 0;
 
     for (let y = 0; y < height; y += step) {
       for (let x = 0; x < width; x += step) {
         const index = (y * width + x) * 4;
+        totalPixels++;
 
-        if (imageData.data[index + 3] < 80) {
+        if (imageData.data[index + 3] < 100) {
           transparentPixels++;
         }
       }
     }
 
-    const totalPixels =
-      Math.ceil(width / step) *
-      Math.ceil(height / step);
+    if (!totalPixels) return;
 
-    const percentage =
-      transparentPixels / totalPixels;
+    const percentage = transparentPixels / totalPixels;
 
-    if (percentage >= 0.48) {
+    if (percentage >= 0.35) {
       setScratched(true);
     }
   };
@@ -296,33 +285,39 @@ function Mehndi2() {
   const handlePointerDown = (event) => {
     if (scratched) return;
 
+    event.preventDefault();
     scratchingRef.current = true;
 
-    if (event.currentTarget.setPointerCapture) {
-      event.currentTarget.setPointerCapture(
-        event.pointerId
-      );
+    try {
+      event.currentTarget.setPointerCapture?.(event.pointerId);
+    } catch (error) {
+      // Ignore pointer capture errors
     }
 
-    scratchAtPoint(
-      event.clientX,
-      event.clientY
-    );
+    scratchAtPoint(event.clientX, event.clientY);
+    checkScratchProgress();
   };
 
   const handlePointerMove = (event) => {
     if (!scratchingRef.current || scratched) return;
 
-    scratchAtPoint(
-      event.clientX,
-      event.clientY
-    );
+    event.preventDefault();
+    scratchAtPoint(event.clientX, event.clientY);
+    checkScratchProgress();
   };
 
-  const handlePointerUp = () => {
+  const handlePointerUp = (event) => {
     if (!scratchingRef.current) return;
 
     scratchingRef.current = false;
+
+    try {
+      if (event?.currentTarget?.releasePointerCapture && event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      }
+    } catch (error) {
+      // Ignore pointer capture errors
+    }
 
     checkScratchProgress();
   };
@@ -337,7 +332,9 @@ function Mehndi2() {
         opened ? "opened" : ""
       }`}
     >
-      {/* MUSIC */}
+      {/* =====================================================
+          MUSIC
+      ===================================================== */}
 
       <audio
         ref={audioRef}
@@ -360,9 +357,11 @@ function Mehndi2() {
         }`}
       >
         <div className="cover-glow"></div>
+
         <div className="cover-pattern"></div>
 
         <div className="cover-frame frame-one"></div>
+
         <div className="cover-frame frame-two"></div>
 
         <div className="cover-flower flower-one">
@@ -382,7 +381,6 @@ function Mehndi2() {
         </div>
 
         <div className="cover-content">
-
           <span className="cover-top">
             A BEAUTIFUL EVENING AWAITS
           </span>
@@ -397,7 +395,9 @@ function Mehndi2() {
 
           <div className="cover-divider">
             <span></span>
+
             <b>❦</b>
+
             <span></span>
           </div>
 
@@ -407,7 +407,9 @@ function Mehndi2() {
 
           <div className="cover-couple">
             Osama
+
             <span>♡</span>
+
             Areeba
           </div>
 
@@ -436,7 +438,6 @@ function Mehndi2() {
           <small className="tap-hint">
             TAP TO ENTER THE CELEBRATION
           </small>
-
         </div>
       </section>
 
@@ -445,8 +446,8 @@ function Mehndi2() {
       ===================================================== */}
 
       <section className="mehndi2-content">
-
         <div className="green-glow glow-top"></div>
+
         <div className="green-glow glow-bottom"></div>
 
         <div className="decor decor-one">
@@ -468,14 +469,15 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="intro-section">
-
             <div className="bismillah">
               ﷽
             </div>
 
             <div className="gold-divider">
               <span></span>
+
               <b>✦</b>
+
               <span></span>
             </div>
 
@@ -497,10 +499,11 @@ function Mehndi2() {
 
             <div className="gold-divider bottom-divider">
               <span></span>
+
               <b>❦</b>
+
               <span></span>
             </div>
-
           </section>
 
           {/* =================================================
@@ -508,7 +511,6 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="couple-section">
-
             <p className="eyebrow">
               OF THEIR BELOVED SON
             </p>
@@ -518,11 +520,9 @@ function Mehndi2() {
               {/* GROOM */}
 
               <div className="couple-person groom">
-
                 <div className="portrait-frame">
-
                   <img
-                    src="/images/mehndi2-osama-png"
+                    src="/images/mehndi2-boy.png"
                     alt="Osama"
                   />
 
@@ -531,19 +531,16 @@ function Mehndi2() {
                       GROOM
                     </span>
                   </div>
-
                 </div>
 
                 <p className="person-role">
                   GROOM
                 </p>
-
               </div>
 
               {/* CENTER */}
 
               <div className="couple-center">
-
                 <span className="center-flower">
                   ❦
                 </span>
@@ -560,20 +557,19 @@ function Mehndi2() {
 
                 <div className="tiny-line">
                   <span></span>
+
                   <b>✦</b>
+
                   <span></span>
                 </div>
-
               </div>
 
               {/* BRIDE */}
 
               <div className="couple-person bride">
-
                 <div className="portrait-frame">
-
                   <img
-                    src="/images/mehndi2-areeba.png"
+                    src="/images/mehndi2-girl.png"
                     alt="Areeba"
                   />
 
@@ -582,19 +578,16 @@ function Mehndi2() {
                       BRIDE
                     </span>
                   </div>
-
                 </div>
 
                 <p className="person-role">
                   BRIDE
                 </p>
-
               </div>
 
             </div>
 
-            <div className="full-name">
-
+            {/* <div className="full-name">
               <h3>
                 Syed Muhammad Osama Ali Hashmi
               </h3>
@@ -605,7 +598,9 @@ function Mehndi2() {
 
               <div className="with-line">
                 <i></i>
+
                 <b>WITH</b>
+
                 <i></i>
               </div>
 
@@ -616,9 +611,7 @@ function Mehndi2() {
               <span>
                 BRIDE
               </span>
-
-            </div>
-
+            </div> */}
           </section>
 
           {/* =================================================
@@ -626,7 +619,6 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="message-section">
-
             <div className="message-icon">
               ✦
             </div>
@@ -648,7 +640,6 @@ function Mehndi2() {
             <div className="message-flower">
               ❧
             </div>
-
           </section>
 
           {/* =================================================
@@ -656,7 +647,6 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="date-section">
-
             <p className="section-heading">
               A DATE TO REMEMBER
             </p>
@@ -671,13 +661,10 @@ function Mehndi2() {
                 scratched ? "revealed" : ""
               }`}
             >
-
               {/* DATE BEHIND SCRATCH */}
 
               <div className="revealed-date">
-
                 <div className="date-inner">
-
                   <span className="date-small">
                     SAVE THE DATE
                   </span>
@@ -701,35 +688,39 @@ function Mehndi2() {
                   <div className="date-ornament">
                     ❦
                   </div>
-
                 </div>
-
               </div>
 
-              {/* REAL SCRATCH CANVAS */}
+              {/* SCRATCH CANVAS */}
 
               <canvas
                 ref={canvasRef}
                 className="scratch-canvas"
-                onPointerDown={handlePointerDown}
-                onPointerMove={handlePointerMove}
-                onPointerUp={handlePointerUp}
-                onPointerCancel={handlePointerUp}
-                onPointerLeave={handlePointerUp}
+                onPointerDown={
+                  handlePointerDown
+                }
+                onPointerMove={
+                  handlePointerMove
+                }
+                onPointerUp={
+                  handlePointerUp
+                }
+                onPointerCancel={
+                  handlePointerUp
+                }
+                onPointerLeave={
+                  handlePointerUp
+                }
               />
-
             </div>
 
             <p className="scratch-note">
               USE YOUR FINGER OR MOUSE TO SCRATCH
             </p>
 
-            {/* =================================================
-                COUNTDOWN
-            ================================================= */}
+            {/* COUNTDOWN */}
 
             <div className="countdown-section">
-
               <p className="countdown-heading">
                 THE CELEBRATION BEGINS IN
               </p>
@@ -740,6 +731,7 @@ function Mehndi2() {
                   <strong>
                     {timeLeft.days}
                   </strong>
+
                   <span>
                     DAYS
                   </span>
@@ -749,6 +741,7 @@ function Mehndi2() {
                   <strong>
                     {timeLeft.hours}
                   </strong>
+
                   <span>
                     HOURS
                   </span>
@@ -758,6 +751,7 @@ function Mehndi2() {
                   <strong>
                     {timeLeft.minutes}
                   </strong>
+
                   <span>
                     MINUTES
                   </span>
@@ -767,15 +761,14 @@ function Mehndi2() {
                   <strong>
                     {timeLeft.seconds}
                   </strong>
+
                   <span>
                     SECONDS
                   </span>
                 </div>
 
               </div>
-
             </div>
-
           </section>
 
           {/* =================================================
@@ -783,7 +776,6 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="timeline-section">
-
             <p className="section-heading">
               AN EVENING TO REMEMBER
             </p>
@@ -795,11 +787,11 @@ function Mehndi2() {
             <div className="timeline">
 
               <div className="timeline-item">
-
                 <div className="timeline-time">
                   <strong>
                     09:00
                   </strong>
+
                   <small>
                     PM
                   </small>
@@ -824,15 +816,14 @@ function Mehndi2() {
                     Guests arrive and the celebration begins.
                   </p>
                 </div>
-
               </div>
 
               <div className="timeline-item">
-
                 <div className="timeline-time">
                   <strong>
                     10:00
                   </strong>
+
                   <small>
                     PM
                   </small>
@@ -857,15 +848,14 @@ function Mehndi2() {
                     Music, laughter and beautiful moments together.
                   </p>
                 </div>
-
               </div>
 
               <div className="timeline-item">
-
                 <div className="timeline-time">
                   <strong>
                     11:30
                   </strong>
+
                   <small>
                     PM
                   </small>
@@ -890,11 +880,9 @@ function Mehndi2() {
                     A delicious dinner to complete the evening.
                   </p>
                 </div>
-
               </div>
 
             </div>
-
           </section>
 
           {/* =================================================
@@ -902,13 +890,11 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="venue-section">
-
             <p className="section-heading">
               THE VENUE
             </p>
 
             <div className="venue-card">
-
               <div className="venue-icon">
                 ⌖
               </div>
@@ -943,9 +929,7 @@ function Mehndi2() {
                   →
                 </b>
               </a>
-
             </div>
-
           </section>
 
           {/* =================================================
@@ -953,7 +937,6 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="details-section">
-
             <p className="section-heading">
               CELEBRATION DETAILS
             </p>
@@ -961,7 +944,6 @@ function Mehndi2() {
             <div className="details-card">
 
               <div className="detail-row">
-
                 <div className="detail-icon">
                   ✦
                 </div>
@@ -975,13 +957,11 @@ function Mehndi2() {
                     MEHNDI CELEBRATION
                   </h3>
                 </div>
-
               </div>
 
               <div className="detail-line"></div>
 
               <div className="detail-row">
-
                 <div className="detail-icon">
                   ◷
                 </div>
@@ -995,13 +975,11 @@ function Mehndi2() {
                     9:00 PM
                   </h3>
                 </div>
-
               </div>
 
               <div className="detail-line"></div>
 
               <div className="detail-row">
-
                 <div className="detail-icon">
                   ♪
                 </div>
@@ -1015,13 +993,11 @@ function Mehndi2() {
                     10:00 PM
                   </h3>
                 </div>
-
               </div>
 
               <div className="detail-line"></div>
 
               <div className="detail-row">
-
                 <div className="detail-icon">
                   ❧
                 </div>
@@ -1035,11 +1011,9 @@ function Mehndi2() {
                     11:30 PM
                   </h3>
                 </div>
-
               </div>
 
             </div>
-
           </section>
 
           {/* =================================================
@@ -1047,7 +1021,6 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="final-section">
-
             <div className="final-icon">
               ✦
             </div>
@@ -1065,7 +1038,6 @@ function Mehndi2() {
               <br className="desktop-only" />
               will make this celebration even more special.
             </p>
-
           </section>
 
           {/* =================================================
@@ -1073,7 +1045,6 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="rsvp-section">
-
             <p className="section-heading">
               RSVP
             </p>
@@ -1085,7 +1056,6 @@ function Mehndi2() {
             <div className="rsvp-grid">
 
               <div className="rsvp-card">
-
                 <span>
                   FOR ANY ASSISTANCE
                 </span>
@@ -1097,11 +1067,9 @@ function Mehndi2() {
                 <a href="tel:03213539769">
                   03213539769
                 </a>
-
               </div>
 
               <div className="rsvp-card">
-
                 <span>
                   FOR ANY ASSISTANCE
                 </span>
@@ -1113,11 +1081,9 @@ function Mehndi2() {
                 <a href="tel:03219242503">
                   03219242503
                 </a>
-
               </div>
 
               <div className="rsvp-card">
-
                 <span>
                   FOR ANY ASSISTANCE
                 </span>
@@ -1129,11 +1095,9 @@ function Mehndi2() {
                 <a href="tel:03362002829">
                   03362002829
                 </a>
-
               </div>
 
               <div className="rsvp-card">
-
                 <span>
                   FOR ANY ASSISTANCE
                 </span>
@@ -1145,11 +1109,9 @@ function Mehndi2() {
                 <a href="tel:03453954353">
                   03453954353
                 </a>
-
               </div>
 
             </div>
-
           </section>
 
           {/* =================================================
@@ -1157,7 +1119,6 @@ function Mehndi2() {
           ================================================= */}
 
           <footer className="mehndi-footer">
-
             <div className="footer-flower">
               ❦
             </div>
@@ -1175,11 +1136,29 @@ function Mehndi2() {
             <small>
               29 · OCTOBER · 2026
             </small>
-
           </footer>
 
         </div>
       </section>
+
+      {/* =====================================================
+          MUSIC BUTTON
+      ===================================================== */}
+
+      {opened && (
+        <button
+          type="button"
+          className={`music-button ${
+            musicOn ? "playing" : ""
+          }`}
+          onClick={toggleMusic}
+          aria-label="Toggle music"
+        >
+          <span>
+            {musicOn ? "♫" : "♪"}
+          </span>
+        </button>
+      )}
     </main>
   );
 }

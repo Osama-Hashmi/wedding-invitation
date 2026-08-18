@@ -704,7 +704,7 @@ function Baraat() {
             </span>
 
             <b>
-              10:00 PM
+              09:00 PM
             </b>
           </div>
 
@@ -714,7 +714,7 @@ function Baraat() {
             </span>
 
             <b>
-              11:00 PM
+              10:00 PM
             </b>
           </div>
 
@@ -724,7 +724,7 @@ function Baraat() {
             </span>
 
             <b>
-              11:50 PM
+              11:00 PM
             </b>
           </div>
 
