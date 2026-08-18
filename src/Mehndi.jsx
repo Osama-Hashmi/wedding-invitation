@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "./mehndi.css";
+import "./Mehndi.css";
 
 function Mehndi() {
   const [opened, setOpened] = useState(false);
