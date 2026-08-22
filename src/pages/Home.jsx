@@ -105,7 +105,7 @@ function Home() {
               </span>
 
               <h2>
-                Areeba <span>♡</span> Osama
+                Osama <span>♡</span> Areeba
               </h2>
 
               <p>
@@ -245,7 +245,7 @@ function Home() {
 
 
           <div className="couple-names">
-            AREEBA <span>♡</span> OSAMA
+            OSAMA <span>♡</span> AREEBA
           </div>
 
 
@@ -567,7 +567,7 @@ function Home() {
 
           <footer>
             <span>
-              Areeba & Osama
+              Osama & Areeba
             </span>
 
             <b>

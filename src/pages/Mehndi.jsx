@@ -779,7 +779,7 @@ function Mehndi() {
             </p>
 
             <h2>
-              Areeba <span>&</span> Osama
+              Osama <span>&</span> Areeba
             </h2>
 
             <small>

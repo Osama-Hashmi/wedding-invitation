@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Mehndi from "./Mehndi";
-import Mehndi2 from "./Mehndi2";
+import Mehndi from "./pages/Mehndi";
+import Mehndi2 from "./pages/Mehndi2";
 import Baraat from "./pages/Baraat";
 import Valima from "./pages/Valima";
 

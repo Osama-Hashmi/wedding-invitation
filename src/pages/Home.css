@@ -970,7 +970,7 @@ a {
   margin: 10px 0 15px;
 }
 
-.couple-names span {
+.-names span {
   font-family: "Parisienne", cursive !important;
   font-size: .65em;
   margin: 0 8px;
@@ -1577,6 +1577,7 @@ footer b {
 
   .couple-names {
     font-size: 49px;
+    font-family: "Parisienne", cursive !important;    
   }
 
 
@@ -1691,6 +1692,7 @@ footer b {
 
   .reception-title {
     font-size: 65px;
+    margin-bottom: 25px;
   }
 
 

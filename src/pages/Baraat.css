@@ -38,10 +38,8 @@ a {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-
   background: #f7eee2;
   color: #351c1b;
-
   font-family: "Montserrat", sans-serif;
 }
 
@@ -53,19 +51,13 @@ a {
 .baraat-curtain {
   position: fixed;
   inset: 0;
-
   width: 100%;
   height: 100vh;
   height: 100dvh;
-
   z-index: 99999;
-
   overflow: hidden;
-
   background: #5d171b;
-
   isolation: isolate;
-
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
@@ -82,14 +74,10 @@ a {
 
 .curtain-panel {
   position: absolute;
-
   top: -3%;
   bottom: -3%;
-
   width: 52%;
-
   z-index: 2;
-
   overflow: hidden;
 
   background:
@@ -122,7 +110,6 @@ a {
 
 .curtain-left {
   left: -2%;
-
   transform-origin: left center;
 
   border-right:
@@ -139,7 +126,6 @@ a {
 
 .curtain-right {
   right: -2%;
-
   transform-origin: right center;
 
   border-left:
@@ -157,7 +143,6 @@ a {
 .curtain-folds {
   position: absolute;
   inset: 0;
-
   opacity: .72;
 
   background:
@@ -181,9 +166,7 @@ a {
     );
 
   filter: blur(.3px);
-
   transform: scaleX(1.05);
-
   pointer-events: none;
 }
 
@@ -194,7 +177,6 @@ a {
 
 .curtain-panel::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
@@ -245,26 +227,19 @@ a {
 
 .curtain-center-content {
   position: absolute;
-
   inset: 0;
-
   z-index: 10;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
 
   text-align: center;
-
   padding: 20px;
 
   color: #f5dfaa;
-
   pointer-events: auto;
-
   opacity: 1;
 
   transition:
@@ -279,11 +254,8 @@ a {
 
 .curtain-small-text {
   font-size: 10px;
-
   letter-spacing: 5px;
-
   font-weight: 500;
-
   color: #f2dfb4;
 
   text-shadow:
@@ -292,11 +264,8 @@ a {
 
 .curtain-ornament {
   margin: 20px 0 8px;
-
   font-family: "Cormorant Garamond", serif;
-
   font-size: 34px;
-
   color: #e5c579;
 
   text-shadow:
@@ -305,15 +274,10 @@ a {
 
 .curtain-center-content h1 {
   margin: 0;
-
   font-family: "Parisienne", cursive;
-
   font-size: clamp(85px, 13vw, 150px);
-
   font-weight: 400;
-
   line-height: .85;
-
   color: #f0d18b;
 
   text-shadow:
@@ -323,13 +287,9 @@ a {
 
 .curtain-center-content p {
   margin: 17px 0 28px;
-
   font-family: "Cormorant Garamond", serif;
-
   font-size: 21px;
-
   letter-spacing: 3px;
-
   color: #f7ead2;
 
   text-shadow:
@@ -443,7 +403,6 @@ a {
 
 .button-symbol {
   color: #fff4c7;
-
   font-size: 21px;
 
   text-shadow:
@@ -456,11 +415,8 @@ a {
   margin-top: 22px;
 
   font-size: 8px;
-
   letter-spacing: 3px;
-
   color: #f3dfae;
-
   opacity: .9;
 
   pointer-events: none;
@@ -468,7 +424,7 @@ a {
 
 
 /* ================================================= */
-/* ================= BUTTON ANIMATION ============== */
+/* ============== BUTTON ANIMATION ============== */
 /* ================================================= */
 
 @keyframes buttonPulse {
@@ -515,7 +471,6 @@ a {
 
 .curtain-open {
   visibility: hidden;
-
   pointer-events: none;
 
   transition:
@@ -531,17 +486,13 @@ a {
   position: relative;
 
   min-height: 100svh;
-
   width: 100%;
 
   padding: 65px 20px 45px;
 
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
-
   align-items: center;
 
   text-align: center;
@@ -577,11 +528,9 @@ a {
 
 .hero-pattern {
   position: absolute;
-
   inset: 0;
 
   pointer-events: none;
-
   opacity: .08;
 
   background-image:
@@ -598,15 +547,11 @@ a {
   position: absolute;
 
   font-size: 130px;
-
   color: #8f2529;
-
   opacity: .18;
-
   line-height: 1;
 
   z-index: 1;
-
   pointer-events: none;
 }
 
@@ -628,77 +573,59 @@ a {
 
 .bismillah {
   position: relative;
-
   z-index: 2;
 
   font-size: 42px;
-
   color: #a27632;
-
   margin-bottom: 20px;
 }
 
 .parents {
   position: relative;
-
   z-index: 2;
 
   margin: 0 0 15px;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 24px;
-
   letter-spacing: 2px;
-
   color: #8c682e;
 }
 
 .invite-line {
   position: relative;
-
   z-index: 2;
 
   margin: 4px 0;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 15px;
-
   letter-spacing: 1.5px;
 }
 
 .ceremony-name {
   position: relative;
-
   z-index: 2;
 
   margin: 4px 0;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 25px;
-
   font-weight: 600;
 
   color: #9c2e31;
-
   letter-spacing: 1px;
 }
 
 .bride-name {
   position: relative;
-
   z-index: 2;
 
   margin: 25px 0 0;
 
   font-family: "Parisienne", cursive;
-
   font-size: clamp(65px, 10vw, 115px);
-
   font-weight: 400;
-
   line-height: 1;
 
   color: #9c2e31;
@@ -714,19 +641,15 @@ a {
 
 .couple-visuals {
   position: relative;
-
   z-index: 3;
 
   width: min(900px, 100%);
-
   min-height: 230px;
 
   margin: 5px auto 0;
 
   display: flex;
-
   align-items: flex-end;
-
   justify-content: center;
 
   gap: 35px;
@@ -736,13 +659,10 @@ a {
   position: relative;
 
   width: 230px;
-
   height: 260px;
 
   display: flex;
-
   justify-content: center;
-
   align-items: flex-end;
 
   flex-shrink: 0;
@@ -836,9 +756,7 @@ a {
 
 .couple-center {
   width: 190px;
-
   padding-bottom: 35px;
-
   flex-shrink: 0;
 }
 
@@ -846,7 +764,6 @@ a {
   width: 100%;
 
   display: flex;
-
   align-items: center;
 
   gap: 14px;
@@ -864,9 +781,7 @@ a {
 
 .ornament-line b {
   color: #b38a46;
-
   font-size: 25px;
-
   font-weight: 400;
 }
 
@@ -874,7 +789,6 @@ a {
   margin: 5px 0 0;
 
   font-family: "Parisienne", cursive;
-
   font-size: 30px;
 
   color: #72532a;
@@ -887,7 +801,6 @@ a {
 
 .groom-name {
   position: relative;
-
   z-index: 4;
 
   max-width: 850px;
@@ -895,11 +808,8 @@ a {
   margin: 20px 0 0;
 
   font-family: "Parisienne", cursive;
-
   font-size: clamp(48px, 7vw, 82px);
-
   font-weight: 400;
-
   line-height: 1.15;
 
   color: #9c2e31;
@@ -916,15 +826,12 @@ a {
 
 .person-title {
   position: relative;
-
   z-index: 4;
 
   margin: 3px 0 0;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 14px;
-
   letter-spacing: 2px;
 
   color: #806033;
@@ -934,15 +841,12 @@ a {
 
 .son-of {
   position: relative;
-
   z-index: 2;
 
   margin-top: 10px;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 15px;
-
   letter-spacing: 1px;
 
   color: #4f3831;
@@ -950,13 +854,11 @@ a {
 
 .hero-bottom-ornament {
   position: relative;
-
   z-index: 2;
 
   margin-top: 15px;
 
   color: #b38a46;
-
   font-size: 18px;
 }
 
@@ -969,11 +871,9 @@ a {
   margin: 0 0 10px;
 
   font-size: 10px;
-
   letter-spacing: 4px;
 
   color: #9a702f;
-
   font-weight: 600;
 }
 
@@ -981,9 +881,7 @@ a {
   margin: 0 0 35px;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 46px;
-
   font-weight: 500;
 
   color: #4b2524;
@@ -993,7 +891,6 @@ a {
   margin-bottom: 20px;
 
   color: #b2873e;
-
   font-size: 30px;
 }
 
@@ -1004,7 +901,6 @@ a {
 
 .date-section {
   padding: 90px 20px;
-
   text-align: center;
 
   background: #fffaf3;
@@ -1014,11 +910,9 @@ a {
   position: relative;
 
   width: min(390px, 88vw);
-
   height: 245px;
 
   margin: 0 auto;
-
   overflow: hidden;
 
   border: 1px solid #b9914b;
@@ -1032,15 +926,11 @@ a {
 
 .date-underneath {
   position: absolute;
-
   inset: 0;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   flex-direction: column;
 
   background:
@@ -1057,9 +947,7 @@ a {
   font-family: "Cormorant Garamond", serif;
 
   font-size: 95px;
-
   line-height: .75;
-
   font-weight: 600;
 }
 
@@ -1067,9 +955,7 @@ a {
   margin-top: 18px;
 
   font-size: 19px;
-
   letter-spacing: 7px;
-
   font-weight: 600;
 }
 
@@ -1077,7 +963,6 @@ a {
   margin-top: 5px;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 22px;
 }
 
@@ -1085,24 +970,19 @@ a {
   margin-top: 8px;
 
   font-size: 9px;
-
   letter-spacing: 4px;
-
   color: #806033;
 }
 
 .scratch-canvas {
   position: absolute;
-
   inset: 0;
 
   width: 100%;
   height: 100%;
 
   cursor: crosshair;
-
   touch-action: none;
-
   display: block;
 
   transition:
@@ -1111,7 +991,6 @@ a {
 
 .scratch-wrapper.revealed .scratch-canvas {
   opacity: 0;
-
   pointer-events: none;
 }
 
@@ -1121,7 +1000,6 @@ a {
   max-width: 350px;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 16px;
 
   color: #816d58;
@@ -1167,7 +1045,6 @@ a {
   padding: 22px 10px;
 
   border-top: 1px solid #d6b36d;
-
   border-bottom: 1px solid #d6b36d;
 
   background:
@@ -1182,9 +1059,7 @@ a {
   font-family: "Cormorant Garamond", serif;
 
   font-size: 52px;
-
   line-height: 1;
-
   font-weight: 500;
 
   color: #f4d58e;
@@ -1196,7 +1071,6 @@ a {
   margin-top: 10px;
 
   font-size: 9px;
-
   letter-spacing: 2px;
 
   color: #fff6eb;
@@ -1223,13 +1097,11 @@ a {
   position: absolute;
 
   right: -30px;
-
   bottom: -35px;
 
   font-size: 180px;
 
   color: #9c2e31;
-
   opacity: .12;
 
   transform: rotate(-25deg);
@@ -1251,7 +1123,6 @@ a {
 
 .venue-line {
   width: 100px;
-
   height: 1px;
 
   margin: 18px auto;
@@ -1263,7 +1134,6 @@ a {
   font-family: "Cormorant Garamond", serif;
 
   font-size: 20px;
-
   line-height: 1.6;
 
   color: #604a3a;
@@ -1289,7 +1159,6 @@ a {
   border: 1px solid #8f292d;
 
   font-size: 9px;
-
   letter-spacing: 2px;
 
   transition:
@@ -1342,7 +1211,6 @@ a {
   display: flex;
 
   justify-content: space-between;
-
   align-items: center;
 
   gap: 15px;
@@ -1366,7 +1234,6 @@ a {
 
 .program-row b {
   color: #972c30;
-
   font-weight: 800;
 }
 
@@ -1389,17 +1256,15 @@ a {
   color: #8e292c;
 
   font-size: 11px;
-
   letter-spacing: 4px;
 }
 
 .welcome-section h2 {
   margin: 0;
 
-  font-family: "Parisienne", cursive;
+  font-family: 'Cormorant Garamond';
 
   font-size: 55px;
-
   font-weight: 400;
 
   color: #8e292c;
@@ -1411,7 +1276,6 @@ a {
   font-family: "Cormorant Garamond", serif;
 
   font-size: 19px;
-
   line-height: 1.6;
 
   color: #614c3d;
@@ -1446,7 +1310,6 @@ a {
   font-family: "Cormorant Garamond", serif;
 
   font-size: 25px;
-
   font-weight: 600;
 
   margin: 0 0 7px;
@@ -1460,7 +1323,6 @@ a {
   font-family: "Montserrat", sans-serif;
 
   font-size: 13px;
-
   letter-spacing: 1px;
 
   color: #9b7435;
@@ -1503,7 +1365,6 @@ a {
   font-family: "Parisienne", cursive;
 
   font-size: 52px;
-
   font-weight: 400;
 
   color: #e4c47d;
@@ -1535,19 +1396,16 @@ a {
 
   .curtain-small-text {
     font-size: 7px;
-
     letter-spacing: 3px;
   }
 
   .curtain-ornament {
     margin: 16px 0 5px;
-
     font-size: 28px;
   }
 
   .curtain-center-content h1 {
     font-size: 90px;
-
     line-height: .85;
   }
 
@@ -1556,7 +1414,6 @@ a {
       14px 0 25px;
 
     font-size: 16px;
-
     letter-spacing: 2px;
   }
 
@@ -1581,7 +1438,6 @@ a {
     margin-top: 18px;
 
     font-size: 7px;
-
     letter-spacing: 2.5px;
   }
 
@@ -1615,7 +1471,6 @@ a {
 
   .bismillah {
     font-size: 27px;
-
     margin-bottom: 12px;
   }
 
@@ -2046,14 +1901,18 @@ a {
   margin-right: auto;
 }
 
-/* Specifically keep all common headings centered */
 .section-label,
 .section-heading {
   text-align: center !important;
 }
 
-/* Mobile safety */
+
+/* ================================================= */
+/* ================= MOBILE SAFETY ================= */
+/* ================================================= */
+
 @media (max-width: 700px) {
+
   .date-section,
   .details-section,
   .rsvp-section,

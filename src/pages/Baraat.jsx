@@ -331,29 +331,45 @@ function Baraat() {
   /* ================= OPEN CURTAIN ================== */
   /* ================================================= */
 
-  const openCurtain = async () => {
+  const openCurtain = () => {
 
     if (curtainOpen) return;
 
     const audio = audioRef.current;
 
-    if (audio) {
-      try {
-        audio.currentTime = 15;
-        await audio.play();
-      } catch (error) {
-        console.log(
-          "Song could not start:",
-          error
-        );
-      }
-    }
+    /* ================= CURTAIN OPEN ================= */
 
     setCurtainOpen(true);
+
+    /* ================= PAGE SCROLL UNLOCK =========== */
 
     document.body.classList.remove(
       "baraat-curtain-locked"
     );
+
+    /* ================= SONG START FROM 31 SEC ======= */
+
+    if (audio) {
+
+      audio.currentTime = 31;
+
+      const playPromise = audio.play();
+
+      if (playPromise !== undefined) {
+
+        playPromise.catch((error) => {
+
+          console.log(
+            "Song could not start:",
+            error
+          );
+
+        });
+
+      }
+
+    }
+
   };
 
 
@@ -370,8 +386,11 @@ function Baraat() {
     audio.load();
 
     return () => {
+
       audio.pause();
-      audio.currentTime = 0;
+
+      audio.currentTime = 31;
+
     };
 
   }, []);
@@ -379,6 +398,7 @@ function Baraat() {
 
   return (
     <main className="baraat-page">
+
 
       {/* ================================================= */}
       {/* ================= BARAAT SONG =================== */}
@@ -391,7 +411,7 @@ function Baraat() {
         playsInline
       >
         <source
-          src="/music/Pal.mp3"
+          src="/music/Mere%20Haath%20Mein.mp3"
           type="audio/mpeg"
         />
       </audio>
@@ -407,7 +427,8 @@ function Baraat() {
         }`}
       >
 
-        {/* LEFT CURTAIN */}
+
+        {/* ================= LEFT CURTAIN ================= */}
 
         <div className="curtain-panel curtain-left">
 
@@ -416,7 +437,7 @@ function Baraat() {
         </div>
 
 
-        {/* RIGHT CURTAIN */}
+        {/* ================= RIGHT CURTAIN ================ */}
 
         <div className="curtain-panel curtain-right">
 
@@ -448,7 +469,7 @@ function Baraat() {
           </p>
 
 
-          {/* GOLDEN BUTTON */}
+          {/* ================= GOLDEN BUTTON ================ */}
 
           <button
             type="button"
@@ -456,11 +477,15 @@ function Baraat() {
             onClick={openCurtain}
             aria-label="Open Baraat Invitation"
           >
+
             <span className="button-inner">
+
               <span className="button-symbol">
                 ✦
               </span>
+
             </span>
+
           </button>
 
 
@@ -668,6 +693,7 @@ function Baraat() {
           rel="noreferrer"
           className="map-button"
         >
+
           <span>
             ⌖
           </span>
@@ -677,6 +703,7 @@ function Baraat() {
           <b>
             →
           </b>
+
         </a>
 
       </section>
@@ -699,6 +726,7 @@ function Baraat() {
         <div className="program-list">
 
           <div className="program-row">
+
             <span>
               ARRIVAL OF BARAAT
             </span>
@@ -706,9 +734,12 @@ function Baraat() {
             <b>
               09:00 PM
             </b>
+
           </div>
 
+
           <div className="program-row">
+
             <span>
               DINNER
             </span>
@@ -716,9 +747,12 @@ function Baraat() {
             <b>
               10:00 PM
             </b>
+
           </div>
 
+
           <div className="program-row">
+
             <span>
               RUKHSATI
             </span>
@@ -726,6 +760,7 @@ function Baraat() {
             <b>
               11:00 PM
             </b>
+
           </div>
 
         </div>
@@ -788,6 +823,7 @@ function Baraat() {
 
           </div>
 
+
           <div className="rsvp-person">
 
             <h3>
@@ -828,5 +864,6 @@ function Baraat() {
     </main>
   );
 }
+
 
 export default Baraat;
