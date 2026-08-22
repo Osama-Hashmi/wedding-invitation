@@ -114,19 +114,11 @@ function Mehndi() {
       ctx.textBaseline = "middle";
       ctx.letterSpacing = "3px";
 
-      ctx.fillText(
-        "SCRATCH TO REVEAL",
-        width / 2,
-        height / 2 - 8
-      );
+      ctx.fillText("SCRATCH TO REVEAL", width / 2, height / 2 - 8);
 
       ctx.font = "22px Cormorant Garamond, serif";
 
-      ctx.fillText(
-        "✦",
-        width / 2,
-        height / 2 + 20
-      );
+      ctx.fillText("✦", width / 2, height / 2 + 20);
     };
 
     setupCanvas();
@@ -176,12 +168,7 @@ function Mehndi() {
 
     const sampleSize = 8;
 
-    const imageData = ctx.getImageData(
-      0,
-      0,
-      width,
-      height
-    ).data;
+    const imageData = ctx.getImageData(0, 0, width, height).data;
 
     let transparentPixels = 0;
     let totalPixels = 0;
@@ -199,9 +186,7 @@ function Mehndi() {
     }
 
     const progress =
-      totalPixels > 0
-        ? (transparentPixels / totalPixels) * 100
-        : 0;
+      totalPixels > 0 ? (transparentPixels / totalPixels) * 100 : 0;
 
     setScratchProgress(Math.min(progress, 100));
 
@@ -238,10 +223,7 @@ function Mehndi() {
     if (lastPointRef.current) {
       ctx.beginPath();
 
-      ctx.moveTo(
-        lastPointRef.current.x,
-        lastPointRef.current.y
-      );
+      ctx.moveTo(lastPointRef.current.x, lastPointRef.current.y);
 
       ctx.lineTo(position.x, position.y);
 
@@ -249,13 +231,7 @@ function Mehndi() {
     } else {
       ctx.beginPath();
 
-      ctx.arc(
-        position.x,
-        position.y,
-        21,
-        0,
-        Math.PI * 2
-      );
+      ctx.arc(position.x, position.y, 21, 0, Math.PI * 2);
 
       ctx.fill();
     }
@@ -307,10 +283,7 @@ function Mehndi() {
     } catch (error) {
       setMusicOn(false);
 
-      console.log(
-        "Music could not start automatically:",
-        error
-      );
+      console.log("Music could not start automatically:", error);
     }
   };
 
@@ -338,12 +311,7 @@ function Mehndi() {
     <main className={`mehndi-page ${opened ? "opened" : ""}`}>
       {/* ================= MUSIC ================= */}
 
-      <audio
-        ref={audioRef}
-        loop
-        preload="auto"
-        src="/music/mehndi.mp3"
-      />
+      <audio ref={audioRef} loop preload="auto" src="/music/mehndi.mp3" />
 
       {/* ================= OPENING SCREEN ================= */}
 
@@ -377,9 +345,7 @@ function Mehndi() {
               <span>Osama</span>
             </div>
 
-            <p className="cover-date">
-              28 OCTOBER 2026
-            </p>
+            <p className="cover-date">28 OCTOBER 2026</p>
 
             <button
               type="button"
@@ -391,9 +357,7 @@ function Mehndi() {
               <strong>→</strong>
             </button>
 
-            <p className="cover-tap">
-              TAP TO ENTER
-            </p>
+            <p className="cover-tap">TAP TO ENTER</p>
           </div>
         </div>
       </section>
@@ -416,13 +380,9 @@ function Mehndi() {
               <span></span>
             </div>
 
-            <p className="tiny-heading">
-              WITH LOVE & BLESSINGS
-            </p>
+            <p className="tiny-heading">WITH LOVE & BLESSINGS</p>
 
-            <p className="parent-heading">
-              Mr & Mrs Advocate Ashraf Ali
-            </p>
+            <p className="parent-heading">Mr & Mrs Advocate Ashraf Ali</p>
 
             <h2>We Invite You</h2>
 
@@ -436,30 +396,21 @@ function Mehndi() {
           {/* ================= NAMES ================= */}
 
           <section className="names-section">
-            <p className="eyebrow">
-              THE BEAUTIFUL COUPLE
-            </p>
+            <p className="eyebrow">THE BEAUTIFUL COUPLE</p>
 
             <div className="name-card">
               {/* BRIDE */}
 
               <div className="name-person">
                 <div className="image-circle">
-                  <img
-                    src="/images/mehndi-girl.png"
-                    alt="Bride"
-                  />
+                  <img src="/images/mehndi-girl.png" alt="Bride" />
                 </div>
 
-                <p className="person-role">
-                  THE BRIDE
-                </p>
+                <p className="person-role">THE BRIDE</p>
 
                 <h3>Areeba</h3>
 
-                <p className="family-name">
-                  D/O Advocate Ashraf Ali
-                </p>
+                <p className="family-name">D/O Advocate Ashraf Ali</p>
               </div>
 
               <div className="heart-divider">
@@ -472,21 +423,14 @@ function Mehndi() {
 
               <div className="name-person">
                 <div className="image-circle">
-                  <img
-                    src="/images/mehndi-boy.png"
-                    alt="Groom"
-                  />
+                  <img src="/images/mehndi-boy.png" alt="Groom" />
                 </div>
 
-                <p className="person-role">
-                  THE GROOM
-                </p>
+                <p className="person-role">THE GROOM</p>
 
                 <h3>Osama</h3>
 
-                <p className="family-name">
-                  S/O Syed Asim Ali Hashmi
-                </p>
+                <p className="family-name">S/O Syed Asim Ali Hashmi</p>
               </div>
             </div>
           </section>
@@ -514,9 +458,7 @@ function Mehndi() {
           {/* ================= DATE ================= */}
 
           <section className="event-section">
-            <p className="section-label">
-              SAVE THE DATE
-            </p>
+            <p className="section-label">SAVE THE DATE</p>
 
             {/* <div className="event-date-card">
               <div className="date-top">
@@ -550,19 +492,13 @@ function Mehndi() {
 
               <div className="scratch-card">
                 <div className="scratch-revealed">
-                  <span className="revealed-label">
-                    OUR SPECIAL DAY
-                  </span>
+                  <span className="revealed-label">OUR SPECIAL DAY</span>
 
                   <strong>28</strong>
 
-                  <span className="revealed-month">
-                    OCTOBER 2026
-                  </span>
+                  <span className="revealed-month">OCTOBER 2026</span>
 
-                  <small>
-                    WEDNESDAY • 9:00 PM
-                  </small>
+                  <small>WEDNESDAY • 9:00 PM</small>
                 </div>
 
                 {!scratched && (
@@ -587,45 +523,33 @@ function Mehndi() {
               </div>
 
               {scratched && (
-                <p className="scratch-complete">
-                  ✦ DATE REVEALED ✦
-                </p>
+                <p className="scratch-complete">✦ DATE REVEALED ✦</p>
               )}
             </div>
 
             {/* COUNTDOWN */}
 
             <div className="countdown-section">
-              <p>
-                CELEBRATION STARTS IN
-              </p>
+              <p>CELEBRATION STARTS IN</p>
 
               <div className="countdown">
                 <div className="time-box">
-                  <strong>
-                    {timeLeft.days}
-                  </strong>
+                  <strong>{timeLeft.days}</strong>
                   <span>DAYS</span>
                 </div>
 
                 <div className="time-box">
-                  <strong>
-                    {timeLeft.hours}
-                  </strong>
+                  <strong>{timeLeft.hours}</strong>
                   <span>HOURS</span>
                 </div>
 
                 <div className="time-box">
-                  <strong>
-                    {timeLeft.minutes}
-                  </strong>
+                  <strong>{timeLeft.minutes}</strong>
                   <span>MINUTES</span>
                 </div>
 
                 <div className="time-box">
-                  <strong>
-                    {timeLeft.seconds}
-                  </strong>
+                  <strong>{timeLeft.seconds}</strong>
                   <span>SECONDS</span>
                 </div>
               </div>
@@ -635,22 +559,14 @@ function Mehndi() {
           {/* ================= VENUE ================= */}
 
           <section className="venue-section">
-            <p className="section-label">
-              JOIN US AT
-            </p>
+            <p className="section-label">JOIN US AT</p>
 
             <div className="venue-card">
-              <div className="venue-icon">
-                ⌖
-              </div>
+              <div className="venue-icon">⌖</div>
 
-              <p className="venue-small">
-                THE CELEBRATION WILL BE HELD AT
-              </p>
+              <p className="venue-small">THE CELEBRATION WILL BE HELD AT</p>
 
-              <h2>
-                Jasmine Banquet
-              </h2>
+              <h2>Jasmine Banquet</h2>
 
               <div className="venue-line"></div>
 
@@ -673,30 +589,58 @@ function Mehndi() {
             </div>
           </section>
 
-          {/* ================= DETAILS ================= */}
+          {/* =================================================
+              DETAILS
+          ================================================= */}
 
           <section className="details-section">
-            <p className="section-label">
-              EVENT DETAILS
-            </p>
+            <p className="section-heading">CELEBRATION DETAILS</p>
 
-            <div className="details-grid">
-              <div className="detail-box">
+            <div className="details-card">
+              <div className="detail-row">
                 <div className="detail-icon">✦</div>
-                <span>EVENT</span>
-                <strong>MEHNDI</strong>
+
+                <div className="detail-content">
+                  <small>OCCASION</small>
+
+                  <h3>MEHNDI CELEBRATION</h3>
+                </div>
               </div>
 
-              <div className="detail-box">
+              <div className="detail-line"></div>
+
+              <div className="detail-row">
                 <div className="detail-icon">◷</div>
-                <span>TIME</span>
-                <strong>9:00 PM</strong>
+
+                <div className="detail-content">
+                  <small>GATHERING</small>
+
+                  <h3>9:00 PM</h3>
+                </div>
               </div>
 
-              <div className="detail-box">
-                <div className="detail-icon">✧</div>
-                <span>DATE</span>
-                <strong>28 OCTOBER</strong>
+              <div className="detail-line"></div>
+
+              <div className="detail-row">
+                <div className="detail-icon">♪</div>
+
+                <div className="detail-content">
+                  <small>ENJOYMENT & CELEBRATION</small>
+
+                  <h3>10:00 PM</h3>
+                </div>
+              </div>
+
+              <div className="detail-line"></div>
+
+              <div className="detail-row">
+                <div className="detail-icon">❧</div>
+
+                <div className="detail-content">
+                  <small>DINNER</small>
+
+                  <h3>11:00 PM</h3>
+                </div>
               </div>
             </div>
           </section>
@@ -704,9 +648,7 @@ function Mehndi() {
           {/* ================= FINAL MESSAGE ================= */}
 
           <section className="final-section">
-            <div className="final-decoration">
-              ✦
-            </div>
+            <div className="final-decoration">✦</div>
 
             <p>YOUR PRESENCE</p>
 
@@ -732,37 +674,25 @@ function Mehndi() {
           {/* ================= RSVP ================= */}
 
           <section className="rsvp-section">
-            <p className="section-label">
-              RSVP
-            </p>
+            <p className="section-label">RSVP</p>
 
-            <p className="rsvp-intro">
-              FOR ANY ASSISTANCE
-            </p>
+            <p className="rsvp-intro">FOR ANY ASSISTANCE</p>
 
             <div className="rsvp-grid">
               <div className="rsvp-card">
                 <span>CONTACT</span>
 
-                <h3>
-                  Advocate Ashraf Ali
-                </h3>
+                <h3>Advocate Ashraf Ali</h3>
 
-                <a href="tel:03342595325">
-                  03342595325
-                </a>
+                <a href="tel:03342595325">03342595325</a>
               </div>
 
               <div className="rsvp-card">
                 <span>CONTACT</span>
 
-                <h3>
-                  Syed Salman Ali Hashmi
-                </h3>
+                <h3>Syed Salman Ali Hashmi</h3>
 
-                <a href="tel:03219242503">
-                  03219242503
-                </a>
+                <a href="tel:03219242503">03219242503</a>
               </div>
             </div>
           </section>
@@ -770,21 +700,15 @@ function Mehndi() {
           {/* ================= FOOTER ================= */}
 
           <footer className="mehndi-footer">
-            <div className="footer-flower">
-              ❦
-            </div>
+            <div className="footer-flower">❦</div>
 
-            <p>
-              WITH LOVE & BLESSINGS
-            </p>
+            <p>WITH LOVE & BLESSINGS</p>
 
             <h2>
               Osama <span>&</span> Areeba
             </h2>
 
-            <small>
-              28 • OCTOBER • 2026
-            </small>
+            <small>28 • OCTOBER • 2026</small>
           </footer>
         </div>
       </section>
@@ -794,15 +718,11 @@ function Mehndi() {
       {opened && (
         <button
           type="button"
-          className={`music-button ${
-            musicOn ? "playing" : ""
-          }`}
+          className={`music-button ${musicOn ? "playing" : ""}`}
           onClick={toggleMusic}
           aria-label="Toggle music"
         >
-          <span>
-            {musicOn ? "♫" : "♪"}
-          </span>
+          <span>{musicOn ? "♫" : "♪"}</span>
         </button>
       )}
     </main>

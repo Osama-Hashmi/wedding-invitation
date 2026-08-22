@@ -52,19 +52,11 @@ function ScratchDate() {
 
       ctx.font = "600 12px Montserrat, sans-serif";
 
-      ctx.fillText(
-        "SCRATCH TO REVEAL",
-        rect.width / 2,
-        rect.height / 2 - 10
-      );
+      ctx.fillText("SCRATCH TO REVEAL", rect.width / 2, rect.height / 2 - 10);
 
       ctx.font = "11px Montserrat, sans-serif";
 
-      ctx.fillText(
-        "your special date",
-        rect.width / 2,
-        rect.height / 2 + 15
-      );
+      ctx.fillText("your special date", rect.width / 2, rect.height / 2 + 15);
     };
 
     setupCanvas();
@@ -82,12 +74,7 @@ function ScratchDate() {
 
     const ctx = canvas.getContext("2d");
 
-    const pixels = ctx.getImageData(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    ).data;
+    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
     let transparent = 0;
     const total = pixels.length / 4;
@@ -123,13 +110,7 @@ function ScratchDate() {
 
     ctx.beginPath();
 
-    ctx.arc(
-      x,
-      y,
-      25,
-      0,
-      Math.PI * 2
-    );
+    ctx.arc(x, y, 25, 0, Math.PI * 2);
 
     ctx.fill();
 
@@ -145,27 +126,15 @@ function ScratchDate() {
   };
 
   return (
-    <div
-      className={`scratch-wrapper ${
-        revealed ? "revealed" : ""
-      }`}
-    >
+    <div className={`scratch-wrapper ${revealed ? "revealed" : ""}`}>
       <div className="date-underneath">
-        <span className="date-day">
-          31
-        </span>
+        <span className="date-day">31</span>
 
-        <span className="date-month">
-          OCTOBER
-        </span>
+        <span className="date-month">OCTOBER</span>
 
-        <span className="date-year">
-          2026
-        </span>
+        <span className="date-year">2026</span>
 
-        <small>
-          SATURDAY
-        </small>
+        <small>SATURDAY</small>
       </div>
 
       <canvas
@@ -181,15 +150,12 @@ function ScratchDate() {
   );
 }
 
-
 /* ================================================= */
 /* ================= COUNTDOWN ===================== */
 /* ================================================= */
 
 function Countdown() {
-  const targetDate = new Date(
-    "2026-10-31T22:00:00+05:00"
-  ).getTime();
+  const targetDate = new Date("2026-10-31T22:00:00+05:00").getTime();
 
   const calculateTime = () => {
     const now = new Date().getTime();
@@ -205,21 +171,13 @@ function Countdown() {
     }
 
     return {
-      days: Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-      ),
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
 
-      hours: Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-      ),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
 
-      minutes: Math.floor(
-        (difference / (1000 * 60)) % 60
-      ),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
 
-      seconds: Math.floor(
-        (difference / 1000) % 60
-      ),
+      seconds: Math.floor((difference / 1000) % 60),
     };
   };
 
@@ -241,69 +199,47 @@ function Countdown() {
 
   return (
     <div className="countdown">
-
       <div className="countdown-box">
-        <strong>
-          {time.days}
-        </strong>
+        <strong>{time.days}</strong>
 
-        <span>
-          DAYS
-        </span>
+        <span>DAYS</span>
       </div>
 
       <div className="countdown-box">
-        <strong>
-          {format(time.hours)}
-        </strong>
+        <strong>{format(time.hours)}</strong>
 
-        <span>
-          HOURS
-        </span>
+        <span>HOURS</span>
       </div>
 
       <div className="countdown-box">
-        <strong>
-          {format(time.minutes)}
-        </strong>
+        <strong>{format(time.minutes)}</strong>
 
-        <span>
-          MINUTES
-        </span>
+        <span>MINUTES</span>
       </div>
 
       <div className="countdown-box">
-        <strong>
-          {format(time.seconds)}
-        </strong>
+        <strong>{format(time.seconds)}</strong>
 
-        <span>
-          SECONDS
-        </span>
+        <span>SECONDS</span>
       </div>
-
     </div>
   );
 }
-
 
 /* ================================================= */
 /* ================= BARAAT ======================== */
 /* ================================================= */
 
 function Baraat() {
-
   const audioRef = useRef(null);
 
   const [curtainOpen, setCurtainOpen] = useState(false);
-
 
   /* ================================================= */
   /* ================= PAGE SETUP ==================== */
   /* ================================================= */
 
   useEffect(() => {
-
     window.scrollTo({
       top: 0,
       left: 0,
@@ -319,20 +255,15 @@ function Baraat() {
     document.body.classList.add("baraat-curtain-locked");
 
     return () => {
-      document.body.classList.remove(
-        "baraat-curtain-locked"
-      );
+      document.body.classList.remove("baraat-curtain-locked");
     };
-
   }, []);
-
 
   /* ================================================= */
   /* ================= OPEN CURTAIN ================== */
   /* ================================================= */
 
   const openCurtain = () => {
-
     if (curtainOpen) return;
 
     const audio = audioRef.current;
@@ -343,42 +274,28 @@ function Baraat() {
 
     /* ================= PAGE SCROLL UNLOCK =========== */
 
-    document.body.classList.remove(
-      "baraat-curtain-locked"
-    );
+    document.body.classList.remove("baraat-curtain-locked");
 
     /* ================= SONG START FROM 31 SEC ======= */
 
     if (audio) {
-
       audio.currentTime = 31;
 
       const playPromise = audio.play();
 
       if (playPromise !== undefined) {
-
         playPromise.catch((error) => {
-
-          console.log(
-            "Song could not start:",
-            error
-          );
-
+          console.log("Song could not start:", error);
         });
-
       }
-
     }
-
   };
-
 
   /* ================================================= */
   /* ================= SONG ========================== */
   /* ================================================= */
 
   useEffect(() => {
-
     const audio = audioRef.current;
 
     if (!audio) return;
@@ -386,88 +303,51 @@ function Baraat() {
     audio.load();
 
     return () => {
-
       audio.pause();
 
       audio.currentTime = 31;
-
     };
-
   }, []);
-
 
   return (
     <main className="baraat-page">
-
-
       {/* ================================================= */}
       {/* ================= BARAAT SONG =================== */}
       {/* ================================================= */}
 
-      <audio
-        ref={audioRef}
-        loop
-        preload="auto"
-        playsInline
-      >
-        <source
-          src="/music/Mere%20Haath%20Mein.mp3"
-          type="audio/mpeg"
-        />
+      <audio ref={audioRef} loop preload="auto" playsInline>
+        <source src="/music/Mere%20Haath%20Mein.mp3" type="audio/mpeg" />
       </audio>
-
 
       {/* ================================================= */}
       {/* ================= CLOTH CURTAIN ================= */}
       {/* ================================================= */}
 
-      <div
-        className={`baraat-curtain ${
-          curtainOpen ? "curtain-open" : ""
-        }`}
-      >
-
-
+      <div className={`baraat-curtain ${curtainOpen ? "curtain-open" : ""}`}>
         {/* ================= LEFT CURTAIN ================= */}
 
         <div className="curtain-panel curtain-left">
-
           <div className="curtain-folds"></div>
-
         </div>
-
 
         {/* ================= RIGHT CURTAIN ================ */}
 
         <div className="curtain-panel curtain-right">
-
           <div className="curtain-folds"></div>
-
         </div>
-
 
         {/* ================================================= */}
         {/* ================= CENTER CONTENT ================ */}
         {/* ================================================= */}
 
         <div className="curtain-center-content">
+          <div className="curtain-small-text">THE WEDDING CELEBRATION</div>
 
-          <div className="curtain-small-text">
-            THE WEDDING CELEBRATION
-          </div>
+          <div className="curtain-ornament">❦</div>
 
-          <div className="curtain-ornament">
-            ❦
-          </div>
+          <h1>Baraat</h1>
 
-          <h1>
-            Baraat
-          </h1>
-
-          <p>
-            A Celebration of Love
-          </p>
-
+          <p>A Celebration of Love</p>
 
           {/* ================= GOLDEN BUTTON ================ */}
 
@@ -477,205 +357,117 @@ function Baraat() {
             onClick={openCurtain}
             aria-label="Open Baraat Invitation"
           >
-
             <span className="button-inner">
-
-              <span className="button-symbol">
-                ✦
-              </span>
-
+              <span className="button-symbol">✦</span>
             </span>
-
           </button>
 
-
-          <div className="curtain-button-text">
-            TAP TO OPEN
-          </div>
-
+          <div className="curtain-button-text">TAP TO OPEN</div>
         </div>
-
       </div>
-
 
       {/* ================================================= */}
       {/* ================= HERO ========================== */}
       {/* ================================================= */}
 
       <section className="baraat-hero">
-
         <div className="hero-pattern"></div>
 
-        <div className="corner-flower top-left">
-          ❧
-        </div>
+        <div className="corner-flower top-left">❧</div>
 
-        <div className="corner-flower top-right">
-          ❧
-        </div>
+        <div className="corner-flower top-right">❧</div>
 
-        <div className="bismillah">
-          ﷽
-        </div>
+        <div className="bismillah">﷽</div>
 
-        <p className="parents">
-          MR. & MRS. ADVOCATE ASHRAF ALI
-        </p>
+        <p className="parents">MR. & MRS. ADVOCATE ASHRAF ALI</p>
 
-        <p className="invite-line">
-          CORDIALLY INVITE YOU TO THE
-        </p>
+        <p className="invite-line">CORDIALLY INVITE YOU TO THE</p>
 
-        <h2 className="ceremony-name">
-          BARAAT CEREMONY
-        </h2>
+        <h2 className="ceremony-name">BARAAT CEREMONY</h2>
 
-        <p className="invite-line">
-          OF THEIR BELOVED DAUGHTER
-        </p>
+        <p className="invite-line">OF THEIR BELOVED DAUGHTER</p>
 
-        <h1 className="bride-name">
-          Areeba Ashraf
-        </h1>
+        <h1 className="bride-name">Areeba Ashraf</h1>
 
-        <p className="person-title">
-          The Bride
-        </p>
-
+        <p className="person-title">The Bride</p>
 
         {/* ================= COUPLE VISUALS ================= */}
 
         <div className="couple-visuals">
-
           <div className="person-visual bride-visual">
-
             <div className="person-glow"></div>
 
-            <img
-              src="/images/baraat-bride.png"
-              alt="Bride"
-            />
-
+            <img src="/images/baraat-bride.png" alt="Bride" />
           </div>
-
 
           <div className="couple-center">
-
             <div className="ornament-line">
-
               <span></span>
 
-              <b>
-                ❦
-              </b>
+              <b>❦</b>
 
               <span></span>
-
             </div>
 
-            <p className="with-word">
-              WITH
-            </p>
-
+            <p className="with-word">WITH</p>
           </div>
-
 
           <div className="person-visual groom-visual">
-
             <div className="person-glow"></div>
 
-            <img
-              src="/images/baraat-groom.png"
-              alt="Groom"
-            />
-
+            <img src="/images/baraat-groom.png" alt="Groom" />
           </div>
-
         </div>
 
+        <h2 className="groom-name">Syed Muhammad Osama Ali Hashmi</h2>
 
-        <h2 className="groom-name">
-          Syed Muhammad Osama Ali Hashmi
-        </h2>
+        <p className="person-title">The Groom</p>
 
-        <p className="person-title">
-          The Groom
-        </p>
+        <p className="son-of">S/O MR. & MRS. SYED ASIM ALI HASHMI</p>
 
-        <p className="son-of">
-          S/O MR. & MRS. SYED ASIM ALI HASHMI
-        </p>
-
-        <div className="hero-bottom-ornament">
-          ✦
-        </div>
-
+        <div className="hero-bottom-ornament">✦</div>
       </section>
-
 
       {/* ================================================= */}
       {/* ================= DATE ========================== */}
       {/* ================================================= */}
 
       <section className="date-section">
+        <div className="gold-emblem">✦</div>
 
-        <div className="gold-emblem">
-          ✦
-        </div>
+        <p className="section-label">A DATE TO REMEMBER</p>
 
-        <p className="section-label">
-          A DATE TO REMEMBER
-        </p>
-
-        <h2 className="section-heading">
-          Scratch to Reveal
-        </h2>
+        <h2 className="section-heading">Scratch to Reveal</h2>
 
         <ScratchDate />
 
         <p className="scratch-note">
           Gently scratch the card to reveal our special day
         </p>
-
       </section>
-
 
       {/* ================================================= */}
       {/* ================= COUNTDOWN ===================== */}
       {/* ================================================= */}
 
       <section className="details-section">
+        <p className="section-label">SAVE THE DATE</p>
 
-        <p className="section-label">
-          SAVE THE DATE
-        </p>
-
-        <h2 className="section-heading">
-          The Baraat
-        </h2>
+        <h2 className="section-heading">The Baraat</h2>
 
         <Countdown />
-
       </section>
-
 
       {/* ================================================= */}
       {/* ================= VENUE ========================= */}
       {/* ================================================= */}
 
       <section className="venue-section">
+        <div className="venue-flower">❧</div>
 
-        <div className="venue-flower">
-          ❧
-        </div>
+        <p className="section-label">THE VENUE</p>
 
-        <p className="section-label">
-          THE VENUE
-        </p>
-
-        <h2 className="venue-name">
-          The Manor Banquet
-        </h2>
+        <h2 className="venue-name">The Manor Banquet</h2>
 
         <div className="venue-line"></div>
 
@@ -693,177 +485,97 @@ function Baraat() {
           rel="noreferrer"
           className="map-button"
         >
-
-          <span>
-            ⌖
-          </span>
-
+          <span>⌖</span>
           GET DIRECTIONS
-
-          <b>
-            →
-          </b>
-
+          <b>→</b>
         </a>
-
       </section>
-
 
       {/* ================================================= */}
       {/* ================= PROGRAM ======================= */}
       {/* ================================================= */}
 
       <section className="program-section">
+        <p className="section-label">PROGRAMME</p>
 
-        <p className="section-label">
-          PROGRAMME
-        </p>
-
-        <h2 className="section-heading">
-          Evening Details
-        </h2>
+        <h2 className="section-heading">Evening Details</h2>
 
         <div className="program-list">
-
           <div className="program-row">
+            <span>ARRIVAL OF BARAAT</span>
 
-            <span>
-              ARRIVAL OF BARAAT
-            </span>
-
-            <b>
-              09:00 PM
-            </b>
-
+            <b>09:00 PM</b>
           </div>
 
-
           <div className="program-row">
+            <span>DINNER</span>
 
-            <span>
-              DINNER
-            </span>
-
-            <b>
-              10:00 PM
-            </b>
-
+            <b>10:00 PM</b>
           </div>
 
-
           <div className="program-row">
+            <span>RUKHSATI</span>
 
-            <span>
-              RUKHSATI
-            </span>
-
-            <b>
-              11:00 PM
-            </b>
-
+            <b>11:00 PM</b>
           </div>
-
         </div>
-
       </section>
-
 
       {/* ================================================= */}
       {/* ================= WELCOME ======================= */}
       {/* ================================================= */}
 
       <section className="welcome-section">
+        <div className="gold-emblem">✦</div>
 
-        <div className="gold-emblem">
-          ✦
-        </div>
+        <p className="welcome-title">AWAITING TO WELCOME</p>
 
-        <p className="welcome-title">
-          AWAITING TO WELCOME
-        </p>
-
-        <h2>
-          OUR BELOVED FAMILY & FRIENDS
-        </h2>
+        <h2>OUR BELOVED FAMILY & FRIENDS</h2>
 
         <p className="welcome-message">
           Your presence, prayers and blessings
           <br />
           will make our celebration even more special.
         </p>
-
       </section>
-
 
       {/* ================================================= */}
       {/* ================= RSVP ========================== */}
       {/* ================================================= */}
 
       <section className="rsvp-section">
+        <p className="section-label">RSVP</p>
 
-        <p className="section-label">
-          RSVP
-        </p>
-
-        <h2 className="section-heading">
-          For Any Assistance
-        </h2>
+        <h2 className="section-heading">For Any Assistance</h2>
 
         <div className="rsvp-card">
-
           <div className="rsvp-person">
+            <h3>Advocate Ashraf Ali</h3>
 
-            <h3>
-              Advocate Ashraf Ali
-            </h3>
-
-            <a href="tel:03342595325">
-              03342595325
-            </a>
-
+            <a href="tel:03342595325">03342595325</a>
           </div>
 
-
           <div className="rsvp-person">
+            <h3>Syed Salman Ali Hashmi</h3>
 
-            <h3>
-              Syed Salman Ali Hashmi
-            </h3>
-
-            <a href="tel:03219242503">
-              03219242503
-            </a>
-
+            <a href="tel:03219242503">03219242503</a>
           </div>
-
         </div>
-
       </section>
-
 
       {/* ================================================= */}
       {/* ================= FOOTER ======================== */}
       {/* ================================================= */}
 
       <footer className="baraat-footer">
+        <div className="footer-ornament">❦</div>
 
-        <div className="footer-ornament">
-          ❦
-        </div>
+        <p>WITH LOVE & BLESSINGS</p>
 
-        <p>
-          WITH LOVE & BLESSINGS
-        </p>
-
-        <strong>
-          Areeba & Osama
-        </strong>
-
+        <strong>Areeba & Osama</strong>
       </footer>
-
     </main>
   );
 }
-
 
 export default Baraat;

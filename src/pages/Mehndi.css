@@ -55,13 +55,12 @@
 
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at center,
-      #fffdf3 0%,
-      #f9edce 40%,
-      #e4c26d 100%
-    );
+  background: radial-gradient(
+    circle at center,
+    #fffdf3 0%,
+    #f9edce 40%,
+    #e4c26d 100%
+  );
 
   transition:
     transform 1.25s cubic-bezier(0.77, 0, 0.18, 1),
@@ -84,12 +83,11 @@
   position: absolute;
   inset: 0;
 
-  background:
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 255, 255, 0.65),
-      transparent 45%
-    );
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.65),
+    transparent 45%
+  );
 
   pointer-events: none;
 }
@@ -211,8 +209,7 @@
 
   color: #a47518;
 
-  text-shadow:
-    0 8px 25px rgba(92, 60, 8, 0.12);
+  text-shadow: 0 8px 25px rgba(92, 60, 8, 0.12);
 
   white-space: nowrap;
 }
@@ -321,12 +318,7 @@
 
   outline: none;
 
-  background:
-    linear-gradient(
-      135deg,
-      #c79b35,
-      #9e7318
-    );
+  background: linear-gradient(135deg, #c79b35, #9e7318);
 
   color: #fffdf2;
 
@@ -339,8 +331,7 @@
 
   overflow: hidden;
 
-  box-shadow:
-    0 15px 35px rgba(87, 57, 8, 0.25);
+  box-shadow: 0 15px 35px rgba(87, 57, 8, 0.25);
 
   transition:
     transform 0.3s ease,
@@ -369,13 +360,12 @@
   width: 70px;
   height: 100%;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.45),
-      transparent
-    );
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
 
   transform: skewX(-20deg);
 
@@ -398,8 +388,7 @@
 .mehndi-page .enter-button:hover {
   transform: translateY(-4px);
 
-  box-shadow:
-    0 20px 45px rgba(87, 57, 8, 0.32);
+  box-shadow: 0 20px 45px rgba(87, 57, 8, 0.32);
 }
 
 .mehndi-page .enter-button:active {
@@ -453,24 +442,13 @@
   width: 100%;
   min-height: 100vh;
 
-  padding:
-    100px 25px
-    70px;
+  padding: 100px 25px 70px;
 
   overflow: hidden;
 
   background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgba(198, 155, 54, 0.2),
-      transparent 30%
-    ),
-    linear-gradient(
-      180deg,
-      #fffaf0 0%,
-      #f7ecd5 45%,
-      #edd9ac 100%
-    );
+    radial-gradient(circle at 50% 0%, rgba(198, 155, 54, 0.2), transparent 30%),
+    linear-gradient(180deg, #fffaf0 0%, #f7ecd5 45%, #edd9ac 100%);
 }
 
 /* =========================================================
@@ -611,9 +589,7 @@
 ========================================================= */
 
 .mehndi-page .names-section {
-  padding:
-    80px 0
-    95px;
+  padding: 80px 0 95px;
 
   border-top: 1px solid rgba(157, 116, 32, 0.2);
   border-bottom: 1px solid rgba(157, 116, 32, 0.2);
@@ -671,8 +647,7 @@
 
   background: #e2c477;
 
-  box-shadow:
-    0 20px 50px rgba(82, 55, 12, 0.13);
+  box-shadow: 0 20px 50px rgba(82, 55, 12, 0.13);
 
   overflow: hidden;
 }
@@ -761,9 +736,7 @@
 ========================================================= */
 
 .mehndi-page .quote-section {
-  padding:
-    110px 20px
-    100px;
+  padding: 110px 20px 100px;
 }
 
 .mehndi-page .quote-symbol {
@@ -817,9 +790,7 @@
 ========================================================= */
 
 .mehndi-page .event-section {
-  padding:
-    85px 0
-    100px;
+  padding: 85px 0 100px;
 }
 
 .mehndi-page .event-date-card {
@@ -829,16 +800,11 @@
 
   padding: 45px 25px;
 
-  background:
-    rgba(255, 250, 233, 0.75);
+  background: rgba(255, 250, 233, 0.75);
 
-  border:
-    1px solid
-    rgba(167, 121, 25, 0.4);
+  border: 1px solid rgba(167, 121, 25, 0.4);
 
-  box-shadow:
-    0 25px 70px
-    rgba(84, 56, 11, 0.1);
+  box-shadow: 0 25px 70px rgba(84, 56, 11, 0.1);
 }
 
 .mehndi-page .date-top {
@@ -952,20 +918,11 @@
 
   overflow: hidden;
 
-  border:
-    1px solid
-    rgba(167, 121, 25, 0.5);
+  border: 1px solid rgba(167, 121, 25, 0.5);
 
-  background:
-    linear-gradient(
-      145deg,
-      #fffaf0,
-      #f1dfb4
-    );
+  background: linear-gradient(145deg, #fffaf0, #f1dfb4);
 
-  box-shadow:
-    0 25px 65px
-    rgba(84, 56, 11, 0.14);
+  box-shadow: 0 25px 65px rgba(84, 56, 11, 0.14);
 
   user-select: none;
 }
@@ -981,13 +938,12 @@
 
   text-align: center;
 
-  background:
-    radial-gradient(
-      circle at center,
-      #fffdf4 0%,
-      #f7e8c7 65%,
-      #e5c77e 100%
-    );
+  background: radial-gradient(
+    circle at center,
+    #fffdf4 0%,
+    #f7e8c7 65%,
+    #e5c77e 100%
+  );
 
   color: #a7771b;
 }
@@ -1060,8 +1016,7 @@
   letter-spacing: 2px;
   font-weight: 600;
 
-  text-shadow:
-    0 2px 8px rgba(70, 45, 8, 0.3);
+  text-shadow: 0 2px 8px rgba(70, 45, 8, 0.3);
 }
 
 .mehndi-page .scratch-complete {
@@ -1113,8 +1068,7 @@
 
   display: grid;
 
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
   gap: 14px;
 }
@@ -1158,9 +1112,7 @@
 ========================================================= */
 
 .mehndi-page .venue-section {
-  padding:
-    85px 0
-    90px;
+  padding: 85px 0 90px;
 }
 
 .mehndi-page .venue-card {
@@ -1168,21 +1120,17 @@
 
   margin: 0 auto;
 
-  padding:
-    65px 30px;
+  padding: 65px 30px;
 
   border: 1px solid rgba(167, 121, 25, 0.35);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 251, 238, 0.95),
-      rgba(242, 220, 171, 0.65)
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(255, 251, 238, 0.95),
+    rgba(242, 220, 171, 0.65)
+  );
 
-  box-shadow:
-    0 30px 70px
-    rgba(84, 56, 11, 0.11);
+  box-shadow: 0 30px 70px rgba(84, 56, 11, 0.11);
 }
 
 .mehndi-page .venue-icon {
@@ -1252,8 +1200,7 @@
 
   margin-top: 30px;
 
-  padding:
-    15px 25px;
+  padding: 15px 25px;
 
   text-decoration: none;
 
@@ -1276,8 +1223,7 @@
 .mehndi-page .map-button:hover {
   transform: translateY(-3px);
 
-  box-shadow:
-    0 15px 30px rgba(83, 54, 7, 0.22);
+  box-shadow: 0 15px 30px rgba(83, 54, 7, 0.22);
 }
 
 .mehndi-page .map-button:active {
@@ -1294,72 +1240,90 @@
 ========================================================= */
 
 .mehndi-page .details-section {
-  padding:
-    70px 0
-    100px;
+  width: 100%;
+  background-color: #072217;
+
+  padding: 60px 0 90px;
+
+  text-align: center;
 }
 
-.mehndi-page .details-grid {
-  width: min(900px, 100%);
+.mehndi-page .details-card {
+  width: min(780px, 100%);
 
   margin: 0 auto;
 
-  display: grid;
+  padding: 40px;
 
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+  border: 1px solid rgba(199, 163, 73, 0.3);
 
-  gap: 18px;
+  background: rgba(12, 48, 31, 0.7);
+
+  text-align: left;
 }
 
-.mehndi-page .detail-box {
-  min-width: 0;
+.mehndi-page .detail-row {
+  display: flex;
 
-  padding: 35px 15px;
+  align-items: center;
 
-  border: 1px solid rgba(167, 121, 25, 0.3);
+  gap: 22px;
 
-  background: rgba(255, 250, 235, 0.55);
+  text-align: left;
 }
 
 .mehndi-page .detail-icon {
-  width: 45px;
-  height: 45px;
+  flex: 0 0 46px;
+
+  width: 46px;
+  height: 46px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  margin: 0 auto 18px;
+  border: 1px solid #c7a34d;
 
-  border: 1px solid #c29b49;
   border-radius: 50%;
 
-  color: #a7771b;
+  color: #d4b25b;
 }
 
-.mehndi-page .detail-box span {
+.mehndi-page .detail-content {
+  min-width: 0;
+}
+
+.mehndi-page .detail-row small {
   display: block;
+
+  color: #a49a7e;
 
   font-size: 7px;
-  letter-spacing: 3px;
 
-  color: #96713c;
+  letter-spacing: 3px;
 }
 
-.mehndi-page .detail-box strong {
-  display: block;
+.mehndi-page .detail-row h3 {
+  margin: 7px 0 0;
 
-  margin-top: 8px;
+  color: #ded2ae;
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 22px;
-  letter-spacing: 1px;
+  font-size: 25px;
 
-  color: #5e462d;
+  letter-spacing: 2px;
 
-  overflow-wrap: break-word;
+  font-weight: 600;
+}
+
+.mehndi-page .detail-line {
+  width: 100%;
+  height: 1px;
+
+  margin: 28px 0;
+
+  background: rgba(199, 163, 73, 0.18);
 }
 
 /* =========================================================
@@ -1367,8 +1331,7 @@
 ========================================================= */
 
 .mehndi-page .final-section {
-  padding:
-    105px 20px;
+  padding: 105px 20px;
 
   border-top: 1px solid rgba(167, 121, 25, 0.18);
   border-bottom: 1px solid rgba(167, 121, 25, 0.18);
@@ -1432,15 +1395,11 @@
 ========================================================= */
 
 .mehndi-page .rsvp-section {
-  padding:
-    95px 0
-    75px;
+  padding: 95px 0 75px;
 }
 
 .mehndi-page .rsvp-intro {
-  margin:
-    -12px 0
-    35px;
+  margin: -12px 0 35px;
 
   font-size: 7px;
   letter-spacing: 3px;
@@ -1455,8 +1414,7 @@
 
   display: grid;
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: 20px;
 }
@@ -1515,9 +1473,7 @@
 ========================================================= */
 
 .mehndi-page .mehndi-footer {
-  padding:
-    70px 0
-    15px;
+  padding: 70px 0 15px;
 
   text-align: center;
 }
@@ -1602,8 +1558,7 @@
 
   cursor: pointer;
 
-  box-shadow:
-    0 10px 25px rgba(82, 55, 10, 0.16);
+  box-shadow: 0 10px 25px rgba(82, 55, 10, 0.16);
 
   font-size: 21px;
 
@@ -1615,8 +1570,7 @@
 .mehndi-page .music-button:hover {
   transform: translateY(-3px);
 
-  box-shadow:
-    0 14px 30px rgba(82, 55, 10, 0.22);
+  box-shadow: 0 14px 30px rgba(82, 55, 10, 0.22);
 }
 
 .mehndi-page .music-button:active {
@@ -1624,20 +1578,17 @@
 }
 
 .mehndi-page .music-button.playing {
-  animation:
-    mehndiMusicPulse 1.5s infinite;
+  animation: mehndiMusicPulse 1.5s infinite;
 }
 
 @keyframes mehndiMusicPulse {
   0%,
   100% {
-    box-shadow:
-      0 10px 25px rgba(82, 55, 10, 0.16);
+    box-shadow: 0 10px 25px rgba(82, 55, 10, 0.16);
   }
 
   50% {
-    box-shadow:
-      0 10px 30px rgba(167, 119, 27, 0.38);
+    box-shadow: 0 10px 30px rgba(167, 119, 27, 0.38);
   }
 }
 
@@ -1763,9 +1714,7 @@
   /* MAIN */
 
   .mehndi-page .mehndi-content {
-    padding:
-      70px 18px
-      45px;
+    padding: 70px 18px 45px;
   }
 
   .mehndi-page .pattern {
@@ -1801,9 +1750,7 @@
   /* NAMES */
 
   .mehndi-page .names-section {
-    padding:
-      60px 0
-      70px;
+    padding: 60px 0 70px;
   }
 
   .mehndi-page .eyebrow,
@@ -1828,9 +1775,7 @@
   /* QUOTE */
 
   .mehndi-page .quote-section {
-    padding:
-      75px 5px
-      70px;
+    padding: 75px 5px 70px;
   }
 
   .mehndi-page .quote-section h2 {
@@ -1845,14 +1790,11 @@
   /* DATE */
 
   .mehndi-page .event-section {
-    padding:
-      65px 0
-      75px;
+    padding: 65px 0 75px;
   }
 
   .mehndi-page .event-date-card {
-    padding:
-      35px 15px;
+    padding: 35px 15px;
   }
 
   .mehndi-page .date-main {
@@ -1914,15 +1856,13 @@
   /* COUNTDOWN */
 
   .mehndi-page .countdown {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 10px;
   }
 
   .mehndi-page .time-box {
-    padding:
-      20px 8px;
+    padding: 20px 8px;
   }
 
   .mehndi-page .time-box strong {
@@ -1932,14 +1872,11 @@
   /* VENUE */
 
   .mehndi-page .venue-section {
-    padding:
-      65px 0
-      70px;
+    padding: 65px 0 70px;
   }
 
   .mehndi-page .venue-card {
-    padding:
-      45px 18px;
+    padding: 45px 18px;
   }
 
   .mehndi-page .venue-card h2 {
@@ -1954,8 +1891,7 @@
     width: auto;
     max-width: 100%;
 
-    padding:
-      14px 17px;
+    padding: 14px 17px;
 
     font-size: 7px;
   }
@@ -1963,20 +1899,50 @@
   /* DETAILS */
 
   .mehndi-page .details-section {
-    padding:
-      55px 0
-      70px;
+    padding: 55px 0 70px;
   }
 
   .mehndi-page .detail-box {
     padding: 30px 15px;
   }
 
+  /* DETAILS */
+
+  .mehndi-page .details-section {
+    padding: 50px 0 65px;
+  }
+
+  .mehndi-page .details-card {
+    padding: 30px 18px;
+  }
+
+  .mehndi-page .detail-row {
+    gap: 14px;
+  }
+
+  .mehndi-page .detail-icon {
+    flex-basis: 40px;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  .mehndi-page .detail-row h3 {
+    font-size: 19px;
+
+    letter-spacing: 1px;
+  }
+
+  .mehndi-page .detail-row small {
+    font-size: 6px;
+
+    letter-spacing: 1.5px;
+  }
+
   /* FINAL */
 
   .mehndi-page .final-section {
-    padding:
-      75px 8px;
+    padding: 75px 8px;
   }
 
   .mehndi-page .final-section h2 {
@@ -1991,9 +1957,7 @@
   /* RSVP */
 
   .mehndi-page .rsvp-section {
-    padding:
-      70px 0
-      55px;
+    padding: 70px 0 55px;
   }
 
   .mehndi-page .rsvp-grid {

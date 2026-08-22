@@ -89,9 +89,7 @@ function Mehndi2() {
   ========================================================= */
 
   useEffect(() => {
-    const targetDate = new Date(
-      "2026-10-29T21:00:00+05:00"
-    ).getTime();
+    const targetDate = new Date("2026-10-29T21:00:00+05:00").getTime();
 
     const updateCountdown = () => {
       const now = Date.now();
@@ -107,21 +105,13 @@ function Mehndi2() {
         return;
       }
 
-      const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-      );
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
 
-      const hours = Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-      );
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
 
-      const minutes = Math.floor(
-        (difference / (1000 * 60)) % 60
-      );
+      const minutes = Math.floor((difference / (1000 * 60)) % 60);
 
-      const seconds = Math.floor(
-        (difference / 1000) % 60
-      );
+      const seconds = Math.floor((difference / 1000) % 60);
 
       setTimeLeft({
         days: String(days).padStart(2, "0"),
@@ -312,7 +302,10 @@ function Mehndi2() {
     scratchingRef.current = false;
 
     try {
-      if (event?.currentTarget?.releasePointerCapture && event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+      if (
+        event?.currentTarget?.releasePointerCapture &&
+        event.currentTarget.hasPointerCapture?.(event.pointerId)
+      ) {
         event.currentTarget.releasePointerCapture(event.pointerId);
       }
     } catch (error) {
@@ -327,35 +320,20 @@ function Mehndi2() {
   ========================================================= */
 
   return (
-    <main
-      className={`mehndi2-page ${
-        opened ? "opened" : ""
-      }`}
-    >
+    <main className={`mehndi2-page ${opened ? "opened" : ""}`}>
       {/* =====================================================
           MUSIC
       ===================================================== */}
 
-      <audio
-        ref={audioRef}
-        loop
-        preload="auto"
-      >
-        <source
-          src="/music/mehndi2.mp3"
-          type="audio/mpeg"
-        />
+      <audio ref={audioRef} loop preload="auto">
+        <source src="/music/mehndi2.mp3" type="audio/mpeg" />
       </audio>
 
       {/* =====================================================
           COVER
       ===================================================== */}
 
-      <section
-        className={`mehndi2-cover ${
-          opened ? "cover-hidden" : ""
-        }`}
-      >
+      <section className={`mehndi2-cover ${opened ? "cover-hidden" : ""}`}>
         <div className="cover-glow"></div>
 
         <div className="cover-pattern"></div>
@@ -364,34 +342,20 @@ function Mehndi2() {
 
         <div className="cover-frame frame-two"></div>
 
-        <div className="cover-flower flower-one">
-          ❦
-        </div>
+        <div className="cover-flower flower-one">❦</div>
 
-        <div className="cover-flower flower-two">
-          ❦
-        </div>
+        <div className="cover-flower flower-two">❦</div>
 
-        <div className="cover-flower flower-three">
-          ❦
-        </div>
+        <div className="cover-flower flower-three">❦</div>
 
-        <div className="cover-flower flower-four">
-          ❦
-        </div>
+        <div className="cover-flower flower-four">❦</div>
 
         <div className="cover-content">
-          <span className="cover-top">
-            A BEAUTIFUL EVENING AWAITS
-          </span>
+          <span className="cover-top">A BEAUTIFUL EVENING AWAITS</span>
 
-          <div className="cover-symbol">
-            ✦
-          </div>
+          <div className="cover-symbol">✦</div>
 
-          <h1>
-            Mehndi
-          </h1>
+          <h1>Mehndi</h1>
 
           <div className="cover-divider">
             <span></span>
@@ -401,21 +365,15 @@ function Mehndi2() {
             <span></span>
           </div>
 
-          <p className="cover-subtitle">
-            A CELEBRATION OF LOVE, COLOUR & JOY
-          </p>
+          <p className="cover-subtitle">A CELEBRATION OF LOVE, COLOUR & JOY</p>
 
           <div className="cover-couple">
             Osama
-
             <span>♡</span>
-
             Areeba
           </div>
 
-          <p className="cover-date">
-            29 · OCTOBER · 2026
-          </p>
+          <p className="cover-date">29 · OCTOBER · 2026</p>
 
           <button
             type="button"
@@ -426,18 +384,12 @@ function Mehndi2() {
 
             <span>✦</span>
 
-            <strong>
-              OPEN INVITATION
-            </strong>
+            <strong>OPEN INVITATION</strong>
 
-            <b>
-              →
-            </b>
+            <b>→</b>
           </button>
 
-          <small className="tap-hint">
-            TAP TO ENTER THE CELEBRATION
-          </small>
+          <small className="tap-hint">TAP TO ENTER THE CELEBRATION</small>
         </div>
       </section>
 
@@ -450,28 +402,19 @@ function Mehndi2() {
 
         <div className="green-glow glow-bottom"></div>
 
-        <div className="decor decor-one">
-          ❦
-        </div>
+        <div className="decor decor-one">❦</div>
 
-        <div className="decor decor-two">
-          ❦
-        </div>
+        <div className="decor decor-two">❦</div>
 
-        <div className="decor decor-three">
-          ✦
-        </div>
+        <div className="decor decor-three">✦</div>
 
         <div className="content-wrapper">
-
           {/* =================================================
               INTRO
           ================================================= */}
 
           <section className="intro-section">
-            <div className="bismillah">
-              ﷽
-            </div>
+            <div className="bismillah">﷽</div>
 
             <div className="gold-divider">
               <span></span>
@@ -481,21 +424,13 @@ function Mehndi2() {
               <span></span>
             </div>
 
-            <p className="family-name">
-              MR. & MRS. SYED ASIM ALI HASHMI
-            </p>
+            <p className="family-name">MR. & MRS. SYED ASIM ALI HASHMI</p>
 
-            <p className="invite-line">
-              CORDIALLY INVITE YOU TO THE
-            </p>
+            <p className="invite-line">CORDIALLY INVITE YOU TO THE</p>
 
-            <h2 className="main-script">
-              Mehndi
-            </h2>
+            <h2 className="main-script">Mehndi</h2>
 
-            <p className="celebration-label">
-              MEHNDI CELEBRATION
-            </p>
+            <p className="celebration-label">MEHNDI CELEBRATION</p>
 
             <div className="gold-divider bottom-divider">
               <span></span>
@@ -511,39 +446,27 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="couple-section">
-            <p className="eyebrow">
-              OF THEIR BELOVED SON
-            </p>
+            <p className="eyebrow">OF THEIR BELOVED SON</p>
 
             <div className="couple-layout">
-
               {/* GROOM */}
 
               <div className="couple-person groom">
                 <div className="portrait-frame">
-                  <img
-                    src="/images/mehndi2-boy.png"
-                    alt="Osama"
-                  />
+                  <img src="/images/mehndi2-boy.png" alt="Osama" />
 
                   <div className="portrait-overlay">
-                    <span>
-                      GROOM
-                    </span>
+                    <span>GROOM</span>
                   </div>
                 </div>
 
-                <p className="person-role">
-                  GROOM
-                </p>
+                <p className="person-role">GROOM</p>
               </div>
 
               {/* CENTER */}
 
               <div className="couple-center">
-                <span className="center-flower">
-                  ❦
-                </span>
+                <span className="center-flower">❦</span>
 
                 <h2>
                   Osama
@@ -551,9 +474,7 @@ function Mehndi2() {
                   Areeba
                 </h2>
 
-                <p>
-                  TOGETHER WITH
-                </p>
+                <p>TOGETHER WITH</p>
 
                 <div className="tiny-line">
                   <span></span>
@@ -568,23 +489,15 @@ function Mehndi2() {
 
               <div className="couple-person bride">
                 <div className="portrait-frame">
-                  <img
-                    src="/images/mehndi2-girl.png"
-                    alt="Areeba"
-                  />
+                  <img src="/images/mehndi2-girl.png" alt="Areeba" />
 
                   <div className="portrait-overlay">
-                    <span>
-                      BRIDE
-                    </span>
+                    <span>BRIDE</span>
                   </div>
                 </div>
 
-                <p className="person-role">
-                  BRIDE
-                </p>
+                <p className="person-role">BRIDE</p>
               </div>
-
             </div>
 
             {/* <div className="full-name">
@@ -619,9 +532,7 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="message-section">
-            <div className="message-icon">
-              ✦
-            </div>
+            <div className="message-icon">✦</div>
 
             <h2>
               AN EVENING OF
@@ -637,9 +548,7 @@ function Mehndi2() {
               as we celebrate the groom-to-be.
             </p>
 
-            <div className="message-flower">
-              ❧
-            </div>
+            <div className="message-flower">❧</div>
           </section>
 
           {/* =================================================
@@ -647,9 +556,7 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="date-section">
-            <p className="section-heading">
-              A DATE TO REMEMBER
-            </p>
+            <p className="section-heading">A DATE TO REMEMBER</p>
 
             <p className="section-subheading">
               SCRATCH THE CARD TO DISCOVER OUR SPECIAL DATE
@@ -657,37 +564,23 @@ function Mehndi2() {
 
             <div
               ref={scratchCardRef}
-              className={`scratch-card ${
-                scratched ? "revealed" : ""
-              }`}
+              className={`scratch-card ${scratched ? "revealed" : ""}`}
             >
               {/* DATE BEHIND SCRATCH */}
 
               <div className="revealed-date">
                 <div className="date-inner">
-                  <span className="date-small">
-                    SAVE THE DATE
-                  </span>
+                  <span className="date-small">SAVE THE DATE</span>
 
-                  <span className="date-number">
-                    29
-                  </span>
+                  <span className="date-number">29</span>
 
-                  <span className="date-month">
-                    OCTOBER
-                  </span>
+                  <span className="date-month">OCTOBER</span>
 
-                  <span className="date-year">
-                    2026
-                  </span>
+                  <span className="date-year">2026</span>
 
-                  <span className="date-day">
-                    THURSDAY
-                  </span>
+                  <span className="date-day">THURSDAY</span>
 
-                  <div className="date-ornament">
-                    ❦
-                  </div>
+                  <div className="date-ornament">❦</div>
                 </div>
               </div>
 
@@ -696,77 +589,45 @@ function Mehndi2() {
               <canvas
                 ref={canvasRef}
                 className="scratch-canvas"
-                onPointerDown={
-                  handlePointerDown
-                }
-                onPointerMove={
-                  handlePointerMove
-                }
-                onPointerUp={
-                  handlePointerUp
-                }
-                onPointerCancel={
-                  handlePointerUp
-                }
-                onPointerLeave={
-                  handlePointerUp
-                }
+                onPointerDown={handlePointerDown}
+                onPointerMove={handlePointerMove}
+                onPointerUp={handlePointerUp}
+                onPointerCancel={handlePointerUp}
+                onPointerLeave={handlePointerUp}
               />
             </div>
 
-            <p className="scratch-note">
-              USE YOUR FINGER OR MOUSE TO SCRATCH
-            </p>
+            <p className="scratch-note">USE YOUR FINGER OR MOUSE TO SCRATCH</p>
 
             {/* COUNTDOWN */}
 
             <div className="countdown-section">
-              <p className="countdown-heading">
-                THE CELEBRATION BEGINS IN
-              </p>
+              <p className="countdown-heading">THE CELEBRATION BEGINS IN</p>
 
               <div className="countdown-grid">
-
                 <div className="count-box">
-                  <strong>
-                    {timeLeft.days}
-                  </strong>
+                  <strong>{timeLeft.days}</strong>
 
-                  <span>
-                    DAYS
-                  </span>
+                  <span>DAYS</span>
                 </div>
 
                 <div className="count-box">
-                  <strong>
-                    {timeLeft.hours}
-                  </strong>
+                  <strong>{timeLeft.hours}</strong>
 
-                  <span>
-                    HOURS
-                  </span>
+                  <span>HOURS</span>
                 </div>
 
                 <div className="count-box">
-                  <strong>
-                    {timeLeft.minutes}
-                  </strong>
+                  <strong>{timeLeft.minutes}</strong>
 
-                  <span>
-                    MINUTES
-                  </span>
+                  <span>MINUTES</span>
                 </div>
 
                 <div className="count-box">
-                  <strong>
-                    {timeLeft.seconds}
-                  </strong>
+                  <strong>{timeLeft.seconds}</strong>
 
-                  <span>
-                    SECONDS
-                  </span>
+                  <span>SECONDS</span>
                 </div>
-
               </div>
             </div>
           </section>
@@ -776,112 +637,70 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="timeline-section">
-            <p className="section-heading">
-              AN EVENING TO REMEMBER
-            </p>
+            <p className="section-heading">AN EVENING TO REMEMBER</p>
 
-            <p className="section-subheading">
-              THREE SPECIAL MOMENTS
-            </p>
+            <p className="section-subheading">THREE SPECIAL MOMENTS</p>
 
             <div className="timeline">
-
               <div className="timeline-item">
                 <div className="timeline-time">
-                  <strong>
-                    09:00
-                  </strong>
+                  <strong>09:00</strong>
 
-                  <small>
-                    PM
-                  </small>
+                  <small>PM</small>
                 </div>
 
                 <div className="timeline-middle">
-                  <div className="timeline-dot">
-                    ✦
-                  </div>
+                  <div className="timeline-dot">✦</div>
                 </div>
 
                 <div className="timeline-info">
-                  <span>
-                    THE GATHERING
-                  </span>
+                  <span>THE GATHERING</span>
 
-                  <h3>
-                    Welcome & Gathering
-                  </h3>
+                  <h3>Welcome & Gathering</h3>
 
-                  <p>
-                    Guests arrive and the celebration begins.
-                  </p>
+                  <p>Guests arrive and the celebration begins.</p>
                 </div>
               </div>
 
               <div className="timeline-item">
                 <div className="timeline-time">
-                  <strong>
-                    10:00
-                  </strong>
+                  <strong>10:00</strong>
 
-                  <small>
-                    PM
-                  </small>
+                  <small>PM</small>
                 </div>
 
                 <div className="timeline-middle">
-                  <div className="timeline-dot">
-                    ✦
-                  </div>
+                  <div className="timeline-dot">✦</div>
                 </div>
 
                 <div className="timeline-info">
-                  <span>
-                    CELEBRATION
-                  </span>
+                  <span>CELEBRATION</span>
 
-                  <h3>
-                    Enjoyment & Celebration
-                  </h3>
+                  <h3>Enjoyment & Celebration</h3>
 
-                  <p>
-                    Music, laughter and beautiful moments together.
-                  </p>
+                  <p>Music, laughter and beautiful moments together.</p>
                 </div>
               </div>
 
               <div className="timeline-item">
                 <div className="timeline-time">
-                  <strong>
-                    11:30
-                  </strong>
+                  <strong>11:00</strong>
 
-                  <small>
-                    PM
-                  </small>
+                  <small>PM</small>
                 </div>
 
                 <div className="timeline-middle">
-                  <div className="timeline-dot">
-                    ✦
-                  </div>
+                  <div className="timeline-dot">✦</div>
                 </div>
 
                 <div className="timeline-info">
-                  <span>
-                    DINNER
-                  </span>
+                  <span>DINNER</span>
 
-                  <h3>
-                    Dinner
-                  </h3>
+                  <h3>Dinner</h3>
 
-                  <p>
-                    A delicious dinner to complete the evening.
-                  </p>
+                  <p>A delicious dinner to complete the evening.</p>
                 </div>
               </div>
-
             </div>
           </section>
 
@@ -890,22 +709,14 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="venue-section">
-            <p className="section-heading">
-              THE VENUE
-            </p>
+            <p className="section-heading">THE VENUE</p>
 
             <div className="venue-card">
-              <div className="venue-icon">
-                ⌖
-              </div>
+              <div className="venue-icon">⌖</div>
 
-              <h2>
-                Al Hamd 2
-              </h2>
+              <h2>Al Hamd 2</h2>
 
-              <p className="venue-label">
-                THE CELEBRATION AWAITS
-              </p>
+              <p className="venue-label">THE CELEBRATION AWAITS</p>
 
               <p className="venue-description">
                 An evening of celebration,
@@ -919,100 +730,10 @@ function Mehndi2() {
                 rel="noopener noreferrer"
                 className="directions-button"
               >
-                <span>
-                  ⌖
-                </span>
-
+                <span>⌖</span>
                 GET DIRECTIONS
-
-                <b>
-                  →
-                </b>
+                <b>→</b>
               </a>
-            </div>
-          </section>
-
-          {/* =================================================
-              DETAILS
-          ================================================= */}
-
-          <section className="details-section">
-            <p className="section-heading">
-              CELEBRATION DETAILS
-            </p>
-
-            <div className="details-card">
-
-              <div className="detail-row">
-                <div className="detail-icon">
-                  ✦
-                </div>
-
-                <div className="detail-content">
-                  <small>
-                    OCCASION
-                  </small>
-
-                  <h3>
-                    MEHNDI CELEBRATION
-                  </h3>
-                </div>
-              </div>
-
-              <div className="detail-line"></div>
-
-              <div className="detail-row">
-                <div className="detail-icon">
-                  ◷
-                </div>
-
-                <div className="detail-content">
-                  <small>
-                    GATHERING
-                  </small>
-
-                  <h3>
-                    9:00 PM
-                  </h3>
-                </div>
-              </div>
-
-              <div className="detail-line"></div>
-
-              <div className="detail-row">
-                <div className="detail-icon">
-                  ♪
-                </div>
-
-                <div className="detail-content">
-                  <small>
-                    ENJOYMENT & CELEBRATION
-                  </small>
-
-                  <h3>
-                    10:00 PM
-                  </h3>
-                </div>
-              </div>
-
-              <div className="detail-line"></div>
-
-              <div className="detail-row">
-                <div className="detail-icon">
-                  ❧
-                </div>
-
-                <div className="detail-content">
-                  <small>
-                    DINNER
-                  </small>
-
-                  <h3>
-                    11:30 PM
-                  </h3>
-                </div>
-              </div>
-
             </div>
           </section>
 
@@ -1021,16 +742,12 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="final-section">
-            <div className="final-icon">
-              ✦
-            </div>
+            <div className="final-icon">✦</div>
 
             <h2>
               YOUR PRESENCE
               <br />
-              <span>
-                MEANS SO MUCH TO US
-              </span>
+              <span>MEANS SO MUCH TO US</span>
             </h2>
 
             <p>
@@ -1045,72 +762,42 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="rsvp-section">
-            <p className="section-heading">
-              RSVP
-            </p>
+            <p className="section-heading">RSVP</p>
 
-            <p className="rsvp-subtitle">
-              FOR ANY ASSISTANCE
-            </p>
+            <p className="rsvp-subtitle">FOR ANY ASSISTANCE</p>
 
             <div className="rsvp-grid">
-
               <div className="rsvp-card">
-                <span>
-                  FOR ANY ASSISTANCE
-                </span>
+                <span>FOR ANY ASSISTANCE</span>
 
-                <h3>
-                  Syed Asim Ali Hashmi
-                </h3>
+                <h3>Syed Asim Ali Hashmi</h3>
 
-                <a href="tel:03213539769">
-                  03213539769
-                </a>
+                <a href="tel:03213539769">03213539769</a>
               </div>
 
               <div className="rsvp-card">
-                <span>
-                  FOR ANY ASSISTANCE
-                </span>
+                <span>FOR ANY ASSISTANCE</span>
 
-                <h3>
-                  Syed Salman Ali Hashmi
-                </h3>
+                <h3>Syed Salman Ali Hashmi</h3>
 
-                <a href="tel:03219242503">
-                  03219242503
-                </a>
+                <a href="tel:03219242503">03219242503</a>
               </div>
 
               <div className="rsvp-card">
-                <span>
-                  FOR ANY ASSISTANCE
-                </span>
+                <span>FOR ANY ASSISTANCE</span>
 
-                <h3>
-                  Abdul Aziz
-                </h3>
+                <h3>Abdul Aziz</h3>
 
-                <a href="tel:03362002829">
-                  03362002829
-                </a>
+                <a href="tel:03362002829">03362002829</a>
               </div>
 
               <div className="rsvp-card">
-                <span>
-                  FOR ANY ASSISTANCE
-                </span>
+                <span>FOR ANY ASSISTANCE</span>
 
-                <h3>
-                  Ghazanfar Ali
-                </h3>
+                <h3>Ghazanfar Ali</h3>
 
-                <a href="tel:03453954353">
-                  03453954353
-                </a>
+                <a href="tel:03453954353">03453954353</a>
               </div>
-
             </div>
           </section>
 
@@ -1119,13 +806,9 @@ function Mehndi2() {
           ================================================= */}
 
           <footer className="mehndi-footer">
-            <div className="footer-flower">
-              ❦
-            </div>
+            <div className="footer-flower">❦</div>
 
-            <p>
-              WITH LOVE & BLESSINGS
-            </p>
+            <p>WITH LOVE & BLESSINGS</p>
 
             <h2>
               Osama
@@ -1133,11 +816,8 @@ function Mehndi2() {
               Areeba
             </h2>
 
-            <small>
-              29 · OCTOBER · 2026
-            </small>
+            <small>29 · OCTOBER · 2026</small>
           </footer>
-
         </div>
       </section>
 
@@ -1148,15 +828,11 @@ function Mehndi2() {
       {opened && (
         <button
           type="button"
-          className={`music-button ${
-            musicOn ? "playing" : ""
-          }`}
+          className={`music-button ${musicOn ? "playing" : ""}`}
           onClick={toggleMusic}
           aria-label="Toggle music"
         >
-          <span>
-            {musicOn ? "♫" : "♪"}
-          </span>
+          <span>{musicOn ? "♫" : "♪"}</span>
         </button>
       )}
     </main>

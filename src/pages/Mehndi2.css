@@ -24,13 +24,7 @@
 
   overflow-x: hidden;
 
-  background:
-    linear-gradient(
-      180deg,
-      #0b2c1d 0%,
-      #08251a 50%,
-      #061a12 100%
-    );
+  background: linear-gradient(180deg, #0b2c1d 0%, #08251a 50%, #061a12 100%);
 
   color: #f1e3b9;
 
@@ -101,16 +95,11 @@
       rgba(212, 175, 72, 0.18),
       transparent 35%
     ),
-    radial-gradient(
-      circle at 50% 50%,
-      #12402b 0%,
-      #0a2c1d 50%,
-      #061a12 100%
-    );
+    radial-gradient(circle at 50% 50%, #12402b 0%, #0a2c1d 50%, #061a12 100%);
 
   transition:
-    transform 1.15s cubic-bezier(.77, 0, .18, 1),
-    opacity .8s ease,
+    transform 1.15s cubic-bezier(0.77, 0, 0.18, 1),
+    opacity 0.8s ease,
     visibility 1.15s ease;
 }
 
@@ -133,7 +122,7 @@
 
   border-radius: 50%;
 
-  background: rgba(216, 181, 87, .08);
+  background: rgba(216, 181, 87, 0.08);
 
   filter: blur(40px);
 
@@ -144,14 +133,13 @@
   position: absolute;
   inset: 0;
 
-  opacity: .12;
+  opacity: 0.12;
 
-  background-image:
-    radial-gradient(
-      circle,
-      rgba(214, 179, 86, .5) 1px,
-      transparent 1px
-    );
+  background-image: radial-gradient(
+    circle,
+    rgba(214, 179, 86, 0.5) 1px,
+    transparent 1px
+  );
 
   background-size: 30px 30px;
 
@@ -165,18 +153,18 @@
 
 .mehndi2-page .frame-one {
   inset: 18px;
-  border: 1px solid rgba(216, 180, 87, .5);
+  border: 1px solid rgba(216, 180, 87, 0.5);
 }
 
 .mehndi2-page .frame-two {
   inset: 31px;
-  border: 1px solid rgba(216, 180, 87, .22);
+  border: 1px solid rgba(216, 180, 87, 0.22);
 }
 
 .mehndi2-page .cover-flower {
   position: absolute;
 
-  color: rgba(218, 184, 92, .14);
+  color: rgba(218, 184, 92, 0.14);
 
   font-family: "Cormorant Garamond", serif;
 
@@ -195,9 +183,7 @@
 .mehndi2-page .flower-two {
   top: -45px;
   right: -45px;
-  transform:
-    rotate(35deg)
-    scaleX(-1);
+  transform: rotate(35deg) scaleX(-1);
 }
 
 .mehndi2-page .flower-three {
@@ -237,7 +223,7 @@
 @keyframes mehndi2CoverEnter {
   from {
     opacity: 0;
-    transform: translateY(28px) scale(.97);
+    transform: translateY(28px) scale(0.97);
   }
 
   to {
@@ -282,14 +268,13 @@
 
   font-weight: 400;
 
-  line-height: .85;
+  line-height: 0.85;
 
   text-align: center;
 
   white-space: nowrap;
 
-  text-shadow:
-    0 10px 30px rgba(0, 0, 0, .25);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .mehndi2-page .cover-divider {
@@ -309,7 +294,7 @@
   width: 100%;
   height: 1px;
 
-  background: rgba(217, 183, 91, .55);
+  background: rgba(217, 183, 91, 0.55);
 }
 
 .mehndi2-page .cover-divider b {
@@ -358,7 +343,7 @@
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: .45em;
+  font-size: 0.45em;
 }
 
 .mehndi2-page .cover-date {
@@ -398,34 +383,27 @@
   border: 1px solid #d5af4f;
   border-radius: 3px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #d0a942,
-      #9b7622
-    );
+  background: linear-gradient(135deg, #d0a942, #9b7622);
 
   color: #fff9df;
 
   cursor: pointer;
 
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, .3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 
   transition:
-    transform .3s ease,
-    box-shadow .3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .mehndi2-page .open-button:hover {
   transform: translateY(-4px);
 
-  box-shadow:
-    0 20px 45px rgba(0, 0, 0, .4);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
 }
 
 .mehndi2-page .open-button:active {
-  transform: scale(.96);
+  transform: scale(0.96);
 }
 
 .mehndi2-page .button-shine {
@@ -439,13 +417,12 @@
 
   transform: skewX(-20deg);
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, .5),
-      transparent
-    );
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
 
   animation: mehndi2ButtonShine 3s infinite;
 
@@ -504,24 +481,17 @@
   min-height: 100vh;
 
   margin: 0;
-  padding:
-    105px 25px
-    70px;
+  padding: 105px 25px 70px;
 
   overflow: hidden;
 
   background:
     radial-gradient(
       circle at 50% 0%,
-      rgba(205, 166, 69, .12),
+      rgba(205, 166, 69, 0.12),
       transparent 30%
     ),
-    linear-gradient(
-      180deg,
-      #0b2a1c 0%,
-      #082318 50%,
-      #061b13 100%
-    );
+    linear-gradient(180deg, #0b2a1c 0%, #082318 50%, #061b13 100%);
 }
 
 .mehndi2-page .content-wrapper {
@@ -547,7 +517,7 @@
 
   border-radius: 50%;
 
-  background: rgba(193, 157, 64, .04);
+  background: rgba(193, 157, 64, 0.04);
 
   filter: blur(55px);
 
@@ -569,7 +539,7 @@
 .mehndi2-page .decor {
   position: absolute;
 
-  color: rgba(216, 181, 86, .06);
+  color: rgba(216, 181, 86, 0.06);
 
   font-family: "Cormorant Garamond", serif;
 
@@ -651,7 +621,7 @@
 
   height: 1px;
 
-  background: rgba(208, 170, 76, .5);
+  background: rgba(208, 170, 76, 0.5);
 }
 
 .mehndi2-page .gold-divider b {
@@ -720,7 +690,7 @@
 
   font-size: clamp(80px, 12vw, 150px);
 
-  line-height: .9;
+  line-height: 0.9;
 
   font-weight: 400;
 
@@ -752,8 +722,8 @@
 
   padding: 65px 0;
 
-  border-top: 1px solid rgba(211, 174, 79, .18);
-  border-bottom: 1px solid rgba(211, 174, 79, .18);
+  border-top: 1px solid rgba(211, 174, 79, 0.18);
+  border-bottom: 1px solid rgba(211, 174, 79, 0.18);
 
   text-align: center;
 }
@@ -777,7 +747,7 @@
 
   grid-template-columns:
     minmax(0, 1fr)
-    minmax(300px, .95fr)
+    minmax(300px, 0.95fr)
     minmax(0, 1fr);
 
   align-items: start;
@@ -817,8 +787,7 @@
 
   background: #123e29;
 
-  box-shadow:
-    0 18px 50px rgba(0, 0, 0, .3);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
 
   overflow: hidden;
 }
@@ -832,9 +801,7 @@
 
   z-index: 2;
 
-  border:
-    1px solid
-    rgba(235, 213, 153, .5);
+  border: 1px solid rgba(235, 213, 153, 0.5);
 
   border-radius: 50%;
 
@@ -845,9 +812,12 @@
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 
   border-radius: 50%;
+
+  display: block;
 }
 
 .mehndi2-page .portrait-overlay {
@@ -860,11 +830,11 @@
   align-items: center;
   justify-content: center;
 
-  background: rgba(4, 28, 18, .28);
+  background: rgba(4, 28, 18, 0.28);
 
   opacity: 0;
 
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .mehndi2-page .portrait-frame:hover .portrait-overlay {
@@ -930,7 +900,7 @@
 
   font-size: clamp(45px, 5vw, 72px);
 
-  line-height: .95;
+  line-height: 0.95;
 
   font-weight: 400;
 
@@ -950,7 +920,7 @@
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: .45em;
+  font-size: 0.45em;
 }
 
 .mehndi2-page .couple-center p {
@@ -981,7 +951,7 @@
 
   height: 1px;
 
-  background: rgba(207, 169, 72, .4);
+  background: rgba(207, 169, 72, 0.4);
 }
 
 .mehndi2-page .tiny-line b {
@@ -1052,7 +1022,7 @@
 
   height: 1px;
 
-  background: rgba(208, 170, 74, .35);
+  background: rgba(208, 170, 74, 0.35);
 }
 
 .mehndi2-page .with-line b {
@@ -1070,9 +1040,7 @@
 .mehndi2-page .message-section {
   width: 100%;
 
-  padding:
-    100px 20px
-    85px;
+  padding: 100px 20px 85px;
 
   text-align: center;
 }
@@ -1137,9 +1105,7 @@
 .mehndi2-page .date-section {
   width: 100%;
 
-  padding:
-    70px 0
-    95px;
+  padding: 70px 0 95px;
 
   text-align: center;
 }
@@ -1162,8 +1128,7 @@
 
   overflow: hidden;
 
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, .25);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
 
   touch-action: none;
 
@@ -1180,14 +1145,13 @@
   align-items: center;
   justify-content: center;
 
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(207, 169, 72, .18),
-      transparent 65%
-    );
+  background: radial-gradient(
+    circle at center,
+    rgba(207, 169, 72, 0.18),
+    transparent 65%
+  );
 
-  border: 10px solid rgba(207, 169, 72, .08);
+  border: 10px solid rgba(207, 169, 72, 0.08);
 }
 
 .mehndi2-page .date-inner {
@@ -1201,7 +1165,7 @@
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(207, 169, 72, .3);
+  border: 1px solid rgba(207, 169, 72, 0.3);
 
   text-align: center;
 }
@@ -1223,7 +1187,7 @@
 
   font-size: 112px;
 
-  line-height: .72;
+  line-height: 0.72;
 }
 
 .mehndi2-page .date-month {
@@ -1299,7 +1263,7 @@
 
   pointer-events: none;
 
-  transition: opacity .55s ease;
+  transition: opacity 0.55s ease;
 }
 
 .mehndi2-page .scratch-note {
@@ -1345,8 +1309,7 @@
 
   display: grid;
 
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
   gap: 12px;
 }
@@ -1356,13 +1319,11 @@
 
   padding: 23px 8px;
 
-  border: 1px solid rgba(201, 166, 79, .35);
+  border: 1px solid rgba(201, 166, 79, 0.35);
 
-  background:
-    rgba(13, 52, 35, .78);
+  background: rgba(13, 52, 35, 0.78);
 
-  box-shadow:
-    inset 0 0 25px rgba(0, 0, 0, .08);
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.08);
 
   text-align: center;
 }
@@ -1404,9 +1365,7 @@
 .mehndi2-page .timeline-section {
   width: 100%;
 
-  padding:
-    80px 0
-    90px;
+  padding: 80px 0 90px;
 
   text-align: center;
 }
@@ -1446,8 +1405,7 @@
 
   width: 1px;
 
-  background:
-    rgba(201, 166, 79, .28);
+  background: rgba(201, 166, 79, 0.28);
 }
 
 .mehndi2-page .timeline-time {
@@ -1562,9 +1520,7 @@
 .mehndi2-page .venue-section {
   width: 100%;
 
-  padding:
-    70px 0
-    90px;
+  padding: 70px 0 90px;
 
   text-align: center;
 }
@@ -1574,20 +1530,17 @@
 
   margin: 0 auto;
 
-  padding:
-    65px 25px;
+  padding: 65px 25px;
 
-  border: 1px solid rgba(202, 166, 75, .38);
+  border: 1px solid rgba(202, 166, 75, 0.38);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(19, 67, 44, .9),
-      rgba(7, 37, 24, .9)
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(19, 67, 44, 0.9),
+    rgba(7, 37, 24, 0.9)
+  );
 
-  box-shadow:
-    0 25px 65px rgba(0, 0, 0, .2);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.2);
 
   text-align: center;
 }
@@ -1673,15 +1626,14 @@
   font-weight: 600;
 
   transition:
-    transform .3s ease,
-    box-shadow .3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .mehndi2-page .directions-button:hover {
   transform: translateY(-3px);
 
-  box-shadow:
-    0 15px 30px rgba(0, 0, 0, .25);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
 .mehndi2-page .directions-button b {
@@ -1691,114 +1643,17 @@
 }
 
 /* =========================================================
-   DETAILS
-========================================================= */
-
-.mehndi2-page .details-section {
-  width: 100%;
-
-  padding:
-    60px 0
-    90px;
-
-  text-align: center;
-}
-
-.mehndi2-page .details-card {
-  width: min(780px, 100%);
-
-  margin: 0 auto;
-
-  padding: 40px;
-
-  border: 1px solid rgba(199, 163, 73, .3);
-
-  background:
-    rgba(12, 48, 31, .7);
-
-  text-align: left;
-}
-
-.mehndi2-page .detail-row {
-  display: flex;
-
-  align-items: center;
-
-  gap: 22px;
-
-  text-align: left;
-}
-
-.mehndi2-page .detail-icon {
-  flex: 0 0 46px;
-
-  width: 46px;
-  height: 46px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid #c7a34d;
-
-  border-radius: 50%;
-
-  color: #d4b25b;
-}
-
-.mehndi2-page .detail-content {
-  min-width: 0;
-}
-
-.mehndi2-page .detail-row small {
-  display: block;
-
-  color: #a49a7e;
-
-  font-size: 7px;
-
-  letter-spacing: 3px;
-}
-
-.mehndi2-page .detail-row h3 {
-  margin: 7px 0 0;
-
-  color: #ded2ae;
-
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 25px;
-
-  letter-spacing: 2px;
-
-  font-weight: 600;
-}
-
-.mehndi2-page .detail-line {
-  width: 100%;
-  height: 1px;
-
-  margin: 28px 0;
-
-  background:
-    rgba(199, 163, 73, .18);
-}
-
-/* =========================================================
    FINAL
 ========================================================= */
 
 .mehndi2-page .final-section {
   width: 100%;
 
-  padding:
-    95px 20px;
+  padding: 95px 20px;
 
-  border-top:
-    1px solid rgba(198, 162, 72, .18);
+  border-top: 1px solid rgba(198, 162, 72, 0.18);
 
-  border-bottom:
-    1px solid rgba(198, 162, 72, .18);
+  border-bottom: 1px solid rgba(198, 162, 72, 0.18);
 
   text-align: center;
 }
@@ -1832,7 +1687,7 @@
 .mehndi2-page .final-section h2 span {
   color: #d2ad52;
 
-  font-size: .78em;
+  font-size: 0.78em;
 }
 
 .mehndi2-page .final-section p {
@@ -1859,17 +1714,13 @@
 .mehndi2-page .rsvp-section {
   width: 100%;
 
-  padding:
-    90px 0
-    70px;
+  padding: 90px 0 70px;
 
   text-align: center;
 }
 
 .mehndi2-page .rsvp-subtitle {
-  margin:
-    -2px auto
-    35px;
+  margin: -2px auto 35px;
 
   color: #9f9478;
 
@@ -1887,8 +1738,7 @@
 
   display: grid;
 
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
   gap: 14px;
 
@@ -1906,18 +1756,15 @@
   align-items: center;
   justify-content: center;
 
-  padding:
-    25px 12px;
+  padding: 25px 12px;
 
-  border:
-    1px solid rgba(199, 164, 74, .28);
+  border: 1px solid rgba(199, 164, 74, 0.28);
 
-  background:
-    rgba(12, 49, 32, .72);
+  background: rgba(12, 49, 32, 0.72);
 
   transition:
-    transform .3s ease,
-    border-color .3s ease;
+    transform 0.3s ease,
+    border-color 0.3s ease;
 
   text-align: center;
 }
@@ -1925,8 +1772,7 @@
 .mehndi2-page .rsvp-card:hover {
   transform: translateY(-4px);
 
-  border-color:
-    rgba(216, 181, 86, .55);
+  border-color: rgba(216, 181, 86, 0.55);
 }
 
 .mehndi2-page .rsvp-card span {
@@ -1986,9 +1832,7 @@
 .mehndi2-page .mehndi-footer {
   width: 100%;
 
-  padding:
-    70px 0
-    20px;
+  padding: 70px 0 20px;
 
   text-align: center;
 }
@@ -2034,7 +1878,7 @@
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: .55em;
+  font-size: 0.55em;
 }
 
 .mehndi2-page .mehndi-footer small {
@@ -2056,11 +1900,10 @@
 ========================================================= */
 
 @media (max-width: 1000px) {
-
   .mehndi2-page .couple-layout {
     grid-template-columns:
       minmax(0, 1fr)
-      minmax(250px, .85fr)
+      minmax(250px, 0.85fr)
       minmax(0, 1fr);
 
     gap: 20px;
@@ -2080,8 +1923,7 @@
   .mehndi2-page .rsvp-grid {
     width: 100%;
 
-    grid-template-columns:
-      repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 
     gap: 10px;
   }
@@ -2101,7 +1943,6 @@
 ========================================================= */
 
 @media (max-width: 650px) {
-
   .mehndi2-page {
     width: 100%;
     max-width: 100%;
@@ -2225,9 +2066,7 @@
   /* MAIN */
 
   .mehndi2-page .mehndi2-content {
-    padding:
-      65px 15px
-      45px;
+    padding: 65px 15px 45px;
   }
 
   .mehndi2-page .decor-one {
@@ -2376,9 +2215,7 @@
   /* MESSAGE */
 
   .mehndi2-page .message-section {
-    padding:
-      70px 4px
-      65px;
+    padding: 70px 4px 65px;
   }
 
   .mehndi2-page .message-section h2 {
@@ -2396,9 +2233,7 @@
   /* DATE */
 
   .mehndi2-page .date-section {
-    padding:
-      55px 0
-      65px;
+    padding: 55px 0 65px;
   }
 
   .mehndi2-page .scratch-card {
@@ -2443,8 +2278,7 @@
   .mehndi2-page .countdown-grid {
     width: 100%;
 
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 9px;
   }
@@ -2464,9 +2298,7 @@
   /* TIMELINE */
 
   .mehndi2-page .timeline-section {
-    padding:
-      55px 0
-      65px;
+    padding: 55px 0 65px;
   }
 
   .mehndi2-page .timeline {
@@ -2544,14 +2376,11 @@
   /* VENUE */
 
   .mehndi2-page .venue-section {
-    padding:
-      55px 0
-      65px;
+    padding: 55px 0 65px;
   }
 
   .mehndi2-page .venue-card {
-    padding:
-      45px 15px;
+    padding: 45px 15px;
   }
 
   .mehndi2-page .venue-card h2 {
@@ -2576,47 +2405,10 @@
     letter-spacing: 1.5px;
   }
 
-  /* DETAILS */
-
-  .mehndi2-page .details-section {
-    padding:
-      50px 0
-      65px;
-  }
-
-  .mehndi2-page .details-card {
-    padding:
-      30px 18px;
-  }
-
-  .mehndi2-page .detail-row {
-    gap: 14px;
-  }
-
-  .mehndi2-page .detail-icon {
-    flex-basis: 40px;
-
-    width: 40px;
-    height: 40px;
-  }
-
-  .mehndi2-page .detail-row h3 {
-    font-size: 19px;
-
-    letter-spacing: 1px;
-  }
-
-  .mehndi2-page .detail-row small {
-    font-size: 6px;
-
-    letter-spacing: 1.5px;
-  }
-
   /* FINAL */
 
   .mehndi2-page .final-section {
-    padding:
-      70px 7px;
+    padding: 70px 7px;
   }
 
   .mehndi2-page .final-section h2 {
@@ -2702,7 +2494,6 @@
 ========================================================= */
 
 @media (max-width: 380px) {
-
   .mehndi2-page .cover-content h1 {
     font-size: 72px;
   }
@@ -2775,7 +2566,6 @@
 ========================================================= */
 
 @media (max-width: 330px) {
-
   .mehndi2-page .cover-content h1 {
     font-size: 65px;
   }
