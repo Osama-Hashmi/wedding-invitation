@@ -461,6 +461,10 @@ function Valima() {
             MR. & MRS. SYED ASIM ALI HASHMI
           </p>
 
+          <p className="parents">
+            Grandson of Mr. Syed Qasim Ali Hashmi (Late) & Mr Muhammad Jaleel Uddin (Late)
+          </p>
+
           <p className="invite-line">
             INVITE YOU TO THE
           </p>

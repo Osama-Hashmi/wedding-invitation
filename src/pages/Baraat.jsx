@@ -381,6 +381,8 @@ function Baraat() {
 
         <p className="parents">MR. & MRS. ADVOCATE ASHRAF ALI</p>
 
+        <p className="parents">Granddaughter of Mr. Sheikh Abdul Latif (Late) & Mr. Wasi Uddin Warsi (Late)</p>
+
         <p className="invite-line">CORDIALLY INVITE YOU TO THE</p>
 
         <h2 className="ceremony-name">BARAAT CEREMONY</h2>
