@@ -1706,10 +1706,159 @@
   text-align: center;
 }
 
+/* ================================
+   Awaiting to Welcome
+================================ */
+
+.mehndi2-page .awaiting-section-mehndi2 {
+  width: 100%;
+  padding: 60px 20px;
+  background: #082318;
+  overflow: hidden;
+}
+
+.awaiting-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.awaiting-container h2 {
+  text-align: center;
+  margin: 0 0 30px;
+  font-size: 32px;
+  font-weight: 500;
+  color: #f9e6d8;
+}
+
+.awaiting-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 35px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  overflow: hidden;
+}
+
+.awaiting-column {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mehndi2-page .awaiting-column .guest-name {
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  color: #0b2a1c;
+}
+
+/* Left column comes from left */
+.mehndi2-page .awaiting-left .guest-name {
+  animation: slideFromLeft 0.8s ease-out both;
+}
+
+/* Right column comes from right */
+.mehndi2-page .awaiting-right .guest-name {
+  animation: slideFromRight 0.8s ease-out both;
+}
+
+/* Small delay between names */
+.mehndi2-page .awaiting-left .guest-name:nth-child(2),
+.mehndi2-page .awaiting-right .guest-name:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.mehndi2-page .awaiting-left .guest-name:nth-child(3),
+.mehndi2-page .awaiting-right .guest-name:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.mehndi2-page .awaiting-left .guest-name:nth-child(4),
+.mehndi2-page .awaiting-right .guest-name:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.mehndi2-page .awaiting-left .guest-name:nth-child(5),
+.mehndi2-page .awaiting-right .guest-name:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .mehndi2-page .awaiting-section-mehndi2 {
+    padding: 45px 15px;
+  }
+
+  .awaiting-container h2 {
+    font-size: 27px;
+    margin-bottom: 25px;
+  }
+
+  .awaiting-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 28px 22px;
+  }
+
+  .awaiting-column {
+    gap: 16px;
+  }
+
+  .guest-name {
+    font-size: 17px;
+  }
+
+  /* On mobile every name comes from right */
+  .awaiting-left .guest-name {
+    animation-name: slideFromLeft;
+  }
+  .awaiting-right .guest-name {
+    animation-name: slideFromRight;
+  }
+}
+
 /* =========================================================
    RSVP
    FOUR CARDS — SINGLE ROW
 ========================================================= */
+
+.mehndi2-page .rsvp-section .section-heading {
+  margin: 0 0 12px;
+
+  color: #c9a951;
+
+  font-size: 25px;
+  font-weight: 600;
+
+  letter-spacing: 5px;
+
+  text-align: center;
+}
 
 .mehndi2-page .rsvp-section {
   width: 100%;
@@ -1724,7 +1873,7 @@
 
   color: #9f9478;
 
-  font-size: 8px;
+  font-size: 20px;
 
   letter-spacing: 3px;
 

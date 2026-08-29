@@ -160,6 +160,7 @@ function Mehndi2() {
       ctx.clearRect(0, 0, width, height);
 
       const gradient = ctx.createLinearGradient(0, 0, width, height);
+
       gradient.addColorStop(0, "#f6f0df");
       gradient.addColorStop(0.45, "#e9dfc2");
       gradient.addColorStop(1, "#d5c8a8");
@@ -170,7 +171,9 @@ function Mehndi2() {
       ctx.strokeStyle = "rgba(91, 106, 73, 0.42)";
       ctx.lineWidth = 1;
       ctx.setLineDash([5, 5]);
+
       ctx.strokeRect(16, 16, Math.max(0, width - 32), Math.max(0, height - 32));
+
       ctx.setLineDash([]);
 
       ctx.textAlign = "center";
@@ -197,8 +200,11 @@ function Mehndi2() {
 
     if ("ResizeObserver" in window) {
       resizeObserver = new ResizeObserver(() => {
-        if (!scratched) setupCanvas();
+        if (!scratched) {
+          setupCanvas();
+        }
       });
+
       resizeObserver.observe(card);
     }
 
@@ -212,9 +218,11 @@ function Mehndi2() {
 
   const scratchAtPoint = (clientX, clientY) => {
     const canvas = canvasRef.current;
+
     if (!canvas || scratched) return;
 
     const rect = canvas.getBoundingClientRect();
+
     if (!rect.width || !rect.height) return;
 
     const scaleX = canvas.width / rect.width;
@@ -226,17 +234,23 @@ function Mehndi2() {
     const ctx = canvas.getContext("2d");
 
     ctx.save();
+
     ctx.globalCompositeOperation = "destination-out";
+
     ctx.beginPath();
 
     const radius = Math.max(22, 30 * Math.min(scaleX, scaleY));
+
     ctx.arc(x, y, radius, 0, Math.PI * 2);
+
     ctx.fill();
+
     ctx.restore();
   };
 
   const checkScratchProgress = () => {
     const canvas = canvasRef.current;
+
     if (!canvas || scratched) return;
 
     const ctx = canvas.getContext("2d", {
@@ -245,16 +259,20 @@ function Mehndi2() {
 
     const width = canvas.width;
     const height = canvas.height;
+
     if (!width || !height) return;
 
     const imageData = ctx.getImageData(0, 0, width, height);
+
     const step = 12;
+
     let transparentPixels = 0;
     let totalPixels = 0;
 
     for (let y = 0; y < height; y += step) {
       for (let x = 0; x < width; x += step) {
         const index = (y * width + x) * 4;
+
         totalPixels++;
 
         if (imageData.data[index + 3] < 100) {
@@ -276,6 +294,7 @@ function Mehndi2() {
     if (scratched) return;
 
     event.preventDefault();
+
     scratchingRef.current = true;
 
     try {
@@ -285,14 +304,19 @@ function Mehndi2() {
     }
 
     scratchAtPoint(event.clientX, event.clientY);
+
     checkScratchProgress();
   };
 
   const handlePointerMove = (event) => {
-    if (!scratchingRef.current || scratched) return;
+    if (!scratchingRef.current || scratched) {
+      return;
+    }
 
     event.preventDefault();
+
     scratchAtPoint(event.clientX, event.clientY);
+
     checkScratchProgress();
   };
 
@@ -499,32 +523,6 @@ function Mehndi2() {
                 <p className="person-role">BRIDE</p>
               </div>
             </div>
-
-            {/* <div className="full-name">
-              <h3>
-                Syed Muhammad Osama Ali Hashmi
-              </h3>
-
-              <span>
-                GROOM
-              </span>
-
-              <div className="with-line">
-                <i></i>
-
-                <b>WITH</b>
-
-                <i></i>
-              </div>
-
-              <h3>
-                Areeba Ashraf
-              </h3>
-
-              <span>
-                BRIDE
-              </span>
-            </div> */}
           </section>
 
           {/* =================================================
@@ -645,7 +643,6 @@ function Mehndi2() {
               <div className="timeline-item">
                 <div className="timeline-time">
                   <strong>09:00</strong>
-
                   <small>PM</small>
                 </div>
 
@@ -665,7 +662,6 @@ function Mehndi2() {
               <div className="timeline-item">
                 <div className="timeline-time">
                   <strong>10:00</strong>
-
                   <small>PM</small>
                 </div>
 
@@ -685,7 +681,6 @@ function Mehndi2() {
               <div className="timeline-item">
                 <div className="timeline-time">
                   <strong>11:00</strong>
-
                   <small>PM</small>
                 </div>
 
@@ -757,6 +752,39 @@ function Mehndi2() {
             </p>
           </section>
 
+          {/* ===================================================
+          Awaiting To Welcome
+          =================================================== */}
+
+          <section className="awaiting-section-mehndi2">
+            {" "}
+            <div className="awaiting-container">
+              {" "}
+              <h2>Awaiting to Welcome</h2>{" "}
+              <div className="awaiting-card">
+                {" "}
+                <div className="awaiting-column awaiting-left">
+                  {" "}
+                  <div className="guest-name">
+                    Mr & Mrs Syed Asim Ali Hashmi
+                  </div>{" "}
+                  <div className="guest-name">
+                    Mr & Mrs Syed Sohail Ali Hashmi
+                  </div>{" "}
+                  <div className="guest-name">
+                    Mr & Mrs Syed Salman Ali Hashmi
+                  </div>{" "}
+                </div>{" "}
+                <div className="awaiting-column awaiting-right">
+                  {" "}
+                  <div className="guest-name">Mr & Mrs Abdul Aziz</div>{" "}
+                  <div className="guest-name">Mrs Abdul Qadir</div>{" "}
+                  <div className="guest-name">Mr & Mrs Ghazanfar Ali</div>{" "}
+                </div>{" "}
+              </div>{" "}
+            </div>{" "}
+          </section>
+
           {/* =================================================
               RSVP
           ================================================= */}
@@ -768,32 +796,24 @@ function Mehndi2() {
 
             <div className="rsvp-grid">
               <div className="rsvp-card">
-                <span>FOR ANY ASSISTANCE</span>
-
                 <h3>Syed Asim Ali Hashmi</h3>
 
                 <a href="tel:03213539769">03213539769</a>
               </div>
 
               <div className="rsvp-card">
-                <span>FOR ANY ASSISTANCE</span>
-
                 <h3>Syed Salman Ali Hashmi</h3>
 
                 <a href="tel:03219242503">03219242503</a>
               </div>
 
               <div className="rsvp-card">
-                <span>FOR ANY ASSISTANCE</span>
-
                 <h3>Abdul Aziz</h3>
 
                 <a href="tel:03362002829">03362002829</a>
               </div>
 
               <div className="rsvp-card">
-                <span>FOR ANY ASSISTANCE</span>
-
                 <h3>Ghazanfar Ali</h3>
 
                 <a href="tel:03453954353">03453954353</a>

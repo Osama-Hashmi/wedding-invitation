@@ -53,19 +53,11 @@ function ScratchDate() {
 
       ctx.font = "600 12px Montserrat, sans-serif";
 
-      ctx.fillText(
-        "SCRATCH TO REVEAL",
-        rect.width / 2,
-        rect.height / 2 - 10
-      );
+      ctx.fillText("SCRATCH TO REVEAL", rect.width / 2, rect.height / 2 - 10);
 
       ctx.font = "11px Montserrat, sans-serif";
 
-      ctx.fillText(
-        "your special date",
-        rect.width / 2,
-        rect.height / 2 + 15
-      );
+      ctx.fillText("your special date", rect.width / 2, rect.height / 2 + 15);
     };
 
     setupCanvas();
@@ -84,12 +76,7 @@ function ScratchDate() {
 
     const ctx = canvas.getContext("2d");
 
-    const pixels = ctx.getImageData(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    ).data;
+    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
     let transparent = 0;
     const total = pixels.length / 4;
@@ -133,51 +120,30 @@ function ScratchDate() {
   };
 
   return (
-    <div
-      className={
-        revealed
-          ? "scratch-wrapper revealed"
-          : "scratch-wrapper"
-      }
-    >
+    <div className={revealed ? "scratch-wrapper revealed" : "scratch-wrapper"}>
       <div className="date-underneath">
+        <span className="date-day">02</span>
 
-        <span className="date-day">
-          02
-        </span>
+        <span className="date-month">NOVEMBER</span>
 
-        <span className="date-month">
-          NOVEMBER
-        </span>
+        <span className="date-year">2026</span>
 
-        <span className="date-year">
-          2026
-        </span>
-
-        <small>
-          MONDAY
-        </small>
-
+        <small>MONDAY</small>
       </div>
 
       <canvas
         ref={canvasRef}
         className="scratch-canvas"
-
         onPointerDown={() => {
           scratching.current = true;
         }}
-
         onPointerUp={() => {
           scratching.current = false;
         }}
-
         onPointerLeave={() => {
           scratching.current = false;
         }}
-
         onPointerMove={scratch}
-
         onPointerCancel={() => {
           scratching.current = false;
         }}
@@ -186,15 +152,12 @@ function ScratchDate() {
   );
 }
 
-
 /* =========================================================
    COUNTDOWN
    ========================================================= */
 
 function Countdown() {
-  const targetDate = new Date(
-    "2026-11-02T21:00:00+05:00"
-  ).getTime();
+  const targetDate = new Date("2026-11-02T21:00:00+05:00").getTime();
 
   const calculateTime = () => {
     const now = new Date().getTime();
@@ -210,27 +173,17 @@ function Countdown() {
     }
 
     return {
-      days: Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-      ),
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
 
-      hours: Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-      ),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
 
-      minutes: Math.floor(
-        (difference / (1000 * 60)) % 60
-      ),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
 
-      seconds: Math.floor(
-        (difference / 1000) % 60
-      ),
+      seconds: Math.floor((difference / 1000) % 60),
     };
   };
 
-  const [time, setTime] = useState(
-    calculateTime()
-  );
+  const [time, setTime] = useState(calculateTime());
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -248,7 +201,6 @@ function Countdown() {
 
   return (
     <div className="countdown">
-
       <div className="countdown-box">
         <strong>{time.days}</strong>
         <span>DAYS</span>
@@ -268,11 +220,9 @@ function Countdown() {
         <strong>{format(time.seconds)}</strong>
         <span>SECONDS</span>
       </div>
-
     </div>
   );
 }
-
 
 /* =========================================================
    VALIMA
@@ -311,10 +261,9 @@ function Valima() {
     };
   }, []);
 
-
   /* =======================================================
      OPEN INTRO
-     
+
      IMPORTANT:
      Audio play happens directly inside the user's click.
      This is required for mobile browsers.
@@ -356,10 +305,8 @@ function Valima() {
     }, 2600);
   };
 
-
   return (
     <main className="valima-page">
-
       {/* ===================================================
           INTRO
           =================================================== */}
@@ -367,37 +314,23 @@ function Valima() {
       {!introFinished && (
         <div
           className={
-            introStarted
-              ? "valima-intro intro-started"
-              : "valima-intro"
+            introStarted ? "valima-intro intro-started" : "valima-intro"
           }
         >
-
           <div className="intro-glow"></div>
 
           <div className="intro-ring ring-one"></div>
           <div className="intro-ring ring-two"></div>
           <div className="intro-ring ring-three"></div>
 
-
           <div className="intro-center">
+            <div className="intro-symbol">✦</div>
 
-            <div className="intro-symbol">
-              ✦
-            </div>
+            <p>WITH LOVE & BLESSINGS</p>
 
-            <p>
-              WITH LOVE & BLESSINGS
-            </p>
+            <h1>Valima</h1>
 
-            <h1>
-              Valima
-            </h1>
-
-            <span>
-              02 • NOVEMBER • 2026
-            </span>
-
+            <span>02 • NOVEMBER • 2026</span>
 
             <button
               type="button"
@@ -405,226 +338,128 @@ function Valima() {
               onClick={handleOpen}
               disabled={introStarted}
             >
-              <span>
-                ✦
-              </span>
+              <span>✦</span>
 
-              {introStarted
-                ? "OPENING..."
-                : "TAP TO OPEN"}
+              {introStarted ? "OPENING..." : "TAP TO OPEN"}
             </button>
-
           </div>
-
 
           <div className="intro-left"></div>
           <div className="intro-right"></div>
-
         </div>
       )}
-
 
       {/* ===================================================
           MUSIC
           =================================================== */}
 
-      <audio
-        ref={audioRef}
-        loop
-        preload="auto"
-        playsInline
-      >
-        <source
-          src="/music/Mere%20Bina.mp3"
-          type="audio/mpeg"
-        />
+      <audio ref={audioRef} loop preload="auto" playsInline>
+        <source src="/music/Mere%20Bina.mp3" type="audio/mpeg" />
       </audio>
-
 
       {/* ===================================================
           HERO
           =================================================== */}
 
       <section className="valima-hero">
-
-        <div className="hero-ornament top">
-          ❦
-        </div>
+        <div className="hero-ornament top">❦</div>
 
         <div className="hero-content">
+          <p className="bismillah">﷽</p>
 
-          <p className="bismillah">
-            ﷽
-          </p>
-
-          <p className="parents">
-            MR. & MRS. SYED ASIM ALI HASHMI
-          </p>
+          <p className="parents">MR. & MRS. SYED ASIM ALI HASHMI</p>
 
           <p className="parents">
-            Grandson of Mr. Syed Qasim Ali Hashmi (Late) & Mr Muhammad Jaleel Uddin (Late)
+            Grandson of Mr. Syed Qasim Ali Hashmi (Late) & Mr Muhammad Jaleel
+            Uddin (Late)
           </p>
 
-          <p className="invite-line">
-            INVITE YOU TO THE
-          </p>
+          <p className="invite-line">INVITE YOU TO THE</p>
 
-          <h2 className="ceremony-title">
-            VALIMA RECEPTION
-          </h2>
+          <h2 className="ceremony-title">VALIMA RECEPTION</h2>
 
-          <p className="invite-line">
-            OF THEIR BELOVED SON
-          </p>
-
+          <p className="invite-line">OF THEIR BELOVED SON</p>
 
           {/* ================= COUPLE ================= */}
 
           <div className="couple-area">
-
             <div className="couple-image couple-left">
-
               <div className="image-frame">
-
-                <img
-                  src="/images/boy.png"
-                  alt="Groom"
-                />
-
+                <img src="/images/boy.png" alt="Groom" />
               </div>
-
             </div>
-
 
             <div className="couple-names">
+              <h1 className="groom-name">Syed Muhammad Osama Ali Hashmi</h1>
 
-              <h1 className="groom-name">
-                Syed Muhammad Osama Ali Hashmi
-              </h1>
-
-              <p className="person-title">
-                The Groom
-              </p>
-
+              <p className="person-title">The Groom</p>
 
               <div className="gold-divider">
-
                 <span></span>
 
-                <b>
-                  ❦
-                </b>
+                <b>❦</b>
 
                 <span></span>
-
               </div>
 
+              <p className="with-word">WITH</p>
 
-              <p className="with-word">
-                WITH
-              </p>
+              <h1 className="bride-name">Areeba Ashraf</h1>
 
+              <p className="daughter-title">Daughter of Advocate Ashraf Ali</p>
 
-              <h1 className="bride-name">
-                Areeba Ashraf
-              </h1>
-
-
-              <p className="daughter-title">
-                Daughter of Advocate Ashraf Ali
-              </p>
-
-              <p className="person-title">
-                The Bride
-              </p>
-
+              <p className="person-title">The Bride</p>
             </div>
-
 
             <div className="couple-image couple-right">
-
               <div className="image-frame">
-
-                <img
-                  src="/images/girl.png"
-                  alt="Bride"
-                />
-
+                <img src="/images/girl.png" alt="Bride" />
               </div>
-
             </div>
-
           </div>
 
-
-          <div className="hero-bottom-ornament">
-            ✦
-          </div>
-
+          <div className="hero-bottom-ornament">✦</div>
         </div>
-
       </section>
-
 
       {/* ===================================================
           DATE
           =================================================== */}
 
       <section className="valima-date-section">
+        <p className="section-label">A DATE TO REMEMBER</p>
 
-        <p className="section-label">
-          A DATE TO REMEMBER
-        </p>
-
-        <h2 className="section-heading">
-          Scratch to Reveal
-        </h2>
+        <h2 className="section-heading">Scratch to Reveal</h2>
 
         <ScratchDate />
 
         <p className="scratch-note">
           Gently scratch the card to reveal our special day
         </p>
-
       </section>
-
 
       {/* ===================================================
           COUNTDOWN
           =================================================== */}
 
       <section className="valima-event-section">
+        <p className="section-label">SAVE THE DATE</p>
 
-        <p className="section-label">
-          SAVE THE DATE
-        </p>
-
-        <h2 className="section-heading">
-          The Valima
-        </h2>
+        <h2 className="section-heading">The Valima</h2>
 
         <Countdown />
-
       </section>
-
 
       {/* ===================================================
           VENUE
           =================================================== */}
 
       <section className="valima-venue-section">
+        <div className="venue-symbol">✦</div>
 
-        <div className="venue-symbol">
-          ✦
-        </div>
+        <p className="section-label">THE VENUE</p>
 
-        <p className="section-label">
-          THE VENUE
-        </p>
-
-        <h2 className="venue-name">
-          Dolee Banquet
-        </h2>
+        <h2 className="venue-name">Dolee Banquet</h2>
 
         <div className="venue-divider"></div>
 
@@ -644,190 +479,138 @@ function Valima() {
           rel="noreferrer"
           className="map-button"
         >
-          <span>
-            ⌖
-          </span>
-
+          <span>⌖</span>
           GET DIRECTIONS
-
-          <b>
-            →
-          </b>
+          <b>→</b>
         </a>
-
       </section>
-
 
       {/* ===================================================
           PROGRAM
           =================================================== */}
 
       <section className="valima-program-section">
+        <p className="section-label">PROGRAMME</p>
 
-        <p className="section-label">
-          PROGRAMME
-        </p>
-
-        <h2 className="section-heading">
-          Evening Details
-        </h2>
+        <h2 className="section-heading">Evening Details</h2>
 
         <div className="program-list">
-
           <div className="program-row">
-            <span>
-              GUEST ARRIVAL
-            </span>
+            <span>GUEST ARRIVAL</span>
 
-            <b>
-              09:00 PM
-            </b>
+            <b>09:00 PM</b>
           </div>
 
           <div className="program-row">
-            <span>
-              RECEPTION
-            </span>
+            <span>RECEPTION</span>
 
-            <b>
-              10:00 PM
-            </b>
+            <b>10:00 PM</b>
           </div>
 
           <div className="program-row">
-            <span>
-              DINNER
-            </span>
+            <span>DINNER</span>
 
-            <b>
-              11:00 PM
-            </b>
+            <b>11:00 PM</b>
           </div>
-
         </div>
-
       </section>
-
 
       {/* ===================================================
           WELCOME
           =================================================== */}
 
       <section className="valima-welcome-section">
+        <div className="gold-emblem">✦</div>
 
-        <div className="gold-emblem">
-          ✦
-        </div>
+        <p className="welcome-title">YOUR PRESENCE</p>
 
-        <p className="welcome-title">
-          YOUR PRESENCE
-        </p>
-
-        <h2>
-          MEANS THE WORLD
-        </h2>
+        <h2>MEANS THE WORLD</h2>
 
         <p className="welcome-message">
           Your presence, prayers and blessings
           <br />
           will make our celebration truly special.
         </p>
-
       </section>
 
+      {/* ===================================================
+          Awaiting To Welcome
+          =================================================== */}
+
+      <section className="awaiting-section-valima">
+        {" "}
+        <div className="awaiting-container">
+          {" "}
+          <h2>Awaiting to Welcome</h2>{" "}
+          <div className="awaiting-card">
+            {" "}
+            <div className="awaiting-column awaiting-left">
+              {" "}
+              <div className="guest-name">
+                Mr & Mrs Syed Asim Ali Hashmi
+              </div>{" "}
+              <div className="guest-name">Mr & Mrs Syed Sohail Ali Hashmi</div>{" "}
+              <div className="guest-name">
+                Mr & Mrs Syed Salman Ali Hashmi
+              </div>{" "}
+            </div>{" "}
+            <div className="awaiting-column awaiting-right">
+              {" "}
+              <div className="guest-name">Mr & Mrs Abdul Aziz</div>{" "}
+              <div className="guest-name">Mrs Abdul Qadir</div>{" "}
+              <div className="guest-name">Mr & Mrs Ghazanfar Ali</div>{" "}
+            </div>{" "}
+          </div>{" "}
+        </div>{" "}
+      </section>
 
       {/* ===================================================
           RSVP
           =================================================== */}
 
       <section className="rsvp-section">
+        <p className="section-label">RSVP</p>
 
-        <p className="section-label">
-          RSVP
-        </p>
-
-        <h2 className="section-heading">
-          For Any Assistance
-        </h2>
+        <h2 className="section-heading">For Any Assistance</h2>
 
         <div className="rsvp-card">
-
           <div className="rsvp-person">
+            <h3>Syed Asim Ali Hashmi</h3>
 
-            <h3>
-              Syed Asim Ali Hashmi
-            </h3>
-
-            <a href="tel:03213539769">
-              03213539769
-            </a>
-
+            <a href="tel:03213539769">03213539769</a>
           </div>
 
-
           <div className="rsvp-person">
+            <h3>Syed Salman Ali Hashmi</h3>
 
-            <h3>
-              Syed Salman Ali Hashmi
-            </h3>
-
-            <a href="tel:03219242503">
-              03219242503
-            </a>
-
+            <a href="tel:03219242503">03219242503</a>
           </div>
 
-
           <div className="rsvp-person">
+            <h3>Abdul Aziz</h3>
 
-            <h3>
-              Abdul Aziz
-            </h3>
-
-            <a href="tel:03362002829">
-              03362002829
-            </a>
-
+            <a href="tel:03362002829">03362002829</a>
           </div>
 
-
           <div className="rsvp-person">
+            <h3>Ghazanfar Ali</h3>
 
-            <h3>
-              Ghazanfar Ali
-            </h3>
-
-            <a href="tel:03453954353">
-              03453954353
-            </a>
-
+            <a href="tel:03453954353">03453954353</a>
           </div>
-
         </div>
-
       </section>
-
 
       {/* ===================================================
           FOOTER
           =================================================== */}
 
       <footer className="valima-footer">
+        <div className="footer-ornament">❦</div>
 
-        <div className="footer-ornament">
-          ❦
-        </div>
+        <p>WITH LOVE & BLESSINGS</p>
 
-        <p>
-          WITH LOVE & BLESSINGS
-        </p>
-
-        <strong>
-          Osama & Areeba
-        </strong>
-
+        <strong>Osama & Areeba</strong>
       </footer>
-
     </main>
   );
 }

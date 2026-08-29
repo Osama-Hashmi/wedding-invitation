@@ -381,7 +381,10 @@ function Baraat() {
 
         <p className="parents">MR. & MRS. ADVOCATE ASHRAF ALI</p>
 
-        <p className="parents">Granddaughter of Mr. Sheikh Abdul Latif (Late) & Mr. Wasi Uddin Warsi (Late)</p>
+        <p className="parents">
+          Granddaughter of Mr. Sheikh Abdul Latif (Late) & Mr. Wasi Uddin Warsi
+          (Late)
+        </p>
 
         <p className="invite-line">CORDIALLY INVITE YOU TO THE</p>
 
@@ -539,6 +542,41 @@ function Baraat() {
           <br />
           will make our celebration even more special.
         </p>
+      </section>
+
+      {/* ===================================================
+          Awaiting To Welcome
+          =================================================== */}
+
+      <section className="awaiting-section">
+        {" "}
+        <div className="awaiting-container">
+          {" "}
+          <h2>Awaiting to Welcome</h2>{" "}
+          <div className="awaiting-card">
+            {" "}
+            <div className="awaiting-column awaiting-left">
+              {" "}
+              <div className="guest-name">
+                Mr & Mrs Advocate Ashraf Ali
+              </div>{" "}
+              <div className="guest-name">Mr & Mrs Muhammad Ali</div>{" "}
+              <div className="guest-name">Mr & Mrs Ahmed Ali</div>{" "}
+              <div className="guest-name">Mr & Mrs Advocate Hyder Ali</div>{" "}
+              <div className="guest-name">
+                Mr & Mrs Syed Salman Ali Hashmi
+              </div>{" "}
+            </div>{" "}
+            <div className="awaiting-column awaiting-right">
+              {" "}
+              <div className="guest-name">Mr & Mrs Sardar Hussain</div>{" "}
+              <div className="guest-name">Mr & Mrs Afzal Hussain</div>{" "}
+              <div className="guest-name">Mr & Mrs Iqbal Hussain</div>{" "}
+              <div className="guest-name">Mr & Mrs Affal Hussain</div>{" "}
+              <div className="guest-name">Mr & Mrs Kamran Hussain</div>{" "}
+            </div>{" "}
+          </div>{" "}
+        </div>{" "}
       </section>
 
       {/* ================================================= */}

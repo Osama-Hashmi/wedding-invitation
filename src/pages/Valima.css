@@ -24,7 +24,6 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-
 /* =========================================================
    INTRO
    ========================================================= */
@@ -35,13 +34,12 @@ body {
   z-index: 99999;
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at center,
-      #fffdf8 0%,
-      #f5ead4 45%,
-      #dfc48d 100%
-    );
+  background: radial-gradient(
+    circle at center,
+    #fffdf8 0%,
+    #f5ead4 45%,
+    #dfc48d 100%
+  );
 
   display: flex;
   align-items: center;
@@ -49,7 +47,6 @@ body {
 
   pointer-events: auto;
 }
-
 
 /* =========================================================
    INTRO PANELS
@@ -65,13 +62,7 @@ body {
   width: 50%;
   height: 100%;
 
-  background:
-    linear-gradient(
-      135deg,
-      #efe0bd 0%,
-      #d2b46d 45%,
-      #f8efd9 100%
-    );
+  background: linear-gradient(135deg, #efe0bd 0%, #d2b46d 45%, #f8efd9 100%);
 
   z-index: 2;
 }
@@ -79,27 +70,14 @@ body {
 .intro-left {
   left: 0;
 
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    82% 50%,
-    100% 100%,
-    0 100%
-  );
+  clip-path: polygon(0 0, 100% 0, 82% 50%, 100% 100%, 0 100%);
 }
 
 .intro-right {
   right: 0;
 
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 100%,
-    0 100%,
-    18% 50%
-  );
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 18% 50%);
 }
-
 
 /* =========================================================
    AFTER USER TAP
@@ -110,42 +88,32 @@ body {
 }
 
 .valima-intro.intro-started .intro-left {
-  animation:
-    introLeftOpen 1.6s cubic-bezier(.77, 0, .18, 1)
-    forwards;
+  animation: introLeftOpen 1.6s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
 
 .valima-intro.intro-started .intro-right {
-  animation:
-    introRightOpen 1.6s cubic-bezier(.77, 0, .18, 1)
-    forwards;
+  animation: introRightOpen 1.6s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
 
 .valima-intro.intro-started .intro-center {
-  animation:
-    introTextOut .8s ease forwards;
+  animation: introTextOut 0.8s ease forwards;
 }
 
 .valima-intro.intro-started .intro-glow {
-  animation:
-    introGlow 1.8s ease forwards;
+  animation: introGlow 1.8s ease forwards;
 }
 
 .valima-intro.intro-started .ring-one {
-  animation:
-    ringSpin 8s linear infinite;
+  animation: ringSpin 8s linear infinite;
 }
 
 .valima-intro.intro-started .ring-two {
-  animation:
-    ringSpinReverse 6s linear infinite;
+  animation: ringSpinReverse 6s linear infinite;
 }
 
 .valima-intro.intro-started .ring-three {
-  animation:
-    ringPulse 2s ease-in-out infinite;
+  animation: ringPulse 2s ease-in-out infinite;
 }
-
 
 /* =========================================================
    INTRO GLOW
@@ -159,13 +127,12 @@ body {
 
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, .55);
+  background: rgba(255, 255, 255, 0.55);
 
   filter: blur(45px);
 
-  transform: scale(.8);
+  transform: scale(0.8);
 }
-
 
 /* =========================================================
    RINGS
@@ -174,7 +141,7 @@ body {
 .intro-ring {
   position: absolute;
 
-  border: 1px solid rgba(167, 126, 56, .45);
+  border: 1px solid rgba(167, 126, 56, 0.45);
 
   border-radius: 50%;
 
@@ -197,9 +164,8 @@ body {
   width: 180px;
   height: 180px;
 
-  border-color: rgba(167, 126, 56, .7);
+  border-color: rgba(167, 126, 56, 0.7);
 }
-
 
 /* =========================================================
    INTRO CENTER
@@ -212,8 +178,7 @@ body {
 
   text-align: center;
 
-  animation:
-    introTextIn 1s ease forwards;
+  animation: introTextIn 1s ease forwards;
 }
 
 .intro-symbol {
@@ -260,7 +225,6 @@ body {
   color: #75664d;
 }
 
-
 /* =========================================================
    OPEN BUTTON
    ========================================================= */
@@ -283,8 +247,7 @@ body {
 
   border-radius: 2px;
 
-  background:
-    rgba(255, 255, 255, .35);
+  background: rgba(255, 255, 255, 0.35);
 
   color: #80602b;
 
@@ -301,28 +264,26 @@ body {
   backdrop-filter: blur(6px);
 
   transition:
-    transform .3s ease,
-    background .3s ease,
-    box-shadow .3s ease;
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .valima-open-button:hover {
   transform: translateY(-2px);
 
-  background:
-    rgba(255, 255, 255, .7);
+  background: rgba(255, 255, 255, 0.7);
 
-  box-shadow:
-    0 8px 25px rgba(128, 96, 43, .15);
+  box-shadow: 0 8px 25px rgba(128, 96, 43, 0.15);
 }
 
 .valima-open-button:active {
-  transform: scale(.96);
+  transform: scale(0.96);
 }
 
 .valima-open-button:disabled {
   cursor: default;
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .valima-open-button span {
@@ -334,7 +295,6 @@ body {
 
   font-size: 13px;
 }
-
 
 /* =========================================================
    INTRO ANIMATIONS
@@ -363,16 +323,12 @@ body {
 @keyframes introTextIn {
   from {
     opacity: 0;
-    transform:
-      scale(.8)
-      translateY(20px);
+    transform: scale(0.8) translateY(20px);
   }
 
   to {
     opacity: 1;
-    transform:
-      scale(1)
-      translateY(0);
+    transform: scale(1) translateY(0);
   }
 }
 
@@ -390,13 +346,13 @@ body {
 
 @keyframes introGlow {
   0% {
-    transform: scale(.8);
-    opacity: .5;
+    transform: scale(0.8);
+    opacity: 0.5;
   }
 
   100% {
     transform: scale(1.5);
-    opacity: .8;
+    opacity: 0.8;
   }
 }
 
@@ -415,8 +371,8 @@ body {
 @keyframes ringPulse {
   0%,
   100% {
-    transform: scale(.9);
-    opacity: .5;
+    transform: scale(0.9);
+    opacity: 0.5;
   }
 
   50% {
@@ -424,7 +380,6 @@ body {
     opacity: 1;
   }
 }
-
 
 /* =========================================================
    HERO
@@ -442,13 +397,12 @@ body {
 
   text-align: center;
 
-  background:
-    radial-gradient(
-      circle at center,
-      #ffffff 0%,
-      #fffaf0 55%,
-      #f4ead5 100%
-    );
+  background: radial-gradient(
+    circle at center,
+    #ffffff 0%,
+    #fffaf0 55%,
+    #f4ead5 100%
+  );
 
   position: relative;
 
@@ -462,8 +416,7 @@ body {
 
   z-index: 2;
 
-  animation:
-    heroContentIn 1.2s ease both;
+  animation: heroContentIn 1.2s ease both;
 }
 
 @keyframes heroContentIn {
@@ -485,7 +438,7 @@ body {
 
   font-size: 90px;
 
-  opacity: .25;
+  opacity: 0.25;
 }
 
 .hero-ornament.top {
@@ -536,7 +489,6 @@ body {
   margin: 8px 0;
 }
 
-
 /* =========================================================
    COUPLE
    ========================================================= */
@@ -572,23 +524,15 @@ body {
 
   overflow: hidden;
 
-  border-radius:
-    130px 130px 15px 15px;
+  border-radius: 130px 130px 15px 15px;
 
   border: 2px solid #c5a76a;
 
   padding: 6px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #fffdf8,
-      #ead7a9
-    );
+  background: linear-gradient(145deg, #fffdf8, #ead7a9);
 
-  box-shadow:
-    0 18px 45px
-    rgba(111, 83, 39, .18);
+  box-shadow: 0 18px 45px rgba(111, 83, 39, 0.18);
 
   position: relative;
 }
@@ -600,12 +544,9 @@ body {
 
   inset: 5px;
 
-  border:
-    1px solid
-    rgba(176, 139, 69, .6);
+  border: 1px solid rgba(176, 139, 69, 0.6);
 
-  border-radius:
-    125px 125px 10px 10px;
+  border-radius: 125px 125px 10px 10px;
 
   pointer-events: none;
 
@@ -621,17 +562,14 @@ body {
 
   object-fit: cover;
 
-  border-radius:
-    122px 122px 8px 8px;
+  border-radius: 122px 122px 8px 8px;
 
-  transition:
-    transform .5s ease;
+  transition: transform 0.5s ease;
 }
 
 .image-frame:hover img {
   transform: scale(1.04);
 }
-
 
 /* =========================================================
    NAMES
@@ -650,8 +588,7 @@ body {
 .groom-name {
   font-family: "Parisienne", cursive;
 
-  font-size:
-    clamp(55px, 6vw, 88px);
+  font-size: clamp(55px, 6vw, 88px);
 
   font-weight: 400;
 
@@ -707,7 +644,7 @@ body {
 }
 
 .with-word {
-  font-family: 'Cormorant Garamond';
+  font-family: "Cormorant Garamond";
 
   color: #806638;
 
@@ -719,8 +656,7 @@ body {
 .bride-name {
   font-family: "Parisienne", cursive;
 
-  font-size:
-    clamp(55px, 6vw, 88px);
+  font-size: clamp(55px, 6vw, 88px);
 
   font-weight: 400;
 
@@ -734,8 +670,7 @@ body {
 .daughter-title {
   font-family: "Parisienne", cursive;
 
-  font-size:
-    clamp(30px, 4vw, 50px);
+  font-size: clamp(30px, 4vw, 50px);
 
   color: #a47a35;
 
@@ -749,7 +684,6 @@ body {
 
   font-size: 22px;
 }
-
 
 /* =========================================================
    COMMON
@@ -778,7 +712,6 @@ body {
 
   margin: 0 0 30px;
 }
-
 
 /* =========================================================
    DATE
@@ -829,7 +762,7 @@ body {
 
   font-size: 90px;
 
-  line-height: .8;
+  line-height: 0.8;
 
   font-weight: 600;
 }
@@ -877,8 +810,7 @@ body {
 
   cursor: crosshair;
 
-  transition:
-    opacity .5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .scratch-note {
@@ -890,7 +822,6 @@ body {
 
   margin-top: 20px;
 }
-
 
 /* =========================================================
    EVENT / COUNTDOWN
@@ -911,8 +842,7 @@ body {
 
   display: grid;
 
-  grid-template-columns:
-    repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
   gap: 15px;
 }
@@ -920,27 +850,17 @@ body {
 .countdown-box {
   padding: 25px 10px;
 
-  border:
-    1px solid #d7c59d;
+  border: 1px solid #d7c59d;
 
-  background:
-    linear-gradient(
-      145deg,
-      #fffdf8,
-      #f8f0df
-    );
+  background: linear-gradient(145deg, #fffdf8, #f8f0df);
 
-  box-shadow:
-    0 10px 30px
-    rgba(111, 83, 39, .08);
+  box-shadow: 0 10px 30px rgba(111, 83, 39, 0.08);
 }
 
 .countdown-box strong {
   display: block;
 
-  font-family:
-    "Cormorant Garamond",
-    serif;
+  font-family: "Cormorant Garamond", serif;
 
   font-size: 48px;
 
@@ -964,7 +884,6 @@ body {
 
   font-weight: 600;
 }
-
 
 /* =========================================================
    VENUE
@@ -1043,8 +962,7 @@ body {
 
   font-weight: 600;
 
-  transition:
-    all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .map-button:hover {
@@ -1060,7 +978,6 @@ body {
 .map-button b {
   font-size: 17px;
 }
-
 
 /* =========================================================
    PROGRAM
@@ -1089,8 +1006,7 @@ body {
 
   padding: 22px 8px;
 
-  border-bottom:
-    1px solid #cdbd9d;
+  border-bottom: 1px solid #cdbd9d;
 
   font-size: 20px;
 
@@ -1102,8 +1018,7 @@ body {
 }
 
 .program-row:first-child {
-  border-top:
-    1px solid #cdbd9d;
+  border-top: 1px solid #cdbd9d;
 }
 
 .program-row span {
@@ -1117,7 +1032,6 @@ body {
 
   font-weight: 800;
 }
-
 
 /* =========================================================
    WELCOME
@@ -1173,7 +1087,6 @@ body {
   font-weight: 500;
 }
 
-
 /* =========================================================
    RSVP
    ========================================================= */
@@ -1195,8 +1108,7 @@ body {
 .rsvp-person {
   padding: 20px 10px;
 
-  border-bottom:
-    1px solid #dfd2ba;
+  border-bottom: 1px solid #dfd2ba;
 }
 
 .rsvp-person h3 {
@@ -1228,7 +1140,6 @@ body {
 .rsvp-person a:hover {
   text-decoration: underline;
 }
-
 
 /* =========================================================
    FOOTER
@@ -1270,18 +1181,15 @@ body {
   color: #d0b477;
 }
 
-
 /* =========================================================
    MOBILE
    ========================================================= */
 
 @media (max-width: 800px) {
-
   .valima-hero {
     min-height: 100svh;
 
-    padding:
-      30px 12px 25px;
+    padding: 30px 12px 25px;
   }
 
   .hero-ornament {
@@ -1314,14 +1222,12 @@ body {
     letter-spacing: 3px;
   }
 
-
   /* =======================================================
      MOBILE COUPLE
      ======================================================= */
 
   .couple-area {
-    grid-template-columns:
-      1fr 1.5fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr;
 
     gap: 7px;
 
@@ -1335,8 +1241,7 @@ body {
 
     height: 235px;
 
-    border-radius:
-      80px 80px 8px 8px;
+    border-radius: 80px 80px 8px 8px;
 
     padding: 4px;
   }
@@ -1344,19 +1249,17 @@ body {
   .image-frame::before {
     inset: 4px;
 
-    border-radius:
-      76px 76px 5px 5px;
+    border-radius: 76px 76px 5px 5px;
   }
 
   .image-frame img {
-    border-radius:
-      74px 74px 4px 4px;
+    border-radius: 74px 74px 4px 4px;
   }
 
   .groom-name {
     font-size: 34px;
 
-    line-height: .95;
+    line-height: 0.95;
 
     max-width: 100%;
   }
@@ -1400,7 +1303,6 @@ body {
   .hero-bottom-ornament {
     margin-top: 10px;
   }
-
 
   /* =======================================================
      MOBILE INTRO
@@ -1449,7 +1351,6 @@ body {
     letter-spacing: 2.5px;
   }
 
-
   /* =======================================================
      COMMON
      ======================================================= */
@@ -1465,14 +1366,12 @@ body {
     padding: 75px 15px;
   }
 
-
   /* =======================================================
      COUNTDOWN MOBILE
      ======================================================= */
 
   .countdown {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 10px;
 
@@ -1492,7 +1391,6 @@ body {
 
     letter-spacing: 1.5px;
   }
-
 
   /* =======================================================
      SCRATCH
@@ -1516,7 +1414,6 @@ body {
     letter-spacing: 4px;
   }
 
-
   /* =======================================================
      VENUE
      ======================================================= */
@@ -1529,7 +1426,6 @@ body {
     font-size: 18px;
   }
 
-
   /* =======================================================
      PROGRAM
      ======================================================= */
@@ -1539,13 +1435,12 @@ body {
 
     padding: 18px 2px;
 
-    letter-spacing: .8px;
+    letter-spacing: 0.8px;
   }
 
   .program-row b {
     font-size: 20px;
   }
-
 
   /* =======================================================
      WELCOME
@@ -1562,7 +1457,6 @@ body {
   .welcome-message {
     font-size: 18px;
   }
-
 
   /* =======================================================
      RSVP
@@ -1584,7 +1478,6 @@ body {
     font-size: 12px;
   }
 
-
   /* =======================================================
      FOOTER
      ======================================================= */
@@ -1598,13 +1491,11 @@ body {
   }
 }
 
-
 /* =========================================================
    EXTRA SMALL MOBILE
    ========================================================= */
 
 @media (max-width: 380px) {
-
   .groom-name {
     font-size: 30px;
   }
@@ -1626,7 +1517,6 @@ body {
   }
 }
 
-
 /* =========================================================
    VALIMA HEADINGS — FORCE CENTER
    Keeps all section headings centered like Baraat
@@ -1634,13 +1524,10 @@ body {
 
 .valima-date-section .section-label,
 .valima-date-section .section-heading,
-
 .valima-event-section .section-label,
 .valima-event-section .section-heading,
-
 .valima-program-section .section-label,
 .valima-program-section .section-heading,
-
 .rsvp-section .section-label,
 .rsvp-section .section-heading {
   width: 100%;
@@ -1650,7 +1537,6 @@ body {
   margin-right: auto;
 }
 
-
 /* Extra protection for the main heading */
 .valima-date-section h2.section-heading,
 .valima-event-section h2.section-heading,
@@ -1659,14 +1545,12 @@ body {
   text-align: center !important;
 }
 
-
 /* =========================================================
    FINAL MOBILE FIX
    DO NOT CHANGE DESKTOP DESIGN
    ========================================================= */
 
 @media (max-width: 800px) {
-
   html,
   body {
     width: 100%;
@@ -1679,7 +1563,6 @@ body {
     max-width: 100%;
     overflow-x: hidden;
   }
-
 
   /* =========================
      HERO MOBILE
@@ -1741,7 +1624,6 @@ body {
     overflow-wrap: break-word;
   }
 
-
   /* =========================
      COUPLE MOBILE
      ========================= */
@@ -1775,7 +1657,6 @@ body {
     max-width: 100%;
   }
 
-
   /* =========================
      MOBILE IMAGES
      ========================= */
@@ -1788,8 +1669,7 @@ body {
 
     padding: 4px;
 
-    border-radius:
-      80px 80px 8px 8px;
+    border-radius: 80px 80px 8px 8px;
 
     overflow: hidden;
   }
@@ -1797,8 +1677,7 @@ body {
   .image-frame::before {
     inset: 4px;
 
-    border-radius:
-      76px 76px 5px 5px;
+    border-radius: 76px 76px 5px 5px;
   }
 
   .image-frame img {
@@ -1808,10 +1687,8 @@ body {
 
     object-fit: cover;
 
-    border-radius:
-      74px 74px 4px 4px;
+    border-radius: 74px 74px 4px 4px;
   }
-
 
   /* =========================
      MOBILE NAMES
@@ -1846,7 +1723,7 @@ body {
   .groom-name {
     font-size: 34px;
 
-    line-height: .95;
+    line-height: 0.95;
 
     margin: 0;
   }
@@ -1854,7 +1731,7 @@ body {
   .bride-name {
     font-size: 38px;
 
-    line-height: .95;
+    line-height: 0.95;
 
     margin: 0;
   }
@@ -1902,7 +1779,6 @@ body {
     margin-top: 10px;
   }
 
-
   /* =========================
      SECTION HEADINGS
      ========================= */
@@ -1931,7 +1807,6 @@ body {
     white-space: normal;
   }
 
-
   /* =========================
      DATE
      ========================= */
@@ -1957,7 +1832,6 @@ body {
     margin-right: auto;
   }
 
-
   /* =========================
      EVENT
      ========================= */
@@ -1979,8 +1853,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 10px;
   }
@@ -1989,7 +1862,6 @@ body {
     min-width: 0;
     padding: 20px 8px;
   }
-
 
   /* =========================
      VENUE
@@ -2023,7 +1895,6 @@ body {
     line-height: 1.5;
   }
 
-
   /* =========================
      PROGRAM
      ========================= */
@@ -2054,9 +1925,8 @@ body {
 
     padding: 18px 2px;
 
-    letter-spacing: .8px;
+    letter-spacing: 0.8px;
   }
-
 
   /* =========================
      WELCOME
@@ -2086,6 +1956,140 @@ body {
     font-size: 18px;
   }
 
+  /* ================================
+   Awaiting to Welcome
+================================ */
+
+  .awaiting-section-valima {
+    width: 100%;
+    padding: 60px 20px;
+    background: #40382e !important;
+    overflow: hidden;
+  }
+
+  .awaiting-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .awaiting-container h2 {
+    text-align: center;
+    margin: 0 0 30px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #f9e6d8;
+  }
+
+  .awaiting-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 35px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    overflow: hidden;
+  }
+
+  .awaiting-column {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .guest-name {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* Left column comes from left */
+  .awaiting-left .guest-name {
+    animation: slideFromLeft 0.8s ease-out both;
+  }
+
+  /* Right column comes from right */
+  .awaiting-right .guest-name {
+    animation: slideFromRight 0.8s ease-out both;
+  }
+
+  /* Small delay between names */
+  .awaiting-left .guest-name:nth-child(2),
+  .awaiting-right .guest-name:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .awaiting-left .guest-name:nth-child(3),
+  .awaiting-right .guest-name:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .awaiting-left .guest-name:nth-child(4),
+  .awaiting-right .guest-name:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  .awaiting-left .guest-name:nth-child(5),
+  .awaiting-right .guest-name:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes slideFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .awaiting-section-valima {
+      padding: 45px 15px;
+    }
+
+    .awaiting-container h2 {
+      font-size: 27px;
+      margin-bottom: 25px;
+    }
+
+    .awaiting-card {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 28px 22px;
+    }
+
+    .awaiting-column {
+      gap: 16px;
+    }
+
+    .guest-name {
+      font-size: 17px;
+    }
+
+    /* On mobile every name comes from right */
+    .awaiting-left .guest-name {
+      animation-name: slideFromLeft;
+    }
+    .awaiting-right .guest-name {
+      animation-name: slideFromRight;
+    }
+  }
 
   /* =========================
      RSVP
@@ -2116,7 +2120,6 @@ body {
     padding: 17px 5px;
   }
 
-
   /* =========================
      FOOTER
      ========================= */
@@ -2137,13 +2140,11 @@ body {
   }
 }
 
-
 /* =========================================================
    EXTRA SMALL MOBILE
    ========================================================= */
 
 @media (max-width: 380px) {
-
   .couple-area {
     grid-template-columns:
       minmax(0, 0.8fr)
@@ -2176,7 +2177,6 @@ body {
 }
 
 @media (max-width: 800px) {
-
   /* ================================
      VALIMA MOBILE FONT FIX
      ================================ */
@@ -2268,4 +2268,16 @@ body {
     max-width: 105px;
     height: 220px;
   }
+}
+
+.awaiting-section-valima {
+  width: 100% !important;
+  min-height: 200px !important;
+  padding: 60px 20px !important;
+  background-color: #40382e !important;
+  background: #40382e !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  box-sizing: border-box !important;
 }

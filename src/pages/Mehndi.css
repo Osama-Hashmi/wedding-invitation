@@ -1390,6 +1390,141 @@
   color: #7e6a51;
 }
 
+/* ================================
+   Awaiting to Welcome
+================================ */
+
+.mehndi-awaiting-section {
+  width: 100%;
+  padding: 60px 20px;
+  background: #072217;
+  overflow: hidden;
+}
+
+.awaiting-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.awaiting-container h2 {
+  text-align: center;
+  margin: 0 0 30px;
+  font-size: 32px;
+  font-weight: 500;
+  color: #f9e6d8;
+}
+
+.awaiting-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 35px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  overflow: hidden;
+}
+
+.awaiting-column {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.guest-name {
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Left column comes from left */
+.awaiting-left .guest-name {
+  animation: slideFromLeft 0.8s ease-out both;
+}
+
+/* Right column comes from right */
+.awaiting-right .guest-name {
+  animation: slideFromRight 0.8s ease-out both;
+}
+
+/* Small delay between names */
+.awaiting-left .guest-name:nth-child(2),
+.awaiting-right .guest-name:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.awaiting-left .guest-name:nth-child(3),
+.awaiting-right .guest-name:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.awaiting-left .guest-name:nth-child(4),
+.awaiting-right .guest-name:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.awaiting-left .guest-name:nth-child(5),
+.awaiting-right .guest-name:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .mehndi-awaiting-section {
+    padding: 45px 15px;
+  }
+
+  .awaiting-container h2 {
+    font-size: 27px;
+    margin-bottom: 25px;
+  }
+
+  .awaiting-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 28px 22px;
+  }
+
+  .awaiting-column {
+    gap: 16px;
+  }
+
+  .guest-name {
+    font-size: 17px;
+  }
+
+  /* On mobile every name comes from right */
+  .awaiting-left .guest-name {
+    animation-name: slideFromLeft;
+  }
+  .awaiting-right .guest-name {
+    animation-name: slideFromRight;
+  }
+}
+
 /* =========================================================
    RSVP
 ========================================================= */
@@ -1401,7 +1536,7 @@
 .mehndi-page .rsvp-intro {
   margin: -12px 0 35px;
 
-  font-size: 7px;
+  font-size: 18px;
   letter-spacing: 3px;
 
   color: #927044;
