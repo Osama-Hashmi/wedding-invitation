@@ -451,6 +451,8 @@ body {
   color: #a47c38;
 
   margin-bottom: 20px;
+
+  margin-top: 75px;
 }
 
 .parents {
@@ -665,6 +667,8 @@ body {
   color: #a47a35;
 
   margin: 0;
+
+  margin-top: 20px;
 }
 
 .daughter-title {
@@ -2160,6 +2164,7 @@ body {
 
   .bride-name {
     font-size: 34px;
+    margin-top: 20px;
   }
 
   .daughter-title {
@@ -2280,4 +2285,85 @@ body {
   visibility: visible !important;
   opacity: 1 !important;
   box-sizing: border-box !important;
+}
+
+/* =========================================================
+   VALIMA MUSIC BUTTON
+========================================================= */
+
+.valima-page .music-button {
+  position: fixed;
+
+  right: 22px;
+  bottom: 22px;
+
+  z-index: 500;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #a7771b;
+  border-radius: 50%;
+
+  background: rgba(255, 250, 235, 0.92);
+
+  color: #a7771b;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 25px rgba(82, 55, 10, 0.16);
+
+  font-size: 21px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.valima-page .music-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 14px 30px rgba(82, 55, 10, 0.22);
+}
+
+.valima-page .music-button:active {
+  transform: scale(0.94);
+}
+
+.valima-page .music-button.playing {
+  animation: valimaMusicPulse 1.5s infinite;
+}
+
+.valima-page .music-button span {
+  line-height: 1;
+}
+
+@keyframes valimaMusicPulse {
+  0%,
+  100% {
+    box-shadow: 0 10px 25px rgba(82, 55, 10, 0.16);
+  }
+
+  50% {
+    box-shadow: 0 10px 30px rgba(167, 119, 27, 0.38);
+  }
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .valima-page .music-button {
+    width: 46px;
+    height: 46px;
+
+    right: 16px;
+    bottom: 16px;
+
+    font-size: 19px;
+  }
 }

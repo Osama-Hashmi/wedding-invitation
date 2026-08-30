@@ -492,13 +492,12 @@ function Mehndi2() {
               <div className="couple-center">
                 <span className="center-flower">❦</span>
 
-                <h2>
-                  Osama
-                  <span>&</span>
-                  Areeba
-                </h2>
-
+                <h2>Syed Muhammad Osama Ali Hashmi</h2>
+                  {/* <span>&</span> */}
                 <p>TOGETHER WITH</p>
+
+                  <h2>Daughter Of Ashraf Ali</h2>
+
 
                 <div className="tiny-line">
                   <span></span>
@@ -768,17 +767,13 @@ function Mehndi2() {
                   <div className="guest-name">
                     Mr & Mrs Syed Asim Ali Hashmi
                   </div>{" "}
-                  <div className="guest-name">
-                    Mr & Mrs Syed Sohail Ali Hashmi
-                  </div>{" "}
-                  <div className="guest-name">
-                    Mr & Mrs Syed Salman Ali Hashmi
-                  </div>{" "}
+                  {/* <div className="guest-name">Mr & Mrs Syed Sohail Ali Hashmi</div>{" "} */}
+                  <div className="guest-name">Mr & Mrs Syed Salman Ali Hashmi</div>{" "}
                 </div>{" "}
                 <div className="awaiting-column awaiting-right">
                   {" "}
                   <div className="guest-name">Mr & Mrs Abdul Aziz</div>{" "}
-                  <div className="guest-name">Mrs Abdul Qadir</div>{" "}
+                  {/* <div className="guest-name">Mrs Abdul Qadir</div>{" "} */}
                   <div className="guest-name">Mr & Mrs Ghazanfar Ali</div>{" "}
                 </div>{" "}
               </div>{" "}
@@ -830,11 +825,10 @@ function Mehndi2() {
 
             <p>WITH LOVE & BLESSINGS</p>
 
-            <h2>
-              Osama
-              <span>&</span>
-              Areeba
-            </h2>
+            <h2>Syed Muhammad Osama Ali Hashmi</h2>
+              {/* <span>&</span> */}
+
+              {/* <h2>Areeba</h2> */}
 
             <small>29 · OCTOBER · 2026</small>
           </footer>
