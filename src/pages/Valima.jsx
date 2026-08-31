@@ -2,6 +2,49 @@ import { useEffect, useRef, useState } from "react";
 import "./Valima.css";
 
 /* =========================================================
+   GOOGLE CALENDAR
+   ========================================================= */
+
+function AddToCalendar() {
+  const handleAddToCalendar = () => {
+    const eventTitle = "Valima Reception";
+    const eventDetails = "Valima Reception of Syed Muhammad Osama Ali Hashmi";
+    const eventLocation =
+      "Dolly Banquet Road, Near Continental Bakery, Block 15, Gulistan-e-Johar, Karachi";
+
+    // Google Calendar uses UTC format
+    // 02 November 2026, 09:00 PM Pakistan time
+    // Event duration: 3 hours
+    const start = "20261102T160000Z";
+    const end = "20261102T185900Z";
+
+    const calendarUrl =
+      "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+      `&text=${encodeURIComponent(eventTitle)}` +
+      `&dates=${start}/${end}` +
+      `&details=${encodeURIComponent(eventDetails)}` +
+      `&location=${encodeURIComponent(eventLocation)}` +
+      "&ctz=Asia%2FKarachi" +
+      "&sf=true" +
+      "&output=xml";
+
+    window.open(calendarUrl, "_blank");
+  };
+
+  return (
+    <button
+      type="button"
+      className="add-calendar-button"
+      onClick={handleAddToCalendar}
+    >
+      <span>＋</span>
+      ADD TO CALENDAR
+      <b>→</b>
+    </button>
+  );
+}
+
+/* =========================================================
    SCRATCH DATE
    ========================================================= */
 
@@ -120,35 +163,46 @@ function ScratchDate() {
   };
 
   return (
-    <div className={revealed ? "scratch-wrapper revealed" : "scratch-wrapper"}>
-      <div className="date-underneath">
-        <span className="date-day">02</span>
+    <>
+      <div
+        className={revealed ? "scratch-wrapper revealed" : "scratch-wrapper"}
+      >
+        <div className="date-underneath">
+          <span className="date-day">02</span>
 
-        <span className="date-month">NOVEMBER</span>
+          <span className="date-month">NOVEMBER</span>
 
-        <span className="date-year">2026</span>
+          <span className="date-year">2026</span>
 
-        <small>MONDAY</small>
+          <small>MONDAY</small>
+        </div>
+
+        <canvas
+          ref={canvasRef}
+          className="scratch-canvas"
+          onPointerDown={() => {
+            scratching.current = true;
+          }}
+          onPointerUp={() => {
+            scratching.current = false;
+          }}
+          onPointerLeave={() => {
+            scratching.current = false;
+          }}
+          onPointerMove={scratch}
+          onPointerCancel={() => {
+            scratching.current = false;
+          }}
+        />
       </div>
 
-      <canvas
-        ref={canvasRef}
-        className="scratch-canvas"
-        onPointerDown={() => {
-          scratching.current = true;
-        }}
-        onPointerUp={() => {
-          scratching.current = false;
-        }}
-        onPointerLeave={() => {
-          scratching.current = false;
-        }}
-        onPointerMove={scratch}
-        onPointerCancel={() => {
-          scratching.current = false;
-        }}
-      />
-    </div>
+      {/* ADD TO CALENDAR APPEARS AFTER SCRATCH */}
+      {revealed && (
+        <div className="calendar-button-wrapper">
+          <AddToCalendar />
+        </div>
+      )}
+    </>
   );
 }
 
@@ -512,19 +566,16 @@ function Valima() {
         <div className="program-list">
           <div className="program-row">
             <span>GUEST ARRIVAL</span>
-
             <b>09:00 PM</b>
           </div>
 
           <div className="program-row">
             <span>RECEPTION</span>
-
             <b>10:00 PM</b>
           </div>
 
           <div className="program-row">
             <span>DINNER</span>
-
             <b>11:00 PM</b>
           </div>
         </div>
@@ -559,11 +610,13 @@ function Valima() {
           <div className="awaiting-card">
             <div className="awaiting-column awaiting-left">
               <div className="guest-name">Mr & Mrs Syed Asim Ali Hashmi</div>
+
               <div className="guest-name">Mr & Mrs Syed Salman Ali Hashmi</div>
             </div>
 
             <div className="awaiting-column awaiting-right">
               <div className="guest-name">Mr & Mrs Abdul Aziz</div>
+
               <div className="guest-name">Mr & Mrs Ghazanfar Ali</div>
             </div>
           </div>
@@ -615,7 +668,7 @@ function Valima() {
 
         <p>WITH LOVE & BLESSINGS</p>
 
-        <strong> Mr & Mrs Syed Muhammad Osama Ali Hashmi</strong>
+        <strong>Mr & Mrs Syed Muhammad Osama Ali Hashmi</strong>
       </footer>
 
       {/* ===================================================

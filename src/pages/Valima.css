@@ -2367,3 +2367,88 @@ body {
     font-size: 19px;
   }
 }
+
+/* =========================================================
+   ADD TO GOOGLE CALENDAR
+   ========================================================= */
+
+.calendar-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  animation: calendarButtonIn 0.7s ease both;
+}
+
+.add-calendar-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 210px;
+  padding: 15px 24px;
+  border: 1px solid #a7771b;
+  border-radius: 2px;
+  background: #8f6a30;
+  color: #fffdf8;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(82, 55, 10, 0.14);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.add-calendar-button:hover {
+  transform: translateY(-3px);
+  background: #705021;
+  box-shadow: 0 14px 30px rgba(82, 55, 10, 0.22);
+}
+
+.add-calendar-button:active {
+  transform: scale(0.96);
+}
+
+.add-calendar-button span {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.add-calendar-button b {
+  font-size: 17px;
+}
+
+@keyframes calendarButtonIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   ADD TO CALENDAR - MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .calendar-button-wrapper {
+    margin-top: 22px;
+    padding: 0 10px;
+  }
+
+  .add-calendar-button {
+    width: 100%;
+    max-width: 250px;
+    min-width: 0;
+    padding: 14px 18px;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+  }
+}

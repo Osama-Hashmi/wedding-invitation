@@ -2,6 +2,72 @@ import { useEffect, useRef, useState } from "react";
 import "./Baraat.css";
 
 /* ================================================= */
+/* ================= ADD TO CALENDAR =============== */
+/* ================================================= */
+
+function AddToCalendar() {
+  const addToGoogleCalendar = () => {
+    const eventTitle = "Baraat Ceremony";
+
+    const eventDetails =
+      "You are cordially invited to the Baraat Ceremony of Areeba Ashraf & Syed Muhammad Osama Ali Hashmi.";
+
+    const eventLocation =
+      "The Manor Banquet, Shahra-e-Faisal, Darwaish Colony, Karachi";
+
+    /*
+      Google Calendar date format:
+      YYYYMMDDTHHMMSS
+    */
+
+    const startDate = "20261031T210000";
+    const endDate = "20261031T235900";
+
+    /*
+      1440 minutes = 24 hours
+      before the event.
+    */
+
+    const googleCalendarUrl =
+      "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+      "&text=" +
+      encodeURIComponent(eventTitle) +
+      "&dates=" +
+      startDate +
+      "/" +
+      endDate +
+      "&details=" +
+      encodeURIComponent(eventDetails) +
+      "&location=" +
+      encodeURIComponent(eventLocation) +
+      "&ctz=Asia/Karachi" +
+      "&reminders=popup:1440";
+
+    window.open(googleCalendarUrl, "_blank", "noopener,noreferrer");
+  };
+
+  return (
+    <div className="calendar-container">
+      <button
+        type="button"
+        className="add-calendar-button"
+        onClick={addToGoogleCalendar}
+      >
+        <span className="calendar-icon">▣</span>
+
+        <span>ADD TO CALENDAR</span>
+
+        <span className="calendar-arrow">→</span>
+      </button>
+
+      <p className="calendar-note">
+        Save our special day & get a reminder 24 hours before
+      </p>
+    </div>
+  );
+}
+
+/* ================================================= */
 /* ================= SCRATCH DATE ================== */
 /* ================================================= */
 
@@ -12,6 +78,7 @@ function ScratchDate() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
@@ -68,13 +135,15 @@ function ScratchDate() {
 
   const checkReveal = () => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+
+    if (!canvas || revealed) return;
 
     const ctx = canvas.getContext("2d");
 
     const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
     let transparent = 0;
+
     const total = pixels.length / 4;
 
     for (let i = 3; i < pixels.length; i += 4) {
@@ -87,6 +156,7 @@ function ScratchDate() {
 
     if (percentage > 42) {
       setRevealed(true);
+
       canvas.style.opacity = "0";
       canvas.style.pointerEvents = "none";
     }
@@ -96,9 +166,11 @@ function ScratchDate() {
     if (!scratching.current || revealed) return;
 
     const canvas = canvasRef.current;
+
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
+
     const rect = canvas.getBoundingClientRect();
 
     const x = e.clientX - rect.left;
@@ -107,7 +179,9 @@ function ScratchDate() {
     ctx.globalCompositeOperation = "destination-out";
 
     ctx.beginPath();
+
     ctx.arc(x, y, 25, 0, Math.PI * 2);
+
     ctx.fill();
 
     checkReveal();
@@ -122,24 +196,33 @@ function ScratchDate() {
   };
 
   return (
-    <div className={`scratch-wrapper ${revealed ? "revealed" : ""}`}>
-      <div className="date-underneath">
-        <span className="date-day">31</span>
-        <span className="date-month">OCTOBER</span>
-        <span className="date-year">2026</span>
-        <small>SATURDAY</small>
+    <>
+      <div className={`scratch-wrapper ${revealed ? "revealed" : ""}`}>
+        <div className="date-underneath">
+          <span className="date-day">31</span>
+
+          <span className="date-month">OCTOBER</span>
+
+          <span className="date-year">2026</span>
+
+          <small>SATURDAY</small>
+        </div>
+
+        <canvas
+          ref={canvasRef}
+          className="scratch-canvas"
+          onPointerDown={startScratch}
+          onPointerUp={stopScratch}
+          onPointerLeave={stopScratch}
+          onPointerMove={scratch}
+          onPointerCancel={stopScratch}
+        />
       </div>
 
-      <canvas
-        ref={canvasRef}
-        className="scratch-canvas"
-        onPointerDown={startScratch}
-        onPointerUp={stopScratch}
-        onPointerLeave={stopScratch}
-        onPointerMove={scratch}
-        onPointerCancel={stopScratch}
-      />
-    </div>
+      {/* ================= ADD TO CALENDAR ================= */}
+
+      {revealed && <AddToCalendar />}
+    </>
   );
 }
 
@@ -152,6 +235,7 @@ function Countdown() {
 
   const calculateTime = () => {
     const now = new Date().getTime();
+
     const difference = targetDate - now;
 
     if (difference <= 0) {
@@ -274,6 +358,7 @@ function Baraat() {
           })
           .catch((error) => {
             console.log("Song could not start:", error);
+
             setMusicOn(false);
           });
       }
@@ -300,6 +385,7 @@ function Baraat() {
         });
     } else {
       audio.pause();
+
       setMusicOn(false);
     }
   };
@@ -324,24 +410,21 @@ function Baraat() {
   return (
     <main className="baraat-page">
       {/* ================= BARAAT SONG ================= */}
+
       <audio ref={audioRef} loop preload="auto" playsInline>
         <source src="/music/Mere%20Haath%20Mein.mp3" type="audio/mpeg" />
       </audio>
-      {/* ================= CLOTH CURTAIN ================= */}
-      <div className={`baraat-curtain ${curtainOpen ? "curtain-open" : ""}`}>
-        {/* ================= LEFT CURTAIN ================= */}
 
+      {/* ================= CLOTH CURTAIN ================= */}
+
+      <div className={`baraat-curtain ${curtainOpen ? "curtain-open" : ""}`}>
         <div className="curtain-panel curtain-left">
           <div className="curtain-folds"></div>
         </div>
 
-        {/* ================= RIGHT CURTAIN ================ */}
-
         <div className="curtain-panel curtain-right">
           <div className="curtain-folds"></div>
         </div>
-
-        {/* ================= CENTER CONTENT ================ */}
 
         <div className="curtain-center-content">
           <div className="curtain-small-text">THE WEDDING CELEBRATION</div>
@@ -351,8 +434,6 @@ function Baraat() {
           <h1>Baraat</h1>
 
           <p>A Celebration of Love</p>
-
-          {/* ================= GOLDEN BUTTON ================ */}
 
           <button
             type="button"
@@ -368,7 +449,9 @@ function Baraat() {
           <div className="curtain-button-text">TAP TO OPEN</div>
         </div>
       </div>
+
       {/* ================= HERO ========================== */}
+
       <section className="baraat-hero">
         <div className="hero-pattern"></div>
 
@@ -431,7 +514,9 @@ function Baraat() {
 
         <div className="hero-bottom-ornament">✦</div>
       </section>
+
       {/* ================= DATE ========================== */}
+
       <section className="date-section">
         <div className="gold-emblem">✦</div>
 
@@ -445,7 +530,9 @@ function Baraat() {
           Gently scratch the card to reveal our special day
         </p>
       </section>
+
       {/* ================= COUNTDOWN ===================== */}
+
       <section className="details-section">
         <p className="section-label">SAVE THE DATE</p>
 
@@ -453,7 +540,9 @@ function Baraat() {
 
         <Countdown />
       </section>
+
       {/* ================= VENUE ========================= */}
+
       <section className="venue-section">
         <div className="venue-flower">❧</div>
 
@@ -482,7 +571,9 @@ function Baraat() {
           <b>→</b>
         </a>
       </section>
+
       {/* ================= PROGRAM ======================= */}
+
       <section className="program-section">
         <p className="section-label">PROGRAMME</p>
 
@@ -505,7 +596,9 @@ function Baraat() {
           </div>
         </div>
       </section>
+
       {/* ================= WELCOME ======================= */}
+
       <section className="welcome-section">
         <div className="gold-emblem">✦</div>
 
@@ -519,7 +612,9 @@ function Baraat() {
           will make our celebration even more special.
         </p>
       </section>
+
       {/* ================= AWAITING ======================= */}
+
       <section className="awaiting-section">
         <div className="awaiting-container">
           <h2>Awaiting to Welcome</h2>
@@ -552,9 +647,8 @@ function Baraat() {
         </div>
       </section>
 
-      {/* =================================================
-                            RSVP
-          ================================================= */}
+      {/* ================= RSVP ========================== */}
+
       <section className="rsvp-section">
         <p className="section-heading">RSVP</p>
 
@@ -565,8 +659,8 @@ function Baraat() {
             <h3>Mr & Mrs Advocate Ashraf Ali</h3>
 
             <a href="tel:03342595325">03342595325</a>
+
             <a href="tel:03322205525">03322205525</a>
-            {/* <a href="tel:03703463351">03703463351</a> */}
           </div>
 
           <div className="rsvp-card">
@@ -578,6 +672,7 @@ function Baraat() {
       </section>
 
       {/* ================= FOOTER ======================== */}
+
       <footer className="baraat-footer">
         <div className="footer-ornament">❦</div>
 
@@ -585,7 +680,9 @@ function Baraat() {
 
         <strong>Areeba & Osama</strong>
       </footer>
+
       {/* ================= MUSIC BUTTON ================== */}
+
       {curtainOpen && (
         <button
           type="button"

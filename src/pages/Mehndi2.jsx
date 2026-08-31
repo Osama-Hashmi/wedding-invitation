@@ -71,6 +71,29 @@ function Mehndi2() {
     }
   };
 
+  const addToCalendar = () => {
+    const start = "20261029T210000";
+    const end = "20261029T235900";
+
+    const details =
+      "An evening of joy, celebration, music and beautiful memories.";
+
+    const calendarUrl =
+      "https://calendar.google.com/calendar/render" +
+      "?action=TEMPLATE" +
+      "&text=" +
+      encodeURIComponent("Mehndi Celebration") +
+      "&dates=" +
+      `${start}/${end}` +
+      "&details=" +
+      encodeURIComponent(details) +
+      "&location=" +
+      encodeURIComponent("Al Hamd 2") +
+      "&ctz=Asia/Karachi";
+
+    window.open(calendarUrl, "_blank", "noopener,noreferrer");
+  };
+
   /* =========================================================
      TITLE
   ========================================================= */
@@ -569,6 +592,15 @@ function Mehndi2() {
                   <span className="date-day">THURSDAY</span>
 
                   <div className="date-ornament">❦</div>
+                  <button
+                    type="button"
+                    className="calendar-button"
+                    onClick={addToCalendar}
+                  >
+                    <span>✦</span>
+                    <strong>ADD TO CALENDAR</strong>
+                    <b>→</b>
+                  </button>
                 </div>
               </div>
 

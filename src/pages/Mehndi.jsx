@@ -20,7 +20,7 @@ function Mehndi() {
   });
 
   useEffect(() => {
-    document.title = "Mehndi Invitation — Areeba & Osama";
+    document.title = "Mehndi Invitation Areeba & Osama";
 
     return () => {
       document.title = "Wedding Invitation";
@@ -287,6 +287,28 @@ function Mehndi() {
     }
   };
 
+  /* ================= ADD TO CALENDAR ================= */
+
+  const addToCalendar = () => {
+    const event = {
+      title: "Mehndi Celebration Areeba & Osama",
+      location: "Jasmine Banquet",
+      description: "Mehndi Celebration — 28 October 2026 at 9:00 PM",
+      start: "20261028T210000",
+      end: "20261028T235900",
+    };
+
+    const googleCalendarUrl =
+      `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+      `&text=${encodeURIComponent(event.title)}` +
+      `&dates=${event.start}/${event.end}` +
+      `&details=${encodeURIComponent(event.description)}` +
+      `&location=${encodeURIComponent(event.location)}` +
+      `&recur=`;
+
+    window.open(googleCalendarUrl, "_blank", "noopener,noreferrer");
+  };
+
   /* ================= MUSIC ================= */
 
   const toggleMusic = async () => {
@@ -524,7 +546,19 @@ function Mehndi() {
               </div>
 
               {scratched && (
-                <p className="scratch-complete">✦ DATE REVEALED ✦</p>
+                <>
+                  <p className="scratch-complete">✦ DATE REVEALED ✦</p>
+
+                  <button
+                    type="button"
+                    className="calendar-button"
+                    onClick={addToCalendar}
+                  >
+                    <span>✦</span>
+                    ADD TO CALENDAR
+                    <strong>→</strong>
+                  </button>
+                </>
               )}
             </div>
 

@@ -2282,3 +2282,165 @@
     animation: none !important;
   }
 }
+
+/* =========================================================
+   ADD TO CALENDAR BUTTON
+========================================================= */
+
+.mehndi-page .calendar-button {
+  position: relative;
+
+  width: 250px;
+  min-height: 54px;
+
+  margin: 22px auto 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+
+  padding: 0 20px;
+
+  border: 1px solid #9c7118;
+  border-radius: 0;
+
+  outline: none;
+
+  background: linear-gradient(135deg, #c79b35, #9e7318);
+
+  color: #fffdf2;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 35px rgba(87, 57, 8, 0.22);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  border-radius: 15px;
+}
+
+.mehndi-page .calendar-button::before {
+  content: "";
+
+  position: absolute;
+  inset: 5px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  pointer-events: none;
+}
+
+.mehndi-page .calendar-button::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 70px;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  animation: mehndiCalendarShine 3s infinite;
+
+  pointer-events: none;
+}
+
+@keyframes mehndiCalendarShine {
+  0% {
+    left: -100%;
+  }
+
+  45%,
+  100% {
+    left: 140%;
+  }
+}
+
+.mehndi-page .calendar-button:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 20px 45px rgba(87, 57, 8, 0.3);
+}
+
+.mehndi-page .calendar-button:active {
+  transform: scale(0.96);
+}
+
+.mehndi-page .calendar-button:focus-visible {
+  box-shadow:
+    0 0 0 3px rgba(167, 119, 27, 0.25),
+    0 15px 35px rgba(87, 57, 8, 0.25);
+}
+
+.mehndi-page .calendar-button span,
+.mehndi-page .calendar-button strong {
+  position: relative;
+  z-index: 2;
+}
+
+.mehndi-page .calendar-button span {
+  font-size: 11px;
+}
+
+.mehndi-page .calendar-button strong {
+  font-size: 17px;
+  font-weight: 400;
+
+  transition: transform 0.3s ease;
+}
+
+.mehndi-page .calendar-button:hover strong {
+  transform: translateX(5px);
+}
+
+/* =========================================================
+   ADD TO CALENDAR — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .mehndi-page .calendar-button {
+    width: 215px;
+    min-height: 52px;
+
+    margin-top: 20px;
+
+    gap: 10px;
+
+    font-size: 7px;
+    letter-spacing: 2px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .mehndi-page .calendar-button {
+    width: 195px;
+  }
+}
+
+@media (max-width: 330px) {
+  .mehndi-page .calendar-button {
+    width: 180px;
+  }
+}

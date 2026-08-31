@@ -2218,3 +2218,142 @@ a {
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
+
+/* ================================================= */
+/* ============== ADD TO CALENDAR ================== */
+/* ================================================= */
+
+.calendar-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 28px auto 0;
+  animation: calendarAppear 0.7s ease both;
+}
+
+.add-calendar-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 270px;
+  padding: 15px 22px;
+  border: 1px solid #b48a45;
+  border-radius: 15px !important;
+  background: #8f292d;
+  color: #fff7ec;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(91, 25, 28, 0.16);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.add-calendar-button span {
+  font-size: 12px !important;
+  
+}
+
+.add-calendar-button:hover {
+  background: #6f2023;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(91, 25, 28, 0.22);
+}
+
+.add-calendar-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.add-calendar-button:focus {
+  outline: none;
+}
+
+.add-calendar-button:focus-visible {
+  outline: 2px solid #b48a45;
+  outline-offset: 4px;
+}
+
+.calendar-icon {
+  font-size: 16px;
+  line-height: 1;
+  color: #e4c47d;
+}
+
+.calendar-arrow {
+  font-size: 17px;
+  line-height: 1;
+  color: #e4c47d;
+  transition: transform 0.25s ease;
+}
+
+.add-calendar-button:hover .calendar-arrow {
+  transform: translateX(4px);
+}
+
+.calendar-note {
+  margin: 12px 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  color: #806d58;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+@keyframes calendarAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================================= */
+/* ============== CALENDAR MOBILE ================== */
+/* ================================================= */
+
+@media (max-width: 700px) {
+  .calendar-container {
+    margin-top: 24px;
+    padding: 0 10px;
+  }
+
+  .add-calendar-button {
+    width: min(100%, 330px);
+    min-width: 0;
+    padding: 14px 16px;
+    gap: 9px;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    border-radius: 15px !important;
+  }
+
+  .calendar-note {
+    max-width: 300px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 380px) {
+  .add-calendar-button {
+    width: 100%;
+    font-size: 8px;
+    letter-spacing: 1px;
+    padding: 13px 10px;
+    border-radius: 15px !important;
+  }
+
+  .calendar-note {
+    font-size: 13px;
+  }
+}
