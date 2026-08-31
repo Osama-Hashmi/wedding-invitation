@@ -720,7 +720,7 @@ function Mehndi() {
                 <h3>Mr & MrsAdvocate Ashraf Ali</h3>
                 <a href="tel:03342595325">03342595325</a> <br />
                 <a href="tel:03322205525">03322205525</a> <br />
-                <a href="tel:03703463351">03703463351</a>
+                {/* <a href="tel:03703463351">03703463351</a> */}
               </div>
 
               <div className="rsvp-card">
