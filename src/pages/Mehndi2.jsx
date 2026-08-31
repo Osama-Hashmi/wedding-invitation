@@ -9,7 +9,7 @@ function Mehndi2() {
   const audioRef = useRef(null);
   const canvasRef = useRef(null);
   const scratchCardRef = useRef(null);
-  const scratchingRef = useRef(false);
+  const scratchingRef = useRef({ active: false, lastPoint: null });
 
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
@@ -220,30 +220,49 @@ function Mehndi2() {
     if (!canvas || scratched) return;
 
     const rect = canvas.getBoundingClientRect();
-
-    if (!rect.width || !rect.height) return;
-
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
-
-    const x = (clientX - rect.left) * scaleX;
-    const y = (clientY - rect.top) * scaleY;
-
     const ctx = canvas.getContext("2d");
 
+    if (!ctx || !rect.width || !rect.height) return;
+
+    // setupCanvas() scales the drawing context by devicePixelRatio.
+    // Therefore pointer coordinates must stay in CSS pixels here.
+    const x = Math.max(0, Math.min(rect.width, clientX - rect.left));
+    const y = Math.max(0, Math.min(rect.height, clientY - rect.top));
+
+    const brushSize = Math.max(34, Math.min(52, rect.width * 0.105));
+    const previous = scratchingRef.current.lastPoint;
+
     ctx.save();
-
     ctx.globalCompositeOperation = "destination-out";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.lineWidth = brushSize;
 
-    ctx.beginPath();
+    if (previous) {
+      const dx = x - previous.x;
+      const dy = y - previous.y;
+      const distance = Math.hypot(dx, dy);
+      const step = Math.max(4, brushSize * 0.28);
+      const steps = Math.max(1, Math.ceil(distance / step));
 
-    const radius = Math.max(22, 30 * Math.min(scaleX, scaleY));
+      ctx.beginPath();
+      ctx.moveTo(previous.x, previous.y);
 
-    ctx.arc(x, y, radius, 0, Math.PI * 2);
+      for (let i = 1; i <= steps; i += 1) {
+        const t = i / steps;
+        ctx.lineTo(previous.x + dx * t, previous.y + dy * t);
+      }
 
-    ctx.fill();
+      ctx.stroke();
+    } else {
+      ctx.beginPath();
+      ctx.arc(x, y, brushSize / 2, 0, Math.PI * 2);
+      ctx.fill();
+    }
 
     ctx.restore();
+
+    scratchingRef.current.lastPoint = { x, y };
   };
 
   const checkScratchProgress = () => {
@@ -255,35 +274,34 @@ function Mehndi2() {
       willReadFrequently: true,
     });
 
-    const width = canvas.width;
-    const height = canvas.height;
+    if (!ctx || !canvas.width || !canvas.height) return;
 
-    if (!width || !height) return;
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
-    const imageData = ctx.getImageData(0, 0, width, height);
-
-    const step = 12;
+    const step = Math.max(
+      8,
+      Math.floor(Math.min(canvas.width, canvas.height) / 55),
+    );
 
     let transparentPixels = 0;
     let totalPixels = 0;
 
-    for (let y = 0; y < height; y += step) {
-      for (let x = 0; x < width; x += step) {
-        const index = (y * width + x) * 4;
+    for (let y = 0; y < canvas.height; y += step) {
+      for (let x = 0; x < canvas.width; x += step) {
+        const index = (y * canvas.width + x) * 4;
+        totalPixels += 1;
 
-        totalPixels++;
-
-        if (imageData.data[index + 3] < 100) {
-          transparentPixels++;
+        if (imageData[index + 3] < 100) {
+          transparentPixels += 1;
         }
       }
     }
 
     if (!totalPixels) return;
 
-    const percentage = transparentPixels / totalPixels;
-
-    if (percentage >= 0.35) {
+    if (transparentPixels / totalPixels >= 0.35) {
+      scratchingRef.current.active = false;
+      scratchingRef.current.lastPoint = null;
       setScratched(true);
     }
   };
@@ -293,45 +311,40 @@ function Mehndi2() {
 
     event.preventDefault();
 
-    scratchingRef.current = true;
+    scratchingRef.current.active = true;
+    scratchingRef.current.lastPoint = null;
 
     try {
-      event.currentTarget.setPointerCapture?.(event.pointerId);
+      event.currentTarget.setPointerCapture(event.pointerId);
     } catch (error) {
-      // Ignore pointer capture errors
+      // Ignore pointer capture errors.
     }
 
     scratchAtPoint(event.clientX, event.clientY);
-
     checkScratchProgress();
   };
 
   const handlePointerMove = (event) => {
-    if (!scratchingRef.current || scratched) {
-      return;
-    }
+    if (!scratchingRef.current.active || scratched) return;
 
     event.preventDefault();
 
     scratchAtPoint(event.clientX, event.clientY);
-
     checkScratchProgress();
   };
 
   const handlePointerUp = (event) => {
-    if (!scratchingRef.current) return;
+    if (!scratchingRef.current.active) return;
 
-    scratchingRef.current = false;
+    scratchingRef.current.active = false;
+    scratchingRef.current.lastPoint = null;
 
     try {
-      if (
-        event?.currentTarget?.releasePointerCapture &&
-        event.currentTarget.hasPointerCapture?.(event.pointerId)
-      ) {
+      if (event.currentTarget.hasPointerCapture(event.pointerId)) {
         event.currentTarget.releasePointerCapture(event.pointerId);
       }
     } catch (error) {
-      // Ignore pointer capture errors
+      // Ignore pointer capture errors.
     }
 
     checkScratchProgress();
@@ -568,7 +581,6 @@ function Mehndi2() {
                 onPointerMove={handlePointerMove}
                 onPointerUp={handlePointerUp}
                 onPointerCancel={handlePointerUp}
-                onPointerLeave={handlePointerUp}
               />
             </div>
 
