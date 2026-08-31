@@ -1644,6 +1644,345 @@
 }
 
 /* =========================================================
+   AWAITING TO WELCOME
+========================================================= */
+
+.mehndi2-page .awaiting-section-mehndi2 {
+  width: 100%;
+
+  padding: 75px 20px 85px;
+
+  border-top: 1px solid rgba(198, 162, 72, 0.18);
+  border-bottom: 1px solid rgba(198, 162, 72, 0.18);
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(201, 166, 79, 0.06),
+      transparent 55%
+    ),
+    rgba(6, 27, 18, 0.35);
+
+  overflow: hidden;
+
+  text-align: center;
+}
+
+.mehndi2-page .awaiting-container {
+  width: min(900px, 100%);
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.mehndi2-page .awaiting-container h2 {
+  margin: 0 0 35px;
+
+  color: #dcb85e;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(30px, 4vw, 42px);
+
+  line-height: 1.2;
+
+  font-weight: 500;
+
+  letter-spacing: 2px;
+
+  text-align: center;
+}
+
+/* Main guest card */
+
+.mehndi2-page .awaiting-card {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  gap: 45px;
+
+  padding: 38px 45px;
+
+  border: 1px solid rgba(201, 166, 79, 0.35);
+
+  border-radius: 14px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(18, 62, 41, 0.92),
+    rgba(7, 35, 23, 0.95)
+  );
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.22),
+    inset 0 0 35px rgba(201, 166, 79, 0.025);
+
+  overflow: hidden;
+
+  text-align: center;
+}
+
+/* Columns */
+
+.mehndi2-page .awaiting-column {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 22px;
+
+  text-align: center;
+}
+
+/* Guest names */
+
+.mehndi2-page .guest-name {
+  width: 100%;
+
+  color: #dfcf9d;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 22px;
+
+  font-weight: 500;
+
+  line-height: 1.35;
+
+  letter-spacing: 1px;
+
+  text-align: center;
+
+  overflow-wrap: break-word;
+
+  opacity: 0;
+}
+
+/* Left names animation */
+
+.mehndi2-page .awaiting-left .guest-name {
+  animation: mehndi2AwaitingLeft 0.8s ease-out forwards;
+}
+
+/* Right names animation */
+
+.mehndi2-page .awaiting-right .guest-name {
+  animation: mehndi2AwaitingRight 0.8s ease-out forwards;
+}
+
+/* Small stagger */
+
+.mehndi2-page .awaiting-left .guest-name:nth-child(2),
+.mehndi2-page .awaiting-right .guest-name:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.mehndi2-page .awaiting-left .guest-name:nth-child(3),
+.mehndi2-page .awaiting-right .guest-name:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.mehndi2-page .awaiting-left .guest-name:nth-child(4),
+.mehndi2-page .awaiting-right .guest-name:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.mehndi2-page .awaiting-left .guest-name:nth-child(5),
+.mehndi2-page .awaiting-right .guest-name:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+/* =========================================================
+   AWAITING ANIMATIONS
+========================================================= */
+
+@keyframes mehndi2AwaitingLeft {
+  from {
+    opacity: 0;
+
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+@keyframes mehndi2AwaitingRight {
+  from {
+    opacity: 0;
+
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   AWAITING — TABLET
+========================================================= */
+
+@media (max-width: 1000px) and (min-width: 651px) {
+  .mehndi2-page .awaiting-section-mehndi2 {
+    padding: 65px 20px 75px;
+  }
+
+  .mehndi2-page .awaiting-container {
+    max-width: 850px;
+  }
+
+  .mehndi2-page .awaiting-card {
+    gap: 25px;
+
+    padding: 32px 25px;
+  }
+
+  .mehndi2-page .guest-name {
+    font-size: 20px;
+
+    line-height: 1.4;
+  }
+}
+
+/* =========================================================
+   AWAITING — MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+  .mehndi2-page .awaiting-section-mehndi2 {
+    width: 100%;
+
+    padding: 55px 15px 65px;
+
+    overflow: hidden;
+  }
+
+  .mehndi2-page .awaiting-container {
+    width: 100%;
+
+    max-width: 100%;
+  }
+
+  .mehndi2-page .awaiting-container h2 {
+    margin: 0 0 28px;
+
+    font-size: 29px;
+
+    line-height: 1.2;
+
+    letter-spacing: 1.5px;
+  }
+
+  .mehndi2-page .awaiting-card {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+    padding: 30px 18px;
+
+    border-radius: 12px;
+  }
+
+  .mehndi2-page .awaiting-column {
+    width: 100%;
+
+    gap: 17px;
+  }
+
+  .mehndi2-page .guest-name {
+    width: 100%;
+
+    padding: 0 5px;
+
+    font-size: 19px;
+
+    line-height: 1.4;
+
+    letter-spacing: 0.5px;
+
+    overflow-wrap: anywhere;
+  }
+
+  /* Keep the two groups visually separated */
+
+  /* .mehndi2-page .awaiting-right {
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(201, 166, 79, 0.2);
+  } */
+}
+
+/* =========================================================
+   AWAITING — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .mehndi2-page .awaiting-section-mehndi2 {
+    padding: 48px 12px 58px;
+  }
+
+  .mehndi2-page .awaiting-container h2 {
+    font-size: 26px;
+
+    margin-bottom: 24px;
+  }
+
+  .mehndi2-page .awaiting-card {
+    padding: 27px 14px;
+
+    gap: 22px;
+  }
+
+  .mehndi2-page .awaiting-column {
+    gap: 15px;
+  }
+
+  .mehndi2-page .guest-name {
+    font-size: 17px;
+
+    line-height: 1.4;
+  }
+}
+
+/* =========================================================
+   AWAITING — VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 330px) {
+  .mehndi2-page .awaiting-container h2 {
+    font-size: 24px;
+  }
+
+  .mehndi2-page .awaiting-card {
+    padding: 24px 11px;
+  }
+
+  .mehndi2-page .guest-name {
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
    FINAL
 ========================================================= */
 
@@ -1716,6 +2055,18 @@
   width: 100%;
 
   padding: 90px 0 70px;
+
+  text-align: center;
+}
+
+.mehndi2-page .section-heading {
+  margin: 0 0 20px;
+
+  color: #a99b77;
+
+  font-size: 20px;
+
+  letter-spacing: 4px;
 
   text-align: center;
 }
@@ -2451,6 +2802,11 @@
   .mehndi2-page .rsvp-section {
     width: 100%;
     padding: 65px 18px 55px;
+    font-size: 20px;
+  }
+
+  .mehndi2-page .rsvp-section p {
+    font-size: 20px !important;
   }
 
   .mehndi2-page .rsvp-grid {

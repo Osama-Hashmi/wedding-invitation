@@ -1478,7 +1478,7 @@ a {
   .baraat-page .rsvp-grid {
     width: 100%;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 
     gap: 10px;
   }
