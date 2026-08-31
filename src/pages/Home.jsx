@@ -4,6 +4,7 @@ import "./Home.css";
 
 function Home() {
   const [opened, setOpened] = useState(false);
+  const [musicOn, setMusicOn] = useState(false);
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -13,14 +14,12 @@ function Home() {
 
   useEffect(() => {
     if (opened) {
-      // Keep the invitation page at the very top
       window.scrollTo({
         top: 0,
         left: 0,
         behavior: "instant",
       });
 
-      // Ensure it stays at the top when the envelope screen disappears
       const timer = setTimeout(() => {
         window.scrollTo({
           top: 0,
@@ -36,7 +35,6 @@ function Home() {
   const openInvitation = () => {
     if (opened) return;
 
-    // Move page to top immediately when envelope is opened
     window.scrollTo({
       top: 0,
       left: 0,
@@ -47,7 +45,33 @@ function Home() {
 
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(() => {});
+
+      audioRef.current
+        .play()
+        .then(() => {
+          setMusicOn(true);
+        })
+        .catch(() => {
+          setMusicOn(false);
+        });
+    }
+  };
+
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+
+    if (musicOn) {
+      audioRef.current.pause();
+      setMusicOn(false);
+    } else {
+      audioRef.current
+        .play()
+        .then(() => {
+          setMusicOn(true);
+        })
+        .catch(() => {
+          setMusicOn(false);
+        });
     }
   };
 
@@ -382,6 +406,21 @@ function Home() {
           </footer>
         </div>
       </section>
+
+      {/* =====================================================
+          MUSIC BUTTON
+      ====================================================== */}
+
+      {opened && (
+        <button
+          type="button"
+          className={`music-button ${musicOn ? "playing" : ""}`}
+          onClick={toggleMusic}
+          aria-label="Toggle music"
+        >
+          <span>{musicOn ? "♫" : "♪"}</span>
+        </button>
+      )}
     </main>
   );
 }

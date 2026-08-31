@@ -36,7 +36,6 @@ function Mehndi2() {
     if (!audio) return;
 
     try {
-      // SONG WILL START FROM 34 SECONDS
       audio.currentTime = 34;
       await audio.play();
       setMusicOn(true);
@@ -77,7 +76,7 @@ function Mehndi2() {
   ========================================================= */
 
   useEffect(() => {
-    document.title = "Osama & Areeba — Mehndi";
+    document.title = "Mehndi Invitation";
 
     return () => {
       document.title = "Wedding Invitation";
@@ -106,11 +105,8 @@ function Mehndi2() {
       }
 
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-
       const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-
       const minutes = Math.floor((difference / (1000 * 60)) % 60);
-
       const seconds = Math.floor((difference / 1000) % 60);
 
       setTimeLeft({
@@ -152,10 +148,12 @@ function Mehndi2() {
 
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
+
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
       ctx.globalCompositeOperation = "source-over";
       ctx.clearRect(0, 0, width, height);
 
@@ -359,19 +357,14 @@ function Mehndi2() {
 
       <section className={`mehndi2-cover ${opened ? "cover-hidden" : ""}`}>
         <div className="cover-glow"></div>
-
         <div className="cover-pattern"></div>
 
         <div className="cover-frame frame-one"></div>
-
         <div className="cover-frame frame-two"></div>
 
         <div className="cover-flower flower-one">❦</div>
-
         <div className="cover-flower flower-two">❦</div>
-
         <div className="cover-flower flower-three">❦</div>
-
         <div className="cover-flower flower-four">❦</div>
 
         <div className="cover-content">
@@ -383,9 +376,7 @@ function Mehndi2() {
 
           <div className="cover-divider">
             <span></span>
-
             <b>❦</b>
-
             <span></span>
           </div>
 
@@ -405,11 +396,8 @@ function Mehndi2() {
             onClick={openInvitation}
           >
             <span className="button-shine"></span>
-
             <span>✦</span>
-
             <strong>OPEN INVITATION</strong>
-
             <b>→</b>
           </button>
 
@@ -423,13 +411,10 @@ function Mehndi2() {
 
       <section className="mehndi2-content">
         <div className="green-glow glow-top"></div>
-
         <div className="green-glow glow-bottom"></div>
 
         <div className="decor decor-one">❦</div>
-
         <div className="decor decor-two">❦</div>
-
         <div className="decor decor-three">✦</div>
 
         <div className="content-wrapper">
@@ -442,9 +427,7 @@ function Mehndi2() {
 
             <div className="gold-divider">
               <span></span>
-
               <b>✦</b>
-
               <span></span>
             </div>
 
@@ -458,9 +441,7 @@ function Mehndi2() {
 
             <div className="gold-divider bottom-divider">
               <span></span>
-
               <b>❦</b>
-
               <span></span>
             </div>
           </section>
@@ -493,17 +474,14 @@ function Mehndi2() {
                 <span className="center-flower">❦</span>
 
                 <h2>Syed Muhammad Osama Ali Hashmi</h2>
-                  {/* <span>&</span> */}
+
                 <p>TOGETHER WITH</p>
 
-                  <h2>Daughter Of Ashraf Ali</h2>
-
+                <h2>Daughter Of Ashraf Ali</h2>
 
                 <div className="tiny-line">
                   <span></span>
-
                   <b>✦</b>
-
                   <span></span>
                 </div>
               </div>
@@ -604,25 +582,21 @@ function Mehndi2() {
               <div className="countdown-grid">
                 <div className="count-box">
                   <strong>{timeLeft.days}</strong>
-
                   <span>DAYS</span>
                 </div>
 
                 <div className="count-box">
                   <strong>{timeLeft.hours}</strong>
-
                   <span>HOURS</span>
                 </div>
 
                 <div className="count-box">
                   <strong>{timeLeft.minutes}</strong>
-
                   <span>MINUTES</span>
                 </div>
 
                 <div className="count-box">
                   <strong>{timeLeft.seconds}</strong>
-
                   <span>SECONDS</span>
                 </div>
               </div>
@@ -752,32 +726,39 @@ function Mehndi2() {
           </section>
 
           {/* ===================================================
-          Awaiting To Welcome
+              AWAITING TO WELCOME
           =================================================== */}
 
           <section className="awaiting-section-mehndi2">
-            {" "}
             <div className="awaiting-container">
-              {" "}
-              <h2>Awaiting to Welcome</h2>{" "}
+              <h2>Awaiting to Welcome</h2>
+
               <div className="awaiting-card">
-                {" "}
                 <div className="awaiting-column awaiting-left">
-                  {" "}
                   <div className="guest-name">
                     Mr & Mrs Syed Asim Ali Hashmi
-                  </div>{" "}
-                  {/* <div className="guest-name">Mr & Mrs Syed Sohail Ali Hashmi</div>{" "} */}
-                  <div className="guest-name">Mr & Mrs Syed Salman Ali Hashmi</div>{" "}
-                </div>{" "}
+                  </div>
+
+                  {/* <div className="guest-name">
+                    Mr & Mrs Syed Sohail Ali Hashmi
+                  </div> */}
+
+                  <div className="guest-name">
+                    Mr & Mrs Syed Salman Ali Hashmi
+                  </div>
+                </div>
+
                 <div className="awaiting-column awaiting-right">
-                  {" "}
-                  <div className="guest-name">Mr & Mrs Abdul Aziz</div>{" "}
-                  {/* <div className="guest-name">Mrs Abdul Qadir</div>{" "} */}
-                  <div className="guest-name">Mr & Mrs Ghazanfar Ali</div>{" "}
-                </div>{" "}
-              </div>{" "}
-            </div>{" "}
+                  <div className="guest-name">Mr & Mrs Abdul Aziz</div>
+
+                  {/* <div className="guest-name">
+                    Mrs Abdul Qadir
+                  </div> */}
+
+                  <div className="guest-name">Mr & Mrs Ghazanfar Ali</div>
+                </div>
+              </div>
+            </div>
           </section>
 
           {/* =================================================
@@ -792,25 +773,21 @@ function Mehndi2() {
             <div className="rsvp-grid">
               <div className="rsvp-card">
                 <h3>Syed Asim Ali Hashmi</h3>
-
                 <a href="tel:03213539769">03213539769</a>
               </div>
 
               <div className="rsvp-card">
                 <h3>Syed Salman Ali Hashmi</h3>
-
                 <a href="tel:03219242503">03219242503</a>
               </div>
 
               <div className="rsvp-card">
                 <h3>Abdul Aziz</h3>
-
                 <a href="tel:03362002829">03362002829</a>
               </div>
 
               <div className="rsvp-card">
                 <h3>Ghazanfar Ali</h3>
-
                 <a href="tel:03453954353">03453954353</a>
               </div>
             </div>
@@ -825,10 +802,11 @@ function Mehndi2() {
 
             <p>WITH LOVE & BLESSINGS</p>
 
-            <h2>Syed Muhammad Osama Ali Hashmi</h2>
-              {/* <span>&</span> */}
+            <h2>Mr & Mrs Syed Muhammad Osama Ali Hashmi</h2>
 
-              {/* <h2>Areeba</h2> */}
+            {/* <span>&</span> */}
+
+            {/* <h2>Areeba</h2> */}
 
             <small>29 · OCTOBER · 2026</small>
           </footer>

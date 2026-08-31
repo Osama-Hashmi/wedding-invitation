@@ -383,8 +383,9 @@ function Mehndi() {
             <p className="tiny-heading">WITH LOVE & BLESSINGS</p>
 
             <p className="parent-heading">Mr & Mrs Advocate Ashraf Ali</p>
+            <p className="parent-heading">Cordially Invite you to the</p>
 
-            <h2>We Invite You</h2>
+            <h2>Mehndi</h2>
 
             <p className="intro-text">
               To celebrate a beautiful evening filled with

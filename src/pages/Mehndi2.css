@@ -23,12 +23,7 @@
 
   overflow-x: hidden;
 
-  background: linear-gradient(
-    180deg,
-    #0b2c1d 0%,
-    #08251a 50%,
-    #061a12 100%
-  );
+  background: linear-gradient(180deg, #0b2c1d 0%, #08251a 50%, #061a12 100%);
 
   color: #f1e3b9;
 
@@ -100,12 +95,7 @@
       rgba(212, 175, 72, 0.18),
       transparent 35%
     ),
-    radial-gradient(
-      circle at 50% 50%,
-      #12402b 0%,
-      #0a2c1d 50%,
-      #061a12 100%
-    );
+    radial-gradient(circle at 50% 50%, #12402b 0%, #0a2c1d 50%, #061a12 100%);
 
   transition:
     transform 1.15s cubic-bezier(0.77, 0, 0.18, 1),
@@ -508,12 +498,7 @@
       rgba(205, 166, 69, 0.12),
       transparent 30%
     ),
-    linear-gradient(
-      180deg,
-      #0b2a1c 0%,
-      #082318 50%,
-      #061b13 100%
-    );
+    linear-gradient(180deg, #0b2a1c 0%, #082318 50%, #061b13 100%);
 }
 
 .mehndi2-page .content-wrapper {
@@ -1981,6 +1966,8 @@
     border-color 0.3s ease;
 
   text-align: center;
+
+  border-radius: 20px;
 }
 
 .mehndi2-page .rsvp-card:hover {
@@ -3075,4 +3062,43 @@
   .mehndi2-page .mehndi-footer h2 {
     font-size: 40px;
   }
+}
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.mehndi2-page .music-button {
+  position: fixed;
+
+  right: 22px;
+  bottom: 22px;
+
+  z-index: 500;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #a7771b;
+  border-radius: 50%;
+
+  background: rgba(255, 250, 235, 0.92);
+
+  color: #a7771b;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 25px rgba(82, 55, 10, 0.16);
+
+  font-size: 21px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }

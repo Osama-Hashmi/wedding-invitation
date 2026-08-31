@@ -51,11 +51,9 @@ function ScratchDate() {
       ctx.textBaseline = "middle";
 
       ctx.font = "600 12px Montserrat, sans-serif";
-
       ctx.fillText("SCRATCH TO REVEAL", rect.width / 2, rect.height / 2 - 10);
 
       ctx.font = "11px Montserrat, sans-serif";
-
       ctx.fillText("your special date", rect.width / 2, rect.height / 2 + 15);
     };
 
@@ -109,9 +107,7 @@ function ScratchDate() {
     ctx.globalCompositeOperation = "destination-out";
 
     ctx.beginPath();
-
     ctx.arc(x, y, 25, 0, Math.PI * 2);
-
     ctx.fill();
 
     checkReveal();
@@ -129,11 +125,8 @@ function ScratchDate() {
     <div className={`scratch-wrapper ${revealed ? "revealed" : ""}`}>
       <div className="date-underneath">
         <span className="date-day">31</span>
-
         <span className="date-month">OCTOBER</span>
-
         <span className="date-year">2026</span>
-
         <small>SATURDAY</small>
       </div>
 
@@ -201,25 +194,21 @@ function Countdown() {
     <div className="countdown">
       <div className="countdown-box">
         <strong>{time.days}</strong>
-
         <span>DAYS</span>
       </div>
 
       <div className="countdown-box">
         <strong>{format(time.hours)}</strong>
-
         <span>HOURS</span>
       </div>
 
       <div className="countdown-box">
         <strong>{format(time.minutes)}</strong>
-
         <span>MINUTES</span>
       </div>
 
       <div className="countdown-box">
         <strong>{format(time.seconds)}</strong>
-
         <span>SECONDS</span>
       </div>
     </div>
@@ -234,6 +223,7 @@ function Baraat() {
   const audioRef = useRef(null);
 
   const [curtainOpen, setCurtainOpen] = useState(false);
+  const [musicOn, setMusicOn] = useState(false);
 
   /* ================================================= */
   /* ================= PAGE SETUP ==================== */
@@ -268,15 +258,9 @@ function Baraat() {
 
     const audio = audioRef.current;
 
-    /* ================= CURTAIN OPEN ================= */
-
     setCurtainOpen(true);
 
-    /* ================= PAGE SCROLL UNLOCK =========== */
-
     document.body.classList.remove("baraat-curtain-locked");
-
-    /* ================= SONG START FROM 31 SEC ======= */
 
     if (audio) {
       audio.currentTime = 31;
@@ -284,15 +268,44 @@ function Baraat() {
       const playPromise = audio.play();
 
       if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.log("Song could not start:", error);
-        });
+        playPromise
+          .then(() => {
+            setMusicOn(true);
+          })
+          .catch((error) => {
+            console.log("Song could not start:", error);
+            setMusicOn(false);
+          });
       }
     }
   };
 
   /* ================================================= */
-  /* ================= SONG ========================== */
+  /* ================= MUSIC ========================= */
+  /* ================================================= */
+
+  const toggleMusic = () => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    if (audio.paused) {
+      audio
+        .play()
+        .then(() => {
+          setMusicOn(true);
+        })
+        .catch((error) => {
+          console.log("Song could not play:", error);
+        });
+    } else {
+      audio.pause();
+      setMusicOn(false);
+    }
+  };
+
+  /* ================================================= */
+  /* ================= AUDIO SETUP =================== */
   /* ================================================= */
 
   useEffect(() => {
@@ -304,25 +317,17 @@ function Baraat() {
 
     return () => {
       audio.pause();
-
       audio.currentTime = 31;
     };
   }, []);
 
   return (
     <main className="baraat-page">
-      {/* ================================================= */}
-      {/* ================= BARAAT SONG =================== */}
-      {/* ================================================= */}
-
+      {/* ================= BARAAT SONG ================= */}
       <audio ref={audioRef} loop preload="auto" playsInline>
         <source src="/music/Mere%20Haath%20Mein.mp3" type="audio/mpeg" />
       </audio>
-
-      {/* ================================================= */}
       {/* ================= CLOTH CURTAIN ================= */}
-      {/* ================================================= */}
-
       <div className={`baraat-curtain ${curtainOpen ? "curtain-open" : ""}`}>
         {/* ================= LEFT CURTAIN ================= */}
 
@@ -336,9 +341,7 @@ function Baraat() {
           <div className="curtain-folds"></div>
         </div>
 
-        {/* ================================================= */}
         {/* ================= CENTER CONTENT ================ */}
-        {/* ================================================= */}
 
         <div className="curtain-center-content">
           <div className="curtain-small-text">THE WEDDING CELEBRATION</div>
@@ -365,11 +368,7 @@ function Baraat() {
           <div className="curtain-button-text">TAP TO OPEN</div>
         </div>
       </div>
-
-      {/* ================================================= */}
       {/* ================= HERO ========================== */}
-      {/* ================================================= */}
-
       <section className="baraat-hero">
         <div className="hero-pattern"></div>
 
@@ -382,8 +381,8 @@ function Baraat() {
         <p className="parents">MR. & MRS. ADVOCATE ASHRAF ALI</p>
 
         <p className="parents">
-          Granddaughter of Mr. Sheikh Abdul Latif (Late) & Mr. Wasi Uddin Warsi
-          (Late)
+          Granddaughter of Mr & Mrs Sheikh Abdul Latif (Late) & Mr & Mrs. Wasi
+          Uddin Warsi (Late)
         </p>
 
         <p className="invite-line">CORDIALLY INVITE YOU TO THE</p>
@@ -432,11 +431,7 @@ function Baraat() {
 
         <div className="hero-bottom-ornament">✦</div>
       </section>
-
-      {/* ================================================= */}
       {/* ================= DATE ========================== */}
-      {/* ================================================= */}
-
       <section className="date-section">
         <div className="gold-emblem">✦</div>
 
@@ -450,11 +445,7 @@ function Baraat() {
           Gently scratch the card to reveal our special day
         </p>
       </section>
-
-      {/* ================================================= */}
       {/* ================= COUNTDOWN ===================== */}
-      {/* ================================================= */}
-
       <section className="details-section">
         <p className="section-label">SAVE THE DATE</p>
 
@@ -462,11 +453,7 @@ function Baraat() {
 
         <Countdown />
       </section>
-
-      {/* ================================================= */}
       {/* ================= VENUE ========================= */}
-      {/* ================================================= */}
-
       <section className="venue-section">
         <div className="venue-flower">❧</div>
 
@@ -495,11 +482,7 @@ function Baraat() {
           <b>→</b>
         </a>
       </section>
-
-      {/* ================================================= */}
       {/* ================= PROGRAM ======================= */}
-      {/* ================================================= */}
-
       <section className="program-section">
         <p className="section-label">PROGRAMME</p>
 
@@ -508,28 +491,21 @@ function Baraat() {
         <div className="program-list">
           <div className="program-row">
             <span>ARRIVAL OF BARAAT</span>
-
             <b>09:00 PM</b>
           </div>
 
           <div className="program-row">
             <span>DINNER</span>
-
             <b>10:00 PM</b>
           </div>
 
           <div className="program-row">
             <span>RUKHSATI</span>
-
             <b>11:00 PM</b>
           </div>
         </div>
       </section>
-
-      {/* ================================================= */}
       {/* ================= WELCOME ======================= */}
-      {/* ================================================= */}
-
       <section className="welcome-section">
         <div className="gold-emblem">✦</div>
 
@@ -543,60 +519,57 @@ function Baraat() {
           will make our celebration even more special.
         </p>
       </section>
-
-      {/* ===================================================
-          Awaiting To Welcome
-          =================================================== */}
-
+      {/* ================= AWAITING ======================= */}
       <section className="awaiting-section">
-        {" "}
         <div className="awaiting-container">
-          {" "}
-          <h2>Awaiting to Welcome</h2>{" "}
+          <h2>Awaiting to Welcome</h2>
+
           <div className="awaiting-card">
-            {" "}
             <div className="awaiting-column awaiting-left">
-              {" "}
-              <div className="guest-name">
-                Mr & Mrs Advocate Ashraf Ali
-              </div>{" "}
-              <div className="guest-name">Mr & Mrs Muhammad Ali</div>{" "}
-              <div className="guest-name">Mr & Mrs Ahmed Ali</div>{" "}
-              <div className="guest-name">Mr & Mrs Advocate Hyder Ali</div>{" "}
-              <div className="guest-name">
-                Mr & Mrs Syed Salman Ali Hashmi
-              </div>{" "}
-            </div>{" "}
+              <div className="guest-name">Mr & Mrs Advocate Ashraf Ali</div>
+
+              <div className="guest-name">Mr & Mrs Muhammad Ali</div>
+
+              <div className="guest-name">Mr & Mrs Ahmed Ali</div>
+
+              <div className="guest-name">Mr & Mrs Advocate Hyder Ali</div>
+
+              <div className="guest-name">Mr & Mrs Syed Salman Ali Hashmi</div>
+            </div>
+
             <div className="awaiting-column awaiting-right">
-              {" "}
-              <div className="guest-name">Mr & Mrs Sardar Hussain</div>{" "}
-              <div className="guest-name">Mr & Mrs Afzal Hussain</div>{" "}
-              <div className="guest-name">Mr & Mrs Iqbal Hussain</div>{" "}
-              <div className="guest-name">Mr & Mrs Affal Hussain</div>{" "}
-              <div className="guest-name">Mr & Mrs Kamran Hussain</div>{" "}
-            </div>{" "}
-          </div>{" "}
-        </div>{" "}
+              <div className="guest-name">Mr & Mrs Sardar Hussain</div>
+
+              <div className="guest-name">Mr & Mrs Afzal Hussain</div>
+
+              <div className="guest-name">Mr & Mrs Iqbal Hussain</div>
+
+              <div className="guest-name">Mr & Mrs Affal Hussain</div>
+
+              <div className="guest-name">Mr & Mrs Kamran Hussain</div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* ================================================= */}
-      {/* ================= RSVP ========================== */}
-      {/* ================================================= */}
-
+      {/* =================================================
+                            RSVP
+          ================================================= */}
       <section className="rsvp-section">
-        <p className="section-label">RSVP</p>
+        <p className="section-heading">RSVP</p>
 
-        <h2 className="section-heading">For Any Assistance</h2>
+        <p className="rsvp-subtitle">FOR ANY ASSISTANCE</p>
 
-        <div className="rsvp-card">
-          <div className="rsvp-person">
-            <h3>Mr & MrsAdvocate Ashraf Ali</h3>
-            <a href="tel:03342595325">03342595325</a> <br />
-            <a href="tel:03322205525">03322205525</a> <br />
+        <div className="rsvp-grid">
+          <div className="rsvp-card">
+            <h3>Mr & Mrs Advocate Ashraf Ali</h3>
+
+            <a href="tel:03342595325">03342595325</a>
+            <a href="tel:03322205525">03322205525</a>
             <a href="tel:03703463351">03703463351</a>
           </div>
 
-          <div className="rsvp-person">
+          <div className="rsvp-card">
             <h3>Syed Salman Ali Hashmi</h3>
 
             <a href="tel:03219242503">03219242503</a>
@@ -604,10 +577,7 @@ function Baraat() {
         </div>
       </section>
 
-      {/* ================================================= */}
       {/* ================= FOOTER ======================== */}
-      {/* ================================================= */}
-
       <footer className="baraat-footer">
         <div className="footer-ornament">❦</div>
 
@@ -615,6 +585,17 @@ function Baraat() {
 
         <strong>Areeba & Osama</strong>
       </footer>
+      {/* ================= MUSIC BUTTON ================== */}
+      {curtainOpen && (
+        <button
+          type="button"
+          className={`music-button ${musicOn ? "playing" : ""}`}
+          onClick={toggleMusic}
+          aria-label="Toggle music"
+        >
+          <span>{musicOn ? "♫" : "♪"}</span>
+        </button>
+      )}
     </main>
   );
 }

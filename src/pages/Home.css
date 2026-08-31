@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap");
 
 /* =========================================================
    RESET
@@ -28,7 +27,6 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-
 /* =========================================================
    HOME
 ========================================================= */
@@ -43,7 +41,6 @@ a {
 
   font-family: "Montserrat", sans-serif;
 }
-
 
 /* =========================================================
    ENVELOPE SCREEN
@@ -60,13 +57,12 @@ a {
   align-items: center;
   justify-content: center;
 
-  background:
-    radial-gradient(
-      circle at center,
-      #fffdf8 0%,
-      #faf1df 52%,
-      #e4cda4 100%
-    );
+  background: radial-gradient(
+    circle at center,
+    #fffdf8 0%,
+    #faf1df 52%,
+    #e4cda4 100%
+  );
 
   overflow: hidden;
 
@@ -78,9 +74,6 @@ a {
     visibility 1.3s ease;
 }
 
-
-/* after opening */
-
 .envelope-screen.is-opened {
   opacity: 0;
   visibility: hidden;
@@ -88,7 +81,6 @@ a {
 
   transition-delay: 2.2s;
 }
-
 
 /* =========================================================
    BACKGROUND DECORATION
@@ -106,7 +98,7 @@ a {
 
   font-size: 130px;
 
-  color: rgba(181, 139, 72, .12);
+  color: rgba(181, 139, 72, 0.12);
 
   transform: rotate(-30deg);
 }
@@ -123,11 +115,10 @@ a {
 
   font-size: 130px;
 
-  color: rgba(181, 139, 72, .12);
+  color: rgba(181, 139, 72, 0.12);
 
   transform: rotate(145deg);
 }
-
 
 /* =========================================================
    ENVELOPE STAGE
@@ -145,7 +136,6 @@ a {
   align-items: center;
   justify-content: center;
 }
-
 
 /* =========================================================
    INVITATION TITLE ABOVE ENVELOPE
@@ -175,30 +165,22 @@ a {
 
   text-align: center;
 
-  text-shadow:
-    0 2px 6px rgba(95, 62, 22, .15);
+  text-shadow: 0 2px 6px rgba(95, 62, 22, 0.15);
 
   pointer-events: none;
 
   opacity: 1;
 
   transition:
-    opacity .6s ease,
-    transform .7s ease;
+    opacity 0.6s ease,
+    transform 0.7s ease;
 }
-
-
-/* title disappears with envelope opening */
 
 .envelope-screen.is-opened .envelope-invitation-title {
   opacity: 0;
 
-  transform:
-    translateX(-50%)
-    translateY(-20px)
-    scale(.85);
+  transform: translateX(-50%) translateY(-20px) scale(0.85);
 }
-
 
 /* =========================================================
    OPENING CARD
@@ -213,10 +195,7 @@ a {
   left: 50%;
   top: 50%;
 
-  transform:
-    translate(-50%, -43%)
-    translateY(95px)
-    scale(.78);
+  transform: translate(-50%, -43%) translateY(95px) scale(0.78);
 
   opacity: 0;
 
@@ -224,27 +203,18 @@ a {
 
   overflow: hidden;
 
-  border: 1px solid rgba(181, 139, 72, .65);
+  border: 1px solid rgba(181, 139, 72, 0.65);
 
-  background:
-    linear-gradient(
-      145deg,
-      #fffefb,
-      #f8efd9
-    );
+  background: linear-gradient(145deg, #fffefb, #f8efd9);
 
-  box-shadow:
-    0 25px 70px rgba(68, 45, 20, .25);
+  box-shadow: 0 25px 70px rgba(68, 45, 20, 0.25);
 
   transition:
-    transform 1.65s cubic-bezier(.16, 1, .3, 1),
-    opacity .8s ease;
+    transform 1.65s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.8s ease;
 
   transform-origin: center bottom;
 }
-
-
-/* card inner border */
 
 .opening-card::before {
   content: "";
@@ -253,11 +223,10 @@ a {
 
   inset: 13px;
 
-  border: 1px solid rgba(181, 139, 72, .32);
+  border: 1px solid rgba(181, 139, 72, 0.32);
 
   pointer-events: none;
 }
-
 
 /* =========================================================
    CARD FLORALS
@@ -274,7 +243,7 @@ a {
 
   line-height: 1;
 
-  color: rgba(181, 139, 72, .25);
+  color: rgba(181, 139, 72, 0.25);
 
   pointer-events: none;
 }
@@ -290,18 +259,14 @@ a {
   top: -5px;
   right: -10px;
 
-  transform:
-    rotate(38deg)
-    scaleX(-1);
+  transform: rotate(38deg) scaleX(-1);
 }
 
 .flower-bl {
   bottom: -8px;
   left: -8px;
 
-  transform:
-    rotate(145deg)
-    scaleX(-1);
+  transform: rotate(145deg) scaleX(-1);
 }
 
 .flower-br {
@@ -310,7 +275,6 @@ a {
 
   transform: rotate(145deg);
 }
-
 
 /* =========================================================
    OPENING CARD CONTENT
@@ -395,7 +359,7 @@ a {
 
   color: #b58b48;
 
-  font-size: .65em;
+  font-size: 0.65em;
 
   margin: 0 6px;
 }
@@ -418,7 +382,6 @@ a {
   color: #817264;
 }
 
-
 /* =========================================================
    ENVELOPE
 ========================================================= */
@@ -432,18 +395,14 @@ a {
   left: 50%;
   top: 50%;
 
-  transform:
-    translate(-50%, -25%)
-    rotateX(0deg);
+  transform: translate(-50%, -25%) rotateX(0deg);
 
   z-index: 10;
 
   transform-style: preserve-3d;
 
-  transition:
-    transform 1.45s cubic-bezier(.77, 0, .18, 1);
+  transition: transform 1.45s cubic-bezier(0.77, 0, 0.18, 1);
 }
-
 
 /* =========================================================
    ENVELOPE BACK
@@ -458,18 +417,10 @@ a {
 
   border-radius: 4px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #e0c18a 0%,
-      #c39a5a 50%,
-      #a97b3e 100%
-    );
+  background: linear-gradient(145deg, #e0c18a 0%, #c39a5a 50%, #a97b3e 100%);
 
-  box-shadow:
-    0 28px 65px rgba(74, 48, 18, .32);
+  box-shadow: 0 28px 65px rgba(74, 48, 18, 0.32);
 }
-
 
 /* =========================================================
    ENVELOPE BORDER
@@ -482,11 +433,10 @@ a {
 
   z-index: 3;
 
-  border: 1px solid rgba(255, 244, 210, .55);
+  border: 1px solid rgba(255, 244, 210, 0.55);
 
   pointer-events: none;
 }
-
 
 /* =========================================================
    ENVELOPE POCKET
@@ -503,25 +453,12 @@ a {
 
   z-index: 6;
 
-  background:
-    linear-gradient(
-      145deg,
-      #cba365,
-      #a9783d
-    );
+  background: linear-gradient(145deg, #cba365, #a9783d);
 
-  clip-path: polygon(
-    0 0,
-    50% 58%,
-    100% 0,
-    100% 100%,
-    0 100%
-  );
+  clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
 
-  box-shadow:
-    0 -8px 25px rgba(70, 40, 10, .15);
+  box-shadow: 0 -8px 25px rgba(70, 40, 10, 0.15);
 }
-
 
 /* =========================================================
    ENVELOPE FLAP
@@ -538,18 +475,9 @@ a {
 
   z-index: 12;
 
-  background:
-    linear-gradient(
-      145deg,
-      #ebcf97,
-      #c0914d
-    );
+  background: linear-gradient(145deg, #ebcf97, #c0914d);
 
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    50% 66%
-  );
+  clip-path: polygon(0 0, 100% 0, 50% 66%);
 
   transform-origin: top center;
 
@@ -557,10 +485,8 @@ a {
 
   backface-visibility: hidden;
 
-  transition:
-    transform 1.25s cubic-bezier(.77, 0, .18, 1);
+  transition: transform 1.25s cubic-bezier(0.77, 0, 0.18, 1);
 }
-
 
 /* =========================================================
    FLAP FLORAL
@@ -572,19 +498,16 @@ a {
   left: 50%;
   top: 27%;
 
-  transform:
-    translate(-50%, -50%)
-    rotate(180deg);
+  transform: translate(-50%, -50%) rotate(180deg);
 
   font-family: "Cormorant Garamond", serif;
 
   font-size: 48px;
 
-  color: rgba(255, 247, 220, .7);
+  color: rgba(255, 247, 220, 0.7);
 
   pointer-events: none;
 }
-
 
 /* =========================================================
    ENVELOPE FLORALS
@@ -601,13 +524,13 @@ a {
 
   line-height: 1;
 
-  color: rgba(255, 245, 213, .55);
+  color: rgba(255, 245, 213, 0.55);
 
   pointer-events: none;
 
   transition:
-    opacity .5s ease,
-    transform .6s ease;
+    opacity 0.5s ease,
+    transform 0.6s ease;
 }
 
 .envelope-flower-tl {
@@ -621,18 +544,14 @@ a {
   top: 3px;
   right: 4px;
 
-  transform:
-    rotate(30deg)
-    scaleX(-1);
+  transform: rotate(30deg) scaleX(-1);
 }
 
 .envelope-flower-bl {
   bottom: -5px;
   left: 4px;
 
-  transform:
-    rotate(150deg)
-    scaleX(-1);
+  transform: rotate(150deg) scaleX(-1);
 }
 
 .envelope-flower-br {
@@ -641,7 +560,6 @@ a {
 
   transform: rotate(150deg);
 }
-
 
 /* =========================================================
    GOLDEN SEAL
@@ -653,8 +571,7 @@ a {
   left: 50%;
   top: 59%;
 
-  transform:
-    translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 
   z-index: 30;
 
@@ -667,13 +584,12 @@ a {
 
   border: 2px solid #f8e7b9;
 
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #f0d18d,
-      #c0964e 48%,
-      #9a6c30 100%
-    );
+  background: radial-gradient(
+    circle at 35% 30%,
+    #f0d18d,
+    #c0964e 48%,
+    #9a6c30 100%
+  );
 
   color: #fff9e9;
 
@@ -684,12 +600,12 @@ a {
   justify-content: center;
 
   box-shadow:
-    0 9px 25px rgba(70, 42, 12, .32),
-    inset 0 0 0 5px rgba(255,255,255,.12);
+    0 9px 25px rgba(70, 42, 12, 0.32),
+    inset 0 0 0 5px rgba(255, 255, 255, 0.12);
 
   transition:
-    transform .3s ease,
-    box-shadow .3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .envelope-seal::before {
@@ -699,7 +615,7 @@ a {
 
   inset: 5px;
 
-  border: 1px solid rgba(255,255,255,.4);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 
   border-radius: 50%;
 }
@@ -711,24 +627,19 @@ a {
 
   font-size: 25px;
 
-  animation:
-    sealPulse 1.8s ease-in-out infinite;
+  animation: sealPulse 1.8s ease-in-out infinite;
 }
 
 .envelope-seal:hover {
-  transform:
-    translate(-50%, -50%)
-    scale(1.1);
+  transform: translate(-50%, -50%) scale(1.1);
 
   box-shadow:
-    0 14px 35px rgba(70, 42, 12, .42),
-    inset 0 0 0 5px rgba(255,255,255,.2);
+    0 14px 35px rgba(70, 42, 12, 0.42),
+    inset 0 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
 .envelope-seal:active {
-  transform:
-    translate(-50%, -50%)
-    scale(.94);
+  transform: translate(-50%, -50%) scale(0.94);
 }
 
 @keyframes sealPulse {
@@ -742,64 +653,41 @@ a {
   }
 }
 
-
 /* =========================================================
    OPEN ANIMATION
 ========================================================= */
-
-/* flap opens */
 
 .envelope-screen.is-opened .envelope-flap {
   transform: rotateX(180deg);
 }
 
-
-/* envelope moves downward */
-
 .envelope-screen.is-opened .envelope {
-  transform:
-    translate(-50%, 12%)
-    scale(.96);
+  transform: translate(-50%, 12%) scale(0.96);
 }
-
-
-/* card rises from inside */
 
 .envelope-screen.is-opened .opening-card {
   opacity: 1;
 
-  transform:
-    translate(-50%, -53%)
-    translateY(-105px)
-    scale(1);
+  transform: translate(-50%, -53%) translateY(-105px) scale(1);
 
-  transition-delay: .45s;
+  transition-delay: 0.45s;
 }
-
-
-/* seal disappears */
 
 .envelope-screen.is-opened .envelope-seal {
   opacity: 0;
 
   pointer-events: none;
 
-  transform:
-    translate(-50%, -50%)
-    scale(.3);
+  transform: translate(-50%, -50%) scale(0.3);
 
   transition:
-    opacity .35s ease,
-    transform .4s ease;
+    opacity 0.35s ease,
+    transform 0.4s ease;
 }
-
-
-/* flowers fade slightly */
 
 .envelope-screen.is-opened .envelope-flower {
-  opacity: .15;
+  opacity: 0.15;
 }
-
 
 /* =========================================================
    MAIN INVITATION
@@ -814,12 +702,11 @@ a {
   background:
     radial-gradient(
       circle at 50% 0%,
-      rgba(215, 182, 110, .2),
+      rgba(215, 182, 110, 0.2),
       transparent 35%
     ),
     #f8f3e9;
 }
-
 
 .invitation-inner {
   width: 100%;
@@ -829,7 +716,6 @@ a {
 
   text-align: center;
 }
-
 
 /* =========================================================
    BISMILLAH + VERSE
@@ -877,7 +763,6 @@ a {
   color: #9c8565;
 }
 
-
 /* =========================================================
    ORNAMENT
 ========================================================= */
@@ -889,7 +774,6 @@ a {
 
   margin-bottom: 25px;
 }
-
 
 /* =========================================================
    INVITATION TEXT
@@ -928,7 +812,6 @@ a {
 
   font-weight: 500;
 }
-
 
 /* =========================================================
    WEDDING
@@ -970,12 +853,11 @@ a {
   margin: 10px 0 15px;
 }
 
-.-names span {
+.couple-names span {
   font-family: "Parisienne", cursive !important;
-  font-size: .65em;
+  font-size: 0.65em;
   margin: 0 8px;
 }
-
 
 /* =========================================================
    DIVIDER
@@ -1006,7 +888,6 @@ a {
 
   font-weight: 400;
 }
-
 
 /* =========================================================
    MESSAGE
@@ -1070,7 +951,6 @@ a {
   font-weight: 600;
 }
 
-
 /* =========================================================
    CELEBRATION CARDS
 ========================================================= */
@@ -1106,62 +986,39 @@ a {
 
   cursor: pointer;
 
-  border: 1px solid rgba(255,255,255,.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 
-  box-shadow:
-    0 18px 45px rgba(60,40,20,.15);
+  box-shadow: 0 18px 45px rgba(60, 40, 20, 0.15);
 
   transition:
-    transform .45s ease,
-    box-shadow .45s ease;
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
 }
 
 .ceremony-box:hover {
   transform: translateY(-8px);
 
-  box-shadow:
-    0 25px 55px rgba(60,40,20,.25);
+  box-shadow: 0 25px 55px rgba(60, 40, 20, 0.25);
 }
-
 
 /* =========================================================
    CARD COLORS
 ========================================================= */
 
 .mehndi-box {
-  background:
-    linear-gradient(
-      135deg,
-      #d7a91e,
-      #9b7010
-    );
+  background: linear-gradient(135deg, #d7a91e, #9b7010);
 }
 
 .mehndi-two-box {
-  background:
-    linear-gradient(
-      135deg,
-      #47733d,
-      #203f2c
-    );
+  background: linear-gradient(135deg, #47733d, #203f2c);
 }
 
 .baraat-box {
-  background:
-    linear-gradient(
-      135deg,
-      #3a2921,
-      #73533c
-    );
+  background: linear-gradient(135deg, #a63a3e, #8f292d);
 }
 
 .valima-box {
-  background:
-    linear-gradient(
-      135deg,
-      #d8c49d,
-      #927546
-    );
+  background: linear-gradient(135deg, #d8c49d, #927546);
 }
 
 .box-shade {
@@ -1169,15 +1026,10 @@ a {
 
   inset: 0;
 
-  background:
-    linear-gradient(
-      rgba(15,10,5,.15),
-      rgba(15,10,5,.3)
-    );
+  background: linear-gradient(rgba(15, 10, 5, 0.15), rgba(15, 10, 5, 0.3));
 
   pointer-events: none;
 }
-
 
 /* =========================================================
    CARD FLORALS
@@ -1188,7 +1040,7 @@ a {
 
   z-index: 3;
 
-  color: rgba(255, 242, 201, .8);
+  color: rgba(255, 242, 201, 0.8);
 
   font-family: "Cormorant Garamond", serif;
 
@@ -1198,11 +1050,9 @@ a {
 
   pointer-events: none;
 
-  text-shadow:
-    0 2px 8px rgba(0,0,0,.15);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
-  transition:
-    transform .5s ease;
+  transition: transform 0.5s ease;
 }
 
 .card-floral.top-left {
@@ -1216,18 +1066,14 @@ a {
   top: -8px;
   right: 2px;
 
-  transform:
-    rotate(25deg)
-    scaleX(-1);
+  transform: rotate(25deg) scaleX(-1);
 }
 
 .card-floral.bottom-left {
   bottom: -8px;
   left: 2px;
 
-  transform:
-    rotate(155deg)
-    scaleX(-1);
+  transform: rotate(155deg) scaleX(-1);
 }
 
 .card-floral.bottom-right {
@@ -1236,7 +1082,6 @@ a {
 
   transform: rotate(155deg);
 }
-
 
 /* =========================================================
    CARD CONTENT
@@ -1283,7 +1128,7 @@ a {
 
   letter-spacing: 1px;
 
-  color: rgba(255,255,255,.92);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .box-line {
@@ -1305,7 +1150,6 @@ a {
 .view-invitation b {
   margin-left: 8px;
 }
-
 
 /* =========================================================
    FAMILY
@@ -1385,7 +1229,6 @@ a {
   font-size: 11px;
 }
 
-
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -1406,20 +1249,79 @@ footer b {
   margin-left: 10px;
 }
 
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-button {
+  position: fixed;
+
+  right: 22px;
+  bottom: 22px;
+
+  z-index: 100000;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #a7771b;
+  border-radius: 50%;
+
+  background: rgba(255, 250, 235, 0.92);
+
+  color: #a7771b;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 25px rgba(82, 55, 10, 0.16);
+
+  font-size: 21px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.music-button:hover {
+  transform: scale(1.08);
+
+  box-shadow: 0 14px 30px rgba(82, 55, 10, 0.24);
+}
+
+.music-button:active {
+  transform: scale(0.94);
+}
+
+.music-button.playing {
+  animation: musicPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
 @media (max-width: 700px) {
-
   .envelope-stage {
     width: 100vw;
     height: 78vh;
   }
-
-
-  /* invitation title */
 
   .envelope-invitation-title {
     top: 13%;
@@ -1427,21 +1329,14 @@ footer b {
     font-size: 55px;
   }
 
-
-  /* envelope */
-
   .envelope {
     width: 88vw;
     max-width: 370px;
 
     height: 235px;
 
-    transform:
-      translate(-50%, -25%);
+    transform: translate(-50%, -25%);
   }
-
-
-  /* opening card */
 
   .opening-card {
     width: 78vw;
@@ -1449,27 +1344,20 @@ footer b {
 
     height: 445px;
 
-    transform:
-      translate(-50%, -42%)
-      translateY(75px)
-      scale(.78);
+    transform: translate(-50%, -42%) translateY(75px) scale(0.78);
   }
-
 
   .opening-card-inner {
     padding: 35px 18px;
   }
 
-
   .opening-card h1 {
     font-size: 65px;
   }
 
-
   .opening-card h2 {
     font-size: 42px;
   }
-
 
   .opening-kicker {
     font-size: 7px;
@@ -1477,25 +1365,19 @@ footer b {
     letter-spacing: 2.5px;
   }
 
-
   .opening-card p {
     font-size: 6.5px;
 
     letter-spacing: 2px;
   }
 
-
   .opening-card small {
     font-size: 6.5px;
   }
 
-
   .opening-flower {
     font-size: 80px;
   }
-
-
-  /* seal */
 
   .envelope-seal {
     width: 62px;
@@ -1504,50 +1386,33 @@ footer b {
     top: 59%;
   }
 
-
   .envelope-seal span {
     font-size: 21px;
   }
 
-
-  /* open animation */
-
   .envelope-screen.is-opened .envelope {
-    transform:
-      translate(-50%, 12%)
-      scale(.94);
+    transform: translate(-50%, 12%) scale(0.94);
   }
-
 
   .envelope-screen.is-opened .opening-card {
-    transform:
-      translate(-50%, -52%)
-      translateY(-80px)
-      scale(.94);
+    transform: translate(-50%, -52%) translateY(-80px) scale(0.94);
   }
-
-
-  /* main */
 
   .invitation-content {
     padding: 65px 18px 40px;
   }
 
-
   .bismillah {
     font-size: 29px;
   }
-
 
   .quran-verse {
     font-size: 25px;
   }
 
-
   .verse-translation {
     font-size: 17px;
   }
-
 
   .invited-small {
     font-size: 8px;
@@ -1555,18 +1420,15 @@ footer b {
     letter-spacing: 2.5px;
   }
 
-
   .invited-text {
     font-size: 8px;
 
     letter-spacing: 2px;
   }
 
-
   .reception-title {
     font-size: 75px;
   }
-
 
   .celebration-title {
     font-size: 20px;
@@ -1574,12 +1436,11 @@ footer b {
     letter-spacing: 3px;
   }
 
-
   .couple-names {
     font-size: 49px;
-    font-family: "Parisienne", cursive !important;    
-  }
 
+    font-family: "Parisienne", cursive !important;
+  }
 
   .main-highlight {
     font-size: 15px;
@@ -1587,20 +1448,15 @@ footer b {
     line-height: 1.7;
   }
 
-
   .invitation-message {
     font-size: 18px;
 
     line-height: 1.8;
   }
 
-
   .blessing-text {
     font-size: 11px;
   }
-
-
-  /* cards */
 
   .ceremonies {
     grid-template-columns: 1fr;
@@ -1610,111 +1466,98 @@ footer b {
     width: 100%;
   }
 
-
   .ceremony-box {
     height: 330px;
   }
-
 
   .ceremony-content h2 {
     font-size: 64px;
   }
 
-
   .ceremony-content p {
     font-size: 18px;
   }
-
 
   .card-floral {
     font-size: 58px;
   }
 
-
-  /* family */
-
   .contact-area {
     gap: 35px;
   }
-
 
   .contact-card strong {
     font-size: 20px;
   }
 
-
   footer {
     margin-top: 60px;
   }
-}
 
+  .music-button {
+    right: 18px;
+    bottom: 18px;
+
+    width: 48px;
+    height: 48px;
+  }
+}
 
 /* =========================================================
    SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 380px) {
-
   .envelope-invitation-title {
     top: 14%;
 
     font-size: 48px;
   }
 
-
   .envelope {
     width: 91vw;
     height: 215px;
   }
-
 
   .opening-card {
     width: 80vw;
     height: 415px;
   }
 
-
   .opening-card h1 {
     font-size: 58px;
   }
 
-
   .opening-card h2 {
     font-size: 37px;
   }
-
 
   .envelope-seal {
     width: 57px;
     height: 57px;
   }
 
-
   .reception-title {
     font-size: 65px;
+
     margin-bottom: 30px;
   }
-
 
   .couple-names {
     font-size: 43px;
   }
 
-
   .ceremony-box {
     height: 300px;
   }
-
 
   .ceremony-content h2 {
     font-size: 58px;
   }
 
-
   .ceremony-content p {
     font-size: 16px;
   }
-
 
   .card-floral {
     font-size: 52px;
