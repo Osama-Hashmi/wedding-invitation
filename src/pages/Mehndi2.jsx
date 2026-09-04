@@ -418,11 +418,11 @@ function Mehndi2() {
 
           <p className="cover-subtitle">A CELEBRATION OF LOVE, COLOUR & JOY</p>
 
-          <div className="cover-couple">
+          {/* <div className="cover-couple">
             Osama
             <span>♡</span>
             Areeba
-          </div>
+          </div> */}
 
           <p className="cover-date">29 · OCTOBER · 2026</p>
 
@@ -526,7 +526,7 @@ function Mehndi2() {
 
               <div className="couple-person bride">
                 <div className="portrait-frame">
-                  <img src="/images/mehndi2-girl.png" alt="Areeba" />
+                  <img src="/images/mehndi2-girl.png" alt="Bride" />
 
                   <div className="portrait-overlay">
                     <span>BRIDE</span>
