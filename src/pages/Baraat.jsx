@@ -71,7 +71,7 @@ function AddToCalendar() {
 /* ================= SCRATCH DATE ================== */
 /* ================================================= */
 
-function ScratchDate({ onReveal }) {
+function ScratchDate() {
   const canvasRef = useRef(null);
   const [revealed, setRevealed] = useState(false);
   const scratching = useRef(false);
@@ -120,9 +120,11 @@ function ScratchDate({ onReveal }) {
       ctx.textBaseline = "middle";
 
       ctx.font = "600 12px Montserrat, sans-serif";
+
       ctx.fillText("SCRATCH TO REVEAL", rect.width / 2, rect.height / 2 - 10);
 
       ctx.font = "11px Montserrat, sans-serif";
+
       ctx.fillText("your special date", rect.width / 2, rect.height / 2 + 15);
     };
 
@@ -163,10 +165,6 @@ function ScratchDate({ onReveal }) {
 
       canvas.style.opacity = "0";
       canvas.style.pointerEvents = "none";
-
-      if (onReveal) {
-        onReveal();
-      }
     }
   };
 
@@ -201,6 +199,7 @@ function ScratchDate({ onReveal }) {
     if (revealed) return;
 
     e.preventDefault();
+
     scratching.current = true;
 
     scratch(e);
@@ -236,7 +235,33 @@ function ScratchDate({ onReveal }) {
 
       {/* ================= ADD TO CALENDAR ================= */}
 
-      {revealed && <AddToCalendar />}
+      {revealed && (
+        <>
+          <AddToCalendar />
+
+          {/* ================= NO BOX GIFTS BOX ================= */}
+
+          <div className="gift-message-box">
+            <div className="gift-message-ornament">✦</div>
+
+            <p className="gift-message-label">A KIND REQUEST</p>
+
+            <h2>No Box Gifts Allowed</h2>
+
+            <div className="gift-message-divider">
+              <span></span>
+              <b>❦</b>
+              <span></span>
+            </div>
+
+            <p className="gift-message-text">
+              Your presence, love and blessings
+              <br />
+              are more than enough for us.
+            </p>
+          </div>
+        </>
+      )}
     </>
   );
 }
@@ -264,11 +289,8 @@ function Countdown() {
 
     return {
       days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-
       hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-
       minutes: Math.floor((difference / (1000 * 60)) % 60),
-
       seconds: Math.floor((difference / 1000) % 60),
     };
   };
@@ -368,9 +390,10 @@ function Baraat() {
     document.body.classList.remove("baraat-curtain-locked");
 
     /*
-      Show the gift message as soon as
+      Show the gift message when
       the invitation is opened.
     */
+
     setShowGiftMessage(true);
 
     if (audio) {
@@ -551,7 +574,7 @@ function Baraat() {
 
         <h2 className="section-heading">Scratch to Reveal</h2>
 
-        <ScratchDate onReveal={() => setShowGiftMessage(true)} />
+        <ScratchDate />
 
         <p className="scratch-note">
           Gently scratch the card to reveal our special day
@@ -688,8 +711,6 @@ function Baraat() {
             <h3>Mr & Mrs Advocate Ashraf Ali</h3>
 
             <a href="tel:03342595325">03342595325</a>
-
-            <a href="tel:03322205525">03322205525</a>
           </div>
 
           <div className="rsvp-card">
@@ -776,7 +797,9 @@ function Baraat() {
 
             <div className="gift-message-divider">
               <span></span>
+
               <b>❦</b>
+
               <span></span>
             </div>
 

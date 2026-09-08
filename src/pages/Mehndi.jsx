@@ -736,6 +736,7 @@ function Mehndi() {
                   <div className="guest-name">Mr & Mrs Iqbal Hussain</div>{" "}
                   <div className="guest-name">Mr & Mrs Affal Hussain</div>{" "}
                   <div className="guest-name">Mr & Mrs Kamran Hussain</div>{" "}
+                  <div className="guest-name">Mrs Imran Hussain</div>{" "}
                 </div>{" "}
               </div>{" "}
             </div>{" "}
@@ -750,19 +751,34 @@ function Mehndi() {
 
             <div className="rsvp-grid">
               <div className="rsvp-card">
-                <span>CONTACT</span>
-                <h3>Mr & MrsAdvocate Ashraf Ali</h3>
+                {/* <span>CONTACT</span> */}
+                <h3>Mr & Mrs Advocate Ashraf Ali</h3>
                 <a href="tel:03342595325">03342595325</a> <br />
-                <a href="tel:03322205525">03322205525</a> <br />
-                {/* <a href="tel:03703463351">03703463351</a> */}
               </div>
 
               <div className="rsvp-card">
-                <span>CONTACT</span>
+                <h3>Muhammad Ali</h3>
+                <a href="tel:03322205525">03322205525</a>
+              </div>
 
+              <div className="rsvp-card">
+                <h3>Ahmed Ali</h3>
+                <a href="tel:03222719270">03222719270</a>
+              </div>
+
+              <div className="rsvp-card">
                 <h3>Syed Salman Ali Hashmi</h3>
-
                 <a href="tel:03219242503">03219242503</a>
+              </div>
+
+              <div className="rsvp-card">
+                <h3>Sardar Hussain</h3>
+                <a href="tel:03070385258">03070385258</a>
+              </div>
+
+              <div className="rsvp-card">
+                <h3>Afzal Hussain</h3>
+                <a href="tel:03008373455">03008373455</a>
               </div>
             </div>
           </section>

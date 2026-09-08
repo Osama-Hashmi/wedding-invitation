@@ -1059,6 +1059,8 @@ a {
 
   gap: 14px;
 
+  border-radius: 15px;
+
   margin-top: 25px;
 
   padding: 15px 27px;
@@ -1946,6 +1948,7 @@ a {
 
   .map-button {
     padding: 13px 20px;
+    border-radius: 15px;
   }
 
   /* PROGRAM */
@@ -2652,5 +2655,204 @@ a {
     background: rgba(179, 58, 58, 0.06);
     color: #8f2e2e;
     transform: none;
+  }
+}
+
+/* ========================================================= */
+/* ============== NO BOX GIFTS MESSAGE BOX ================= */
+/* ========================================================= */
+
+.gift-message-box {
+  position: relative;
+
+  width: min(430px, calc(100% - 32px));
+
+  margin: 24px auto 0;
+
+  padding: 32px 26px 28px;
+
+  text-align: center;
+
+  background: linear-gradient(145deg, #fffaf1 0%, #f7ead8 50%, #fffaf1 100%);
+
+  border: 1px solid rgba(179, 58, 58, 0.35);
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.16),
+    inset 0 0 0 6px rgba(179, 58, 58, 0.05);
+
+  animation: giftMessageBoxIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.gift-message-box::before {
+  content: "";
+
+  position: absolute;
+  inset: 10px;
+
+  border: 1px solid rgba(179, 58, 58, 0.22);
+
+  pointer-events: none;
+}
+
+/* TOP ORNAMENT */
+
+.gift-message-box .gift-message-ornament {
+  position: relative;
+
+  margin-bottom: 8px;
+
+  color: #a77a32;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 25px;
+
+  line-height: 1;
+}
+
+/* LABEL */
+
+.gift-message-box .gift-message-label {
+  position: relative;
+
+  margin: 0 0 10px;
+
+  color: #8f2e2e;
+
+  font-family: Montserrat, sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 2.5px;
+
+  text-transform: uppercase;
+}
+
+/* HEADING */
+
+.gift-message-box h2 {
+  position: relative;
+
+  margin: 0;
+
+  color: #5b2525;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: clamp(27px, 6vw, 36px);
+
+  font-weight: 600;
+
+  line-height: 1.1;
+}
+
+/* DIVIDER */
+
+.gift-message-box .gift-message-divider {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  margin: 17px 0;
+}
+
+.gift-message-box .gift-message-divider span {
+  display: block;
+
+  width: 65px;
+
+  max-width: 25%;
+
+  height: 1px;
+
+  background: rgba(167, 122, 50, 0.45);
+}
+
+.gift-message-box .gift-message-divider b {
+  color: #a77a32;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 19px;
+
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+/* MESSAGE */
+
+.gift-message-box .gift-message-text {
+  position: relative;
+
+  margin: 0;
+
+  color: #684b43;
+
+  font-family: Montserrat, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 400;
+
+  line-height: 1.8;
+
+  letter-spacing: 0.3px;
+}
+
+/* ========================================================= */
+/* ======================= ANIMATION ======================= */
+/* ========================================================= */
+
+@keyframes giftMessageBoxIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(18px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================================================= */
+/* ======================== MOBILE ========================= */
+/* ========================================================= */
+
+@media (max-width: 480px) {
+  .gift-message-box {
+    width: calc(100% - 24px);
+
+    margin-top: 20px;
+
+    padding: 28px 20px 25px;
+  }
+
+  .gift-message-box::before {
+    inset: 8px;
+  }
+
+  .gift-message-box h2 {
+    font-size: 28px;
+  }
+
+  .gift-message-box .gift-message-text {
+    font-size: 10px;
   }
 }

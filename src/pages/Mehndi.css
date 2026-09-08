@@ -314,7 +314,7 @@
   padding: 0;
 
   border: 1px solid #9c7118;
-  border-radius: 0;
+  border-radius: 15px;
 
   outline: none;
 
@@ -1202,6 +1202,8 @@
 
   padding: 15px 25px;
 
+  border-radius: 15px;
+
   text-decoration: none;
 
   background: #a7771b;
@@ -1549,7 +1551,7 @@
 
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 3fr));
 
   gap: 20px;
 }
@@ -1832,6 +1834,7 @@
 
     font-size: 7px;
     letter-spacing: 2px;
+    border-radius: 15px;
   }
 
   .mehndi-page .cover-flower {
@@ -2031,6 +2034,8 @@
     padding: 14px 17px;
 
     font-size: 7px;
+
+    border-radius: 15px;
   }
 
   /* DETAILS */

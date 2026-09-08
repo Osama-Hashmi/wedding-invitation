@@ -475,7 +475,7 @@ function Valima() {
 
               <p className="with-word">WITH</p>
 
-              <h1 className="bride-name">Daughter of Advocate Ashraf Ali</h1>
+              <h1 className="bride-name">Daughter of Ashraf Ali</h1>
 
               {/* <p className="person-title">The Bride</p> */}
             </div>

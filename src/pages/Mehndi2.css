@@ -381,7 +381,7 @@
   overflow: hidden;
 
   border: 1px solid #d5af4f;
-  border-radius: 3px;
+  border-radius: 15px;
 
   background: linear-gradient(135deg, #d0a942, #9b7622);
 
@@ -450,11 +450,13 @@
 .mehndi2-page .open-button strong {
   font-size: 9px;
   letter-spacing: 3px;
+  border-radius: 15px;
 }
 
 .mehndi2-page .open-button b {
   font-size: 18px;
   font-weight: 400;
+  border-radius: 15px;
 }
 
 .mehndi2-page .tap-hint {
@@ -1606,6 +1608,7 @@
   align-items: center;
   justify-content: center;
 
+  border-radius: 15px;
   gap: 13px;
 
   margin: 0 auto;
@@ -2771,6 +2774,8 @@
 
   .mehndi2-page .directions-button {
     padding: 14px 18px;
+
+    border-radius: 15px;
 
     font-size: 7px;
 
