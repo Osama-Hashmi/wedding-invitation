@@ -552,9 +552,9 @@ function Mehndi2() {
             </h2>
 
             <p>
-              Join us for a joyful evening filled with
+              Join us for a joyful evening filled with <br></br>
               <br className="desktop-only" />
-              music, laughter and beautiful memories
+              music, laughter and beautiful memories <br></br>
               <br className="desktop-only" />
               as we celebrate the groom-to-be.
             </p>
@@ -763,7 +763,7 @@ function Mehndi2() {
             </h2>
 
             <p>
-              Your presence, love and blessings
+              Your presence, love and blessings<br></br>
               <br className="desktop-only" />
               will make this celebration even more special.
             </p>

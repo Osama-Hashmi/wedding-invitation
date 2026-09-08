@@ -410,7 +410,7 @@ function Mehndi() {
             <h2>Mehndi</h2>
 
             <p className="intro-text">
-              To celebrate a beautiful evening filled with
+              To celebrate a beautiful evening filled with <br></br>
               <br className="desktop-break" />
               colours, laughter, music and unforgettable moments.
             </p>
@@ -470,7 +470,7 @@ function Mehndi() {
             </h2>
 
             <p>
-              Join us as we celebrate this special evening
+              Join us as we celebrate this special evening <br></br>
               <br className="desktop-break" />
               surrounded by the people we love.
             </p>

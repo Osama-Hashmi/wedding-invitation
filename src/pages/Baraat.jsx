@@ -669,6 +669,8 @@ function Baraat() {
               <div className="guest-name">Mr & Mrs Affal Hussain</div>
 
               <div className="guest-name">Mr & Mrs Kamran Hussain</div>
+
+              <div className="guest-name">Mrs Imran Hussain</div>
             </div>
           </div>
         </div>
