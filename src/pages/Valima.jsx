@@ -440,10 +440,10 @@ function Valima() {
 
           <p className="parents">MR. & MRS. SYED ASIM ALI HASHMI</p>
 
-          <p className="parents">
+          {/* <p className="parents">
             Grandson of Mr & Mrs Syed Qasim Ali Hashmi (Late) & Mr & Mrs
             Muhammad Jaleel Uddin (Late)
-          </p>
+          </p> */}
 
           <p className="invite-line">INVITE YOU TO THE</p>
 
@@ -463,7 +463,7 @@ function Valima() {
             <div className="couple-names">
               <h1 className="groom-name">Syed Muhammad Osama Ali Hashmi</h1>
 
-              <p className="person-title">The Groom</p>
+              {/* <p className="person-title">The Groom</p> */}
 
               <div className="gold-divider">
                 <span></span>
@@ -477,7 +477,7 @@ function Valima() {
 
               <h1 className="bride-name">Daughter of Advocate Ashraf Ali</h1>
 
-              <p className="person-title">The Bride</p>
+              {/* <p className="person-title">The Bride</p> */}
             </div>
 
             <div className="couple-image couple-right">

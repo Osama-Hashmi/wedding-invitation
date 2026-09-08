@@ -71,7 +71,7 @@ function AddToCalendar() {
 /* ================= SCRATCH DATE ================== */
 /* ================================================= */
 
-function ScratchDate() {
+function ScratchDate({ onReveal }) {
   const canvasRef = useRef(null);
   const [revealed, setRevealed] = useState(false);
   const scratching = useRef(false);
@@ -82,6 +82,8 @@ function ScratchDate() {
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
+
+    if (!ctx) return;
 
     const setupCanvas = () => {
       const rect = canvas.getBoundingClientRect();
@@ -140,6 +142,8 @@ function ScratchDate() {
 
     const ctx = canvas.getContext("2d");
 
+    if (!ctx) return;
+
     const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
     let transparent = 0;
@@ -159,6 +163,10 @@ function ScratchDate() {
 
       canvas.style.opacity = "0";
       canvas.style.pointerEvents = "none";
+
+      if (onReveal) {
+        onReveal();
+      }
     }
   };
 
@@ -170,6 +178,8 @@ function ScratchDate() {
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
+
+    if (!ctx) return;
 
     const rect = canvas.getBoundingClientRect();
 
@@ -187,8 +197,13 @@ function ScratchDate() {
     checkReveal();
   };
 
-  const startScratch = () => {
+  const startScratch = (e) => {
+    if (revealed) return;
+
+    e.preventDefault();
     scratching.current = true;
+
+    scratch(e);
   };
 
   const stopScratch = () => {
@@ -310,6 +325,12 @@ function Baraat() {
   const [musicOn, setMusicOn] = useState(false);
 
   /* ================================================= */
+  /* ================= GIFT MODAL ==================== */
+  /* ================================================= */
+
+  const [showGiftMessage, setShowGiftMessage] = useState(false);
+
+  /* ================================================= */
   /* ================= PAGE SETUP ==================== */
   /* ================================================= */
 
@@ -345,6 +366,12 @@ function Baraat() {
     setCurtainOpen(true);
 
     document.body.classList.remove("baraat-curtain-locked");
+
+    /*
+      Show the gift message as soon as
+      the invitation is opened.
+    */
+    setShowGiftMessage(true);
 
     if (audio) {
       audio.currentTime = 31;
@@ -524,7 +551,7 @@ function Baraat() {
 
         <h2 className="section-heading">Scratch to Reveal</h2>
 
-        <ScratchDate />
+        <ScratchDate onReveal={() => setShowGiftMessage(true)} />
 
         <p className="scratch-note">
           Gently scratch the card to reveal our special day
@@ -664,9 +691,33 @@ function Baraat() {
           </div>
 
           <div className="rsvp-card">
+            <h3>Muhammad Ali</h3>
+
+            <a href="tel:03322205525">03322205525</a>
+          </div>
+
+          <div className="rsvp-card">
+            <h3>Ahmed Ali</h3>
+
+            <a href="tel:03222719270">03222719270</a>
+          </div>
+
+          <div className="rsvp-card">
             <h3>Syed Salman Ali Hashmi</h3>
 
             <a href="tel:03219242503">03219242503</a>
+          </div>
+
+          <div className="rsvp-card">
+            <h3>Sardar Hussain</h3>
+
+            <a href="tel:03070385258">03070385258</a>
+          </div>
+
+          <div className="rsvp-card">
+            <h3>Afzal Hussain</h3>
+
+            <a href="tel:03008373455">03008373455</a>
           </div>
         </div>
       </section>
@@ -692,6 +743,48 @@ function Baraat() {
         >
           <span>{musicOn ? "♫" : "♪"}</span>
         </button>
+      )}
+
+      {/* ================================================= */}
+      {/* ================= GIFT MESSAGE MODAL ============ */}
+      {/* ================================================= */}
+
+      {showGiftMessage && (
+        <div
+          className="gift-message-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="gift-message-title"
+        >
+          <div className="gift-message-modal">
+            <button
+              type="button"
+              className="gift-message-close"
+              onClick={() => setShowGiftMessage(false)}
+              aria-label="Close message"
+            >
+              ×
+            </button>
+
+            <div className="gift-message-ornament">✦</div>
+
+            <p className="gift-message-label">A KIND REQUEST</p>
+
+            <h2 id="gift-message-title">No Box Gifts Allowed</h2>
+
+            <div className="gift-message-divider">
+              <span></span>
+              <b>❦</b>
+              <span></span>
+            </div>
+
+            <p className="gift-message-text">
+              Your presence, love and blessings
+              <br />
+              are more than enough for us.
+            </p>
+          </div>
+        </div>
       )}
     </main>
   );

@@ -1374,9 +1374,9 @@ a {
 
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 3fr));
 
-  gap: 14px;
+  /* gap: 14px; */
 
   align-items: stretch;
 }
@@ -2257,7 +2257,6 @@ a {
 }
 .add-calendar-button span {
   font-size: 12px !important;
-  
 }
 
 .add-calendar-button:hover {
@@ -2355,5 +2354,303 @@ a {
 
   .calendar-note {
     font-size: 13px;
+  }
+}
+
+/* ========================================================= */
+/* ============== NO BOX GIFTS MESSAGE MODAL ============== */
+/* ========================================================= */
+
+.gift-message-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(20, 8, 8, 0.72);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  animation: giftModalOverlayIn 0.35s ease forwards;
+}
+
+.gift-message-modal {
+  position: relative;
+
+  width: min(430px, 100%);
+
+  padding: 46px 32px 38px;
+
+  text-align: center;
+
+  background: linear-gradient(145deg, #fffaf1 0%, #f7ead8 50%, #fffaf1 100%);
+
+  border: 1px solid rgba(179, 58, 58, 0.35);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 7px rgba(179, 58, 58, 0.05);
+
+  border-radius: 4px;
+
+  animation: giftModalIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Decorative inner border */
+
+.gift-message-modal::before {
+  content: "";
+
+  position: absolute;
+  inset: 12px;
+
+  border: 1px solid rgba(179, 58, 58, 0.22);
+
+  pointer-events: none;
+}
+
+/* Close button */
+
+.gift-message-close {
+  position: absolute;
+
+  top: 16px;
+  right: 18px;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(179, 58, 58, 0.25);
+  border-radius: 50%;
+
+  background: rgba(179, 58, 58, 0.06);
+
+  color: #8f2e2e;
+
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.gift-message-close:hover {
+  background: #b33a3a;
+  color: #fffaf1;
+
+  transform: rotate(90deg);
+}
+
+.gift-message-close:active {
+  transform: rotate(90deg) scale(0.92);
+}
+
+/* Top ornament */
+
+.gift-message-ornament {
+  position: relative;
+
+  margin-bottom: 10px;
+
+  color: #a77a32;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+
+  line-height: 1;
+}
+
+/* Small heading */
+
+.gift-message-label {
+  position: relative;
+
+  margin: 0 0 12px;
+
+  color: #8f2e2e;
+
+  font-family: Montserrat, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Main message */
+
+.gift-message-modal h2 {
+  position: relative;
+
+  margin: 0;
+
+  color: #5b2525;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: clamp(28px, 7vw, 38px);
+  font-weight: 600;
+
+  line-height: 1.1;
+
+  text-transform: none;
+}
+
+/* Divider */
+
+.gift-message-divider {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  margin: 20px 0;
+}
+
+.gift-message-divider span {
+  display: block;
+
+  width: 70px;
+  max-width: 25%;
+
+  height: 1px;
+
+  background: rgba(167, 122, 50, 0.45);
+}
+
+.gift-message-divider b {
+  color: #a77a32;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+/* Bottom message */
+
+.gift-message-text {
+  position: relative;
+
+  margin: 0;
+
+  color: #684b43;
+
+  font-family: Montserrat, sans-serif;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  line-height: 1.9;
+
+  letter-spacing: 0.3px;
+}
+
+/* ========================================================= */
+/* ======================= ANIMATIONS ====================== */
+/* ========================================================= */
+
+@keyframes giftModalOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes giftModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================================================= */
+/* ======================= MOBILE ========================== */
+/* ========================================================= */
+
+@media (max-width: 480px) {
+  .gift-message-overlay {
+    padding: 18px;
+  }
+
+  .gift-message-modal {
+    padding: 42px 25px 32px;
+  }
+
+  .gift-message-modal::before {
+    inset: 10px;
+  }
+
+  .gift-message-close {
+    top: 14px;
+    right: 14px;
+
+    width: 32px;
+    height: 32px;
+
+    font-size: 23px;
+  }
+
+  .gift-message-ornament {
+    font-size: 24px;
+  }
+
+  .gift-message-label {
+    font-size: 8px;
+    letter-spacing: 2.5px;
+  }
+
+  .gift-message-modal h2 {
+    font-size: 29px;
+  }
+
+  .gift-message-text {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+}
+
+/* ========================================================= */
+/* ================= TOUCH DEVICES ========================= */
+/* ========================================================= */
+
+@media (hover: none) {
+  .gift-message-close:hover {
+    background: rgba(179, 58, 58, 0.06);
+    color: #8f2e2e;
+    transform: none;
   }
 }

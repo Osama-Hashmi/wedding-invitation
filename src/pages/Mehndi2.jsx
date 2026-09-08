@@ -339,7 +339,7 @@ function Mehndi2() {
 
     try {
       event.currentTarget.setPointerCapture(event.pointerId);
-    } catch (error) {
+    } catch {
       // Ignore pointer capture errors.
     }
 
@@ -366,7 +366,7 @@ function Mehndi2() {
       if (event.currentTarget.hasPointerCapture(event.pointerId)) {
         event.currentTarget.releasePointerCapture(event.pointerId);
       }
-    } catch (error) {
+    } catch {
       // Ignore pointer capture errors.
     }
 
