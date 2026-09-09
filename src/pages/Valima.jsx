@@ -247,7 +247,7 @@ function Countdown() {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  });
 
   const format = (number) => {
     return String(number).padStart(2, "0");
@@ -294,6 +294,8 @@ function Valima() {
      ======================================================= */
 
   useEffect(() => {
+    const audio = audioRef.current;
+
     document.title = "Valima Invitation";
 
     window.scrollTo({
@@ -307,8 +309,6 @@ function Valima() {
     }
 
     return () => {
-      const audio = audioRef.current;
-
       if (audio) {
         audio.pause();
         audio.currentTime = 0;
