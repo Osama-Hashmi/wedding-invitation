@@ -277,7 +277,7 @@ function Mehndi() {
     if (!audio) return;
 
     try {
-      audio.currentTime = 16;
+      audio.currentTime = 4;
       await audio.play();
       setMusicOn(true);
     } catch (error) {
@@ -333,7 +333,7 @@ function Mehndi() {
     <main className={`mehndi-page ${opened ? "opened" : ""}`}>
       {/* ================= MUSIC ================= */}
 
-      <audio ref={audioRef} loop preload="auto" src="/music/mehndi.mp3" />
+      <audio ref={audioRef} loop preload="auto" src="/music/mehndi1.mp3" />
 
       {/* ================= OPENING SCREEN ================= */}
 

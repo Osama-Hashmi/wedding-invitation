@@ -121,11 +121,19 @@ function ScratchDate() {
 
       ctx.font = "600 12px Montserrat, sans-serif";
 
-      ctx.fillText("SCRATCH TO REVEAL", rect.width / 2, rect.height / 2 - 10);
+      ctx.fillText(
+        "SCRATCH TO REVEAL",
+        rect.width / 2,
+        rect.height / 2 - 10
+      );
 
       ctx.font = "11px Montserrat, sans-serif";
 
-      ctx.fillText("your special date", rect.width / 2, rect.height / 2 + 15);
+      ctx.fillText(
+        "your special date",
+        rect.width / 2,
+        rect.height / 2 + 15
+      );
     };
 
     setupCanvas();
@@ -146,7 +154,12 @@ function ScratchDate() {
 
     if (!ctx) return;
 
-    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    const pixels = ctx.getImageData(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    ).data;
 
     let transparent = 0;
 
@@ -250,7 +263,9 @@ function ScratchDate() {
 
             <div className="gift-message-divider">
               <span></span>
+
               <b>❦</b>
+
               <span></span>
             </div>
 
@@ -288,10 +303,21 @@ function Countdown() {
     }
 
     return {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / (1000 * 60)) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
+      days: Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+      ),
+
+      hours: Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+      ),
+
+      minutes: Math.floor(
+        (difference / (1000 * 60)) % 60
+      ),
+
+      seconds: Math.floor(
+        (difference / 1000) % 60
+      ),
     };
   };
 
@@ -347,12 +373,6 @@ function Baraat() {
   const [musicOn, setMusicOn] = useState(false);
 
   /* ================================================= */
-  /* ================= GIFT MODAL ==================== */
-  /* ================================================= */
-
-  const [showGiftMessage, setShowGiftMessage] = useState(false);
-
-  /* ================================================= */
   /* ================= PAGE SETUP ==================== */
   /* ================================================= */
 
@@ -388,13 +408,6 @@ function Baraat() {
     setCurtainOpen(true);
 
     document.body.classList.remove("baraat-curtain-locked");
-
-    /*
-      Show the gift message when
-      the invitation is opened.
-    */
-
-    setShowGiftMessage(true);
 
     if (audio) {
       audio.currentTime = 31;
@@ -462,12 +475,19 @@ function Baraat() {
       {/* ================= BARAAT SONG ================= */}
 
       <audio ref={audioRef} loop preload="auto" playsInline>
-        <source src="/music/Mere%20Haath%20Mein.mp3" type="audio/mpeg" />
+        <source
+          src="/music/Mere%20Haath%20Mein.mp3"
+          type="audio/mpeg"
+        />
       </audio>
 
       {/* ================= CLOTH CURTAIN ================= */}
 
-      <div className={`baraat-curtain ${curtainOpen ? "curtain-open" : ""}`}>
+      <div
+        className={`baraat-curtain ${
+          curtainOpen ? "curtain-open" : ""
+        }`}
+      >
         <div className="curtain-panel curtain-left">
           <div className="curtain-folds"></div>
         </div>
@@ -477,7 +497,9 @@ function Baraat() {
         </div>
 
         <div className="curtain-center-content">
-          <div className="curtain-small-text">THE WEDDING CELEBRATION</div>
+          <div className="curtain-small-text">
+            THE WEDDING CELEBRATION
+          </div>
 
           <div className="curtain-ornament">❦</div>
 
@@ -496,7 +518,9 @@ function Baraat() {
             </span>
           </button>
 
-          <div className="curtain-button-text">TAP TO OPEN</div>
+          <div className="curtain-button-text">
+            TAP TO OPEN
+          </div>
         </div>
       </div>
 
@@ -511,22 +535,34 @@ function Baraat() {
 
         <div className="bismillah">﷽</div>
 
-        <p className="parents">MR. & MRS. ADVOCATE ASHRAF ALI</p>
-
         <p className="parents">
-          Granddaughter of Mr & Mrs Sheikh Abdul Latif (Late) & Mr & Mrs. Wasi
-          Uddin Warsi (Late)
+          MR. & MRS. ADVOCATE ASHRAF ALI
         </p>
 
-        <p className="invite-line">CORDIALLY INVITE YOU TO THE</p>
+        <p className="parents">
+          Granddaughter of Mr & Mrs Sheikh Abdul Latif
+          (Late) & Mr & Mrs. Wasi Uddin Warsi (Late)
+        </p>
 
-        <h2 className="ceremony-name">BARAAT CEREMONY</h2>
+        <p className="invite-line">
+          CORDIALLY INVITE YOU TO THE
+        </p>
 
-        <p className="invite-line">OF THEIR BELOVED DAUGHTER</p>
+        <h2 className="ceremony-name">
+          BARAAT CEREMONY
+        </h2>
 
-        <h1 className="bride-name">Areeba Ashraf</h1>
+        <p className="invite-line">
+          OF THEIR BELOVED DAUGHTER
+        </p>
 
-        <p className="person-title">The Bride</p>
+        <h1 className="bride-name">
+          Areeba Ashraf
+        </h1>
+
+        <p className="person-title">
+          The Bride
+        </p>
 
         {/* ================= COUPLE VISUALS ================= */}
 
@@ -534,7 +570,10 @@ function Baraat() {
           <div className="person-visual bride-visual">
             <div className="person-glow"></div>
 
-            <img src="/images/baraat-bride.png" alt="Bride" />
+            <img
+              src="/images/baraat-bride.png"
+              alt="Bride"
+            />
           </div>
 
           <div className="couple-center">
@@ -546,33 +585,52 @@ function Baraat() {
               <span></span>
             </div>
 
-            <p className="with-word">WITH</p>
+            <p className="with-word">
+              WITH
+            </p>
           </div>
 
           <div className="person-visual groom-visual">
             <div className="person-glow"></div>
 
-            <img src="/images/baraat-groom.png" alt="Groom" />
+            <img
+              src="/images/baraat-groom.png"
+              alt="Groom"
+            />
           </div>
         </div>
 
-        <h2 className="groom-name">Syed Muhammad Osama Ali Hashmi</h2>
+        <h2 className="groom-name">
+          Syed Muhammad Osama Ali Hashmi
+        </h2>
 
-        <p className="person-title">The Groom</p>
+        <p className="person-title">
+          The Groom
+        </p>
 
-        <p className="son-of">S/O MR. & MRS. SYED ASIM ALI HASHMI</p>
+        <p className="son-of">
+          S/O MR. & MRS. SYED ASIM ALI HASHMI
+        </p>
 
-        <div className="hero-bottom-ornament">✦</div>
+        <div className="hero-bottom-ornament">
+          ✦
+        </div>
       </section>
 
       {/* ================= DATE ========================== */}
 
       <section className="date-section">
-        <div className="gold-emblem">✦</div>
+        <div className="gold-emblem">
+          ✦
+        </div>
 
-        <p className="section-label">A DATE TO REMEMBER</p>
+        <p className="section-label">
+          A DATE TO REMEMBER
+        </p>
 
-        <h2 className="section-heading">Scratch to Reveal</h2>
+        <h2 className="section-heading">
+          Scratch to Reveal
+        </h2>
 
         <ScratchDate />
 
@@ -584,9 +642,13 @@ function Baraat() {
       {/* ================= COUNTDOWN ===================== */}
 
       <section className="details-section">
-        <p className="section-label">SAVE THE DATE</p>
+        <p className="section-label">
+          SAVE THE DATE
+        </p>
 
-        <h2 className="section-heading">The Baraat</h2>
+        <h2 className="section-heading">
+          The Baraat
+        </h2>
 
         <Countdown />
       </section>
@@ -594,11 +656,17 @@ function Baraat() {
       {/* ================= VENUE ========================= */}
 
       <section className="venue-section">
-        <div className="venue-flower">❧</div>
+        <div className="venue-flower">
+          ❧
+        </div>
 
-        <p className="section-label">THE VENUE</p>
+        <p className="section-label">
+          THE VENUE
+        </p>
 
-        <h2 className="venue-name">The Manor Banquet</h2>
+        <h2 className="venue-name">
+          The Manor Banquet
+        </h2>
 
         <div className="venue-line"></div>
 
@@ -625,9 +693,13 @@ function Baraat() {
       {/* ================= PROGRAM ======================= */}
 
       <section className="program-section">
-        <p className="section-label">PROGRAMME</p>
+        <p className="section-label">
+          PROGRAMME
+        </p>
 
-        <h2 className="section-heading">Evening Details</h2>
+        <h2 className="section-heading">
+          Evening Details
+        </h2>
 
         <div className="program-list">
           <div className="program-row">
@@ -650,11 +722,17 @@ function Baraat() {
       {/* ================= WELCOME ======================= */}
 
       <section className="welcome-section">
-        <div className="gold-emblem">✦</div>
+        <div className="gold-emblem">
+          ✦
+        </div>
 
-        <p className="welcome-title">AWAITING TO WELCOME</p>
+        <p className="welcome-title">
+          AWAITING TO WELCOME
+        </p>
 
-        <h2>OUR BELOVED FAMILY & FRIENDS</h2>
+        <h2>
+          OUR BELOVED FAMILY & FRIENDS
+        </h2>
 
         <p className="welcome-message">
           Your presence, prayers and blessings
@@ -667,33 +745,57 @@ function Baraat() {
 
       <section className="awaiting-section">
         <div className="awaiting-container">
-          <h2>Awaiting to Welcome</h2>
+          <h2>
+            Awaiting to Welcome
+          </h2>
 
           <div className="awaiting-card">
             <div className="awaiting-column awaiting-left">
-              <div className="guest-name">Mr & Mrs Advocate Ashraf Ali</div>
+              <div className="guest-name">
+                Mr & Mrs Advocate Ashraf Ali
+              </div>
 
-              <div className="guest-name">Mr & Mrs Muhammad Ali</div>
+              <div className="guest-name">
+                Mr & Mrs Muhammad Ali
+              </div>
 
-              <div className="guest-name">Mr & Mrs Ahmed Ali</div>
+              <div className="guest-name">
+                Mr & Mrs Ahmed Ali
+              </div>
 
-              <div className="guest-name">Mr & Mrs Advocate Hyder Ali</div>
+              <div className="guest-name">
+                Mr & Mrs Advocate Hyder Ali
+              </div>
 
-              <div className="guest-name">Mr & Mrs Syed Salman Ali Hashmi</div>
+              <div className="guest-name">
+                Mr & Mrs Syed Salman Ali Hashmi
+              </div>
             </div>
 
             <div className="awaiting-column awaiting-right">
-              <div className="guest-name">Mr & Mrs Sardar Hussain</div>
+              <div className="guest-name">
+                Mr & Mrs Sardar Hussain
+              </div>
 
-              <div className="guest-name">Mr & Mrs Afzal Hussain</div>
+              <div className="guest-name">
+                Mr & Mrs Afzal Hussain
+              </div>
 
-              <div className="guest-name">Mr & Mrs Iqbal Hussain</div>
+              <div className="guest-name">
+                Mr & Mrs Iqbal Hussain
+              </div>
 
-              <div className="guest-name">Mr & Mrs Affal Hussain</div>
+              <div className="guest-name">
+                Mr & Mrs Affal Hussain
+              </div>
 
-              <div className="guest-name">Mr & Mrs Kamran Hussain</div>
+              <div className="guest-name">
+                Mr & Mrs Kamran Hussain
+              </div>
 
-              <div className="guest-name">Mrs Imran Hussain</div>
+              <div className="guest-name">
+                Mrs Imran Hussain
+              </div>
             </div>
           </div>
         </div>
@@ -702,45 +804,73 @@ function Baraat() {
       {/* ================= RSVP ========================== */}
 
       <section className="rsvp-section">
-        <p className="section-heading">RSVP</p>
+        <p className="section-heading">
+          RSVP
+        </p>
 
-        <p className="rsvp-subtitle">FOR ANY ASSISTANCE</p>
+        <p className="rsvp-subtitle">
+          FOR ANY ASSISTANCE
+        </p>
 
         <div className="rsvp-grid">
           <div className="rsvp-card">
-            <h3>Mr & Mrs Advocate Ashraf Ali</h3>
+            <h3>
+              Mr & Mrs Advocate Ashraf Ali
+            </h3>
 
-            <a href="tel:03342595325">03342595325</a>
+            <a href="tel:03342595325">
+              03342595325
+            </a>
           </div>
 
           <div className="rsvp-card">
-            <h3>Muhammad Ali</h3>
+            <h3>
+              Muhammad Ali
+            </h3>
 
-            <a href="tel:03322205525">03322205525</a>
+            <a href="tel:03322205525">
+              03322205525
+            </a>
           </div>
 
           <div className="rsvp-card">
-            <h3>Ahmed Ali</h3>
+            <h3>
+              Ahmed Ali
+            </h3>
 
-            <a href="tel:03222719270">03222719270</a>
+            <a href="tel:03222719270">
+              03222719270
+            </a>
           </div>
 
           <div className="rsvp-card">
-            <h3>Syed Salman Ali Hashmi</h3>
+            <h3>
+              Syed Salman Ali Hashmi
+            </h3>
 
-            <a href="tel:03219242503">03219242503</a>
+            <a href="tel:03219242503">
+              03219242503
+            </a>
           </div>
 
           <div className="rsvp-card">
-            <h3>Sardar Hussain</h3>
+            <h3>
+              Sardar Hussain
+            </h3>
 
-            <a href="tel:03070385258">03070385258</a>
+            <a href="tel:03070385258">
+              03070385258
+            </a>
           </div>
 
           <div className="rsvp-card">
-            <h3>Afzal Hussain</h3>
+            <h3>
+              Afzal Hussain
+            </h3>
 
-            <a href="tel:03008373455">03008373455</a>
+            <a href="tel:03008373455">
+              03008373455
+            </a>
           </div>
         </div>
       </section>
@@ -748,11 +878,17 @@ function Baraat() {
       {/* ================= FOOTER ======================== */}
 
       <footer className="baraat-footer">
-        <div className="footer-ornament">❦</div>
+        <div className="footer-ornament">
+          ❦
+        </div>
 
-        <p>WITH LOVE & BLESSINGS</p>
+        <p>
+          WITH LOVE & BLESSINGS
+        </p>
 
-        <strong>Areeba & Osama</strong>
+        <strong>
+          Areeba & Osama
+        </strong>
       </footer>
 
       {/* ================= MUSIC BUTTON ================== */}
@@ -760,56 +896,16 @@ function Baraat() {
       {curtainOpen && (
         <button
           type="button"
-          className={`music-button ${musicOn ? "playing" : ""}`}
+          className={`music-button ${
+            musicOn ? "playing" : ""
+          }`}
           onClick={toggleMusic}
           aria-label="Toggle music"
         >
-          <span>{musicOn ? "♫" : "♪"}</span>
+          <span>
+            {musicOn ? "♫" : "♪"}
+          </span>
         </button>
-      )}
-
-      {/* ================================================= */}
-      {/* ================= GIFT MESSAGE MODAL ============ */}
-      {/* ================================================= */}
-
-      {showGiftMessage && (
-        <div
-          className="gift-message-overlay"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="gift-message-title"
-        >
-          <div className="gift-message-modal">
-            <button
-              type="button"
-              className="gift-message-close"
-              onClick={() => setShowGiftMessage(false)}
-              aria-label="Close message"
-            >
-              ×
-            </button>
-
-            <div className="gift-message-ornament">✦</div>
-
-            <p className="gift-message-label">A KIND REQUEST</p>
-
-            <h2 id="gift-message-title">No Box Gifts Allowed</h2>
-
-            <div className="gift-message-divider">
-              <span></span>
-
-              <b>❦</b>
-
-              <span></span>
-            </div>
-
-            <p className="gift-message-text">
-              Your presence, love and blessings
-              <br />
-              are more than enough for us.
-            </p>
-          </div>
-        </div>
       )}
     </main>
   );
