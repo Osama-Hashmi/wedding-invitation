@@ -79,7 +79,7 @@ a {
   visibility: hidden;
   pointer-events: none;
 
-  transition-delay: 2.2s;
+  transition-delay: 5s;
 }
 
 /* =========================================================
@@ -697,7 +697,7 @@ a {
   width: 100%;
   min-height: 100vh;
 
-  padding: 80px 20px;
+  padding: 10px 20px;
 
   background:
     radial-gradient(
@@ -722,6 +722,9 @@ a {
 ========================================================= */
 
 .bismillah {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+
   margin-bottom: 15px;
 
   font-family: "Cormorant Garamond", serif;
@@ -784,11 +787,13 @@ a {
 
   color: #8f6c37;
 
-  font-size: 11px;
+  font-size: 20px;
 
   letter-spacing: 4px;
 
   font-weight: 600;
+
+  font-family: "Parisienne", cursive;
 }
 
 .invited-ampersand {
@@ -836,7 +841,7 @@ a {
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 26px;
+  font-size: 14px !important;
 
   letter-spacing: 5px;
 
@@ -1098,7 +1103,7 @@ a {
 
   pointer-events: none;
 
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .ceremony-content .ceremony-label {
@@ -1399,11 +1404,13 @@ footer b {
   }
 
   .invitation-content {
-    padding: 65px 18px 40px;
+    padding: 18px 18px 40px;
   }
 
   .bismillah {
     font-size: 29px;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
 
   .quran-verse {
@@ -1415,7 +1422,7 @@ footer b {
   }
 
   .invited-small {
-    font-size: 8px;
+    font-size: 14px;
 
     letter-spacing: 2.5px;
   }
@@ -1431,13 +1438,13 @@ footer b {
   }
 
   .celebration-title {
-    font-size: 20px;
+    font-size: 10px !important;
 
     letter-spacing: 3px;
   }
 
   .couple-names {
-    font-size: 49px;
+    font-size: 30px !important;
 
     font-family: "Parisienne", cursive !important;
   }
@@ -1548,7 +1555,7 @@ footer b {
   }
 
   .ceremony-box {
-    height: 300px;
+    height: 350px;
   }
 
   .ceremony-content h2 {

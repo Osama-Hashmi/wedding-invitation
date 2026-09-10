@@ -349,7 +349,7 @@ function Mehndi() {
           <div className="frame-inner">
             <p className="cover-top">A NIGHT OF</p>
 
-            <h1>Mehndi</h1>
+            <h1>Bride's Mehndi</h1>
 
             <div className="cover-divider">
               <span></span>
@@ -405,7 +405,7 @@ function Mehndi() {
             <p className="tiny-heading">WITH LOVE & BLESSINGS</p>
 
             <p className="parent-heading">Mr & Mrs Advocate Ashraf Ali</p>
-            <p className="parent-heading">Cordially Invite you to the</p>
+            <p className="tiny-heading">Cordially Invite you to the</p>
 
             <h2>Mehndi</h2>
 
@@ -540,6 +540,7 @@ function Mehndi() {
 
                 {!scratched && (
                   <div className="scratch-progress">
+                    <p>Scratch To Reveal</p>
                     {Math.round(scratchProgress)}%
                   </div>
                 )}

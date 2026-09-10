@@ -183,22 +183,22 @@ function Home() {
 
           {/* ================= FAMILY NAMES ================= */}
 
-          <p className="invited-small">MR & MRS SYED ASIM ALI HASHMI</p>
+          <p className="invited-small">Mr & Mrs Syed Asim Ali Hashmi</p>
 
           <p className="invited-ampersand">&</p>
 
-          <p className="invited-small">MR & MRS ADVOCATE ASHRAF ALI</p>
+          <p className="invited-small">Mr & Mrs Advocate Ashraf Ali</p>
 
-          <p className="invited-text">JOYFULLY INVITE YOU TO CELEBRATE THE</p>
+          <p className="invited-text">Youfully Invite You To Celebrate The</p>
 
           {/* ================= WEDDING ================= */}
 
           <h1 className="reception-title">Wedding</h1>
 
-          <h2 className="celebration-title">OF THEIR BELOVED CHILDREN</h2>
+          <h2 className="celebration-title">Of Their Beloved Children</h2>
 
           <div className="couple-names">
-            Osama <span>♡</span> Areeba
+            Syed Muhammad Osama Ali Hashmi <span>♡</span> Areeba Ashraf
           </div>
 
           <div className="gold-divider">
@@ -252,7 +252,9 @@ function Home() {
               <div className="ceremony-content">
                 <span className="ceremony-label">THE CELEBRATION</span>
 
-                <h2>Mehndi 1</h2>
+                <h2>
+                  Bride's <br></br> Mehndi
+                </h2>
 
                 <p>An Evening of Joy & Colors</p>
 
@@ -284,7 +286,9 @@ function Home() {
               <div className="ceremony-content">
                 <span className="ceremony-label">THE CELEBRATION</span>
 
-                <h2>Mehndi 2</h2>
+                <h2>
+                  Groom's <br></br> Mehndi
+                </h2>
 
                 <p>An Evening of Music & Happiness</p>
 

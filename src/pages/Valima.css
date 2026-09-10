@@ -458,7 +458,9 @@ body {
 }
 
 .parents {
-  font-size: 17px;
+  font-size: 25px;
+
+  font-family: "Parisienne", cursive;
 
   letter-spacing: 3px;
 
@@ -1493,7 +1495,7 @@ body {
   }
 
   .valima-footer strong {
-    font-size: 45px;
+    font-size: 25px !important;
   }
 }
 
@@ -2189,17 +2191,18 @@ body {
      ================================ */
 
   .parents {
-    font-size: 9px;
+    font-size: 17px;
     letter-spacing: 1.2px;
   }
 
   .invite-line {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 1.5px;
   }
 
   .ceremony-title {
-    font-size: 20px;
+    font-size: 30px;
+    font-family: "Parisienne", cursive;
     letter-spacing: 2.5px;
     margin: 6px 0;
   }
@@ -2221,8 +2224,9 @@ body {
   }
 
   .bride-name {
-    font-size: 30px;
+    font-size: 35px !important;
     line-height: 0.95;
+    padding-top: 20px;
   }
 
   .daughter-title {

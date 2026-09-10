@@ -408,7 +408,7 @@ function Mehndi2() {
 
           <div className="cover-symbol">✦</div>
 
-          <h1>Mehndi</h1>
+          <h1>Groom's Mehndi</h1>
 
           <div className="cover-divider">
             <span></span>
@@ -467,13 +467,13 @@ function Mehndi2() {
               <span></span>
             </div>
 
-            <p className="family-name">MR. & MRS. SYED ASIM ALI HASHMI</p>
+            <p className="family-name">Mr & Mrs Syed Asim Ali Hashmi</p>
 
-            <p className="invite-line">CORDIALLY INVITE YOU TO THE</p>
+            <p className="invite-line">Cordially Invite You To The</p>
 
             <h2 className="main-script">Mehndi</h2>
 
-            <p className="celebration-label">MEHNDI CELEBRATION</p>
+            <p className="celebration-label">Mehndi Celebration</p>
 
             <div className="gold-divider bottom-divider">
               <span></span>
@@ -487,7 +487,7 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="couple-section">
-            <p className="eyebrow">OF THEIR BELOVED SON</p>
+            <p className="eyebrow">Of Their Beloved Son</p>
 
             <div className="couple-layout">
               {/* GROOM */}
@@ -511,7 +511,7 @@ function Mehndi2() {
 
                 <h2>Syed Muhammad Osama Ali Hashmi</h2>
 
-                <p>TOGETHER WITH</p>
+                <p>Together With</p>
 
                 <h2>Daughter Of Ashraf Ali</h2>
 
@@ -783,9 +783,9 @@ function Mehndi2() {
                     Mr & Mrs Syed Asim Ali Hashmi
                   </div>
 
-                  {/* <div className="guest-name">
+                  <div className="guest-name">
                     Mr & Mrs Syed Sohail Ali Hashmi
-                  </div> */}
+                  </div>
 
                   <div className="guest-name">
                     Mr & Mrs Syed Salman Ali Hashmi
@@ -818,6 +818,11 @@ function Mehndi2() {
               <div className="rsvp-card">
                 <h3>Syed Asim Ali Hashmi</h3>
                 <a href="tel:03213539769">03213539769</a>
+              </div>
+
+              <div className="rsvp-card">
+                <h3>Syed Sohail Ali Hashmi</h3>
+                <a href="tel:03219211478">03219211478</a>
               </div>
 
               <div className="rsvp-card">

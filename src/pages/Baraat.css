@@ -445,7 +445,7 @@ a {
   min-height: 100svh;
   width: 100%;
 
-  padding: 65px 20px 45px;
+  padding: 0 20px 45px;
 
   display: flex;
   flex-direction: column;
@@ -571,13 +571,18 @@ a {
   margin: 25px 0 0;
 
   font-family: "Parisienne", cursive;
-  font-size: clamp(65px, 10vw, 115px);
+  /* font-size: clamp(65px, 10vw, 115px); */
+  font-size: 50px !important;
   font-weight: 400;
   line-height: 1;
 
   color: #9c2e31;
 
   text-shadow: 0 8px 25px rgba(156, 46, 49, 0.08);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ================================================= */
@@ -597,7 +602,7 @@ a {
   align-items: center;
   justify-content: center;
 
-  gap: 35px;
+  /* gap: 35px; */
 }
 
 .person-visual {
@@ -684,8 +689,8 @@ a {
 }
 
 .couple-center {
-  width: 190px;
-  padding-bottom: 35px;
+  width: 400px;
+  /* padding-bottom: 35px; */
   flex-shrink: 0;
 }
 
@@ -735,7 +740,8 @@ a {
   margin: 40px 0 0;
 
   font-family: "Parisienne", cursive;
-  font-size: clamp(48px, 7vw, 82px);
+  /* font-size: clamp(48px, 7vw, 82px); */
+  font-size: 50px !important;
   font-weight: 400;
   line-height: 1.15;
   color: #9c2e31;
@@ -1786,7 +1792,7 @@ a {
 
     margin-top: 0;
 
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
 
   .person-visual {
@@ -1815,9 +1821,9 @@ a {
   }
 
   .couple-center {
-    width: 80px;
+    width: 50% !important;
 
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
   }
 
   .ornament-line {
@@ -1835,13 +1841,16 @@ a {
   }
 
   .groom-name {
-    font-size: 37px;
+    font-size: 35px !important;
 
     line-height: 1;
 
     max-width: 95%;
 
     margin: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .person-title {
@@ -2037,7 +2046,7 @@ a {
   }
 
   .bride-name {
-    font-size: 46px;
+    font-size: 35px !important;
   }
 
   .couple-visuals {
@@ -2061,7 +2070,7 @@ a {
   }
 
   .couple-center {
-    width: 65px;
+    width: 85px;
   }
 
   .groom-name {
@@ -2854,5 +2863,75 @@ a {
 
   .gift-message-box .gift-message-text {
     font-size: 10px;
+  }
+}
+
+/* =========================================================
+   FINAL BARAAT GROOM NAME FIX
+   Prevents name overflow on desktop + mobile
+========================================================= */
+
+.baraat-page .groom-name {
+  display: block !important;
+  width: 100% !important;
+  max-width: 720px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  font-family: "Parisienne", cursive !important;
+  font-size: 50px !important;
+  font-weight: 400 !important;
+  line-height: 0.95 !important;
+
+  text-align: center !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  overflow: visible !important;
+
+  padding: 0 10px !important;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+  .baraat-page .groom-name {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    font-size: 32px !important;
+    line-height: 0.92 !important;
+
+    margin-top: 12px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    padding: 0 8px !important;
+
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 420px) {
+  .baraat-page .groom-name {
+    font-size: 30px !important;
+    line-height: 0.9 !important;
+    padding: 0 6px !important;
+  }
+}
+
+/* ================= VERY SMALL MOBILE ================= */
+
+@media (max-width: 360px) {
+  .baraat-page .groom-name {
+    font-size: 28px !important;
+    line-height: 0.88 !important;
+    padding: 0 5px !important;
   }
 }

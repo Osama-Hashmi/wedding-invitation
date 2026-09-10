@@ -438,18 +438,18 @@ function Valima() {
         <div className="hero-content">
           <p className="bismillah">﷽</p>
 
-          <p className="parents">MR. & MRS. SYED ASIM ALI HASHMI</p>
+          <p className="parents">Mr & Mrs Syed Asim Ali Hashmi</p>
 
           {/* <p className="parents">
             Grandson of Mr & Mrs Syed Qasim Ali Hashmi (Late) & Mr & Mrs
             Muhammad Jaleel Uddin (Late)
           </p> */}
 
-          <p className="invite-line">INVITE YOU TO THE</p>
+          <p className="invite-line">Invite You To The</p>
 
-          <h2 className="ceremony-title">VALIMA RECEPTION</h2>
+          <h2 className="ceremony-title">Valima Reception</h2>
 
-          <p className="invite-line">OF THEIR BELOVED SON</p>
+          <p className="invite-line">Of Their Beloved Son</p>
 
           {/* ================= COUPLE ================= */}
 
@@ -496,7 +496,7 @@ function Valima() {
           =================================================== */}
 
       <section className="valima-date-section">
-        <p className="section-label">A DATE TO REMEMBER</p>
+        <p className="section-label">A Date To Remember</p>
 
         <h2 className="section-heading">Scratch to Reveal</h2>
 
@@ -565,17 +565,17 @@ function Valima() {
 
         <div className="program-list">
           <div className="program-row">
-            <span>GUEST ARRIVAL</span>
+            <span>Guest Arrival</span>
             <b>09:00 PM</b>
           </div>
 
           <div className="program-row">
-            <span>RECEPTION</span>
+            <span>Reception</span>
             <b>10:00 PM</b>
           </div>
 
           <div className="program-row">
-            <span>DINNER</span>
+            <span>Dinner</span>
             <b>11:00 PM</b>
           </div>
         </div>
@@ -611,6 +611,8 @@ function Valima() {
             <div className="awaiting-column awaiting-left">
               <div className="guest-name">Mr & Mrs Syed Asim Ali Hashmi</div>
 
+              <div className="guest-name">Mr & Mrs Syed Sohail Ali Hashmi</div>
+
               <div className="guest-name">Mr & Mrs Syed Salman Ali Hashmi</div>
             </div>
 
@@ -637,6 +639,12 @@ function Valima() {
             <h3>Syed Asim Ali Hashmi</h3>
 
             <a href="tel:03213539769">03213539769</a>
+          </div>
+
+          <div className="rsvp-person">
+            <h3>Syed Sohail Ali Hashmi</h3>
+
+            <a href="tel:03219211478">03219211478</a>
           </div>
 
           <div className="rsvp-person">

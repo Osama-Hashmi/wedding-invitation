@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Parisienne&display=swap");
 
 /* =========================================================
-   MEHNDI 2 — ISOLATED RESET
-   IMPORTANT:
-   Everything below is scoped to .mehndi2-page
+   MEHNDI 2 — COMPLETE RESPONSIVE CSS
+   JSX DOES NOT NEED ANY CHANGE
+========================================================= */
+
+/* =========================================================
+   RESET
 ========================================================= */
 
 .mehndi2-page,
@@ -16,22 +19,16 @@
 .mehndi2-page {
   position: relative;
   width: 100%;
-  min-width: 0;
   max-width: 100%;
+  min-width: 0;
   min-height: 100vh;
   margin: 0;
   padding: 0;
-
   overflow-x: hidden;
-
   background: linear-gradient(180deg, #0b2c1d 0%, #08251a 50%, #061a12 100%);
-
   color: #f1e3b9;
-
   font-family: "Montserrat", sans-serif;
-
   text-align: center;
-
   isolation: isolate;
 }
 
@@ -74,9 +71,7 @@
 .mehndi2-page .mehndi2-cover {
   position: fixed;
   inset: 0;
-
   z-index: 9999;
-
   width: 100%;
   height: 100vh;
   height: 100dvh;
@@ -86,7 +81,6 @@
   justify-content: center;
 
   padding: 30px;
-
   overflow: hidden;
 
   background:
@@ -116,33 +110,24 @@
 
 .mehndi2-page .cover-glow {
   position: absolute;
-
   width: 500px;
   height: 500px;
-
   border-radius: 50%;
-
   background: rgba(216, 181, 87, 0.08);
-
   filter: blur(40px);
-
   pointer-events: none;
 }
 
 .mehndi2-page .cover-pattern {
   position: absolute;
   inset: 0;
-
   opacity: 0.12;
-
   background-image: radial-gradient(
     circle,
     rgba(214, 179, 86, 0.5) 1px,
     transparent 1px
   );
-
   background-size: 30px 30px;
-
   pointer-events: none;
 }
 
@@ -163,15 +148,12 @@
 
 .mehndi2-page .cover-flower {
   position: absolute;
-
   color: rgba(218, 184, 92, 0.14);
-
   font-family: "Cormorant Garamond", serif;
-
   font-size: 180px;
   line-height: 1;
-
   pointer-events: none;
+  user-select: none;
 }
 
 .mehndi2-page .flower-one {
@@ -206,7 +188,8 @@
   position: relative;
   z-index: 2;
 
-  width: min(800px, 100%);
+  width: min(900px, 100%);
+  max-width: 900px;
 
   display: flex;
   flex-direction: column;
@@ -216,7 +199,6 @@
   margin: 0 auto;
 
   text-align: center;
-
   animation: mehndi2CoverEnter 1s ease both;
 }
 
@@ -233,14 +215,14 @@
 }
 
 .mehndi2-page .cover-top {
+  display: block;
   margin: 0;
 
   color: #d8b65c;
-
   font-size: 10px;
   font-weight: 600;
-
   letter-spacing: 5px;
+  line-height: 1.4;
 
   text-align: center;
 }
@@ -249,59 +231,57 @@
   margin: 18px 0 0;
 
   color: #d9b85e;
-
   font-family: "Cormorant Garamond", serif;
-
   font-size: 22px;
-
   line-height: 1;
 }
 
 .mehndi2-page .cover-content h1 {
-  margin: 12px 0 0;
+  display: block;
+
+  width: 100%;
+  max-width: none;
+
+  margin: 14px auto 0;
+  padding: 0;
 
   color: #e0c06c;
 
   font-family: "Parisienne", cursive;
-
-  font-size: clamp(75px, 13vw, 155px);
-
+  font-size: clamp(78px, 10vw, 145px);
   font-weight: 400;
-
-  line-height: 0.85;
+  line-height: 0.9;
 
   text-align: center;
 
+  /* Desktop = ALWAYS one line */
   white-space: nowrap;
 
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
+/* =========================================================
+   COVER DIVIDER
+========================================================= */
+
 .mehndi2-page .cover-divider {
   width: min(360px, 75%);
-
   display: flex;
   align-items: center;
-
   gap: 14px;
-
-  margin: 24px auto 18px;
+  margin: 25px auto 18px;
 }
 
 .mehndi2-page .cover-divider span {
   flex: 1;
-
   width: 100%;
   height: 1px;
-
   background: rgba(217, 183, 91, 0.55);
 }
 
 .mehndi2-page .cover-divider b {
   flex: 0 0 auto;
-
   color: #dcb85e;
-
   font-weight: 400;
 }
 
@@ -312,11 +292,8 @@
   margin: 0 auto;
 
   color: #cdbd91;
-
   font-size: 9px;
-
   letter-spacing: 4px;
-
   line-height: 1.7;
 
   text-align: center;
@@ -326,15 +303,11 @@
   margin: 18px 0 0;
 
   color: #e1c36e;
-
   font-family: "Parisienne", cursive;
-
   font-size: clamp(42px, 6vw, 68px);
-
   line-height: 1;
 
   text-align: center;
-
   white-space: nowrap;
 }
 
@@ -342,7 +315,6 @@
   margin: 0 9px;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 0.45em;
 }
 
@@ -350,9 +322,7 @@
   margin: 17px 0 32px;
 
   color: #cfc09a;
-
   font-size: 9px;
-
   letter-spacing: 4px;
 
   text-align: center;
@@ -367,7 +337,6 @@
 
   width: 250px;
   height: 58px;
-
   flex: 0 0 auto;
 
   display: flex;
@@ -375,7 +344,6 @@
   justify-content: center;
 
   gap: 14px;
-
   margin: 0 auto;
 
   overflow: hidden;
@@ -398,7 +366,6 @@
 
 .mehndi2-page .open-button:hover {
   transform: translateY(-4px);
-
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
 }
 
@@ -408,7 +375,6 @@
 
 .mehndi2-page .button-shine {
   position: absolute;
-
   top: 0;
   left: -120%;
 
@@ -450,22 +416,18 @@
 .mehndi2-page .open-button strong {
   font-size: 9px;
   letter-spacing: 3px;
-  border-radius: 15px;
 }
 
 .mehndi2-page .open-button b {
   font-size: 18px;
   font-weight: 400;
-  border-radius: 15px;
 }
 
 .mehndi2-page .tap-hint {
   margin: 18px 0 0;
 
   color: #a99a75;
-
   font-size: 7px;
-
   letter-spacing: 3px;
 
   text-align: center;
@@ -585,7 +547,6 @@
 
   font-size: 9px;
   font-weight: 600;
-
   letter-spacing: 5px;
 
   text-align: center;
@@ -596,9 +557,9 @@
 
   color: #8f896f;
 
-  font-size: 7px;
-
+  font-size: 14px;
   letter-spacing: 3px;
+  line-height: 1.5;
 
   text-align: center;
 }
@@ -620,7 +581,6 @@
 
 .mehndi2-page .gold-divider span {
   flex: 1;
-
   height: 1px;
 
   background: rgba(208, 170, 76, 0.5);
@@ -630,7 +590,6 @@
   flex: 0 0 auto;
 
   color: #d8b75e;
-
   font-weight: 400;
 }
 
@@ -652,9 +611,7 @@
   color: #d9b75b;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 46px;
-
   line-height: 1;
 }
 
@@ -665,8 +622,8 @@
 
   font-size: 10px;
   font-weight: 600;
-
   letter-spacing: 4px;
+  line-height: 1.5;
 
   text-align: center;
 }
@@ -677,7 +634,6 @@
   color: #a99b79;
 
   font-size: 8px;
-
   letter-spacing: 4px;
 
   text-align: center;
@@ -691,12 +647,11 @@
   font-family: "Parisienne", cursive;
 
   font-size: clamp(80px, 12vw, 150px);
-
   line-height: 0.9;
-
   font-weight: 400;
 
   text-align: center;
+  white-space: nowrap;
 }
 
 .mehndi2-page .celebration-label {
@@ -705,7 +660,6 @@
   color: #b5a57d;
 
   font-size: 9px;
-
   letter-spacing: 5px;
 
   text-align: center;
@@ -716,7 +670,7 @@
 }
 
 /* =========================================================
-   COUPLE
+   COUPLE SECTION
 ========================================================= */
 
 .mehndi2-page .couple-section {
@@ -735,34 +689,41 @@
 
   color: #a99b79;
 
-  font-size: 8px;
-
+  font-size: 16px;
   letter-spacing: 4px;
 
   text-align: center;
 }
 
+/* =========================================================
+   COUPLE LAYOUT — DESKTOP
+========================================================= */
+
 .mehndi2-page .couple-layout {
   width: 100%;
+  max-width: 1040px;
+
+  margin: 0 auto;
 
   display: grid;
 
   grid-template-columns:
+    225px
     minmax(0, 1fr)
-    minmax(300px, 0.95fr)
-    minmax(0, 1fr);
+    225px;
 
   align-items: start;
 
-  gap: 40px;
-
-  margin: 0 auto;
+  column-gap: 35px;
 }
 
-.mehndi2-page .couple-person {
-  min-width: 0;
+/* =========================================================
+   COUPLE PERSON
+========================================================= */
 
+.mehndi2-page .couple-person {
   width: 100%;
+  min-width: 0;
 
   display: flex;
   flex-direction: column;
@@ -780,11 +741,9 @@
   flex: 0 0 225px;
 
   margin: 0 auto 22px;
-
   padding: 7px;
 
   border: 1px solid #cba64c;
-
   border-radius: 50%;
 
   background: #123e29;
@@ -798,13 +757,11 @@
   content: "";
 
   position: absolute;
-
   inset: 10px;
 
   z-index: 2;
 
   border: 1px solid rgba(235, 213, 153, 0.5);
-
   border-radius: 50%;
 
   pointer-events: none;
@@ -844,7 +801,6 @@
   color: white;
 
   font-size: 9px;
-
   letter-spacing: 4px;
 }
 
@@ -854,7 +810,6 @@
   color: #c7a552;
 
   font-size: 8px;
-
   letter-spacing: 4px;
 
   text-align: center;
@@ -865,77 +820,86 @@
 ========================================================= */
 
 .mehndi2-page .couple-center {
-  min-width: 0;
   width: 100%;
+  min-width: 0;
+
+  max-width: 540px;
+
+  margin: 0 auto;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   text-align: center;
+
+  overflow: visible;
 }
 
 .mehndi2-page .center-flower {
   display: block;
 
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 
   color: #d9b75d;
 
+  font-family: "Cormorant Garamond", serif;
   font-size: 35px;
-
   line-height: 1;
 }
 
+/*
+   LONG NAMES:
+   Desktop = balanced lines
+   Mobile = naturally wraps without overflow
+*/
+
 .mehndi2-page .couple-center h2 {
+  display: block;
+
   width: 100%;
-  max-width: 360px;
+  max-width: 540px;
 
   margin: 0 auto;
+  padding: 0 5px;
 
   color: #dfbd63;
 
   font-family: "Parisienne", cursive;
 
-  font-size: clamp(38px, 4.2vw, 60px);
-
-  line-height: 1.05;
-
+  /* font-size: clamp(42px, 4.3vw, 58px); */
+  font-size: 36px !important;
   font-weight: 400;
+
+  line-height: 1.08;
 
   text-align: center;
 
   white-space: normal;
 
-  overflow-wrap: break-word;
-
+  overflow-wrap: normal;
   word-break: normal;
-
-  display: block;
-
-  padding: 0 8px;
+  hyphens: none;
 }
 
-.mehndi2-page .couple-center h2 span {
-  margin: 0 7px;
-
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 0.45em;
+/* TOGETHER WITH */
+.mehndi2-page .couple-center h2 + p {
+  margin: 22px 0 13px;
 }
 
 .mehndi2-page .couple-center p {
-  margin: 20px 0 12px;
-
   color: #9f9272;
 
   font-size: 7px;
-
   letter-spacing: 4px;
 
   text-align: center;
 }
+
+/* =========================================================
+   TINY LINE
+========================================================= */
 
 .mehndi2-page .tiny-line {
   width: 130px;
@@ -945,7 +909,7 @@
 
   gap: 8px;
 
-  margin: 0 auto;
+  margin: 2px auto 0;
 }
 
 .mehndi2-page .tiny-line span {
@@ -960,12 +924,11 @@
   color: #d8b75d;
 
   font-size: 10px;
-
   font-weight: 400;
 }
 
 /* =========================================================
-   FULL NAMES
+   FULL NAME
 ========================================================= */
 
 .mehndi2-page .full-name {
@@ -984,11 +947,8 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 28px;
-
   letter-spacing: 2px;
-
   line-height: 1.2;
-
   font-weight: 500;
 
   text-align: center;
@@ -1002,7 +962,6 @@
   color: #aa9b76;
 
   font-size: 7px;
-
   letter-spacing: 4px;
 
   text-align: center;
@@ -1031,7 +990,6 @@
   color: #c7a650;
 
   font-size: 8px;
-
   letter-spacing: 3px;
 }
 
@@ -1063,11 +1021,8 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: clamp(30px, 4vw, 48px);
-
   line-height: 1.2;
-
   letter-spacing: 3px;
-
   font-weight: 500;
 
   text-align: center;
@@ -1084,7 +1039,6 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 20px;
-
   line-height: 1.8;
 
   text-align: center;
@@ -1096,12 +1050,11 @@
   color: #c9a64d;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 40px;
 }
 
 /* =========================================================
-   DATE
+   DATE SECTION
 ========================================================= */
 
 .mehndi2-page .date-section {
@@ -1133,7 +1086,6 @@
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
 
   touch-action: none;
-
   user-select: none;
 }
 
@@ -1178,7 +1130,6 @@
   color: #aa9461;
 
   font-size: 7px;
-
   letter-spacing: 4px;
 }
 
@@ -1188,7 +1139,6 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 112px;
-
   line-height: 0.72;
 }
 
@@ -1199,7 +1149,6 @@
 
   font-size: 14px;
   font-weight: 600;
-
   letter-spacing: 8px;
 }
 
@@ -1211,7 +1160,6 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 27px;
-
   letter-spacing: 5px;
 }
 
@@ -1221,7 +1169,6 @@
   color: #cba957;
 
   font-size: 8px;
-
   letter-spacing: 5px;
 }
 
@@ -1255,6 +1202,7 @@
 
   -webkit-user-select: none;
   user-select: none;
+
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
 
@@ -1275,7 +1223,6 @@
   color: #91876e;
 
   font-size: 7px;
-
   letter-spacing: 3px;
 
   text-align: center;
@@ -1299,7 +1246,6 @@
   color: #a99a77;
 
   font-size: 8px;
-
   letter-spacing: 4px;
 
   text-align: center;
@@ -1339,9 +1285,7 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 42px;
-
   line-height: 1;
-
   font-weight: 500;
 
   text-align: center;
@@ -1355,7 +1299,6 @@
   color: #9e967f;
 
   font-size: 7px;
-
   letter-spacing: 2px;
 
   text-align: center;
@@ -1429,7 +1372,6 @@
 
 .mehndi2-page .timeline-time strong {
   font-size: 30px;
-
   font-weight: 500;
 }
 
@@ -1439,7 +1381,6 @@
   font-family: "Montserrat", sans-serif;
 
   font-size: 7px;
-
   letter-spacing: 2px;
 }
 
@@ -1462,7 +1403,6 @@
   justify-content: center;
 
   border: 1px solid #c9a64d;
-
   border-radius: 50%;
 
   background: #0a291b;
@@ -1484,7 +1424,6 @@
   color: #aa9b76;
 
   font-size: 7px;
-
   letter-spacing: 3px;
 }
 
@@ -1496,9 +1435,7 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 27px;
-
   line-height: 1.15;
-
   font-weight: 500;
 }
 
@@ -1512,7 +1449,6 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 16px;
-
   line-height: 1.4;
 }
 
@@ -1564,9 +1500,7 @@
   font-family: "Parisienne", cursive;
 
   font-size: clamp(65px, 8vw, 90px);
-
   line-height: 1;
-
   font-weight: 400;
 
   text-align: center;
@@ -1578,7 +1512,6 @@
   color: #b79d5b;
 
   font-size: 8px;
-
   letter-spacing: 4px;
 
   text-align: center;
@@ -1592,7 +1525,6 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 20px;
-
   line-height: 1.7;
 
   text-align: center;
@@ -1604,18 +1536,16 @@
 
 .mehndi2-page .directions-button {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
-  border-radius: 15px;
   gap: 13px;
 
   margin: 0 auto;
-
   padding: 15px 27px;
 
   border: 1px solid #cba84e;
+  border-radius: 15px;
 
   background: #b28b2e;
 
@@ -1624,9 +1554,7 @@
   text-decoration: none;
 
   font-size: 9px;
-
   letter-spacing: 2px;
-
   font-weight: 600;
 
   transition:
@@ -1642,7 +1570,6 @@
 
 .mehndi2-page .directions-button b {
   font-size: 16px;
-
   font-weight: 400;
 }
 
@@ -1687,17 +1614,12 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: clamp(30px, 4vw, 42px);
-
   line-height: 1.2;
-
   font-weight: 500;
-
   letter-spacing: 2px;
 
   text-align: center;
 }
-
-/* Main guest card */
 
 .mehndi2-page .awaiting-card {
   width: 100%;
@@ -1711,7 +1633,6 @@
   padding: 38px 45px;
 
   border: 1px solid rgba(201, 166, 79, 0.35);
-
   border-radius: 14px;
 
   background: linear-gradient(
@@ -1729,25 +1650,18 @@
   text-align: center;
 }
 
-/* Columns */
-
 .mehndi2-page .awaiting-column {
   min-width: 0;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: center;
 
   gap: 22px;
 
   text-align: center;
 }
-
-/* Guest names */
 
 .mehndi2-page .guest-name {
   width: 100%;
@@ -1757,11 +1671,8 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 22px;
-
   font-weight: 500;
-
   line-height: 1.35;
-
   letter-spacing: 1px;
 
   text-align: center;
@@ -1771,19 +1682,13 @@
   opacity: 0;
 }
 
-/* Left names animation */
-
 .mehndi2-page .awaiting-left .guest-name {
   animation: mehndi2AwaitingLeft 0.8s ease-out forwards;
 }
 
-/* Right names animation */
-
 .mehndi2-page .awaiting-right .guest-name {
   animation: mehndi2AwaitingRight 0.8s ease-out forwards;
 }
-
-/* Small stagger */
 
 .mehndi2-page .awaiting-left .guest-name:nth-child(2),
 .mehndi2-page .awaiting-right .guest-name:nth-child(2) {
@@ -1805,20 +1710,14 @@
   animation-delay: 0.6s;
 }
 
-/* =========================================================
-   AWAITING ANIMATIONS
-========================================================= */
-
 @keyframes mehndi2AwaitingLeft {
   from {
     opacity: 0;
-
     transform: translateX(-60px);
   }
 
   to {
     opacity: 1;
-
     transform: translateX(0);
   }
 }
@@ -1826,167 +1725,17 @@
 @keyframes mehndi2AwaitingRight {
   from {
     opacity: 0;
-
     transform: translateX(60px);
   }
 
   to {
     opacity: 1;
-
     transform: translateX(0);
   }
 }
 
 /* =========================================================
-   AWAITING — TABLET
-========================================================= */
-
-@media (max-width: 1000px) and (min-width: 651px) {
-  .mehndi2-page .awaiting-section-mehndi2 {
-    padding: 65px 20px 75px;
-  }
-
-  .mehndi2-page .awaiting-container {
-    max-width: 850px;
-  }
-
-  .mehndi2-page .awaiting-card {
-    gap: 25px;
-
-    padding: 32px 25px;
-  }
-
-  .mehndi2-page .guest-name {
-    font-size: 20px;
-
-    line-height: 1.4;
-  }
-}
-
-/* =========================================================
-   AWAITING — MOBILE
-========================================================= */
-
-@media (max-width: 650px) {
-  .mehndi2-page .awaiting-section-mehndi2 {
-    width: 100%;
-
-    padding: 55px 15px 65px;
-
-    overflow: hidden;
-  }
-
-  .mehndi2-page .awaiting-container {
-    width: 100%;
-
-    max-width: 100%;
-  }
-
-  .mehndi2-page .awaiting-container h2 {
-    margin: 0 0 28px;
-
-    font-size: 29px;
-
-    line-height: 1.2;
-
-    letter-spacing: 1.5px;
-  }
-
-  .mehndi2-page .awaiting-card {
-    width: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 25px;
-
-    padding: 30px 18px;
-
-    border-radius: 12px;
-  }
-
-  .mehndi2-page .awaiting-column {
-    width: 100%;
-
-    gap: 17px;
-  }
-
-  .mehndi2-page .guest-name {
-    width: 100%;
-
-    padding: 0 5px;
-
-    font-size: 19px;
-
-    line-height: 1.4;
-
-    letter-spacing: 0.5px;
-
-    overflow-wrap: anywhere;
-  }
-
-  /* Keep the two groups visually separated */
-
-  /* .mehndi2-page .awaiting-right {
-    padding-top: 22px;
-
-    border-top: 1px solid rgba(201, 166, 79, 0.2);
-  } */
-}
-
-/* =========================================================
-   AWAITING — SMALL MOBILE
-========================================================= */
-
-@media (max-width: 380px) {
-  .mehndi2-page .awaiting-section-mehndi2 {
-    padding: 48px 12px 58px;
-  }
-
-  .mehndi2-page .awaiting-container h2 {
-    font-size: 26px;
-
-    margin-bottom: 24px;
-  }
-
-  .mehndi2-page .awaiting-card {
-    padding: 27px 14px;
-
-    gap: 22px;
-  }
-
-  .mehndi2-page .awaiting-column {
-    gap: 15px;
-  }
-
-  .mehndi2-page .guest-name {
-    font-size: 17px;
-
-    line-height: 1.4;
-  }
-}
-
-/* =========================================================
-   AWAITING — VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 330px) {
-  .mehndi2-page .awaiting-container h2 {
-    font-size: 24px;
-  }
-
-  .mehndi2-page .awaiting-card {
-    padding: 24px 11px;
-  }
-
-  .mehndi2-page .guest-name {
-    font-size: 16px;
-  }
-}
-
-/* =========================================================
-   FINAL
+   FINAL SECTION
 ========================================================= */
 
 .mehndi2-page .final-section {
@@ -1995,7 +1744,6 @@
   padding: 95px 20px;
 
   border-top: 1px solid rgba(198, 162, 72, 0.18);
-
   border-bottom: 1px solid rgba(198, 162, 72, 0.18);
 
   text-align: center;
@@ -2017,11 +1765,8 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: clamp(29px, 4vw, 46px);
-
   line-height: 1.25;
-
   letter-spacing: 3px;
-
   font-weight: 500;
 
   text-align: center;
@@ -2029,7 +1774,6 @@
 
 .mehndi2-page .final-section h2 span {
   color: #d2ad52;
-
   font-size: 0.78em;
 }
 
@@ -2043,7 +1787,6 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 20px;
-
   line-height: 1.8;
 
   text-align: center;
@@ -2051,7 +1794,6 @@
 
 /* =========================================================
    RSVP
-   FOUR CARDS — SINGLE ROW
 ========================================================= */
 
 .mehndi2-page .rsvp-section {
@@ -2062,13 +1804,12 @@
   text-align: center;
 }
 
-.mehndi2-page .section-heading {
+.mehndi2-page .rsvp-section .section-heading {
   margin: 0 0 20px;
 
-  color: #a99b77;
+  color: #c9a951;
 
   font-size: 20px;
-
   letter-spacing: 4px;
 
   text-align: center;
@@ -2080,7 +1821,6 @@
   color: #9f9478;
 
   font-size: 8px;
-
   letter-spacing: 3px;
 
   text-align: center;
@@ -2093,7 +1833,7 @@
 
   display: grid;
 
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
   gap: 14px;
 
@@ -2103,7 +1843,6 @@
 .mehndi2-page .rsvp-card {
   min-width: 0;
   width: 100%;
-
   min-height: 150px;
 
   display: flex;
@@ -2114,6 +1853,7 @@
   padding: 25px 12px;
 
   border: 1px solid rgba(199, 164, 74, 0.28);
+  border-radius: 20px;
 
   background: rgba(12, 49, 32, 0.72);
 
@@ -2122,8 +1862,6 @@
     border-color 0.3s ease;
 
   text-align: center;
-
-  border-radius: 20px;
 }
 
 .mehndi2-page .rsvp-card:hover {
@@ -2140,7 +1878,6 @@
   color: #aa9a71;
 
   font-size: 7px;
-
   letter-spacing: 3px;
 
   text-align: center;
@@ -2154,9 +1891,7 @@
   font-family: "Cormorant Garamond", serif;
 
   font-size: 22px;
-
   line-height: 1.2;
-
   font-weight: 600;
 
   text-align: center;
@@ -2172,7 +1907,6 @@
   color: #d1ad54;
 
   font-size: 10px;
-
   letter-spacing: 1px;
 
   text-decoration: none;
@@ -2189,7 +1923,7 @@
 .mehndi2-page .mehndi-footer {
   width: 100%;
 
-  padding: 70px 0 20px;
+  padding: 0 20px 20px;
 
   text-align: center;
 }
@@ -2208,33 +1942,34 @@
   color: #9f9475;
 
   font-size: 8px;
-
   letter-spacing: 5px;
 
   text-align: center;
 }
 
 .mehndi2-page .mehndi-footer h2 {
-  margin: 0;
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto;
 
   color: #d9b55a;
 
   font-family: "Parisienne", cursive;
 
-  font-size: clamp(50px, 1vw, 75px);
-
+  font-size: clamp(42px, 5vw, 72px);
   line-height: 1.1;
-
   font-weight: 400;
 
   text-align: center;
+
+  overflow-wrap: break-word;
 }
 
 .mehndi2-page .mehndi-footer h2 span {
   margin: 0 9px;
 
   font-family: "Cormorant Garamond", serif;
-
   font-size: 0.55em;
 }
 
@@ -2246,920 +1981,14 @@
   color: #938a73;
 
   font-size: 8px;
-
   letter-spacing: 4px;
 
   text-align: center;
 }
 
 /* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 1000px) {
-  .mehndi2-page .couple-layout {
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(250px, 0.85fr)
-      minmax(0, 1fr);
-
-    gap: 20px;
-  }
-
-  .mehndi2-page .portrait-frame {
-    width: 190px;
-    height: 190px;
-
-    flex-basis: 190px;
-  }
-
-  .mehndi2-page .couple-center h2 {
-    font-size: 54px;
-  }
-
-  .mehndi2-page .rsvp-grid {
-    width: 100%;
-
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    gap: 10px;
-  }
-
-  .mehndi2-page .rsvp-card {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  .mehndi2-page .rsvp-card h3 {
-    font-size: 19px;
-  }
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 650px) {
-  .mehndi2-page {
-    width: 100%;
-    max-width: 100%;
-
-    overflow-x: hidden;
-  }
-
-  .mehndi2-page .mehndi2-cover {
-    padding: 18px;
-  }
-
-  /* COVER */
-
-  .mehndi2-page .frame-one {
-    inset: 11px;
-  }
-
-  .mehndi2-page .frame-two {
-    inset: 20px;
-  }
-
-  .mehndi2-page .cover-flower {
-    font-size: 105px;
-  }
-
-  .mehndi2-page .flower-one {
-    top: -25px;
-    left: -30px;
-  }
-
-  .mehndi2-page .flower-two {
-    top: -25px;
-    right: -30px;
-  }
-
-  .mehndi2-page .flower-three {
-    bottom: -25px;
-    left: -30px;
-  }
-
-  .mehndi2-page .flower-four {
-    right: -30px;
-    bottom: -25px;
-  }
-
-  .mehndi2-page .cover-content {
-    width: 100%;
-
-    max-width: 100%;
-  }
-
-  .mehndi2-page .cover-top {
-    max-width: 280px;
-
-    font-size: 7px;
-
-    letter-spacing: 2.5px;
-  }
-
-  .mehndi2-page .cover-symbol {
-    margin-top: 12px;
-
-    font-size: 18px;
-  }
-
-  .mehndi2-page .cover-content h1 {
-    font-size: clamp(60px, 22vw, 88px);
-
-    white-space: nowrap;
-  }
-
-  .mehndi2-page .cover-divider {
-    width: 190px;
-
-    margin: 14px auto;
-  }
-
-  .mehndi2-page .cover-subtitle {
-    max-width: 285px;
-
-    font-size: 6px;
-
-    letter-spacing: 2px;
-  }
-
-  .mehndi2-page .cover-couple {
-    font-size: 38px;
-  }
-
-  .mehndi2-page .cover-date {
-    margin-bottom: 24px;
-
-    font-size: 7px;
-
-    letter-spacing: 2.5px;
-  }
-
-  .mehndi2-page .open-button {
-    width: 215px;
-    height: 53px;
-
-    gap: 10px;
-  }
-
-  .mehndi2-page .open-button strong {
-    font-size: 8px;
-
-    letter-spacing: 2px;
-  }
-
-  .mehndi2-page .open-button b {
-    font-size: 16px;
-  }
-
-  .mehndi2-page .tap-hint {
-    font-size: 6px;
-
-    letter-spacing: 2px;
-  }
-
-  /* MAIN */
-
-  .mehndi2-page .mehndi2-content {
-    padding: 65px 15px 45px;
-  }
-
-  .mehndi2-page .decor-one {
-    left: -75px;
-
-    font-size: 130px;
-  }
-
-  .mehndi2-page .decor-two {
-    right: -70px;
-
-    font-size: 140px;
-  }
-
-  /* GENERAL */
-
-  .mehndi2-page .section-heading {
-    font-size: 8px;
-
-    letter-spacing: 3px;
-  }
-
-  .mehndi2-page .section-subheading {
-    max-width: 300px;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    line-height: 1.5;
-  }
-
-  /* INTRO */
-
-  .mehndi2-page .intro-section {
-    padding-bottom: 50px;
-  }
-
-  .mehndi2-page .bismillah {
-    font-size: 36px;
-  }
-
-  .mehndi2-page .family-name {
-    font-size: 7px;
-
-    letter-spacing: 2px;
-
-    line-height: 1.7;
-  }
-
-  .mehndi2-page .invite-line {
-    font-size: 6px;
-
-    letter-spacing: 2px;
-  }
-
-  .mehndi2-page .main-script {
-    font-size: clamp(65px, 20vw, 82px);
-
-    white-space: nowrap;
-  }
-
-  .mehndi2-page .celebration-label {
-    font-size: 7px;
-
-    letter-spacing: 3px;
-  }
-
-  /* COUPLE */
-
-  .mehndi2-page .couple-section {
-    padding: 45px 0;
-  }
-
-  .mehndi2-page .eyebrow {
-    margin-bottom: 30px;
-
-    font-size: 6px;
-
-    letter-spacing: 2px;
-  }
-
-  .mehndi2-page .couple-layout {
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 42px;
-  }
-
-  /* IMPORTANT:
-     Scoped so it cannot affect other pages */
-
-  .mehndi2-page .couple-person.groom {
-    order: 1;
-  }
-
-  .mehndi2-page .couple-center {
-    order: 2;
-  }
-
-  .mehndi2-page .couple-person.bride {
-    order: 3;
-  }
-
-  .mehndi2-page .portrait-frame {
-    width: 165px;
-    height: 165px;
-
-    flex-basis: 165px;
-  }
-
-  .mehndi2-page .portrait-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-  }
-
-  .mehndi2-page .couple-person {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .mehndi2-page .couple-center {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 4px;
-  }
-
-  .mehndi2-page .couple-center h2 {
-    width: 100%;
-    max-width: 100%;
-
-    font-size: clamp(34px, 12vw, 48px);
-
-    line-height: 1.08;
-
-    white-space: normal;
-
-    overflow-wrap: break-word;
-
-    word-break: normal;
-
-    text-align: center;
-  }
-
-  .mehndi2-page .center-flower {
-    font-size: 28px;
-  }
-
-  .mehndi2-page .full-name {
-    margin-top: 40px;
-  }
-
-  .mehndi2-page .full-name h3 {
-    padding: 0 10px;
-
-    font-size: 22px;
-
-    line-height: 1.3;
-  }
-
-  /* MESSAGE */
-
-  .mehndi2-page .message-section {
-    padding: 70px 4px 65px;
-  }
-
-  .mehndi2-page .message-section h2 {
-    font-size: 27px;
-
-    letter-spacing: 2px;
-  }
-
-  .mehndi2-page .message-section p {
-    font-size: 17px;
-
-    line-height: 1.7;
-  }
-
-  /* DATE */
-
-  .mehndi2-page .date-section {
-    padding: 55px 0 65px;
-  }
-
-  .mehndi2-page .scratch-card {
-    width: 100%;
-    max-width: 480px;
-
-    height: 330px;
-  }
-
-  .mehndi2-page .date-number {
-    font-size: 90px;
-  }
-
-  .mehndi2-page .date-month {
-    font-size: 12px;
-
-    letter-spacing: 5px;
-  }
-
-  .mehndi2-page .date-year {
-    font-size: 22px;
-  }
-
-  .mehndi2-page .date-day {
-    font-size: 7px;
-
-    letter-spacing: 4px;
-  }
-
-  .mehndi2-page .scratch-note {
-    font-size: 6px;
-
-    letter-spacing: 2px;
-  }
-
-  /* COUNTDOWN */
-
-  .mehndi2-page .countdown-section {
-    margin-top: 55px;
-  }
-
-  .mehndi2-page .countdown-grid {
-    width: 100%;
-
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 9px;
-  }
-
-  .mehndi2-page .count-box {
-    padding: 19px 6px;
-  }
-
-  .mehndi2-page .count-box strong {
-    font-size: 34px;
-  }
-
-  .mehndi2-page .count-box span {
-    font-size: 6px;
-  }
-
-  /* TIMELINE */
-
-  .mehndi2-page .timeline-section {
-    padding: 55px 0 65px;
-  }
-
-  .mehndi2-page .timeline {
-    width: 100%;
-  }
-
-  .mehndi2-page .timeline-item {
-    grid-template-columns:
-      68px
-      38px
-      minmax(0, 1fr);
-
-    min-height: 125px;
-  }
-
-  .mehndi2-page .timeline-item:not(:last-child)::after {
-    left: 87px;
-
-    top: 75px;
-
-    bottom: -28px;
-  }
-
-  .mehndi2-page .timeline-time {
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-end;
-
-    gap: 0;
-
-    padding-right: 8px;
-  }
-
-  .mehndi2-page .timeline-time strong {
-    font-size: 21px;
-  }
-
-  .mehndi2-page .timeline-time small {
-    margin-top: 2px;
-
-    font-size: 6px;
-  }
-
-  .mehndi2-page .timeline-dot {
-    width: 31px;
-    height: 31px;
-
-    font-size: 9px;
-  }
-
-  .mehndi2-page .timeline-info {
-    padding-left: 10px;
-  }
-
-  .mehndi2-page .timeline-info span {
-    font-size: 5.5px;
-
-    letter-spacing: 1.5px;
-  }
-
-  .mehndi2-page .timeline-info h3 {
-    font-size: 20px;
-
-    line-height: 1.15;
-  }
-
-  .mehndi2-page .timeline-info p {
-    font-size: 14px;
-
-    line-height: 1.35;
-  }
-
-  /* VENUE */
-
-  .mehndi2-page .venue-section {
-    padding: 55px 0 65px;
-  }
-
-  .mehndi2-page .venue-card {
-    padding: 45px 15px;
-  }
-
-  .mehndi2-page .venue-card h2 {
-    font-size: 62px;
-  }
-
-  .mehndi2-page .venue-label {
-    font-size: 6px;
-
-    letter-spacing: 3px;
-  }
-
-  .mehndi2-page .venue-description {
-    font-size: 17px;
-  }
-
-  .mehndi2-page .directions-button {
-    padding: 14px 18px;
-
-    border-radius: 15px;
-
-    font-size: 7px;
-
-    letter-spacing: 1.5px;
-  }
-
-  /* FINAL */
-
-  .mehndi2-page .final-section {
-    padding: 70px 7px;
-  }
-
-  .mehndi2-page .final-section h2 {
-    font-size: 26px;
-
-    letter-spacing: 2px;
-  }
-
-  .mehndi2-page .final-section p {
-    font-size: 17px;
-
-    line-height: 1.7;
-  }
-
-  /* =====================================================
-     RSVP — MOBILE LIST
-  ===================================================== */
-
-  .mehndi2-page .rsvp-section {
-    width: 100%;
-    padding: 65px 18px 55px;
-    font-size: 20px;
-  }
-
-  .mehndi2-page .rsvp-section p {
-    font-size: 20px !important;
-  }
-
-  .mehndi2-page .rsvp-grid {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: stretch;
-  }
-
-  .mehndi2-page .rsvp-card {
-    width: 100%;
-    min-width: 0;
-    min-height: 0;
-    padding: 20px 18px;
-    border-radius: 14px;
-  }
-
-  .mehndi2-page .rsvp-card span {
-    margin-bottom: 7px;
-    font-size: 7px;
-    letter-spacing: 2px;
-  }
-
-  .mehndi2-page .rsvp-card h3 {
-    font-size: 21px;
-    line-height: 1.2;
-    word-break: normal;
-    overflow-wrap: anywhere;
-  }
-
-  .mehndi2-page .rsvp-card a {
-    margin-top: 9px;
-    font-size: 11px;
-    letter-spacing: 1px;
-    word-break: normal;
-  }
-
-  /* FOOTER */
-
-  .mehndi2-page .mehndi-footer {
-    padding-top: 50px;
-  }
-
-  .mehndi2-page .mehndi-footer h2 {
-    font-size: 53px;
-  }
-
-  .mehndi2-page .mehndi-footer p {
-    font-size: 7px;
-
-    letter-spacing: 3px;
-  }
-
-  .mehndi2-page .desktop-only {
-    display: none;
-  }
-}
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 380px) {
-  .mehndi2-page .cover-content h1 {
-    font-size: 72px;
-  }
-
-  .mehndi2-page .cover-couple {
-    font-size: 33px;
-  }
-
-  .mehndi2-page .open-button {
-    width: 200px;
-  }
-
-  .mehndi2-page .main-script {
-    font-size: 72px;
-  }
-
-  .mehndi2-page .portrait-frame {
-    width: 145px;
-    height: 145px;
-
-    flex-basis: 145px;
-  }
-
-  .mehndi2-page .couple-center h2 {
-    font-size: 43px;
-    line-height: 1.08;
-  }
-
-  .mehndi2-page .scratch-card {
-    height: 300px;
-  }
-
-  .mehndi2-page .date-number {
-    font-size: 80px;
-  }
-
-  .mehndi2-page .date-month {
-    font-size: 11px;
-
-    letter-spacing: 4px;
-  }
-
-  .mehndi2-page .venue-card h2 {
-    font-size: 52px;
-  }
-
-  .mehndi2-page .rsvp-grid {
-    gap: 10px;
-  }
-
-  .mehndi2-page .rsvp-card {
-    min-height: 0;
-    padding: 17px 15px;
-  }
-
-  .mehndi2-page .rsvp-card h3 {
-    font-size: 19px;
-  }
-
-  .mehndi2-page .rsvp-card a {
-    font-size: 10px;
-  }
-
-  .mehndi2-page .mehndi-footer h2 {
-    font-size: 46px;
-  }
-}
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 330px) {
-  .mehndi2-page .cover-content h1 {
-    font-size: 65px;
-  }
-
-  .mehndi2-page .cover-couple {
-    font-size: 29px;
-  }
-
-  .mehndi2-page .main-script {
-    font-size: 64px;
-  }
-
-  .mehndi2-page .couple-center h2 {
-    font-size: 39px;
-    line-height: 1.08;
-  }
-
-  .mehndi2-page .portrait-frame {
-    width: 130px;
-    height: 130px;
-
-    flex-basis: 130px;
-  }
-
-  .mehndi2-page .scratch-card {
-    height: 280px;
-  }
-
-  .mehndi2-page .date-number {
-    font-size: 72px;
-  }
-
-  .mehndi2-page .venue-card h2 {
-    font-size: 45px;
-  }
-
-  .mehndi2-page .rsvp-grid {
-    gap: 9px;
-  }
-
-  .mehndi2-page .rsvp-card {
-    min-height: 0;
-    padding: 15px 13px;
-  }
-
-  .mehndi2-page .rsvp-card span {
-    font-size: 6px;
-  }
-
-  .mehndi2-page .rsvp-card h3 {
-    font-size: 18px;
-  }
-
-  .mehndi2-page .rsvp-card a {
-    font-size: 9px;
-  }
-
-  .mehndi2-page .mehndi-footer h2 {
-    font-size: 40px;
-  }
-}
-
-/* =========================================================
-   FINAL COUPLE RESPONSIVE FIX
-   This block intentionally comes last so older rules cannot
-   force the long names onto one line or push them off-screen.
-========================================================= */
-
-.mehndi2-page .couple-layout {
-  width: 100%;
-  max-width: 1080px;
-  display: grid;
-  grid-template-columns: 225px minmax(0, 1fr) 225px;
-  align-items: start;
-  gap: 30px;
-  margin: 0 auto;
-}
-
-.mehndi2-page .couple-person {
-  min-width: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.mehndi2-page .couple-center {
-  min-width: 0;
-  width: 100%;
-  max-width: 570px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: visible;
-}
-
-.mehndi2-page .couple-center h2 {
-  display: block;
-  width: 100%;
-  max-width: 570px;
-  margin: 0;
-  padding: 0 8px;
-  font-family: "Parisienne", cursive;
-  font-size: clamp(40px, 4.2vw, 58px);
-  font-weight: 400;
-  line-height: 1.05;
-  text-align: center;
-  white-space: normal;
-  overflow-wrap: normal;
-  word-break: normal;
-  hyphens: none;
-}
-
-/* Keep the two long names visually separated. */
-.mehndi2-page .couple-center h2 + p {
-  margin: 22px 0 12px;
-}
-
-@media (max-width: 1000px) and (min-width: 651px) {
-  .mehndi2-page .couple-layout {
-    grid-template-columns: 190px minmax(0, 1fr) 190px;
-    gap: 20px;
-  }
-
-  .mehndi2-page .couple-center {
-    max-width: 500px;
-  }
-
-  .mehndi2-page .couple-center h2 {
-    max-width: 500px;
-    padding: 0 5px;
-    font-size: clamp(38px, 5vw, 52px);
-    line-height: 1.06;
-  }
-}
-
-@media (max-width: 650px) {
-  .mehndi2-page .couple-section {
-    padding-left: 10px;
-    padding-right: 10px;
-    overflow: hidden;
-  }
-
-  .mehndi2-page .couple-layout {
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 38px;
-  }
-
-  .mehndi2-page .couple-person,
-  .mehndi2-page .couple-center {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  .mehndi2-page .couple-person.groom {
-    order: 1;
-  }
-
-  .mehndi2-page .couple-center {
-    order: 2;
-    padding: 0;
-  }
-
-  .mehndi2-page .couple-person.bride {
-    order: 3;
-  }
-
-  .mehndi2-page .couple-center h2 {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    padding: 0 8px;
-    font-size: clamp(34px, 11vw, 48px);
-    line-height: 1.08;
-    white-space: normal !important;
-    overflow-wrap: break-word;
-    word-break: normal;
-  }
-
-  .mehndi2-page .couple-center h2 + p {
-    margin: 20px 0 12px;
-  }
-}
-
-@media (max-width: 380px) {
-  .mehndi2-page .couple-center h2 {
-    padding: 0 6px;
-    font-size: clamp(31px, 10.5vw, 40px);
-    line-height: 1.1;
-  }
-}
-
-@media (max-width: 330px) {
-  .mehndi2-page .couple-center h2 {
-    font-size: 34px;
-    line-height: 1.1;
-  }
-}
-
-/* =========================================================
    ADD TO CALENDAR
-   ========================================================= */
+========================================================= */
 
 .mehndi2-page .calendar-button {
   position: relative;
@@ -3218,13 +2047,1004 @@
 
 .mehndi2-page .calendar-button b {
   color: #fff5d1;
+
   font-size: 17px;
   font-weight: 400;
 }
 
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.mehndi2-page .music-button {
+  position: fixed;
+
+  right: 22px;
+  bottom: 22px;
+
+  z-index: 10000;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(216, 181, 86, 0.7);
+  border-radius: 50%;
+
+  background: rgba(10, 42, 28, 0.92);
+
+  color: #e0c06c;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.mehndi2-page .music-button:hover {
+  transform: scale(1.08);
+}
+
+.mehndi2-page .music-button span {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.mehndi2-page .music-button.playing {
+  animation: musicPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes musicPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      0 0 0 rgba(216, 181, 86, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(216, 181, 86, 0.2);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) and (min-width: 651px) {
+  /* COVER */
+
+  .mehndi2-page .cover-content {
+    max-width: 800px;
+  }
+
+  .mehndi2-page .cover-content h1 {
+    font-size: clamp(75px, 11vw, 115px);
+  }
+
+  /* COUPLE */
+
+  .mehndi2-page .couple-layout {
+    max-width: 900px;
+
+    grid-template-columns:
+      190px
+      minmax(0, 1fr)
+      190px;
+
+    column-gap: 20px;
+  }
+
+  .mehndi2-page .portrait-frame {
+    width: 190px;
+    height: 190px;
+    flex-basis: 190px;
+  }
+
+  .mehndi2-page .couple-center {
+    max-width: 480px;
+  }
+
+  .mehndi2-page .couple-center h2 {
+    max-width: 480px;
+
+    font-size: clamp(38px, 5vw, 52px);
+
+    line-height: 1.06;
+  }
+
+  /* RSVP */
+
+  .mehndi2-page .rsvp-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+  .mehndi2-page .rsvp-card {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .mehndi2-page .rsvp-card h3 {
+    font-size: 19px;
+  }
+
+  /* AWAITING */
+
+  .mehndi2-page .awaiting-section-mehndi2 {
+    padding: 65px 20px 75px;
+  }
+
+  .mehndi2-page .awaiting-card {
+    gap: 25px;
+    padding: 32px 25px;
+  }
+
+  .mehndi2-page .guest-name {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+}
+
+/* =========================================================
+   MOBILE — MAX 650px
+========================================================= */
+
+@media (max-width: 650px) {
+  .mehndi2-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* =======================================================
+     COVER
+  ======================================================= */
+
+  .mehndi2-page .mehndi2-cover {
+    padding: 18px;
+  }
+
+  .mehndi2-page .frame-one {
+    inset: 11px;
+  }
+
+  .mehndi2-page .frame-two {
+    inset: 20px;
+  }
+
+  .mehndi2-page .cover-flower {
+    font-size: 105px;
+  }
+
+  .mehndi2-page .flower-one {
+    top: -25px;
+    left: -30px;
+  }
+
+  .mehndi2-page .flower-two {
+    top: -25px;
+    right: -30px;
+  }
+
+  .mehndi2-page .flower-three {
+    bottom: -25px;
+    left: -30px;
+  }
+
+  .mehndi2-page .flower-four {
+    right: -30px;
+    bottom: -25px;
+  }
+
+  .mehndi2-page .cover-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mehndi2-page .cover-top {
+    width: 100%;
+    max-width: 280px;
+
+    font-size: 7px;
+    letter-spacing: 2.5px;
+    line-height: 1.5;
+  }
+
+  .mehndi2-page .cover-symbol {
+    margin-top: 12px;
+    font-size: 18px;
+  }
+
+  /*
+     IMPORTANT:
+     MOBILE COVER TITLE
+     Groom's
+     Mehndi
+  */
+
+  .mehndi2-page .cover-content h1 {
+    width: 260px;
+    max-width: 260px;
+
+    margin-top: 13px;
+
+    font-size: clamp(60px, 20vw, 84px);
+
+    line-height: 0.92;
+
+    white-space: normal;
+
+    text-align: center;
+
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .mehndi2-page .cover-divider {
+    width: 190px;
+    margin: 16px auto 14px;
+  }
+
+  .mehndi2-page .cover-subtitle {
+    width: 100%;
+    max-width: 285px;
+
+    font-size: 6px;
+    letter-spacing: 2px;
+    line-height: 1.6;
+  }
+
+  .mehndi2-page .cover-couple {
+    font-size: 38px;
+  }
+
+  .mehndi2-page .cover-date {
+    margin: 15px 0 24px;
+
+    font-size: 7px;
+    letter-spacing: 2.5px;
+  }
+
+  .mehndi2-page .open-button {
+    width: 215px;
+    height: 53px;
+
+    gap: 10px;
+  }
+
+  .mehndi2-page .open-button strong {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .mehndi2-page .open-button b {
+    font-size: 16px;
+  }
+
+  .mehndi2-page .tap-hint {
+    margin-top: 16px;
+
+    font-size: 6px;
+    letter-spacing: 2px;
+  }
+
+  /* =======================================================
+     MAIN
+  ======================================================= */
+
+  .mehndi2-page .mehndi2-content {
+    padding: 65px 15px 45px;
+  }
+
+  .mehndi2-page .decor-one {
+    left: -75px;
+    font-size: 130px;
+  }
+
+  .mehndi2-page .decor-two {
+    right: -70px;
+    font-size: 140px;
+  }
+
+  /* =======================================================
+     GENERAL
+  ======================================================= */
+
+  .mehndi2-page .section-heading {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+
+  .mehndi2-page .section-subheading {
+    max-width: 300px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    line-height: 1.5;
+  }
+
+  /* =======================================================
+     INTRO
+  ======================================================= */
+
+  .mehndi2-page .intro-section {
+    padding-bottom: 50px;
+  }
+
+  .mehndi2-page .bismillah {
+    font-size: 36px;
+  }
+
+  .mehndi2-page .family-name {
+    padding: 0 5px;
+
+    font-size: 18px;
+    font-family: "Parisienne", cursive;
+    letter-spacing: 2px;
+    line-height: 1.7;
+  }
+
+  .mehndi2-page .invite-line {
+    padding: 0 5px;
+
+    font-size: 6px;
+    letter-spacing: 2px;
+  }
+
+  .mehndi2-page .main-script {
+    font-size: clamp(65px, 20vw, 82px);
+
+    white-space: nowrap;
+  }
+
+  .mehndi2-page .celebration-label {
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+
+  /* =======================================================
+     COUPLE
+  ======================================================= */
+
+  .mehndi2-page .couple-section {
+    padding: 45px 10px;
+
+    overflow: hidden;
+  }
+
+  .mehndi2-page .eyebrow {
+    margin-bottom: 30px;
+
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .mehndi2-page .couple-layout {
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 42px;
+  }
+
+  .mehndi2-page .couple-person {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .mehndi2-page .couple-person.groom {
+    order: 1;
+  }
+
+  .mehndi2-page .couple-center {
+    order: 2;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    padding: 0;
+  }
+
+  .mehndi2-page .couple-person.bride {
+    order: 3;
+  }
+
+  .mehndi2-page .portrait-frame {
+    width: 165px;
+    height: 165px;
+
+    flex-basis: 165px;
+  }
+
+  .mehndi2-page .portrait-frame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /*
+     LONG COUPLE NAMES
+     Keep centered and inside screen
+  */
+
+  .mehndi2-page .couple-center h2 {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 0 10px;
+
+    font-size: clamp(34px, 11vw, 48px);
+
+    line-height: 1.08;
+
+    white-space: normal;
+
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+
+    text-align: center;
+  }
+
+  .mehndi2-page .couple-center h2 + p {
+    margin: 20px 0 12px;
+  }
+
+  .mehndi2-page .center-flower {
+    font-size: 28px;
+  }
+
+  .mehndi2-page .full-name {
+    margin-top: 40px;
+  }
+
+  .mehndi2-page .full-name h3 {
+    padding: 0 10px;
+
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  /* =======================================================
+     MESSAGE
+  ======================================================= */
+
+  .mehndi2-page .message-section {
+    padding: 70px 4px 65px;
+  }
+
+  .mehndi2-page .message-section h2 {
+    font-size: 27px;
+    letter-spacing: 2px;
+  }
+
+  .mehndi2-page .message-section p {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* =======================================================
+     DATE
+  ======================================================= */
+
+  .mehndi2-page .date-section {
+    padding: 55px 0 65px;
+  }
+
+  .mehndi2-page .scratch-card {
+    width: 100%;
+    max-width: 480px;
+
+    height: 330px;
+  }
+
+  .mehndi2-page .date-number {
+    font-size: 90px;
+  }
+
+  .mehndi2-page .date-month {
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+
+  .mehndi2-page .date-year {
+    font-size: 22px;
+  }
+
+  .mehndi2-page .date-day {
+    font-size: 7px;
+    letter-spacing: 4px;
+  }
+
+  .mehndi2-page .scratch-note {
+    font-size: 6px;
+    letter-spacing: 2px;
+  }
+
+  /* =======================================================
+     COUNTDOWN
+  ======================================================= */
+
+  .mehndi2-page .countdown-section {
+    margin-top: 55px;
+  }
+
+  .mehndi2-page .countdown-grid {
+    width: 100%;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 9px;
+  }
+
+  .mehndi2-page .count-box {
+    padding: 19px 6px;
+  }
+
+  .mehndi2-page .count-box strong {
+    font-size: 34px;
+  }
+
+  .mehndi2-page .count-box span {
+    font-size: 6px;
+  }
+
+  /* =======================================================
+     TIMELINE
+  ======================================================= */
+
+  .mehndi2-page .timeline-section {
+    padding: 55px 0 65px;
+  }
+
+  .mehndi2-page .timeline {
+    width: 100%;
+  }
+
+  .mehndi2-page .timeline-item {
+    grid-template-columns:
+      68px
+      38px
+      minmax(0, 1fr);
+
+    min-height: 125px;
+  }
+
+  .mehndi2-page .timeline-item:not(:last-child)::after {
+    left: 87px;
+
+    top: 75px;
+    bottom: -28px;
+  }
+
+  .mehndi2-page .timeline-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 0;
+
+    padding-right: 8px;
+  }
+
+  .mehndi2-page .timeline-time strong {
+    font-size: 21px;
+  }
+
+  .mehndi2-page .timeline-time small {
+    margin-top: 2px;
+
+    font-size: 6px;
+  }
+
+  .mehndi2-page .timeline-dot {
+    width: 31px;
+    height: 31px;
+
+    font-size: 9px;
+  }
+
+  .mehndi2-page .timeline-info {
+    padding-left: 10px;
+  }
+
+  .mehndi2-page .timeline-info span {
+    font-size: 5.5px;
+    letter-spacing: 1.5px;
+  }
+
+  .mehndi2-page .timeline-info h3 {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  .mehndi2-page .timeline-info p {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  /* =======================================================
+     VENUE
+  ======================================================= */
+
+  .mehndi2-page .venue-section {
+    padding: 55px 0 65px;
+  }
+
+  .mehndi2-page .venue-card {
+    padding: 45px 15px;
+  }
+
+  .mehndi2-page .venue-card h2 {
+    font-size: 62px;
+  }
+
+  .mehndi2-page .venue-label {
+    font-size: 6px;
+    letter-spacing: 3px;
+  }
+
+  .mehndi2-page .venue-description {
+    font-size: 17px;
+  }
+
+  .mehndi2-page .directions-button {
+    padding: 14px 18px;
+
+    border-radius: 15px;
+
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
+
+  /* =======================================================
+     FINAL
+  ======================================================= */
+
+  .mehndi2-page .final-section {
+    padding: 70px 7px;
+  }
+
+  .mehndi2-page .final-section h2 {
+    font-size: 26px;
+    letter-spacing: 2px;
+  }
+
+  .mehndi2-page .final-section p {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* =======================================================
+     AWAITING
+  ======================================================= */
+
+  .mehndi2-page .awaiting-section-mehndi2 {
+    width: 100%;
+
+    padding: 55px 15px 65px;
+
+    overflow: hidden;
+  }
+
+  .mehndi2-page .awaiting-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mehndi2-page .awaiting-container h2 {
+    margin: 0 0 28px;
+
+    font-size: 29px;
+    line-height: 1.2;
+    letter-spacing: 1.5px;
+  }
+
+  .mehndi2-page .awaiting-card {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+
+    padding: 30px 18px;
+
+    border-radius: 12px;
+  }
+
+  .mehndi2-page .awaiting-column {
+    width: 100%;
+
+    gap: 17px;
+  }
+
+  .mehndi2-page .guest-name {
+    width: 100%;
+
+    padding: 0 5px;
+
+    font-size: 19px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  /* =======================================================
+     RSVP
+  ======================================================= */
+
+  .mehndi2-page .rsvp-section {
+    width: 100%;
+
+    padding: 65px 18px 55px;
+  }
+
+  .mehndi2-page .rsvp-section .section-heading {
+    margin-bottom: 18px;
+
+    font-size: 20px;
+    letter-spacing: 4px;
+  }
+
+  .mehndi2-page .rsvp-subtitle {
+    margin-bottom: 30px;
+
+    font-size: 7px;
+    letter-spacing: 2px;
+  }
+
+  .mehndi2-page .rsvp-grid {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    align-items: stretch;
+  }
+
+  .mehndi2-page .rsvp-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    padding: 20px 18px;
+
+    border-radius: 14px;
+  }
+
+  .mehndi2-page .rsvp-card h3 {
+    font-size: 21px;
+    line-height: 1.2;
+
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .mehndi2-page .rsvp-card a {
+    margin-top: 9px;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  /* =======================================================
+     FOOTER
+  ======================================================= */
+
+  .mehndi2-page .mehndi-footer {
+    padding: 50px 10px 20px;
+  }
+
+  .mehndi2-page .mehndi-footer p {
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+
+  .mehndi2-page .mehndi-footer h2 {
+    width: 100%;
+
+    font-size: 30px;
+    line-height: 1.08;
+
+    margin-top: 0px !important;
+
+    overflow-wrap: break-word;
+  }
+
+  /* =======================================================
+     CALENDAR
+  ======================================================= */
+
+  .mehndi2-page .calendar-button {
+    width: min(270px, 100%);
+
+    min-height: 52px;
+
+    padding: 14px 18px;
+
+    gap: 10px;
+  }
+
+  .mehndi2-page .calendar-button strong {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .mehndi2-page .calendar-button b {
+    font-size: 16px;
+  }
+
+  /* =======================================================
+     MUSIC
+  ======================================================= */
+
+  .mehndi2-page .music-button {
+    right: 16px;
+    bottom: 16px;
+
+    width: 44px;
+    height: 44px;
+  }
+
+  .mehndi2-page .music-button span {
+    font-size: 18px;
+  }
+
+  /* =======================================================
+     DESKTOP-ONLY BREAKS
+  ======================================================= */
+
+  .mehndi2-page .desktop-only {
+    display: none;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE — MAX 380px
+========================================================= */
+
 @media (max-width: 380px) {
+  /* COVER */
+
+  .mehndi2-page .cover-content h1 {
+    width: 235px;
+    max-width: 235px;
+
+    font-size: 70px;
+
+    line-height: 0.92;
+  }
+
+  .mehndi2-page .cover-couple {
+    font-size: 33px;
+  }
+
+  .mehndi2-page .open-button {
+    width: 200px;
+  }
+
+  /* INTRO */
+
+  .mehndi2-page .main-script {
+    font-size: 72px;
+  }
+
+  /* COUPLE */
+
+  .mehndi2-page .portrait-frame {
+    width: 145px;
+    height: 145px;
+
+    flex-basis: 145px;
+  }
+
+  .mehndi2-page .couple-center h2 {
+    padding: 0 8px;
+
+    font-size: 40px;
+
+    line-height: 1.1;
+  }
+
+  /* DATE */
+
+  .mehndi2-page .scratch-card {
+    height: 300px;
+  }
+
+  .mehndi2-page .date-number {
+    font-size: 80px;
+  }
+
+  .mehndi2-page .date-month {
+    font-size: 11px;
+    letter-spacing: 4px;
+  }
+
+  /* VENUE */
+
+  .mehndi2-page .venue-card h2 {
+    font-size: 52px;
+  }
+
+  /* AWAITING */
+
+  .mehndi2-page .awaiting-section-mehndi2 {
+    padding: 48px 12px 58px;
+  }
+
+  .mehndi2-page .awaiting-container h2 {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+
+  .mehndi2-page .awaiting-card {
+    padding: 27px 14px;
+    gap: 22px;
+  }
+
+  .mehndi2-page .awaiting-column {
+    gap: 15px;
+  }
+
+  .mehndi2-page .guest-name {
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  /* RSVP */
+
+  .mehndi2-page .rsvp-grid {
+    gap: 10px;
+  }
+
+  .mehndi2-page .rsvp-card {
+    padding: 17px 15px;
+  }
+
+  .mehndi2-page .rsvp-card h3 {
+    font-size: 19px;
+  }
+
+  .mehndi2-page .rsvp-card a {
+    font-size: 10px;
+  }
+
+  /* FOOTER */
+
+  .mehndi2-page .mehndi-footer h2 {
+    font-size: 46px;
+    margin-top: 0px !important;
+  }
+
+  /* CALENDAR */
+
   .mehndi2-page .calendar-button {
     width: 220px;
+
     min-height: 51px;
 
     padding: 14px 16px;
@@ -3237,5 +3057,102 @@
   .mehndi2-page .calendar-button strong {
     font-size: 7px;
     letter-spacing: 2px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE — MAX 330px
+========================================================= */
+
+@media (max-width: 330px) {
+  /* COVER */
+
+  .mehndi2-page .cover-content h1 {
+    width: 215px;
+    max-width: 215px;
+
+    font-size: 63px;
+  }
+
+  .mehndi2-page .cover-couple {
+    font-size: 29px;
+  }
+
+  /* INTRO */
+
+  .mehndi2-page .main-script {
+    font-size: 64px;
+  }
+
+  /* COUPLE */
+
+  .mehndi2-page .couple-center h2 {
+    padding: 0 5px;
+
+    font-size: 34px;
+
+    line-height: 1.1;
+  }
+
+  .mehndi2-page .portrait-frame {
+    width: 130px;
+    height: 130px;
+
+    flex-basis: 130px;
+  }
+
+  /* DATE */
+
+  .mehndi2-page .scratch-card {
+    height: 280px;
+  }
+
+  .mehndi2-page .date-number {
+    font-size: 72px;
+  }
+
+  /* VENUE */
+
+  .mehndi2-page .venue-card h2 {
+    font-size: 45px;
+  }
+
+  /* AWAITING */
+
+  .mehndi2-page .awaiting-container h2 {
+    font-size: 24px;
+  }
+
+  .mehndi2-page .awaiting-card {
+    padding: 24px 11px;
+  }
+
+  .mehndi2-page .guest-name {
+    font-size: 16px;
+  }
+
+  /* RSVP */
+
+  .mehndi2-page .rsvp-grid {
+    gap: 9px;
+  }
+
+  .mehndi2-page .rsvp-card {
+    padding: 15px 13px;
+  }
+
+  .mehndi2-page .rsvp-card h3 {
+    font-size: 18px;
+  }
+
+  .mehndi2-page .rsvp-card a {
+    font-size: 9px;
+  }
+
+  /* FOOTER */
+
+  .mehndi2-page .mehndi-footer h2 {
+    font-size: 40px;
+    margin-top: 0px !important;
   }
 }

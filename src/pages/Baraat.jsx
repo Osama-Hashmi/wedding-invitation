@@ -516,9 +516,7 @@ function Baraat() {
 
         <p className="invite-line">OF THEIR BELOVED DAUGHTER</p>
 
-        <h1 className="bride-name">Areeba Ashraf</h1>
-
-        <p className="person-title">The Bride</p>
+        {/* <p className="person-title">The Bride</p> */}
 
         {/* ================= COUPLE VISUALS ================= */}
 
@@ -530,6 +528,8 @@ function Baraat() {
           </div>
 
           <div className="couple-center">
+            <h1 className="bride-name">Areeba Ashraf</h1>
+
             <div className="ornament-line">
               <span></span>
 
@@ -539,6 +539,7 @@ function Baraat() {
             </div>
 
             <p className="with-word">WITH</p>
+            <h2 className="groom-name">Syed Muhammad Osama Ali Hashmi</h2>
           </div>
 
           <div className="person-visual groom-visual">
@@ -548,9 +549,7 @@ function Baraat() {
           </div>
         </div>
 
-        <h2 className="groom-name">Syed Muhammad Osama Ali Hashmi</h2>
-
-        <p className="person-title">The Groom</p>
+        {/* <p className="person-title">The Groom</p> */}
 
         <p className="son-of">S/O MR. & MRS. SYED ASIM ALI HASHMI</p>
 
