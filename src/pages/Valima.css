@@ -1041,6 +1041,51 @@ body {
   font-weight: 800;
 }
 
+/* ================================================= */
+/* ================= WELCOME ======================= */
+/* ================================================= */
+
+.welcome-section-valima {
+  padding: 90px 20px;
+
+  text-align: center;
+
+  background: #40382e;
+
+  color: #a47a35;
+}
+
+.welcome-title {
+  margin: 0 0 10px;
+
+  color: #8e292c;
+
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+.welcome-section h2 {
+  margin: 0;
+
+  font-family: "Cormorant Garamond";
+
+  font-size: 55px;
+  font-weight: 400;
+
+  color: #8e292c;
+}
+
+.welcome-message {
+  margin-top: 20px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 19px;
+  line-height: 1.6;
+
+  color: #614c3d;
+}
+
 /* =========================================================
    WELCOME
    ========================================================= */
@@ -2191,7 +2236,7 @@ body {
      ================================ */
 
   .parents {
-    font-size: 17px;
+    font-size: 20px;
     letter-spacing: 1.2px;
   }
 
@@ -2201,7 +2246,7 @@ body {
   }
 
   .ceremony-title {
-    font-size: 30px;
+    font-size: 35px;
     font-family: "Parisienne", cursive;
     letter-spacing: 2.5px;
     margin: 6px 0;

@@ -1835,6 +1835,11 @@
     line-height: 0.95;
 
     white-space: nowrap;
+
+    white-space: normal;
+    text-align: center;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .mehndi-page .cover-divider {
@@ -2249,6 +2254,11 @@
     word-break: normal;
 
     text-align: center;
+
+    white-space: normal;
+    text-align: center;
+    overflow-wrap: normal;
+    word-break: normal;
   }
   .mehndi-page .cover-top {
     font-size: 6.5px;
@@ -2297,7 +2307,7 @@
   }
 
   .mehndi-page .mehndi-footer h2 {
-    font-size: 48px;
+    font-size: 35px;
   }
 }
 

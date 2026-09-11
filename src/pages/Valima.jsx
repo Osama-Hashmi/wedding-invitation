@@ -581,6 +581,22 @@ function Valima() {
         </div>
       </section>
 
+      {/* ================= WELCOME ======================= */}
+
+      <section className="welcome-section-valima">
+        <div className="gold-emblem">✦</div>
+
+        <p className="welcome-title">AWAITING TO WELCOME</p>
+
+        <h2>OUR BELOVED FAMILY & FRIENDS</h2>
+
+        <p className="welcome-message">
+          Your presence, prayers and blessings
+          <br />
+          will make our celebration even more special.
+        </p>
+      </section>
+
       {/* ===================================================
           WELCOME
           =================================================== */}

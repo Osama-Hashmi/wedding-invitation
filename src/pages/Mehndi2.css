@@ -1214,7 +1214,7 @@
 
   pointer-events: none;
 
-  transition: opacity 0.55s ease;
+  transition: opacity 2.5s ease;
 }
 
 .mehndi2-page .scratch-note {
@@ -2855,7 +2855,7 @@
   ======================================================= */
 
   .mehndi2-page .mehndi-footer {
-    padding: 50px 10px 20px;
+    padding: 0 10px 20px;
   }
 
   .mehndi2-page .mehndi-footer p {
@@ -2866,7 +2866,7 @@
   .mehndi2-page .mehndi-footer h2 {
     width: 100%;
 
-    font-size: 30px;
+    font-size: 30px !important;
     line-height: 1.08;
 
     margin-top: 0px !important;
@@ -2964,7 +2964,7 @@
   .mehndi2-page .couple-center h2 {
     padding: 0 8px;
 
-    font-size: 40px;
+    font-size: 30px !important;
 
     line-height: 1.1;
   }
@@ -2972,7 +2972,7 @@
   /* DATE */
 
   .mehndi2-page .scratch-card {
-    height: 300px;
+    height: 380px;
   }
 
   .mehndi2-page .date-number {

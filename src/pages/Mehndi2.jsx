@@ -567,10 +567,10 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="date-section">
-            <p className="section-heading">A DATE TO REMEMBER</p>
+            <p className="section-heading">A Date To Remember</p>
 
             <p className="section-subheading">
-              SCRATCH THE CARD TO DISCOVER OUR SPECIAL DATE
+              Scratch The Card To Reveal The Special Date Of The Celebration
             </p>
 
             <div

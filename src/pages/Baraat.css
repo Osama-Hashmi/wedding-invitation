@@ -1641,10 +1641,10 @@ a {
 
   width: 100%;
 
-  margin: 0;
+  margin: 0 !important;
 
   font-family: "Parisienne", cursive;
-  font-size: 52px;
+  font-size: 30px;
   font-weight: 400;
 
   color: #e4c47d;
@@ -1752,7 +1752,7 @@ a {
   }
 
   .parents {
-    font-size: 16px;
+    font-size: 20px;
 
     letter-spacing: 1.5px;
 

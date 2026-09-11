@@ -246,7 +246,7 @@ function ScratchDate() {
 
             <p className="gift-message-label">A KIND REQUEST</p>
 
-            <h2>No Box Gifts Allowed</h2>
+            <h2>No Box Gifts Please</h2>
 
             <div className="gift-message-divider">
               <span></span>
@@ -503,18 +503,18 @@ function Baraat() {
 
         <div className="bismillah">﷽</div>
 
-        <p className="parents">MR. & MRS. ADVOCATE ASHRAF ALI</p>
+        <p className="parents">Mr & Mrs Advocate Ashraf Ali</p>
 
         <p className="parents">
           Granddaughter of Mr & Mrs Sheikh Abdul Latif (Late) & Mr & Mrs. Wasi
           Uddin Warsi (Late)
         </p>
 
-        <p className="invite-line">CORDIALLY INVITE YOU TO THE</p>
+        <p className="invite-line">Cordially Invite You To The</p>
 
         <h2 className="ceremony-name">BARAAT CEREMONY</h2>
 
-        <p className="invite-line">OF THEIR BELOVED DAUGHTER</p>
+        <p className="invite-line">Of Their Beloved Daughter</p>
 
         {/* <p className="person-title">The Bride</p> */}
 
@@ -622,17 +622,17 @@ function Baraat() {
 
         <div className="program-list">
           <div className="program-row">
-            <span>ARRIVAL OF BARAAT</span>
+            <span>Arrival Of Baraat</span>
             <b>09:00 PM</b>
           </div>
 
           <div className="program-row">
-            <span>DINNER</span>
+            <span>Dinner</span>
             <b>10:00 PM</b>
           </div>
 
           <div className="program-row">
-            <span>RUKHSATI</span>
+            <span>Rukhsati</span>
             <b>11:00 PM</b>
           </div>
         </div>
