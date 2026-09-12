@@ -388,7 +388,7 @@ function Home() {
 
                 <strong>Syed Asim Ali Hashmi</strong>
 
-                <a href="tel:+9233213539769">03213539769</a>
+                <a href="tel:+923213539769">03213539769</a>
               </div>
 
               <div className="contact-card">
@@ -396,7 +396,7 @@ function Home() {
 
                 <strong>Advocate Ashraf Ali</strong>
 
-                <a href="tel:03342595325">03342595325</a>
+                <a href="tel:+923342595325">03342595325</a>
               </div>
             </div>
           </section>

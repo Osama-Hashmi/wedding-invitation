@@ -701,37 +701,37 @@ function Baraat() {
           <div className="rsvp-card">
             <h3>Mr & Mrs Advocate Ashraf Ali</h3>
 
-            <a href="tel:03342595325">03342595325</a>
+            <a href="tel:+923342595325">03342595325</a>
           </div>
 
           <div className="rsvp-card">
             <h3>Muhammad Ali</h3>
 
-            <a href="tel:03322205525">03322205525</a>
+            <a href="tel:+923322205525">03322205525</a>
           </div>
 
           <div className="rsvp-card">
             <h3>Ahmed Ali</h3>
 
-            <a href="tel:03222719270">03222719270</a>
+            <a href="tel:+923222719270">03222719270</a>
           </div>
 
           <div className="rsvp-card">
             <h3>Syed Salman Ali Hashmi</h3>
 
-            <a href="tel:03219242503">03219242503</a>
+            <a href="tel:+923219242503">03219242503</a>
           </div>
 
           <div className="rsvp-card">
             <h3>Sardar Hussain</h3>
 
-            <a href="tel:03070385258">03070385258</a>
+            <a href="tel:+923070385258">03070385258</a>
           </div>
 
           <div className="rsvp-card">
             <h3>Afzal Hussain</h3>
 
-            <a href="tel:03008373455">03008373455</a>
+            <a href="tel:+923008373455">03008373455</a>
           </div>
         </div>
       </section>

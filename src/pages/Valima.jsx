@@ -654,31 +654,31 @@ function Valima() {
           <div className="rsvp-person">
             <h3>Syed Asim Ali Hashmi</h3>
 
-            <a href="tel:03213539769">03213539769</a>
+            <a href="tel:+923213539769">03213539769</a>
           </div>
 
           <div className="rsvp-person">
             <h3>Syed Sohail Ali Hashmi</h3>
 
-            <a href="tel:03219211478">03219211478</a>
+            <a href="tel:+923219211478">03219211478</a>
           </div>
 
           <div className="rsvp-person">
             <h3>Syed Salman Ali Hashmi</h3>
 
-            <a href="tel:03219242503">03219242503</a>
+            <a href="tel:+923219242503">03219242503</a>
           </div>
 
           <div className="rsvp-person">
             <h3>Abdul Aziz</h3>
 
-            <a href="tel:03362002829">03362002829</a>
+            <a href="tel:+923362002829">03362002829</a>
           </div>
 
           <div className="rsvp-person">
             <h3>Ghazanfar Ali</h3>
 
-            <a href="tel:03453954353">03453954353</a>
+            <a href="tel:+923453954353">03453954353</a>
           </div>
         </div>
       </section>
