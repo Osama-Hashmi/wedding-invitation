@@ -665,6 +665,20 @@
   text-align: center;
 }
 
+.mehndi2-page .intro-text-groom-mehndi {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 20px auto 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 20px;
+  line-height: 1;
+
+  color: #a99b79;
+}
+
 .mehndi2-page .bottom-divider {
   margin-top: 28px;
 }
@@ -2371,7 +2385,7 @@
     margin-left: auto;
     margin-right: auto;
 
-    line-height: 1.5;
+    line-height: 1;
   }
 
   /* =======================================================
@@ -2389,7 +2403,7 @@
   .mehndi2-page .family-name {
     padding: 0 5px;
 
-    font-size: 18px;
+    font-size: 20px;
     font-family: "Parisienne", cursive;
     letter-spacing: 2px;
     line-height: 1.7;
@@ -2398,7 +2412,7 @@
   .mehndi2-page .invite-line {
     padding: 0 5px;
 
-    font-size: 6px;
+    font-size: 12px;
     letter-spacing: 2px;
   }
 
@@ -2409,8 +2423,13 @@
   }
 
   .mehndi2-page .celebration-label {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 3px;
+  }
+
+  .mehndi2-page .intro-text-groom-mehndi {
+    font-size: 17px;
+    line-height: 1;
   }
 
   /* =======================================================
@@ -2528,7 +2547,7 @@
   ======================================================= */
 
   .mehndi2-page .message-section {
-    padding: 70px 4px 65px;
+    padding: 35px 4px 65px;
   }
 
   .mehndi2-page .message-section h2 {
@@ -3154,5 +3173,503 @@
   .mehndi2-page .mehndi-footer h2 {
     font-size: 40px;
     margin-top: 0px !important;
+  }
+}
+
+/* =========================================================
+   MEHNDI 2 MOBILE COUPLE — FINAL
+   CORNER IMAGES + DECORATIVE FRAMES + CENTER NAMES
+========================================================= */
+
+@media (max-width: 650px) {
+  .mehndi2-page .couple-section {
+    padding: 42px 8px 48px;
+    overflow: hidden;
+  }
+
+  /* =======================================================
+     MAIN ROW
+  ======================================================= */
+
+  .mehndi2-page .couple-layout {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 215px;
+
+    display: grid;
+    grid-template-columns: 78px minmax(0, 1fr) 78px;
+    column-gap: 5px;
+
+    align-items: center;
+
+    padding: 5px 0;
+  }
+
+  /* =======================================================
+     GROOM / BRIDE SIDE
+  ======================================================= */
+
+  .mehndi2-page .couple-person {
+    width: 78px;
+    max-width: 78px;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+
+    z-index: 3;
+  }
+
+  .mehndi2-page .couple-person.groom {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .mehndi2-page .couple-person.bride {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  /* =======================================================
+     DECORATIVE PORTRAIT FRAME
+     NO CIRCLE
+  ======================================================= */
+
+  .mehndi2-page .portrait-frame {
+    position: relative;
+
+    width: 70px;
+    height: 112px;
+
+    flex: 0 0 112px;
+
+    margin: 0 auto 7px;
+    padding: 4px;
+
+    border: 1px solid rgba(211, 174, 75, 0.65);
+
+    border-radius: 24px 24px 24px 24px;
+
+    background: linear-gradient(
+      145deg,
+      rgba(211, 174, 75, 0.2),
+      rgba(211, 174, 75, 0.07)
+    );
+
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.18),
+      inset 0 0 18px rgba(211, 174, 75, 0.08);
+
+    overflow: hidden;
+  }
+
+  /* INNER DECORATIVE BORDER */
+
+  .mehndi2-page .portrait-frame::before {
+    content: "";
+
+    position: absolute;
+    inset: 4px;
+
+    border: 1px solid rgba(231, 198, 105, 0.32);
+
+    border-radius: 4px 4px 19px 19px;
+
+    pointer-events: none;
+
+    z-index: 3;
+  }
+
+  /* SOFT BACKGROUND GLOW */
+
+  .mehndi2-page .portrait-frame::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 58px;
+    height: 94px;
+
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(
+      ellipse at center,
+      rgba(211, 174, 75, 0.24) 0%,
+      rgba(211, 174, 75, 0.11) 48%,
+      transparent 78%
+    );
+
+    border-radius: 35% 35% 15% 15%;
+
+    pointer-events: none;
+
+    z-index: 1;
+  }
+
+  /* =======================================================
+     PERSON IMAGE
+  ======================================================= */
+
+  .mehndi2-page .portrait-frame img {
+    position: relative;
+
+    z-index: 2;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    border-radius: 0 !important;
+  }
+
+  /* REMOVE OLD OVERLAY */
+
+  .mehndi2-page .portrait-overlay {
+    display: none !important;
+  }
+
+  /* =======================================================
+     ROLE
+  ======================================================= */
+
+  .mehndi2-page .person-role {
+    margin: 1px 0 0;
+
+    color: #c7a552;
+
+    font-size: 5.5px;
+    letter-spacing: 2px;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+  }
+
+  /* =======================================================
+     CENTER CONTENT
+  ======================================================= */
+
+  .mehndi2-page .couple-center {
+    grid-column: 2;
+    grid-row: 1;
+
+    width: 100% !important;
+    max-width: 190px;
+
+    min-width: 0;
+
+    margin: 0 auto;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: visible;
+
+    z-index: 4;
+  }
+
+  /* CENTER SYMBOL */
+
+  .mehndi2-page .center-flower {
+    margin: 0 0 5px;
+
+    color: #d9b75d;
+
+    font-size: 21px;
+
+    line-height: 1;
+  }
+
+  /* =======================================================
+     MAIN NAME
+  ======================================================= */
+
+  .mehndi2-page .couple-center h2 {
+    display: block;
+
+    width: 100%;
+    max-width: 185px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    color: #dfbd63;
+
+    font-family: "Parisienne", cursive;
+
+    font-size: 40px !important;
+
+    font-weight: 400;
+
+    line-height: 0.98;
+
+    text-align: center;
+
+    white-space: normal;
+
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  /* =======================================================
+     TOGETHER WITH
+  ======================================================= */
+
+  .mehndi2-page .couple-center h2 + p {
+    margin: 7px 0 5px;
+
+    color: #9f9272;
+
+    font-size: 5.5px;
+
+    letter-spacing: 2.5px;
+
+    line-height: 1.2;
+
+    text-align: center;
+  }
+
+  .mehndi2-page .couple-center p {
+    text-align: center;
+  }
+
+  /* =======================================================
+     SMALL DIVIDER
+  ======================================================= */
+
+  .mehndi2-page .tiny-line {
+    width: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin: 3px auto 0;
+  }
+
+  .mehndi2-page .tiny-line span {
+    flex: 1;
+
+    height: 1px;
+
+    background: rgba(207, 169, 72, 0.4);
+  }
+
+  .mehndi2-page .tiny-line b {
+    color: #d8b75d;
+
+    font-size: 7px;
+
+    font-weight: 400;
+  }
+
+  /* =======================================================
+     FULL NAME
+  ======================================================= */
+
+  .mehndi2-page .full-name {
+    margin-top: 30px;
+  }
+
+  .mehndi2-page .full-name h3 {
+    margin: 0;
+
+    padding: 0 8px;
+
+    font-size: 20px;
+
+    line-height: 1.25;
+  }
+
+  .mehndi2-page .full-name > span {
+    margin-top: 5px;
+
+    font-size: 5.5px;
+
+    letter-spacing: 3px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+  .mehndi2-page .couple-section {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .mehndi2-page .couple-layout {
+    grid-template-columns: 68px minmax(0, 1fr) 68px;
+
+    column-gap: 4px;
+
+    min-height: 205px;
+  }
+
+  .mehndi2-page .couple-person {
+    width: 68px;
+    max-width: 68px;
+  }
+
+  .mehndi2-page .portrait-frame {
+    width: 62px;
+    height: 100px;
+
+    flex-basis: 100px;
+
+    padding: 3px;
+
+    border-radius: 5px 5px 21px 21px;
+  }
+
+  .mehndi2-page .portrait-frame::before {
+    inset: 3px;
+
+    border-radius: 3px 3px 17px 17px;
+  }
+
+  .mehndi2-page .portrait-frame::after {
+    width: 52px;
+    height: 84px;
+  }
+
+  .mehndi2-page .person-role {
+    font-size: 5px;
+    letter-spacing: 1.7px;
+  }
+
+  .mehndi2-page .couple-center {
+    max-width: 175px;
+  }
+
+  .mehndi2-page .couple-center h2 {
+    max-width: 170px;
+
+    font-size: 37px !important;
+
+    line-height: 0.98;
+  }
+
+  .mehndi2-page .center-flower {
+    font-size: 19px;
+  }
+
+  .mehndi2-page .couple-center h2 + p {
+    margin: 6px 0 5px;
+
+    font-size: 5px;
+  }
+
+  .mehndi2-page .tiny-line {
+    width: 60px;
+  }
+
+  .mehndi2-page .full-name {
+    margin-top: 27px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 330px) {
+  .mehndi2-page .couple-layout {
+    grid-template-columns: 59px minmax(0, 1fr) 59px;
+
+    column-gap: 3px;
+
+    min-height: 195px;
+  }
+
+  .mehndi2-page .couple-person {
+    width: 59px;
+    max-width: 59px;
+  }
+
+  .mehndi2-page .portrait-frame {
+    width: 54px;
+    height: 88px;
+
+    flex-basis: 88px;
+
+    padding: 3px;
+
+    border-radius: 5px 5px 19px 19px;
+  }
+
+  .mehndi2-page .portrait-frame::before {
+    inset: 3px;
+
+    border-radius: 3px 3px 15px 15px;
+  }
+
+  .mehndi2-page .portrait-frame::after {
+    width: 45px;
+    height: 74px;
+  }
+
+  .mehndi2-page .person-role {
+    font-size: 4.5px;
+
+    letter-spacing: 1.4px;
+  }
+
+  .mehndi2-page .couple-center {
+    max-width: 155px;
+  }
+
+  .mehndi2-page .couple-center h2 {
+    max-width: 150px;
+
+    font-size: 34px !important;
+
+    line-height: 0.98;
+  }
+
+  .mehndi2-page .center-flower {
+    font-size: 17px;
+  }
+
+  .mehndi2-page .couple-center h2 + p {
+    margin: 5px 0 4px;
+
+    font-size: 4.5px;
+
+    letter-spacing: 1.5px;
+  }
+
+  .mehndi2-page .tiny-line {
+    width: 52px;
+  }
+
+  .mehndi2-page .full-name h3 {
+    font-size: 18px;
   }
 }

@@ -475,6 +475,14 @@ function Mehndi2() {
 
             <p className="celebration-label">Mehndi Celebration</p>
 
+            <p className="intro-text-groom-mehndi">
+              Join us for a beautiful evening of vibrant colours, heartfelt
+              laughter, enchanting music, and unforgettable moments as we
+              celebrate together.
+              <br className="desktop-break" />
+
+            </p>
+
             <div className="gold-divider bottom-divider">
               <span></span>
               <b>❦</b>
@@ -652,9 +660,9 @@ function Mehndi2() {
           ================================================= */}
 
           <section className="timeline-section">
-            <p className="section-heading">AN EVENING TO REMEMBER</p>
+            <p className="section-heading">An Evening To Remember</p>
 
-            <p className="section-subheading">THREE SPECIAL MOMENTS</p>
+            <p className="section-subheading">Three Special Moments</p>
 
             <div className="timeline">
               <div className="timeline-item">
