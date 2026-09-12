@@ -588,7 +588,7 @@ function Valima() {
 
         <p className="welcome-title">AWAITING TO WELCOME</p>
 
-        <h2>OUR BELOVED FAMILY & FRIENDS</h2>
+        <h2>OUR BELOVED FAMILY</h2>
 
         <p className="welcome-message">
           Your presence, prayers and blessings
