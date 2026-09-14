@@ -136,8 +136,8 @@
 .mehndi-page .cover-frame {
   position: relative;
 
-  width: min(700px, 100%);
-  height: min(700px, 88vh);
+  width: min(850px, 100%);
+  height: min(850px, 88vh);
 
   display: flex;
   align-items: center;

@@ -2983,7 +2983,7 @@
   .mehndi2-page .couple-center h2 {
     padding: 0 8px;
 
-    font-size: 30px !important;
+    font-size: 25px !important;
 
     line-height: 1.1;
   }
@@ -3108,7 +3108,7 @@
   .mehndi2-page .couple-center h2 {
     padding: 0 5px;
 
-    font-size: 34px;
+    font-size: 25px;
 
     line-height: 1.1;
   }
@@ -3418,7 +3418,7 @@
 
     font-family: "Parisienne", cursive;
 
-    font-size: 40px !important;
+    font-size: 25px !important;
 
     font-weight: 400;
 
@@ -3545,7 +3545,7 @@
 
     padding: 3px;
 
-    border-radius: 5px 5px 21px 21px;
+    border-radius: 25px;
   }
 
   .mehndi2-page .portrait-frame::before {
@@ -3571,7 +3571,7 @@
   .mehndi2-page .couple-center h2 {
     max-width: 170px;
 
-    font-size: 37px !important;
+    font-size: 25px !important;
 
     line-height: 0.98;
   }
@@ -3621,13 +3621,13 @@
 
     padding: 3px;
 
-    border-radius: 5px 5px 19px 19px;
+    border-radius: 25px;
   }
 
   .mehndi2-page .portrait-frame::before {
     inset: 3px;
 
-    border-radius: 3px 3px 15px 15px;
+    border-radius: 25px;
   }
 
   .mehndi2-page .portrait-frame::after {
