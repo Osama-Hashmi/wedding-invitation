@@ -445,7 +445,7 @@ a {
   min-height: 100svh;
   width: 100%;
 
-  padding: 0 20px 45px;
+  padding: 40px 20px 45px;
 
   display: flex;
   flex-direction: column;

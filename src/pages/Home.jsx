@@ -189,7 +189,7 @@ function Home() {
 
           <p className="invited-small">Mr & Mrs Advocate Ashraf Ali</p>
 
-          <p className="invited-text">Youfully Invite You To Celebrate The</p>
+          <p className="invited-text">Cordially Invite You To Celebrate The</p>
 
           {/* ================= WEDDING ================= */}
 

@@ -703,7 +703,7 @@ function Mehndi() {
             <p className="final-text">
               We cannot wait to share this beautiful
               <br className="desktop-break" />
-              evening with you.
+              <br></br> evening with you.
             </p>
           </section>
 

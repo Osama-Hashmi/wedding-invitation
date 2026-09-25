@@ -545,7 +545,7 @@
 
   color: #c9a951;
 
-  font-size: 9px;
+  font-size: 30px;
   font-weight: 600;
   letter-spacing: 5px;
 
@@ -620,7 +620,8 @@
 
   color: #dfcf9e;
 
-  font-size: 10px;
+  font-family: "Parisienne", cursive;
+  font-size: 30px;
   font-weight: 600;
   letter-spacing: 4px;
   line-height: 1.5;
@@ -1087,7 +1088,7 @@
   position: relative;
 
   width: min(480px, 100%);
-  height: 360px;
+  height: 400px;
 
   margin: 0 auto;
 
