@@ -699,7 +699,7 @@ function Baraat() {
 
         <div className="rsvp-grid">
           <div className="rsvp-card">
-            <h3>Mr & Mrs Advocate Ashraf Ali</h3>
+            <h3>Advocate Ashraf Ali</h3>
 
             <a href="tel:+923342595325">03342595325</a>
           </div>
