@@ -533,7 +533,7 @@ function Valima() {
         <div className="venue-divider"></div>
 
         <p className="venue-address">
-          Dolly Banquet Road
+          Dolee Banquet Road
           <br />
           Near Continental Bakery
           <br />
